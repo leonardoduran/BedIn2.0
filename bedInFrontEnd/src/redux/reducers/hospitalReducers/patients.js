@@ -2,7 +2,7 @@ function patients(state = {
 		isRequesting: false,
 		error: null,
 		patientsData: null,
-		acceptedPatientsData: null
+		viewedPatientsData: null
 	}, action) {
 	switch(action.type) {
 		case 'IS_REQUESTING_TO_SERVER': 
@@ -18,6 +18,11 @@ function patients(state = {
 			return Object.assign({}, state, {
 				isRequesting: false,
 				acceptedPatientsData: action.acceptedPatients
+			})
+		case 'GET_VIEWED_PATIENTS': 
+			return Object.assign({}, state, {
+				isRequesting: false,
+				viewedPatientsData: action.viewedPatients
 			})
 		case 'FAILED_TO_GET_PATIENTS':
 			return Object.assign({}, state, {

@@ -18,6 +18,13 @@ export function getAcceptedPatients (acceptedPatients) {
 	}
 }
 
+export function getViewedPatients (viewedPatients) {
+	return {
+		type: 'GET_VIEWED_PATIENTS',
+		viewedPatients
+	}
+}
+
 export function failedToSetPatientStatus(err) {
 	return {
 		type: "FAILED_TO_SET_PATIENT_STATUS",
@@ -45,15 +52,18 @@ export function fetchGetPatients () {
 	})
 } 
 
-export function fetchGetAcceptedPatients() {
+export function fetchGetPatientsByState(state) {
 	return (dispatch => {
 		dispatch(isRequestingToServer())
-		return fetch('./hospital/patientRequest/accepted', {
+		return fetch(`./hospital/patientRequest/${state}`, {
 			method: 'GET',
 			credentials: 'include'
 		})
 		.then(response => response.json())
-		.then(acceptedPatients => dispatch(getAcceptedPatients(acceptedPatients)))
+		.then(patients => {
+			(state === 'Aceptado') ? dispatch(getAcceptedPatients(patients)) 
+			: dispatch(getViewedPatients(patients))
+		})
 		.catch(err => dispatch(failedToFetch(err)))
 	})
 }
@@ -82,3 +92,25 @@ export function fecthSetPatientState (idPatientRequest, state) {
 		.catch(err => dispatch(failedToFetch()))
 	})
 }
+
+export function fetchSetAllViewed (patients) {
+	return (dispatch => {
+		dispatch(isRequestingToServer());
+		const objRequest = {
+			patients
+		};
+		return fetch('./hospital/patientRequest/allViewed', {
+			method: 'PUT',
+			credentials: 'include',
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+      body: JSON.stringify(objRequest)
+		})
+		.then(response => response.json())
+		.then(data => dispatch(fetchGetPatients()))
+		.catch(err => dispatch(failedToFetch()))
+	})
+}
+

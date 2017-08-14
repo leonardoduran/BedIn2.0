@@ -4,6 +4,22 @@ const app = express.Router();
 const patientRequest = require('../../models/patientRequest');
 const errorHandler = require('../../controladores/errorHandler');
 
+const setPatientState = (idPatient, user, state) => {
+	const p = new Promise ((resolve,reject) => {
+		patientRequest.findById(idPatient)
+		.then(patientRequestData => {
+			let selectHospital = patientRequestData.hospitalsAndState.find(eachHospital =>	
+				String(eachHospital.hospital) === String(user.hospitalCode))
+			selectHospital.state = state;
+			selectHospital.updatedDate = Date.now();
+			selectHospital.userHospital = user._id;
+			resolve(patientRequestData.save())
+		})
+	})
+	return p;
+}
+
+
 app.get('/', function(req,res) {
 	patientRequest.find(
 		{
@@ -25,25 +41,24 @@ app.get('/', function(req,res) {
 })
 
 app.put('/', function(req,res) {
-	patientRequest.findById(req.body.idPatientRequest)
-	.then(patientRequestData => {
-		let selectHospital = patientRequestData.hospitalsAndState.find(eachHospital =>	
-			String(eachHospital.hospital) === String(req.user.hospitalCode))
-		selectHospital.state = req.body.state;
-		selectHospital.updatedDate = Date.now();
-		selectHospital.userHospital = req.user._id;
-		patientRequestData.save()
-		.then(saveData => res.send(saveData));
-	})
-	.catch(error => {console.log(error); errorHandler.sendInternalServerError(res)});
+	setPatientState(req.body.idPatientRequest, req.user, req.body.state)
+	.then(saveData => res.send(saveData))
+	.catch(error => {console.log(error); errorHandler.sendInternalServerError(res)})
 })
 
-app.get('/accepted', function(req,res) {
+app.put('/allViewed', function(req,res) {
+	let arrayPromise = req.body.patients.map(patient => setPatientState(patient._id, req.user, 'Visto'))
+	Promise.all(arrayPromise)
+	.then(() => res.send({error: null}))
+	.catch(error => {console.log(error); errorHandler.sendInternalServerError(res)})	
+})
+
+app.get('/:state', function(req,res) {
 	patientRequest.find({
 		hospitalsAndState: {
 			$elemMatch: {
 				hospital: req.user.hospitalCode,
-				state: 'Aceptado'
+				state: req.params.state
 			}
 		}
 	})

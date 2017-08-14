@@ -3,12 +3,12 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../redux/actions/hospitalActions/patients';
 
-import TableViewAcceptedPatientRequests from '../../components/hospitalViews/TableViewAcceptedPatientRequests.jsx';
+import TableViewViewedPatientRequests from '../../components/hospitalViews/TableViewViewedPatientRequests.jsx';
 
 function mapStateToProps(state) {
 	return {
 		isRequesting : state.patients.isRequesting,
-		patients: state.patients.acceptedPatientsData
+		patients: state.patients.viewedPatientsData
 	}
 }
 
@@ -16,7 +16,7 @@ function mapDispatchToProps(dispatch) {
 	return bindActionCreators(actionCreators, dispatch);
 }
 
-class ViewAcceptedPatientRequest extends React.Component {
+class ViewViewedPatientRequest extends React.Component {
 	constructor(props) {
 		super(props);
 		this.setState = this.setState.bind(this);
@@ -24,9 +24,9 @@ class ViewAcceptedPatientRequest extends React.Component {
 	}
 
 	componentWillMount() {
-		this.props.fetchGetPatientsByState('Aceptado');
+		this.props.fetchGetPatientsByState('Visto');
 		this.idInterval = setInterval(() => {
-			this.props.fetchGetPatientsByState('Aceptado');	
+			this.props.fetchGetPatientsByState('Visto');	
 		},10000)
 	}
 
@@ -36,7 +36,7 @@ class ViewAcceptedPatientRequest extends React.Component {
 
 	render() {
 		let patients = (!this.props.patients) ? <p>Cargando...</p>
-		: <TableViewAcceptedPatientRequests 
+		: <TableViewViewedPatientRequests 
 			patientsList = {this.props.patients} 
 			setState = {this.setState}/>
 		return (
@@ -47,4 +47,4 @@ class ViewAcceptedPatientRequest extends React.Component {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ViewAcceptedPatientRequest);
+export default connect(mapStateToProps, mapDispatchToProps)(ViewViewedPatientRequest);

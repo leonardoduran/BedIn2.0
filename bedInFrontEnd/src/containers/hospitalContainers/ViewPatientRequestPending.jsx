@@ -20,6 +20,7 @@ class ViewPatientRequest extends React.Component {
 	constructor(props) {
 		super(props);
 		this.setState = this.setState.bind(this);
+		this.setAllViewed = this.setAllViewed.bind(this);
 	}
 
 	componentWillMount() {
@@ -37,11 +38,16 @@ class ViewPatientRequest extends React.Component {
 		this.props.fecthSetPatientState(idPatient, state)
 	}
 
+	setAllViewed() {
+		this.props.fetchSetAllViewed(this.props.patients);
+	}
+
 	render() {
 		let patients = (!this.props.patients) ? <p>Cargando...</p>
 		: <TableViewPendingPatientRequests 
 			patientsList = {this.props.patients} 
-			setState = {this.setState}/>
+			setState = {this.setState}
+			setAllViewed = {this.setAllViewed}/>
 		return (
 			<div>
 				{patients}

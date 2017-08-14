@@ -10,7 +10,6 @@ import store, { history } from './redux/store'
 
 import '../style/style.css';
 
-
 import LoginContainer from './containers/LoginContainer.jsx';
 import BedinHome from './components/bedinViews/BedinHome.jsx';
 
@@ -40,6 +39,7 @@ import ViewPatientRequestsMatched from './containers/financiadorContainers/ViewP
 import HospitalHome from './containers/hospitalContainers/HospitalHome.jsx';
 import ViewHospitalPatientRequestsPending from './containers/hospitalContainers/ViewPatientRequestPending.jsx';
 import ViewHospitalPatientRequestsAccepted from './containers/hospitalContainers/ViewPatientRequestAccepted.jsx';
+import ViewHospitalPatientRequestsViewed from './containers/hospitalContainers/ViewPatientRequestViewed.jsx';
 
 import opcionalHome from './components/bedinViews/opcionHome.jsx';
 
@@ -86,6 +86,7 @@ const router = (
       <Route path="/Hospital" component={HospitalHome}>
         <Route path="viewpending" component={ViewHospitalPatientRequestsPending}/>
         <Route path="viewaccepted" component={ViewHospitalPatientRequestsAccepted}/>
+        <Route path="viewViewed" component={ViewHospitalPatientRequestsViewed}/>
       </Route>
 
     </Router>

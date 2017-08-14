@@ -5,11 +5,12 @@ import moment from 'moment';
 function ViewPatientRequestsPendingTable(props) {
 	const tableStyle = {border:"1px solid black"};
 	const marginLeft = {marginLeft:"5px"};
-	const color = {backgroundColor : 'red'}
 
 	let formattedDate =  function(date) {
 		return moment(date).format('DD/MM/YYYY || HH:mm:ss');
 	}
+
+	const setRowColor = (color) => ({backgroundColor : color})  
 
 	const buildPendingTable = (listOfPending = [], acceptedByHospital, idPending) => {
 		return listOfPending.map(eachPending =>
@@ -25,11 +26,11 @@ function ViewPatientRequestsPendingTable(props) {
 	}
 
 	const tableBody = props.listOfPending.map((pending, i) => {
-		let colorStyle;
-		(pending.sentTo.hospital) ? colorStyle = color
-		: colorStyle = null
+		let colorStyle = (pending.viewedByHospitals.length) ? setRowColor('lightblue')
+		: (pending.acceptedByHospital.length) ? setRowColor('lightgreen')
+		: setRowColor(null)
+		
 		return ( <tr style={Object.assign({}, tableStyle, colorStyle)} key={pending.dni}>
-
 				<td style={tableStyle}>{formattedDate(pending.dateCreated)}</td>
 				<td style={tableStyle}>{pending.dni}</td>
 				<td style={tableStyle}>{pending.age}</td>
@@ -37,17 +38,9 @@ function ViewPatientRequestsPendingTable(props) {
 				<td style={tableStyle}>{pending.cie10}</td>
 				<td style={tableStyle}>{pending.complexity}</td>
 				<td style={tableStyle}>{pending.healthcareplan.name}</td>
-
 				<td style={tableStyle}>
-					{buildPendingTable(pending.allRequestedHospitals)}
+					<a style={{cursor: "pointer", color: "blue"}} onClick={() => props.openModal(pending)}>Ver</a>
 				</td>
-				<td style={tableStyle}>
-					{buildPendingTable(pending.viewedByHospitals)}
-				</td>
-				<td style={tableStyle}>
-					{buildPendingTable(pending.acceptedByHospital,true, pending._id)}
-				</td>
-
 			</tr>
 			)
 		})
@@ -64,10 +57,7 @@ function ViewPatientRequestsPendingTable(props) {
 						<th style={{border:"1px solid black"}}>CIE 10</th>
 						<th style={{border:"1px solid black"}}>Complejidad de Cama</th>
 						<th style={{border:"1px solid black"}}>Plan</th>
-
-			      <th style={{border:"1px solid black"}}>Hospitales Solicitados:</th>
-			      <th style={{border:"1px solid black"}}>Visto Por:</th>
-			      <th style={{border:"1px solid black"}}>Aceptado Por:</th>
+					  <th style={{border:"1px solid black"}}>Detalle</th>
 			    </tr>
 			  </thead>
 			  <tbody>
