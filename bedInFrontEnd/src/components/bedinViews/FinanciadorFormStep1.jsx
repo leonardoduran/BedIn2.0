@@ -38,7 +38,7 @@ function FinanciadorFormStep1(props) {
                 </div>
                 <div className="form-group">
                   <div className="col-sm-offset-2 col-sm-10">
-                    <button className=" btn button" id="c1">Next</button>
+                    <button className="  button" type="submit" value="Save" id="newbtn">Next</button>
                   </div>
                 </div>
             </form>

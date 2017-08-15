@@ -1,10 +1,27 @@
 import React from 'react';
 
+import { Link } from 'react-router';
+
 
 function FinanciadorFormStep2(props) {
    let popup = null;
    if(props.success) {
-      popup = <div>OBRA SOCIAL CREADA</div>
+      popup = (<div>
+        <div className="modal-backdrop" id="modal-backdrop"></div>
+        <div className="modal" id="modal">
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                    <h4 className="modal-title">La Obra Social se ha creado exitosamente</h4>
+                </div>
+                <div className="modal-footer ">
+                          <Link to="/Bedin" >
+                          <button type="submit" className=" button " data-dismiss="modal" id="newbtn11">Home</button></Link>
+                </div>
+              </div>
+            </div>
+        </div>
+              </div>)
   }
   return (
     <div>
@@ -34,7 +51,7 @@ function FinanciadorFormStep2(props) {
                       </div>
                     )}          
               </form>
-                <div className="form-group" id="d">
+                <div className="form-group" >
                 <div className="col-sm-offset-3 col-sm-10">
                    <button onClick={(e) => {
                           e.preventDefault();
@@ -46,7 +63,7 @@ function FinanciadorFormStep2(props) {
                           props.add(plan, hospitals)
                           document.querySelector('input').value = "";
                           document.querySelector('form').reset()
-                        }} id="k" 
+                        }} id="newbtn" 
                       >Add</button> 
                 </div>
                 </div>
@@ -70,14 +87,14 @@ function FinanciadorFormStep2(props) {
                     )}
                   </tbody>
                 </table>
-                <button  id="j"onClick={props.submitAll}>Submit All</button>
+                
             </div>
 
             <div className="col-xs-1 col-sm-3 col-lg-3 "></div>
             
-          </div>
+          </div><button  id="newbtn1"onClick={props.submitAll}>Submit All</button>
         </div>
-        <div id="l">{popup}</div>
+        <div >{popup}</div>
 
      </div>
   

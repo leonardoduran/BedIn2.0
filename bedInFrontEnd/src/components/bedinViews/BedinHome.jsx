@@ -9,17 +9,22 @@ import GlobalNavbar from '../GlobalNavbar.jsx';
 
 const navBarData = {
 	linkArray: [
+
+		{
+			route: "/Bedin",
+			name: "Home"
+		},
 		{
 			route: "/Bedin/financiador",
-			name: "OBRAS SOCIALES"
+			name: "Obras Sociales"
 		},
 		{
 			route: "/Bedin/hospital",
-			name: "HOSPITAL"
+			name: "Hospitales"
 		},
 		{
 			route: "/Bedin/administrador",
-			name: "ADMINISTRADOR"
+			name: "Administrador"
 		}
 	],
 	logo : '/public/img/logo_original.jpg'
@@ -48,13 +53,13 @@ class Home extends React.Component {
 		this.props.logoutFetch();
 	}
 
-	componentWillMount() {
-		hashHistory.push('/Bedin/financiador');
-	}
-
-	// componentWillReceiveProps(props) {
-	// 	if(!props.isLoggedIn) hashHistory.push('/');
+	// componentWillMount() {
+	// 	hashHistory.push('/Bedin/financiador');
 	// }
+
+	componentWillReceiveProps(props) {
+		if(!props.isLoggedIn) hashHistory.push('/');
+	}
 
   render() {
     return (

@@ -37,6 +37,7 @@ import PerfilContainer from './containers/PerfilContainer.jsx';
 import CreatePatientContainerTestCSS from './containers/financiadorContainers/CreatePatientContainerTestCSS.jsx'
 import ViewPatientRequestsTestCSS from './containers/financiadorContainers/ViewPatientRequestsTestCSS.jsx'
 import opcionalHome from './components/bedinViews/opcionHome.jsx';
+import opcionalHomeFinanciador from './components/financiadorViews/opcionalHomeFinanciador.jsx';
 
 
 const router = (
@@ -45,7 +46,7 @@ const router = (
       <Route path="/" component={LoginContainer}/>
 
       <Route path="/Bedin" component={BedinHome}>
-
+        <IndexRoute component={opcionalHome}/>
         <Route path="perfil/:id" component={PerfilContainer}/>
         
         <Route path="financiador">
@@ -66,7 +67,7 @@ const router = (
         
         <Route path="administrador" >
           <IndexRoute component={AdministradorHome}/>
-          <Route path="usercrear" component={BedinFinanciadorUserForm}></Route>
+          <Route path="usercrear" component={AdministradorUserForm }></Route>
           <Route path="userver" component={AdministradorUserViewData}/>
         </Route>
 

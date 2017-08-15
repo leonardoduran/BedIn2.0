@@ -32,7 +32,13 @@ class LoginContainer extends React.Component {
   render() {
 
     const loading = (this.props.isRequesting) 
-    ? <div>Cargando</div>   
+    ? <div id="spinner">
+    <i className="fa fa-spinner fa-spin" style={{fontSize:"24px"}}></i>
+
+
+
+
+    </div>   
     : <div></div>
     const error = (this.props.error) ?
     <div>{this.props.error}</div>

@@ -57,7 +57,7 @@ function HospitalUserForm(props) {
 
         <div className="form-group">
           <div className="col-sm-offset-2 col-sm-10">
-            <input type="submit" value="Save" className="btn button" id="button2"/>
+            <button type="submit" value="Save" className=" button" id="newbtn">Save</button>
           </div>
         </div>
       </form>

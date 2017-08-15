@@ -8,6 +8,7 @@ import FinanciadorFormStep1 from '../components/bedinViews/FinanciadorFormStep1.
 import FinanciadorFormStep2 from '../components/bedinViews/FinanciadorFormStep2.jsx';
 
 
+
 function mapStateToProps(state) {
   return {
     isRequesting: state.formReducers.isRequesting,
@@ -109,7 +110,7 @@ class FinanciadorForm extends React.Component {
   render() {
     switch (this.state.step) {
       case 1:
-        return <FinanciadorFormStep1 nextStep={this.nextStep} />
+        return <FinanciadorFormStep1 nextStep={this.nextStep} success={this.props.createSuccess}/>
       case 2:
         return <FinanciadorFormStep2
           planInputs={this.state.planInputs}

@@ -914,7 +914,7 @@ module.exports = invariant;
 
 var _prodInvariant = __webpack_require__(27);
 
-var ReactCurrentOwner = __webpack_require__(15);
+var ReactCurrentOwner = __webpack_require__(16);
 
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
@@ -1355,6 +1355,95 @@ module.exports = { debugTool: debugTool };
 
 /***/ }),
 /* 14 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Router__ = __webpack_require__(252);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Router", function() { return __WEBPACK_IMPORTED_MODULE_0__Router__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Link__ = __webpack_require__(119);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Link", function() { return __WEBPACK_IMPORTED_MODULE_1__Link__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__IndexLink__ = __webpack_require__(260);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "IndexLink", function() { return __WEBPACK_IMPORTED_MODULE_2__IndexLink__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__withRouter__ = __webpack_require__(261);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "withRouter", function() { return __WEBPACK_IMPORTED_MODULE_3__withRouter__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__IndexRedirect__ = __webpack_require__(262);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "IndexRedirect", function() { return __WEBPACK_IMPORTED_MODULE_4__IndexRedirect__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__IndexRoute__ = __webpack_require__(263);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "IndexRoute", function() { return __WEBPACK_IMPORTED_MODULE_5__IndexRoute__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Redirect__ = __webpack_require__(121);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Redirect", function() { return __WEBPACK_IMPORTED_MODULE_6__Redirect__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Route__ = __webpack_require__(264);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Route", function() { return __WEBPACK_IMPORTED_MODULE_7__Route__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__RouteUtils__ = __webpack_require__(22);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createRoutes", function() { return __WEBPACK_IMPORTED_MODULE_8__RouteUtils__["b"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__RouterContext__ = __webpack_require__(70);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "RouterContext", function() { return __WEBPACK_IMPORTED_MODULE_9__RouterContext__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__PropTypes__ = __webpack_require__(72);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "locationShape", function() { return __WEBPACK_IMPORTED_MODULE_10__PropTypes__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "routerShape", function() { return __WEBPACK_IMPORTED_MODULE_10__PropTypes__["b"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__match__ = __webpack_require__(265);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "match", function() { return __WEBPACK_IMPORTED_MODULE_11__match__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__useRouterHistory__ = __webpack_require__(125);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "useRouterHistory", function() { return __WEBPACK_IMPORTED_MODULE_12__useRouterHistory__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__PatternUtils__ = __webpack_require__(31);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "formatPattern", function() { return __WEBPACK_IMPORTED_MODULE_13__PatternUtils__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__applyRouterMiddleware__ = __webpack_require__(270);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "applyRouterMiddleware", function() { return __WEBPACK_IMPORTED_MODULE_14__applyRouterMiddleware__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__browserHistory__ = __webpack_require__(271);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "browserHistory", function() { return __WEBPACK_IMPORTED_MODULE_15__browserHistory__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__hashHistory__ = __webpack_require__(274);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "hashHistory", function() { return __WEBPACK_IMPORTED_MODULE_16__hashHistory__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__createMemoryHistory__ = __webpack_require__(122);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createMemoryHistory", function() { return __WEBPACK_IMPORTED_MODULE_17__createMemoryHistory__["a"]; });
+/* components */
+
+
+
+
+
+
+
+
+
+/* components (configuration) */
+
+
+
+
+
+
+
+
+
+
+/* utils */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* histories */
+
+
+
+
+
+
+
+
+/***/ }),
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {/**
@@ -1391,7 +1480,7 @@ if (process.env.NODE_ENV !== 'production') {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1425,7 +1514,7 @@ var ReactCurrentOwner = {
 module.exports = ReactCurrentOwner;
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1448,7 +1537,7 @@ var CallbackQueue = __webpack_require__(95);
 var PooledClass = __webpack_require__(25);
 var ReactFeatureFlags = __webpack_require__(96);
 var ReactReconciler = __webpack_require__(28);
-var Transaction = __webpack_require__(42);
+var Transaction = __webpack_require__(43);
 
 var invariant = __webpack_require__(2);
 
@@ -1680,95 +1769,6 @@ var ReactUpdates = {
 
 module.exports = ReactUpdates;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 17 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Router__ = __webpack_require__(252);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Router", function() { return __WEBPACK_IMPORTED_MODULE_0__Router__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Link__ = __webpack_require__(119);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Link", function() { return __WEBPACK_IMPORTED_MODULE_1__Link__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__IndexLink__ = __webpack_require__(260);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "IndexLink", function() { return __WEBPACK_IMPORTED_MODULE_2__IndexLink__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__withRouter__ = __webpack_require__(261);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "withRouter", function() { return __WEBPACK_IMPORTED_MODULE_3__withRouter__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__IndexRedirect__ = __webpack_require__(262);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "IndexRedirect", function() { return __WEBPACK_IMPORTED_MODULE_4__IndexRedirect__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__IndexRoute__ = __webpack_require__(263);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "IndexRoute", function() { return __WEBPACK_IMPORTED_MODULE_5__IndexRoute__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Redirect__ = __webpack_require__(121);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Redirect", function() { return __WEBPACK_IMPORTED_MODULE_6__Redirect__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Route__ = __webpack_require__(264);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Route", function() { return __WEBPACK_IMPORTED_MODULE_7__Route__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__RouteUtils__ = __webpack_require__(22);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createRoutes", function() { return __WEBPACK_IMPORTED_MODULE_8__RouteUtils__["b"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__RouterContext__ = __webpack_require__(70);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "RouterContext", function() { return __WEBPACK_IMPORTED_MODULE_9__RouterContext__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__PropTypes__ = __webpack_require__(72);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "locationShape", function() { return __WEBPACK_IMPORTED_MODULE_10__PropTypes__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "routerShape", function() { return __WEBPACK_IMPORTED_MODULE_10__PropTypes__["b"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__match__ = __webpack_require__(265);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "match", function() { return __WEBPACK_IMPORTED_MODULE_11__match__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__useRouterHistory__ = __webpack_require__(125);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "useRouterHistory", function() { return __WEBPACK_IMPORTED_MODULE_12__useRouterHistory__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__PatternUtils__ = __webpack_require__(31);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "formatPattern", function() { return __WEBPACK_IMPORTED_MODULE_13__PatternUtils__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__applyRouterMiddleware__ = __webpack_require__(270);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "applyRouterMiddleware", function() { return __WEBPACK_IMPORTED_MODULE_14__applyRouterMiddleware__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__browserHistory__ = __webpack_require__(271);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "browserHistory", function() { return __WEBPACK_IMPORTED_MODULE_15__browserHistory__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__hashHistory__ = __webpack_require__(274);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "hashHistory", function() { return __WEBPACK_IMPORTED_MODULE_16__hashHistory__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__createMemoryHistory__ = __webpack_require__(122);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createMemoryHistory", function() { return __WEBPACK_IMPORTED_MODULE_17__createMemoryHistory__["a"]; });
-/* components */
-
-
-
-
-
-
-
-
-
-/* components (configuration) */
-
-
-
-
-
-
-
-
-
-
-/* utils */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* histories */
-
-
-
-
-
-
-
 
 /***/ }),
 /* 18 */
@@ -2576,10 +2576,10 @@ var createPath = exports.createPath = function createPath(location) {
 
 var _assign = __webpack_require__(5);
 
-var ReactCurrentOwner = __webpack_require__(15);
+var ReactCurrentOwner = __webpack_require__(16);
 
 var warning = __webpack_require__(3);
-var canDefineProperty = __webpack_require__(39);
+var canDefineProperty = __webpack_require__(40);
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 
 var REACT_ELEMENT_TYPE = __webpack_require__(85);
@@ -3057,7 +3057,7 @@ var cloneElement = ReactElement.cloneElement;
 
 if (process.env.NODE_ENV !== 'production') {
   var lowPriorityWarning = __webpack_require__(51);
-  var canDefineProperty = __webpack_require__(39);
+  var canDefineProperty = __webpack_require__(40);
   var ReactElementValidator = __webpack_require__(87);
   var didWarnPropTypesDeprecated = false;
   createElement = ReactElementValidator.createElement;
@@ -3394,7 +3394,7 @@ module.exports = ReactReconciler;
 
 
 var DOMNamespaces = __webpack_require__(59);
-var setInnerHTML = __webpack_require__(44);
+var setInnerHTML = __webpack_require__(45);
 
 var createMicrosoftUnsafeLocalFunction = __webpack_require__(60);
 var setTextContent = __webpack_require__(100);
@@ -3804,7 +3804,7 @@ var _warning2 = _interopRequireDefault(_warning);
 
 var _PathUtils = __webpack_require__(23);
 
-var _Actions = __webpack_require__(47);
+var _Actions = __webpack_require__(48);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4038,7 +4038,7 @@ module.exports = EventPropagators;
 
 var _prodInvariant = __webpack_require__(4);
 
-var EventPluginRegistry = __webpack_require__(41);
+var EventPluginRegistry = __webpack_require__(42);
 var EventPluginUtils = __webpack_require__(53);
 var ReactErrorUtils = __webpack_require__(54);
 
@@ -4425,7 +4425,7 @@ module.exports = ReactInstanceMap;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return components; });
 /* unused harmony export route */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return routes; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prop_types__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prop_types__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_prop_types__);
 
 
@@ -4449,6 +4449,44 @@ var routes = __WEBPACK_IMPORTED_MODULE_0_prop_types__["oneOfType"]([route, __WEB
 
 /***/ }),
 /* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouter = __webpack_require__(14);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function LargeButton(props) {
+  console.log(props.link);
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      _reactRouter.Link,
+      { to: '/' + props.link },
+      _react2.default.createElement(
+        'button',
+        { type: 'button' },
+        props.buttonText
+      )
+    )
+  );
+}
+
+exports.default = LargeButton;
+
+/***/ }),
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4665,7 +4703,7 @@ function createUser(inputData) {
 };
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4697,7 +4735,7 @@ module.exports = canDefineProperty;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4723,7 +4761,7 @@ module.exports = emptyObject;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4982,7 +5020,7 @@ module.exports = EventPluginRegistry;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5216,7 +5254,7 @@ module.exports = TransactionImpl;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5293,7 +5331,7 @@ SyntheticUIEvent.augmentClass(SyntheticMouseEvent, MouseEventInterface);
 module.exports = SyntheticMouseEvent;
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5396,7 +5434,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = setInnerHTML;
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5523,7 +5561,7 @@ function escapeTextContentForBrowser(text) {
 module.exports = escapeTextContentForBrowser;
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5541,7 +5579,7 @@ module.exports = escapeTextContentForBrowser;
 
 var _assign = __webpack_require__(5);
 
-var EventPluginRegistry = __webpack_require__(41);
+var EventPluginRegistry = __webpack_require__(42);
 var ReactEventEmitterMixin = __webpack_require__(201);
 var ViewportMetrics = __webpack_require__(99);
 
@@ -5852,7 +5890,7 @@ var ReactBrowserEventEmitter = _assign({}, ReactEventEmitterMixin, {
 module.exports = ReactBrowserEventEmitter;
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5880,7 +5918,7 @@ var REPLACE = exports.REPLACE = 'REPLACE';
 var POP = exports.POP = 'POP';
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5933,44 +5971,6 @@ var supportsPopstateOnHashchange = exports.supportsPopstateOnHashchange = functi
 var isExtraneousPopstateEvent = exports.isExtraneousPopstateEvent = function isExtraneousPopstateEvent(event) {
   return event.state === undefined && navigator.userAgent.indexOf('CriOS') === -1;
 };
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouter = __webpack_require__(17);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function LargeButton(props) {
-  console.log(props.link);
-  return _react2.default.createElement(
-    'div',
-    null,
-    _react2.default.createElement(
-      _reactRouter.Link,
-      { to: '/' + props.link },
-      _react2.default.createElement(
-        'button',
-        { type: 'button' },
-        props.buttonText
-      )
-    )
-  );
-}
-
-exports.default = LargeButton;
 
 /***/ }),
 /* 50 */
@@ -6629,7 +6629,7 @@ var ReactDOMComponentTree = __webpack_require__(6);
 var ReactInstrumentation = __webpack_require__(13);
 
 var createMicrosoftUnsafeLocalFunction = __webpack_require__(60);
-var setInnerHTML = __webpack_require__(44);
+var setInnerHTML = __webpack_require__(45);
 var setTextContent = __webpack_require__(100);
 
 function getNodeAfter(parentNode, node) {
@@ -7297,10 +7297,10 @@ module.exports = KeyEscapeUtils;
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactCurrentOwner = __webpack_require__(15);
+var ReactCurrentOwner = __webpack_require__(16);
 var ReactInstanceMap = __webpack_require__(36);
 var ReactInstrumentation = __webpack_require__(13);
-var ReactUpdates = __webpack_require__(16);
+var ReactUpdates = __webpack_require__(17);
 
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
@@ -8052,7 +8052,7 @@ function mapAsync(array, work, callback) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_create_react_class__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_create_react_class___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_create_react_class__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__getRouteParams__ = __webpack_require__(259);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ContextUtils__ = __webpack_require__(71);
@@ -8178,7 +8178,7 @@ var RouterContext = __WEBPACK_IMPORTED_MODULE_2_create_react_class___default.a({
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = ContextProvider;
 /* harmony export (immutable) */ __webpack_exports__["b"] = ContextSubscriber;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prop_types__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prop_types__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_prop_types__);
 
 
@@ -8303,7 +8303,7 @@ function ContextSubscriber(name) {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return routerShape; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return locationShape; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prop_types__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prop_types__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_prop_types__);
 
 
@@ -8372,7 +8372,7 @@ var _runTransitionHook = __webpack_require__(73);
 
 var _runTransitionHook2 = _interopRequireDefault(_runTransitionHook);
 
-var _Actions = __webpack_require__(47);
+var _Actions = __webpack_require__(48);
 
 var _LocationUtils = __webpack_require__(32);
 
@@ -8559,7 +8559,7 @@ exports.go = exports.replaceLocation = exports.pushLocation = exports.startListe
 
 var _LocationUtils = __webpack_require__(32);
 
-var _DOMUtils = __webpack_require__(48);
+var _DOMUtils = __webpack_require__(49);
 
 var _DOMStateStorage = __webpack_require__(126);
 
@@ -9248,8 +9248,8 @@ var _prodInvariant = __webpack_require__(27),
 
 var ReactNoopUpdateQueue = __webpack_require__(84);
 
-var canDefineProperty = __webpack_require__(39);
-var emptyObject = __webpack_require__(40);
+var canDefineProperty = __webpack_require__(40);
+var emptyObject = __webpack_require__(41);
 var invariant = __webpack_require__(2);
 var lowPriorityWarning = __webpack_require__(51);
 
@@ -9571,13 +9571,13 @@ module.exports = getIteratorFn;
 
 
 
-var ReactCurrentOwner = __webpack_require__(15);
+var ReactCurrentOwner = __webpack_require__(16);
 var ReactComponentTreeHook = __webpack_require__(11);
 var ReactElement = __webpack_require__(24);
 
 var checkReactTypeSpec = __webpack_require__(158);
 
-var canDefineProperty = __webpack_require__(39);
+var canDefineProperty = __webpack_require__(40);
 var getIteratorFn = __webpack_require__(86);
 var warning = __webpack_require__(3);
 var lowPriorityWarning = __webpack_require__(51);
@@ -10375,7 +10375,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 var _assign = __webpack_require__(5);
 
-var emptyObject = __webpack_require__(40);
+var emptyObject = __webpack_require__(41);
 var _invariant = __webpack_require__(2);
 
 if (process.env.NODE_ENV !== 'production') {
@@ -11781,8 +11781,8 @@ module.exports = ViewportMetrics;
 
 
 var ExecutionEnvironment = __webpack_require__(8);
-var escapeTextContentForBrowser = __webpack_require__(45);
-var setInnerHTML = __webpack_require__(44);
+var escapeTextContentForBrowser = __webpack_require__(46);
+var setInnerHTML = __webpack_require__(45);
 
 /**
  * Set the textContent property of a node, ensuring that whitespace is preserved
@@ -12295,7 +12295,7 @@ var _assign = __webpack_require__(5);
 
 var LinkedValueUtils = __webpack_require__(61);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactUpdates = __webpack_require__(16);
+var ReactUpdates = __webpack_require__(17);
 
 var warning = __webpack_require__(3);
 
@@ -12789,7 +12789,7 @@ module.exports = ReactHostComponent;
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactCurrentOwner = __webpack_require__(15);
+var ReactCurrentOwner = __webpack_require__(16);
 var REACT_ELEMENT_TYPE = __webpack_require__(212);
 
 var getIteratorFn = __webpack_require__(213);
@@ -13229,8 +13229,8 @@ var _prodInvariant = __webpack_require__(4);
 var DOMLazyTree = __webpack_require__(29);
 var DOMProperty = __webpack_require__(20);
 var React = __webpack_require__(26);
-var ReactBrowserEventEmitter = __webpack_require__(46);
-var ReactCurrentOwner = __webpack_require__(15);
+var ReactBrowserEventEmitter = __webpack_require__(47);
+var ReactCurrentOwner = __webpack_require__(16);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactDOMContainerInfo = __webpack_require__(242);
 var ReactDOMFeatureFlags = __webpack_require__(243);
@@ -13240,12 +13240,12 @@ var ReactInstrumentation = __webpack_require__(13);
 var ReactMarkupChecksum = __webpack_require__(244);
 var ReactReconciler = __webpack_require__(28);
 var ReactUpdateQueue = __webpack_require__(66);
-var ReactUpdates = __webpack_require__(16);
+var ReactUpdates = __webpack_require__(17);
 
-var emptyObject = __webpack_require__(40);
+var emptyObject = __webpack_require__(41);
 var instantiateReactComponent = __webpack_require__(106);
 var invariant = __webpack_require__(2);
-var setInnerHTML = __webpack_require__(44);
+var setInnerHTML = __webpack_require__(45);
 var shouldUpdateReactComponent = __webpack_require__(64);
 var warning = __webpack_require__(3);
 
@@ -14107,7 +14107,7 @@ function assignRouterState(router, _ref) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_create_react_class__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_create_react_class___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_create_react_class__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_invariant__);
@@ -14308,7 +14308,7 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_create_react_class__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_create_react_class___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_create_react_class__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_invariant__);
@@ -14806,7 +14806,7 @@ function createRouterHistory(createHistory) {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return subscriptionShape; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return storeShape; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prop_types__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prop_types__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_prop_types__);
 
 
@@ -16041,7 +16041,7 @@ var _reactDom = __webpack_require__(166);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _reactRouter = __webpack_require__(17);
+var _reactRouter = __webpack_require__(14);
 
 var _reactRedux = __webpack_require__(9);
 
@@ -16127,8 +16127,13 @@ var _opcionHome = __webpack_require__(350);
 
 var _opcionHome2 = _interopRequireDefault(_opcionHome);
 
+var _opcionalHomeFinanciador = __webpack_require__(351);
+
+var _opcionalHomeFinanciador2 = _interopRequireDefault(_opcionalHomeFinanciador);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//import FinanciadorHomeTestCSS from './containers/financiadorContainers/FinanciadorHomeTestCSS.jsx'
 var router = _react2.default.createElement(
   _reactRedux.Provider,
   { store: _store2.default },
@@ -16139,6 +16144,7 @@ var router = _react2.default.createElement(
     _react2.default.createElement(
       _reactRouter.Route,
       { path: '/Bedin', component: _BedinHome2.default },
+      _react2.default.createElement(_reactRouter.IndexRoute, { component: _opcionHome2.default }),
       _react2.default.createElement(_reactRouter.Route, { path: 'perfil/:id', component: _PerfilContainer2.default }),
       _react2.default.createElement(
         _reactRouter.Route,
@@ -16162,7 +16168,7 @@ var router = _react2.default.createElement(
         _reactRouter.Route,
         { path: 'administrador' },
         _react2.default.createElement(_reactRouter.IndexRoute, { component: _AdministradorHome2.default }),
-        _react2.default.createElement(_reactRouter.Route, { path: 'usercrear', component: _FinanciadorUserForm2.default }),
+        _react2.default.createElement(_reactRouter.Route, { path: 'usercrear', component: _AdminUserForm2.default }),
         _react2.default.createElement(_reactRouter.Route, { path: 'userver', component: _BedinUserViewData2.default })
       )
     ),
@@ -16174,9 +16180,6 @@ var router = _react2.default.createElement(
     _react2.default.createElement(_reactRouter.Route, { path: '/Hospital' })
   )
 );
-
-//import FinanciadorHomeTestCSS from './containers/financiadorContainers/FinanciadorHomeTestCSS.jsx'
-
 
 _reactDom2.default.render(router, document.getElementById('app'));
 
@@ -16513,7 +16516,7 @@ module.exports = PooledClass;
 
 var _prodInvariant = __webpack_require__(27);
 
-var ReactCurrentOwner = __webpack_require__(15);
+var ReactCurrentOwner = __webpack_require__(16);
 var REACT_ELEMENT_TYPE = __webpack_require__(85);
 
 var getIteratorFn = __webpack_require__(86);
@@ -17278,7 +17281,7 @@ var ReactDOMComponentTree = __webpack_require__(6);
 var ReactDefaultInjection = __webpack_require__(168);
 var ReactMount = __webpack_require__(114);
 var ReactReconciler = __webpack_require__(28);
-var ReactUpdates = __webpack_require__(16);
+var ReactUpdates = __webpack_require__(17);
 var ReactVersion = __webpack_require__(246);
 
 var findDOMNode = __webpack_require__(247);
@@ -18135,7 +18138,7 @@ var EventPluginHub = __webpack_require__(34);
 var EventPropagators = __webpack_require__(33);
 var ExecutionEnvironment = __webpack_require__(8);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactUpdates = __webpack_require__(16);
+var ReactUpdates = __webpack_require__(17);
 var SyntheticEvent = __webpack_require__(18);
 
 var inputValueTracking = __webpack_require__(97);
@@ -19190,7 +19193,7 @@ module.exports = DefaultEventPluginOrder;
 
 var EventPropagators = __webpack_require__(33);
 var ReactDOMComponentTree = __webpack_require__(6);
-var SyntheticMouseEvent = __webpack_require__(43);
+var SyntheticMouseEvent = __webpack_require__(44);
 
 var eventTypes = {
   mouseEnter: {
@@ -19991,8 +19994,8 @@ var DOMNamespaces = __webpack_require__(59);
 var DOMProperty = __webpack_require__(20);
 var DOMPropertyOperations = __webpack_require__(103);
 var EventPluginHub = __webpack_require__(34);
-var EventPluginRegistry = __webpack_require__(41);
-var ReactBrowserEventEmitter = __webpack_require__(46);
+var EventPluginRegistry = __webpack_require__(42);
+var ReactBrowserEventEmitter = __webpack_require__(47);
 var ReactDOMComponentFlags = __webpack_require__(91);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactDOMInput = __webpack_require__(203);
@@ -20004,7 +20007,7 @@ var ReactMultiChild = __webpack_require__(206);
 var ReactServerRenderingTransaction = __webpack_require__(215);
 
 var emptyFunction = __webpack_require__(12);
-var escapeTextContentForBrowser = __webpack_require__(45);
+var escapeTextContentForBrowser = __webpack_require__(46);
 var invariant = __webpack_require__(2);
 var isEventSupported = __webpack_require__(56);
 var shallowEqual = __webpack_require__(63);
@@ -21529,7 +21532,7 @@ module.exports = memoizeStringOnly;
 
 
 
-var escapeTextContentForBrowser = __webpack_require__(45);
+var escapeTextContentForBrowser = __webpack_require__(46);
 
 /**
  * Escapes attribute value to prevent scripting attacks.
@@ -21709,7 +21712,7 @@ var _prodInvariant = __webpack_require__(4),
 var DOMPropertyOperations = __webpack_require__(103);
 var LinkedValueUtils = __webpack_require__(61);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactUpdates = __webpack_require__(16);
+var ReactUpdates = __webpack_require__(17);
 
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
@@ -22129,7 +22132,7 @@ var _prodInvariant = __webpack_require__(4),
 
 var LinkedValueUtils = __webpack_require__(61);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactUpdates = __webpack_require__(16);
+var ReactUpdates = __webpack_require__(17);
 
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
@@ -22296,7 +22299,7 @@ var ReactComponentEnvironment = __webpack_require__(62);
 var ReactInstanceMap = __webpack_require__(36);
 var ReactInstrumentation = __webpack_require__(13);
 
-var ReactCurrentOwner = __webpack_require__(15);
+var ReactCurrentOwner = __webpack_require__(16);
 var ReactReconciler = __webpack_require__(28);
 var ReactChildReconciler = __webpack_require__(207);
 
@@ -22906,7 +22909,7 @@ var _prodInvariant = __webpack_require__(4),
 
 var React = __webpack_require__(26);
 var ReactComponentEnvironment = __webpack_require__(62);
-var ReactCurrentOwner = __webpack_require__(15);
+var ReactCurrentOwner = __webpack_require__(16);
 var ReactErrorUtils = __webpack_require__(54);
 var ReactInstanceMap = __webpack_require__(36);
 var ReactInstrumentation = __webpack_require__(13);
@@ -22917,7 +22920,7 @@ if (process.env.NODE_ENV !== 'production') {
   var checkReactTypeSpec = __webpack_require__(209);
 }
 
-var emptyObject = __webpack_require__(40);
+var emptyObject = __webpack_require__(41);
 var invariant = __webpack_require__(2);
 var shallowEqual = __webpack_require__(63);
 var shouldUpdateReactComponent = __webpack_require__(64);
@@ -24113,7 +24116,7 @@ module.exports = flattenChildren;
 var _assign = __webpack_require__(5);
 
 var PooledClass = __webpack_require__(25);
-var Transaction = __webpack_require__(42);
+var Transaction = __webpack_require__(43);
 var ReactInstrumentation = __webpack_require__(13);
 var ReactServerUpdateQueue = __webpack_require__(216);
 
@@ -24565,7 +24568,7 @@ var DOMChildrenOperations = __webpack_require__(58);
 var DOMLazyTree = __webpack_require__(29);
 var ReactDOMComponentTree = __webpack_require__(6);
 
-var escapeTextContentForBrowser = __webpack_require__(45);
+var escapeTextContentForBrowser = __webpack_require__(46);
 var invariant = __webpack_require__(2);
 var validateDOMNesting = __webpack_require__(67);
 
@@ -24728,8 +24731,8 @@ module.exports = ReactDOMTextComponent;
 
 var _assign = __webpack_require__(5);
 
-var ReactUpdates = __webpack_require__(16);
-var Transaction = __webpack_require__(42);
+var ReactUpdates = __webpack_require__(17);
+var Transaction = __webpack_require__(43);
 
 var emptyFunction = __webpack_require__(12);
 
@@ -24805,7 +24808,7 @@ var EventListener = __webpack_require__(111);
 var ExecutionEnvironment = __webpack_require__(8);
 var PooledClass = __webpack_require__(25);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactUpdates = __webpack_require__(16);
+var ReactUpdates = __webpack_require__(17);
 
 var getEventTarget = __webpack_require__(55);
 var getUnboundedScrollPosition = __webpack_require__(222);
@@ -25008,9 +25011,9 @@ var EventPluginHub = __webpack_require__(34);
 var EventPluginUtils = __webpack_require__(53);
 var ReactComponentEnvironment = __webpack_require__(62);
 var ReactEmptyComponent = __webpack_require__(108);
-var ReactBrowserEventEmitter = __webpack_require__(46);
+var ReactBrowserEventEmitter = __webpack_require__(47);
 var ReactHostComponent = __webpack_require__(109);
-var ReactUpdates = __webpack_require__(16);
+var ReactUpdates = __webpack_require__(17);
 
 var ReactInjection = {
   Component: ReactComponentEnvironment.injection,
@@ -25046,10 +25049,10 @@ var _assign = __webpack_require__(5);
 
 var CallbackQueue = __webpack_require__(95);
 var PooledClass = __webpack_require__(25);
-var ReactBrowserEventEmitter = __webpack_require__(46);
+var ReactBrowserEventEmitter = __webpack_require__(47);
 var ReactInputSelection = __webpack_require__(112);
 var ReactInstrumentation = __webpack_require__(13);
-var Transaction = __webpack_require__(42);
+var Transaction = __webpack_require__(43);
 var ReactUpdateQueue = __webpack_require__(66);
 
 /**
@@ -26138,7 +26141,7 @@ var SyntheticClipboardEvent = __webpack_require__(234);
 var SyntheticEvent = __webpack_require__(18);
 var SyntheticFocusEvent = __webpack_require__(235);
 var SyntheticKeyboardEvent = __webpack_require__(236);
-var SyntheticMouseEvent = __webpack_require__(43);
+var SyntheticMouseEvent = __webpack_require__(44);
 var SyntheticDragEvent = __webpack_require__(238);
 var SyntheticTouchEvent = __webpack_require__(239);
 var SyntheticTransitionEvent = __webpack_require__(240);
@@ -26693,7 +26696,7 @@ module.exports = getEventKey;
 
 
 
-var SyntheticMouseEvent = __webpack_require__(43);
+var SyntheticMouseEvent = __webpack_require__(44);
 
 /**
  * @interface DragEvent
@@ -26828,7 +26831,7 @@ module.exports = SyntheticTransitionEvent;
 
 
 
-var SyntheticMouseEvent = __webpack_require__(43);
+var SyntheticMouseEvent = __webpack_require__(44);
 
 /**
  * @interface WheelEvent
@@ -27072,7 +27075,7 @@ module.exports = '15.6.1';
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactCurrentOwner = __webpack_require__(15);
+var ReactCurrentOwner = __webpack_require__(16);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactInstanceMap = __webpack_require__(36);
 
@@ -27158,7 +27161,7 @@ module.exports = ReactMount.renderSubtreeIntoContainer;
 
 
 var DOMProperty = __webpack_require__(20);
-var EventPluginRegistry = __webpack_require__(41);
+var EventPluginRegistry = __webpack_require__(42);
 var ReactComponentTreeHook = __webpack_require__(11);
 
 var warning = __webpack_require__(3);
@@ -27417,7 +27420,7 @@ module.exports = ReactDOMInvalidARIAHook;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_create_react_class__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_create_react_class___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_create_react_class__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(116);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__InternalPropTypes__ = __webpack_require__(37);
@@ -28472,7 +28475,7 @@ function withRouter(WrappedComponent, options) {
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_create_react_class__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_create_react_class___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_create_react_class__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__routerWarning__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant__ = __webpack_require__(10);
@@ -28528,7 +28531,7 @@ var IndexRedirect = __WEBPACK_IMPORTED_MODULE_0_create_react_class___default.a({
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_create_react_class__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_create_react_class___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_create_react_class__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__routerWarning__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant__ = __webpack_require__(10);
@@ -28585,7 +28588,7 @@ var IndexRoute = __WEBPACK_IMPORTED_MODULE_0_create_react_class___default.a({
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_create_react_class__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_create_react_class___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_create_react_class__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_invariant__);
@@ -28637,7 +28640,7 @@ var Route = __WEBPACK_IMPORTED_MODULE_0_create_react_class___default.a({
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_history_lib_Actions__ = __webpack_require__(47);
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_history_lib_Actions__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_history_lib_Actions___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_history_lib_Actions__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
@@ -28954,7 +28957,7 @@ var _createHistory = __webpack_require__(74);
 
 var _createHistory2 = _interopRequireDefault(_createHistory);
 
-var _Actions = __webpack_require__(47);
+var _Actions = __webpack_require__(48);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29225,7 +29228,7 @@ var _RefreshProtocol = __webpack_require__(273);
 
 var RefreshProtocol = _interopRequireWildcard(_RefreshProtocol);
 
-var _DOMUtils = __webpack_require__(48);
+var _DOMUtils = __webpack_require__(49);
 
 var _createHistory = __webpack_require__(74);
 
@@ -29376,7 +29379,7 @@ var _invariant2 = _interopRequireDefault(_invariant);
 
 var _ExecutionEnvironment = __webpack_require__(75);
 
-var _DOMUtils = __webpack_require__(48);
+var _DOMUtils = __webpack_require__(49);
 
 var _HashProtocol = __webpack_require__(276);
 
@@ -29540,7 +29543,7 @@ var _warning2 = _interopRequireDefault(_warning);
 
 var _LocationUtils = __webpack_require__(32);
 
-var _DOMUtils = __webpack_require__(48);
+var _DOMUtils = __webpack_require__(49);
 
 var _DOMStateStorage = __webpack_require__(126);
 
@@ -29660,7 +29663,7 @@ var replaceLocation = exports.replaceLocation = function replaceLocation(locatio
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony export (immutable) */ __webpack_exports__["a"] = createProvider;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_PropTypes__ = __webpack_require__(128);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_warning__ = __webpack_require__(77);
@@ -30831,7 +30834,7 @@ var _redux = __webpack_require__(7);
 
 var _reactRouterRedux = __webpack_require__(136);
 
-var _reactRouter = __webpack_require__(17);
+var _reactRouter = __webpack_require__(14);
 
 var _index = __webpack_require__(306);
 
@@ -31464,7 +31467,7 @@ exports = module.exports = __webpack_require__(80)(undefined);
 
 
 // module
-exports.push([module.i, "/*Login*/\r\n\r\n.container_a {\r\n  top: 200px;\r\n}\r\n\r\n/*.portada {\r\n    width: 100%;\r\n    height: 100vh;\r\n    background-size: 100%;\r\n    background-repeat: no-repeat;\r\n    opacity: 0.6;\r\n    position: absolute;\r\n    z-index: -9999\r\n}*/\r\n\r\n#button{\r\n\tbackground: white;\r\n\tborder-color: lightgrey;\r\n\tcolor: gray;\r\n\tdisplay: block;\r\n    margin: 10px auto;\r\n}\r\n#a {\r\n    color: #777;\r\n    font-size: 13px;\r\n}\r\n\r\n#a1 {\r\n    top:80px;\r\n\r\n}\r\n\r\n/*.aa {\r\n   fondo. Esperar.\r\n}*/\r\n\r\n#bb {\r\n    background-color: #e7e7e7;\r\n    color: black;\r\n    display: block;\r\n    margin: 10px auto;\r\n}\r\n\r\n#bb:hover {\r\n    background-color: #777;\r\n    color: black;\r\n    display: block;\r\n    margin: 10px auto;\r\n}\r\n\r\n/*BedinNavbar*/\r\n\r\n#a3{\r\n    \r\n    width: 65px;\r\n    height: 35px;\r\n    position: relative;\r\n    top: -10px;\r\n    left: 10px;\r\n  \r\n\r\n}\r\n\r\n#b3{\r\n\r\n    margin-right: 50px;\r\n    margin-left: 50px;\r\n    padding-left: 50px;\r\n    padding-right: 50px;\r\n    margin-top: 0px;\r\n    border-top-width: -;\r\n    padding-top: -;\r\n    border-radius: 25px;\r\n    position: relative;\r\n    top: 10px;\r\n}\r\n\r\n#c3{ color: black;}\r\n\r\n#e3 { font-size: 11px;}\r\n\r\n\r\n#f3 { margin-right: 5px;}\r\n\r\n\r\n/*#buttom {\r\n    margin-top: 10px;\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.btn-default { background-color: #e3e7e5;}*/\r\n\r\n\r\n\r\n#d3 > li > a {\r\n    position: relative;\r\n    display: block;\r\n    padding: 15px 20px;\r\n    font-weight: bold;\r\n}\r\n\r\n.active {\r\n        color: #2aa0c2 !important;\r\n        font-size: 16px !important;\r\n        font-weight: bold !important;\r\n\r\n}\r\n\r\n\r\n/*\r\n#bbb{\r\n    background-color: lightyellow;\r\n}*/\r\n\r\n/*#aaa{\r\n    background-color: lightgreen;\r\n}*/\r\n\r\n/*FinanciadorHome*/\r\n\r\n.a4 {\r\n    padding:8px;\r\n    background:#ffffff;\r\n    margin-right:4px;\r\n\r\n}\r\n\r\n.b4 { padding: 1px 15px 3px 2px;}\r\n\r\n#c4 {\r\n    border-radius:20px;\r\n    margin-top: 10px;\r\n    margin-left: 70px;\r\n}\r\n\r\n/*.d4 { margin-top: 100px; }*/\r\n\r\n.e4 { margin-left: 70px; }\r\n\r\n/*FinanciadorFormStep1*/\r\n\r\n#b1 {\r\n    margin-bottom: 20px;\r\n    margin-left: 90px;\r\n    font-size: 15px;\r\n    font-weight: bold;\r\n}\r\n\r\n#c1 {\r\n     float: right;\r\n     border-radius:20px;\r\n     margin-top: 10px;\r\n     margin-left: 70px;\r\n     width: 20%;\r\n}\r\n\r\n#e1{\r\n    position: relative;\r\n    left: 10px;\r\n}\r\n\r\n#f1 {\r\n    height: 250px;\r\n    \r\n}\r\n\r\n#g1{\r\n    height: 15%;\r\n    margin-left: 35%;\r\n}\r\n\r\n/*FinanciadorFormStep2*/\r\n\r\n.row { \r\n    margin-top: 50px;\r\n    margin-bottom: 8px;\r\n}\r\n\r\n#th {\r\n   \r\n     background-color: #fbfbfb;\r\n\r\n     }\r\n\r\n#a {\r\n    background-color: rgba(250, 250, 250, 0.90);\r\n    width: 300px;\r\n    height: 400px;\r\n    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.3);\r\n    border-radius: 20px;\r\n    padding: 35px;\r\n    padding-top: 30px;\r\n    margin: 8px;\r\n}\r\n\r\n#b { margin-bottom: 40px; }\r\n\r\n#c { padding: 1px; }\r\n\r\n#d {\r\n    margin-top: 40px;\r\n    margin-left: 140px;\r\n}\r\n\r\n\r\n\r\n#f {\r\n    background-color: rgba(250, 250, 250, 0.89);\r\n    width: 300px;\r\n    height: 400px;\r\n    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.3);\r\n    border-radius: 20px;\r\n    margin: 8px;\r\n    padding: 25px;\r\n    padding-top: 25px;\r\n}\r\n\r\n.g {\r\n       \r\n    border-width: 1.5px;\r\n    border-radius: 20px;\r\n    border-spacing: 5px;\r\n    empty-cells: hide;\r\n    border-collapse: separate;\r\n    width: 250px;\r\n    box-shadow: 0 4px 4px 4 rgba(0, 0, 0, 0.9), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\r\n    text-align: center;\r\n    height: 350px;\r\n}\r\n\r\n#j {\r\n\r\n    position: absolute;\r\n    bottom: 10%;\r\n}\r\n\r\n#k {\r\n    \r\n    position: fixed;\r\n    bottom: 175px;\r\n}    \r\n\r\n#l{\r\n    color: black;\r\n    text-align: center;\r\n    margin-top: 5%;\r\n}\r\n\r\n\r\n\r\n/*TableDataFinanciador*/\r\n\r\n.a6{\r\n\r\n    border-width: 1px;\r\n    border-color: lightgrey;\r\n    border-style: solid;\r\n    box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.b6 {\r\n\r\n    background-color: #e7e7e7;\r\n    color: #777;\r\n }\r\n\r\n/*OpcionaHome*/\r\n\r\n.oh {\r\n    background-color: #e9ebee;\r\n\r\n}\r\n\r\n/*opcionHome*/\r\n\r\n#a7{\r\n    background-color: #c3e0f9;\r\n    height: 400px;\r\n    border-width: 1.5px;\r\n    border-radius: 20px;\r\n    margin-bottom: 10%;\r\n\r\n\r\n}\r\n\r\n#b7{\r\n\r\n    background-color: #c3e0f9;\r\n    height: 400px;\r\n    border-width: 1.5px;\r\n    border-radius: 20px;\r\n    margin-bottom: 10%;\r\n}\r\n\r\n#c7{\r\n\r\n    background-color: #c3e0f9;\r\n    height: 400px;\r\n    border-width: 1.5px;\r\n    border-radius: 20px;\r\n    margin-bottom: 10%;\r\n}\r\n\r\n/*#d7, #e7 {\r\n    background-color: #e9ebee;\r\n    height: 500px;\r\n}*/\r\n", ""]);
+exports.push([module.i, "/*Login*/\r\n\r\n.container_a {\r\n  top: 200px;\r\n}\r\n\r\n/*.portada {\r\n    width: 100%;\r\n    height: 100vh;\r\n    background-size: 100%;\r\n    background-repeat: no-repeat;\r\n    opacity: 0.6;\r\n    position: absolute;\r\n    z-index: -9999\r\n}*/\r\n\r\n/*#button{\r\n\tbackground: white;\r\n\tborder-color: lightgrey;\r\n\tcolor: gray;\r\n\tdisplay: block;\r\n    margin: 10px auto;\r\n}*/\r\n#a {\r\n    color: #777;\r\n    font-size: 13px;\r\n}\r\n\r\n#a1 {\r\n    top:180px;\r\n\r\n}\r\n\r\n/*.aa {\r\n   fondo. Esperar.\r\n}*/\r\n\r\n/*#bb {\r\n    background-color: #e7e7e7;\r\n    color: black;\r\n    display: block;\r\n    margin: 30px auto;\r\n}*/\r\n\r\n/*#bb:hover {\r\n    background-color: #777;\r\n    color: black;\r\n    display: block;\r\n    margin: 10px auto;\r\n}*/\r\n\r\n/*BedinNavbar*/\r\n\r\n/*#a3{\r\n    \r\n    width: 65px;\r\n    height: 35px;\r\n    position: relative;\r\n    top: -10px;\r\n    left: 10px;\r\n  \r\n\r\n}\r\n\r\n#b3{\r\n\r\n    margin-right: 50px;\r\n    margin-left: 50px;\r\n    padding-left: 50px;\r\n    padding-right: 50px;\r\n    margin-top: 0px;\r\n    border-top-width: -;\r\n    padding-top: -;\r\n    border-radius: 25px;\r\n    position: relative;\r\n    top: 10px;\r\n}\r\n\r\n#c3{ color: black;}\r\n\r\n#e3 { font-size: 11px;}\r\n\r\n\r\n#f3 { margin-right: 5px;}\r\n\r\n*/\r\n/*#buttom {\r\n    margin-top: 10px;\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.btn-default { background-color: #e3e7e5;}*/\r\n\r\n\r\n\r\n/*#d3 > li > a {\r\n    position: relative;\r\n    display: block;\r\n    padding: 15px 20px;\r\n    font-weight: bold;\r\n}\r\n\r\n.active {\r\n        color: #2aa0c2 !important;\r\n        font-size: 16px !important;\r\n        font-weight: bold !important;\r\n\r\n}*/\r\n\r\n\r\n/*\r\n#bbb{\r\n    background-color: lightyellow;\r\n}*/\r\n\r\n/*#aaa{\r\n    background-color: lightgreen;\r\n}*/\r\n\r\n/*FinanciadorHome*/\r\n\r\n.a4 {\r\n    padding:8px;\r\n    background:#ffffff;\r\n    margin-right:4px;\r\n\r\n\r\n}\r\n\r\n.b4 { padding: 1px 15px 3px 2px;}\r\n\r\n#c4 {\r\n    border-radius:10px;\r\n    margin-top: 10px;\r\n    margin-left: 10px;\r\n    width: 200px;\r\n    text-align: left;\r\n}\r\n\r\n#c4a{\r\n    border-radius:10px;\r\n    margin-top: 10px;\r\n    margin-left: 55px;\r\n    width: 200px;\r\n    text-align: left;\r\n\r\n}\r\n\r\n/*.d4 { margin-top: 100px; }*/\r\n\r\n.e4 { margin-left: 30px; }\r\n\r\n/*FinanciadorFormStep1*/\r\n\r\n#b1 {\r\n    margin-bottom: 20px;\r\n    margin-left: 90px;\r\n    font-size: 15px;\r\n    font-weight: bold;\r\n}\r\n\r\n/*#c1 {\r\n     float: right;\r\n\r\n}*/\r\n\r\n#e1{\r\n    position: relative;\r\n    left: 10px;\r\n}\r\n\r\n#f1 {\r\n    height: 250px;\r\n    \r\n}\r\n\r\n#g1{\r\n    height: 15%;\r\n    margin-left: 35%;\r\n}\r\n\r\n/*FinanciadorFormStep2*/\r\n\r\n/*.row { \r\n    margin-top: 50px;\r\n    margin-bottom: 8px;\r\n}\r\n*/\r\n#th {\r\n   \r\n     background-color: #fbfbfb;\r\n\r\n     }\r\n\r\n#a {\r\n    background-color: rgba(250, 250, 250, 0.90);\r\n    width: 300px;\r\n    height: 400px;\r\n    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.3);\r\n    border-radius: 20px;\r\n    padding: 35px;\r\n    padding-top: 30px;\r\n    margin: 8px;\r\n}\r\n\r\n#b { margin-bottom: 40px; }\r\n\r\n#c { padding: 1px; }\r\n\r\n#d {\r\n    margin-top: 40px;\r\n    margin-left: 140px;\r\n}\r\n\r\n\r\n\r\n#f {\r\n    background-color: rgba(250, 250, 250, 0.89);\r\n    width: 300px;\r\n    height: 400px;\r\n    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.3);\r\n    border-radius: 20px;\r\n    margin: 8px;\r\n    padding: 25px;\r\n    padding-top: 25px;\r\n}\r\n\r\n.g {\r\n       \r\n    border-width: 1.5px;\r\n    border-radius: 20px;\r\n    border-spacing: 5px;\r\n    empty-cells: hide;\r\n    border-collapse: separate;\r\n    width: 250px;\r\n    box-shadow: 0 4px 4px 4 rgba(0, 0, 0, 0.9), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\r\n    text-align: center;\r\n    height: 350px;\r\n}\r\n\r\n/*#j {\r\n\r\n    position: absolute;\r\n    bottom: 10%;\r\n}\r\n\r\n#k {\r\n    \r\n    position: fixed;\r\n    bottom: 175px;\r\n}    \r\n*/\r\n#l{\r\n    color: black;\r\n    text-align: center;\r\n    margin-top: 5%;\r\n}\r\n\r\n\r\n\r\n/*TableDataFinanciador*/\r\n\r\n.a6{\r\n\r\n    border-width: 1px;\r\n    border-color: black;\r\n    border-style: solid;\r\n    box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.b6 {\r\n\r\n    background-color: #31b;\r\n    color: white;\r\n }\r\n\r\n/*OpcionaHome*/\r\n\r\n/*.oh {\r\n    background-color: #e9ebee;\r\n\r\n}*/\r\n\r\n/*opcionHome*/\r\n\r\n#a7{\r\n    background-color: #c3e0f9;\r\n    height: 400px;\r\n    border-width: 1.5px;\r\n    border-radius: 20px;\r\n    margin-bottom: 10%;\r\n    padding-top:5%;\r\n\r\n\r\n}\r\n\r\n#b7{\r\n\r\n    background-color: #c3e0f9;\r\n    height: 400px;\r\n    border-width: 1.5px;\r\n    border-radius: 20px;\r\n    margin-bottom: 10%;\r\n    padding-top:5%;\r\n}\r\n\r\n#c7{\r\n\r\n    background-color: #c3e0f9;\r\n    height: 400px;\r\n    border-width: 1.5px;\r\n    border-radius: 20px;\r\n    margin-bottom: 10%;\r\n    padding-top:5%;\r\n}\r\n\r\n/*#d7, #e7 {\r\n    background-color: #e9ebee;\r\n    height: 500px;\r\n}*/\r\n\r\n\r\n/*Nueva Navbar*/\r\n\r\nbody {\r\n    font-family: 'Montserrat', sans-serif;\r\n}\r\n\r\n#header-container {\r\n    background-color: #c3e0f9;\r\n    color: white;\r\n}\r\n\r\n#login {\r\n    color: white;\r\n}\r\n\r\n#menu-container {\r\n    background-color: #f7f7f9;\r\n}\r\n\r\n\r\n/*      .row {\r\n    border: 1px solid black;\r\n}\r\n\r\n.columna { \r\n    border: 1px solid black;\r\n }*/\r\n\r\n/*div {\r\n\r\n    border: 1px solid black;\r\n\r\n}\r\n*/\r\n.nav-icn {\r\n   color: white;\r\n\r\n}\r\n\r\n#aLog:focus {\r\n    background-color: #029fd8;\r\n}\r\n\r\n#aLog:hover {\r\n    background-color: #029fd8;\r\n}\r\n\r\n#bLog{\r\n    background-color: rgba(247, 247, 249, 0.39);\r\n    border-radius: 10px;\r\n    \r\n\r\n\r\n}\r\n\r\n#color{\r\n    color: black;\r\n\r\n}\r\n\r\n#color:hover{\r\n/*    background-color: rgba(0, 0, 0, 0.19);*/\r\n    background-color: #029fd8;\r\n}\r\n\r\ninput[type=number]::-webkit-outer-spin-button,\r\ninput[type=number]::-webkit-inner-spin-button {\r\n   -webkit-appearance: none;\r\n   margin: 0;\r\n}\r\n\r\ninput[type=number] {\r\n   -moz-appearance:textfield;\r\n}\r\n\r\n#newbtn{\r\n    border-radius:10px;\r\n    margin-top: 10px;\r\n    margin-left: 10px;\r\n    width: 100px;\r\n    float: right;\r\n}\r\n\r\n#newbtn:focus{\r\n    border-color: #555;\r\n  \r\n  \r\n}\r\n\r\n#newbtn1 { \r\n    border-radius:10px;\r\n    margin-top: 10px;\r\n    margin-right: 15%;\r\n    width: 100px;\r\n    float: right;\r\n }\r\n\r\n #spinner{\r\n    position: absolute;\r\n    left: 725px;\r\n    top: 260px;\r\n }\r\n\r\n#modal {\r\n    display: block;\r\n    position:absolute;\r\n    top: 200px;\r\n    \r\n}\r\n\r\n#modal-backdrop {\r\n    background-color: #000;\r\n    opacity: 0.6;\r\n}\r\n\r\n#newbtn11 { \r\n    border-radius:10px;\r\n    margin-top: 10px;\r\n    margin-right: 2%;\r\n    width: 150px;\r\n    float: right;\r\n    color: black;\r\n   \r\n }\r\n\r\n/* opcionalHomeFinanciador*/\r\n\r\n#c4a1{\r\n    border-radius:10px;\r\n    margin-top: 10px;\r\n    margin-left: 50px;\r\n    width: 230px;\r\n    text-align: left;\r\n    background-color: #de3e98;\r\n    border-color: #de3e98;\r\n\r\n}\r\n\r\n#b71{\r\n\r\n    background-color: #ff6bbf;\r\n    height: 400px;\r\n    width: 330px;\r\n    border-width: 1.5px;\r\n    border-radius: 20px;\r\n    margin-bottom: 10%;\r\n    padding-top:5%;\r\n    color: #ff6bbf;\r\n}\r\n\r\n#glyphicon-p {\r\n    color: #a90863 !important;\r\n\r\n}\r\n\r\n#glyphicon-p {\r\n    color: #a90863 !important;\r\n\r\n}\r\n\r\n#glyphicon-p {\r\n    color: #a90863 !important;\r\n\r\n}", ""]);
 
 // exports
 
@@ -31490,7 +31493,7 @@ var _redux = __webpack_require__(7);
 
 var _reactRedux = __webpack_require__(9);
 
-var _reactRouter = __webpack_require__(17);
+var _reactRouter = __webpack_require__(14);
 
 var _actionCreators = __webpack_require__(139);
 
@@ -31543,8 +31546,8 @@ var LoginContainer = function (_React$Component) {
 
       var loading = this.props.isRequesting ? _react2.default.createElement(
         'div',
-        null,
-        'Cargando'
+        { id: 'spinner' },
+        _react2.default.createElement('i', { className: 'fa fa-spinner fa-spin', style: { fontSize: "24px" } })
       ) : _react2.default.createElement('div', null);
       var error = this.props.error ? _react2.default.createElement(
         'div',
@@ -31622,7 +31625,7 @@ function Login(props) {
 							),
 							_react2.default.createElement(
 								"div",
-								{ className: "input-group" },
+								{ className: "input-group " },
 								_react2.default.createElement(
 									"span",
 									{ className: "input-group-addon" },
@@ -31632,10 +31635,9 @@ function Login(props) {
 							),
 							_react2.default.createElement(
 								"button",
-								{ type: "submit", className: " btn button", id: "bb" },
+								{ type: "submit", className: " button ", id: "newbtn" },
 								"Login"
-							),
-							_react2.default.createElement("br", null)
+							)
 						)
 					)
 				)
@@ -31667,7 +31669,7 @@ var _redux = __webpack_require__(7);
 
 var _reactRedux = __webpack_require__(9);
 
-var _reactRouter = __webpack_require__(17);
+var _reactRouter = __webpack_require__(14);
 
 var _actionCreators = __webpack_require__(139);
 
@@ -31689,14 +31691,17 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var navBarData = {
 	linkArray: [{
+		route: "/Bedin",
+		name: "Home"
+	}, {
 		route: "/Bedin/financiador",
-		name: "OBRAS SOCIALES"
+		name: "Obras Sociales"
 	}, {
 		route: "/Bedin/hospital",
-		name: "HOSPITAL"
+		name: "Hospitales"
 	}, {
 		route: "/Bedin/administrador",
-		name: "ADMINISTRADOR"
+		name: "Administrador"
 	}],
 	logo: '/public/img/logo_original.jpg'
 };
@@ -31731,16 +31736,16 @@ var Home = function (_React$Component) {
 		value: function logOut() {
 			this.props.logoutFetch();
 		}
-	}, {
-		key: 'componentWillMount',
-		value: function componentWillMount() {
-			_reactRouter.hashHistory.push('/Bedin/financiador');
-		}
 
-		// componentWillReceiveProps(props) {
-		// 	if(!props.isLoggedIn) hashHistory.push('/');
+		// componentWillMount() {
+		// 	hashHistory.push('/Bedin/financiador');
 		// }
 
+	}, {
+		key: 'componentWillReceiveProps',
+		value: function componentWillReceiveProps(props) {
+			if (!props.isLoggedIn) _reactRouter.hashHistory.push('/');
+		}
 	}, {
 		key: 'render',
 		value: function render() {
@@ -31777,7 +31782,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(17);
+var _reactRouter = __webpack_require__(14);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31785,10 +31790,10 @@ function GlobalNavbar(props) {
   var links = props.data.linkArray.map(function (linkData, i) {
     return _react2.default.createElement(
       'li',
-      { className: 'margenes', key: i },
+      { className: 'nav-item', key: i },
       _react2.default.createElement(
         _reactRouter.Link,
-        { activeClassName: 'active', to: '' + linkData.route },
+        { className: 'nav-link', activeClassName: 'active', to: '' + linkData.route },
         linkData.name
       )
     );
@@ -31798,76 +31803,85 @@ function GlobalNavbar(props) {
     'div',
     null,
     _react2.default.createElement(
-      'nav',
-      { className: 'navbar navbar-default', id: 'b3' },
+      'header',
+      { id: 'header-container' },
       _react2.default.createElement(
         'div',
-        { className: 'container-fluid' },
+        { className: 'container' },
         _react2.default.createElement(
           'div',
-          { className: 'navbar-header' },
+          { className: 'row flex-items-xs-middle' },
           _react2.default.createElement(
-            'button',
-            { type: 'c3', className: 'navbar-toggle collapsed', 'data-toggle': 'collapse', 'data-target': '#bs-example-navbar-collapse-1', 'aria-expanded': 'false' },
+            'div',
+            { className: 'col-xs-6 columna' },
             _react2.default.createElement(
-              'span',
-              { className: 'sr-only' },
-              'Toggle navigation'
+              'h1',
+              null,
+              'BedIn'
             )
           ),
           _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/', className: 'navbar-brand' },
-            _react2.default.createElement('img', { src: '/public/img/bedin-logo-transparent.png', width: '60', height: '20', alt: '', id: 'a3' })
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'collapse navbar-collapse e3' },
-          _react2.default.createElement(
-            'ul',
-            { className: 'nav navbar-nav', id: 'd3' },
-            links
-          ),
-          _react2.default.createElement(
-            'ul',
-            { className: 'nav navbar-nav navbar-right' },
+            'div',
+            { className: 'col-xs-6 columna text-xs-right' },
             _react2.default.createElement(
-              'li',
-              { className: 'dropdown' },
-              _react2.default.createElement(
-                'a',
-                { href: '#', className: 'dropdown-toggle', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' },
-                _react2.default.createElement(
-                  'span',
-                  { className: 'glyphicon glyphicon-user', id: 'f3' },
-                  props.username
-                ),
-                _react2.default.createElement('span', { className: 'caret' })
-              ),
+              'div',
+              null,
               _react2.default.createElement(
                 'ul',
-                { className: 'dropdown-menu' },
+                { className: 'nav navbar-nav navbar-right ' },
                 _react2.default.createElement(
                   'li',
-                  null,
+                  { className: 'dropdown' },
                   _react2.default.createElement(
-                    _reactRouter.Link,
-                    { to: '/Bedin/perfil/' + props.userId },
-                    'Perfil'
-                  )
-                ),
-                _react2.default.createElement(
-                  'li',
-                  null,
+                    'a',
+                    { href: '#', className: 'dropdown-toggle', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false', id: 'aLog' },
+                    props.username
+                  ),
                   _react2.default.createElement(
-                    _reactRouter.Link,
-                    { onClick: props.logOut, to: '#' },
-                    'Log Out ',
-                    _react2.default.createElement('span', { className: 'glyphicon glyphicon-off', 'aria-hidden': 'true', id: 'e3' })
+                    'ul',
+                    { className: 'dropdown-menu text-xs-right', id: 'bLog' },
+                    _react2.default.createElement(
+                      'li',
+                      null,
+                      _react2.default.createElement(
+                        _reactRouter.Link,
+                        { to: '/Bedin/perfil/' + props.userId, id: 'color' },
+                        'Perfil'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'li',
+                      null,
+                      _react2.default.createElement(
+                        _reactRouter.Link,
+                        { onClick: props.logOut, to: '#', id: 'color' },
+                        'Log Out '
+                      )
+                    )
                   )
                 )
               )
+            )
+          )
+        )
+      )
+    ),
+    _react2.default.createElement(
+      'nav',
+      { id: 'menu-container', className: 'navbar navbar-light' },
+      _react2.default.createElement(
+        'div',
+        { className: 'container' },
+        _react2.default.createElement(
+          'div',
+          { className: 'row' },
+          _react2.default.createElement(
+            'div',
+            { className: 'col-xs-10 col-md-6' },
+            _react2.default.createElement(
+              'ul',
+              { className: 'nav navbar-nav' },
+              links
             )
           )
         )
@@ -31893,9 +31907,9 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(17);
+var _reactRouter = __webpack_require__(14);
 
-var _LargeButton = __webpack_require__(49);
+var _LargeButton = __webpack_require__(38);
 
 var _LargeButton2 = _interopRequireDefault(_LargeButton);
 
@@ -31907,17 +31921,17 @@ function FinanciadorHome(props) {
     null,
     _react2.default.createElement(
       'div',
-      { className: 'container-fluid b4' },
+      { className: 'container b4' },
       _react2.default.createElement(
         'div',
         { className: 'row' },
-        _react2.default.createElement('div', { className: 'col-xs-hidden col-sm-2 col-lg-2 col-xl-5' }),
+        _react2.default.createElement('div', { className: 'col-xs-hidden col-sm-2 col-lg-2 col-xl-2' }),
         _react2.default.createElement(
           'div',
-          { className: 'col-xs-12 col-sm-4 col-lg-4 col-xl-2 ' },
+          { className: 'col-xs-12 col-sm-4 col-lg-4 col-xl-4 ' },
           _react2.default.createElement(
             'h2',
-            { className: 'e4' },
+            { className: 'e4 ' },
             'Obra Social'
           ),
           _react2.default.createElement(
@@ -31983,7 +31997,7 @@ var _redux = __webpack_require__(7);
 
 var _reactRedux = __webpack_require__(9);
 
-var _formActions = __webpack_require__(38);
+var _formActions = __webpack_require__(39);
 
 var actionCreators = _interopRequireWildcard(_formActions);
 
@@ -32120,7 +32134,7 @@ var FinanciadorForm = function (_React$Component) {
     value: function render() {
       switch (this.state.step) {
         case 1:
-          return _react2.default.createElement(_FinanciadorFormStep2.default, { nextStep: this.nextStep });
+          return _react2.default.createElement(_FinanciadorFormStep2.default, { nextStep: this.nextStep, success: this.props.createSuccess });
         case 2:
           return _react2.default.createElement(_FinanciadorFormStep4.default, {
             planInputs: this.state.planInputs,
@@ -32252,7 +32266,7 @@ function FinanciadorFormStep1(props) {
                 { className: "col-sm-offset-2 col-sm-10" },
                 _react2.default.createElement(
                   "button",
-                  { className: " btn button", id: "c1" },
+                  { className: "  button", type: "submit", value: "Save", id: "newbtn" },
                   "Next"
                 )
               )
@@ -32281,6 +32295,8 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRouter = __webpack_require__(14);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -32289,73 +32305,107 @@ function FinanciadorFormStep2(props) {
   var popup = null;
   if (props.success) {
     popup = _react2.default.createElement(
-      "div",
+      'div',
       null,
-      "OBRA SOCIAL CREADA"
+      _react2.default.createElement('div', { className: 'modal-backdrop', id: 'modal-backdrop' }),
+      _react2.default.createElement(
+        'div',
+        { className: 'modal', id: 'modal' },
+        _react2.default.createElement(
+          'div',
+          { className: 'modal-dialog' },
+          _react2.default.createElement(
+            'div',
+            { className: 'modal-content' },
+            _react2.default.createElement(
+              'div',
+              { className: 'modal-header' },
+              _react2.default.createElement(
+                'h4',
+                { className: 'modal-title' },
+                'La Obra Social se ha creado exitosamente'
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'modal-footer ' },
+              _react2.default.createElement(
+                _reactRouter.Link,
+                { to: '/Bedin' },
+                _react2.default.createElement(
+                  'button',
+                  { type: 'submit', className: ' button ', 'data-dismiss': 'modal', id: 'newbtn11' },
+                  'Home'
+                )
+              )
+            )
+          )
+        )
+      )
     );
   }
   return _react2.default.createElement(
-    "div",
+    'div',
     null,
     _react2.default.createElement(
-      "div",
-      { className: "container container_a" },
+      'div',
+      { className: 'container container_a' },
       _react2.default.createElement(
-        "div",
-        { className: "row" },
-        _react2.default.createElement("div", { className: "col-xs- col-sm-2 col-lg-2" }),
+        'div',
+        { className: 'row' },
+        _react2.default.createElement('div', { className: 'col-xs- col-sm-2 col-lg-2' }),
         _react2.default.createElement(
-          "div",
-          { className: "col-xs-5 col-sm-4 col-lg-4", id: "a" },
+          'div',
+          { className: 'col-xs-5 col-sm-4 col-lg-4', id: 'a' },
           _react2.default.createElement(
-            "div",
-            { className: "form-horizontal" },
+            'div',
+            { className: 'form-horizontal' },
             _react2.default.createElement(
-              "div",
-              { className: "form-group ", id: "b" },
+              'div',
+              { className: 'form-group ', id: 'b' },
               _react2.default.createElement(
-                "label",
-                { htmlFor: "exampleInputName2", className: "col-sm-2 control-label" },
-                "Plan"
+                'label',
+                { htmlFor: 'exampleInputName2', className: 'col-sm-2 control-label' },
+                'Plan'
               ),
               _react2.default.createElement(
-                "div",
-                { className: "col-sm-10" },
-                _react2.default.createElement("span", { "aria-hidden": "true" }),
-                _react2.default.createElement("input", { type: "text", className: "form-control", id: "inputEmail3", name: "plan", placeholder: "Ingrese Plan" })
+                'div',
+                { className: 'col-sm-10' },
+                _react2.default.createElement('span', { 'aria-hidden': 'true' }),
+                _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'inputEmail3', name: 'plan', placeholder: 'Ingrese Plan' })
               )
             )
           ),
           _react2.default.createElement(
-            "label",
+            'label',
             null,
-            "Seleccione Hospital/es ",
-            _react2.default.createElement("br", null),
-            "acorde al plan"
+            'Seleccione Hospital/es ',
+            _react2.default.createElement('br', null),
+            'acorde al plan'
           ),
           _react2.default.createElement(
-            "form",
-            { name: "hospitalChecklist" },
+            'form',
+            { name: 'hospitalChecklist' },
             props.hospitals.map(function (hospital, i) {
               var _React$createElement;
 
               return _react2.default.createElement(
-                "div",
-                { key: i, className: "checkbox", id: "c" },
-                _react2.default.createElement("input", (_React$createElement = { type: "checkbox", name: "hospitals" }, _defineProperty(_React$createElement, "type", "checkbox"), _defineProperty(_React$createElement, "data-id", hospital._id), _defineProperty(_React$createElement, "value", hospital.name), _React$createElement)),
+                'div',
+                { key: i, className: 'checkbox', id: 'c' },
+                _react2.default.createElement('input', (_React$createElement = { type: 'checkbox', name: 'hospitals' }, _defineProperty(_React$createElement, 'type', 'checkbox'), _defineProperty(_React$createElement, 'data-id', hospital._id), _defineProperty(_React$createElement, 'value', hospital.name), _React$createElement)),
                 hospital.name,
-                _react2.default.createElement("br", null)
+                _react2.default.createElement('br', null)
               );
             })
           ),
           _react2.default.createElement(
-            "div",
-            { className: "form-group", id: "d" },
+            'div',
+            { className: 'form-group' },
             _react2.default.createElement(
-              "div",
-              { className: "col-sm-offset-3 col-sm-10" },
+              'div',
+              { className: 'col-sm-offset-3 col-sm-10' },
               _react2.default.createElement(
-                "button",
+                'button',
                 { onClick: function onClick(e) {
                     e.preventDefault();
                     var plan = document.querySelector('input').value;
@@ -32366,78 +32416,78 @@ function FinanciadorFormStep2(props) {
                     props.add(plan, hospitals);
                     document.querySelector('input').value = "";
                     document.querySelector('form').reset();
-                  }, id: "k"
+                  }, id: 'newbtn'
                 },
-                "Add"
+                'Add'
               )
             )
           )
         ),
         _react2.default.createElement(
-          "div",
-          { className: "col-xs-5 col-sm-4 col-lg-4", id: "f" },
+          'div',
+          { className: 'col-xs-5 col-sm-4 col-lg-4', id: 'f' },
           _react2.default.createElement(
-            "table",
-            { className: "table  g" },
+            'table',
+            { className: 'table  g' },
             _react2.default.createElement(
-              "thead",
+              'thead',
               null,
               _react2.default.createElement(
-                "tr",
-                { id: "th" },
+                'tr',
+                { id: 'th' },
                 _react2.default.createElement(
-                  "th",
+                  'th',
                   null,
-                  "PLANES"
+                  'PLANES'
                 ),
                 _react2.default.createElement(
-                  "th",
+                  'th',
                   null,
-                  "HOSPITALES"
+                  'HOSPITALES'
                 )
               )
             ),
             _react2.default.createElement(
-              "tbody",
+              'tbody',
               null,
               props.planInputs.map(function (plan, i) {
                 return _react2.default.createElement(
-                  "tr",
+                  'tr',
                   { key: i },
                   _react2.default.createElement(
-                    "td",
+                    'td',
                     null,
                     props.planInputs[i]
                   ),
                   _react2.default.createElement(
-                    "td",
+                    'td',
                     null,
                     props.hospitalInputs[i].map(function (singleHospital) {
                       return _react2.default.createElement(
-                        "p",
+                        'p',
                         { key: singleHospital.id },
-                        " ",
+                        ' ',
                         singleHospital.value,
-                        " "
+                        ' '
                       );
                     })
                   )
                 );
               })
             )
-          ),
-          _react2.default.createElement(
-            "button",
-            { id: "j", onClick: props.submitAll },
-            "Submit All"
           )
         ),
-        _react2.default.createElement("div", { className: "col-xs-1 col-sm-3 col-lg-3 " })
+        _react2.default.createElement('div', { className: 'col-xs-1 col-sm-3 col-lg-3 ' })
+      ),
+      _react2.default.createElement(
+        'button',
+        { id: 'newbtn1', onClick: props.submitAll },
+        'Submit All'
       )
     ),
     _react2.default.createElement(
-      "div",
-      { id: "l" },
+      'div',
+      null,
       popup
     )
   );
@@ -32917,7 +32967,7 @@ var _redux = __webpack_require__(7);
 
 var _reactRedux = __webpack_require__(9);
 
-var _formActions = __webpack_require__(38);
+var _formActions = __webpack_require__(39);
 
 var actionCreators = _interopRequireWildcard(_formActions);
 
@@ -33033,143 +33083,161 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function FinanciadorUserForm(props) {
-  console.log('USER FORM PROPS', props);
-  // props.createUser()
+
+  var popup = null;
+  if (props.success) {
+    popup = _react2.default.createElement(
+      "div",
+      null,
+      "qqqq"
+    );
+  }
+
   return _react2.default.createElement(
-    'div',
+    "div",
     null,
     _react2.default.createElement(
-      'div',
-      { className: 'container container_a' },
+      "div",
+      { className: "container container_a" },
       _react2.default.createElement(
-        'div',
-        { className: 'row' },
-        _react2.default.createElement('div', { className: 'col-xs-2 col-sm-3 col-lg-3' }),
+        "div",
+        { className: "row" },
+        _react2.default.createElement("div", { className: "col-xs-2 col-sm-3 col-lg-3" }),
         _react2.default.createElement(
-          'div',
-          { className: 'col-xs-8 col-sm-6 col-lg-6 ' },
+          "div",
+          { className: "col-xs-8 col-sm-6 col-lg-6 " },
           _react2.default.createElement(
-            'h2',
+            "h2",
             null,
-            'Detalles de Usuario Financiador'
+            "Detalles de Usuario Financiador"
           ),
           _react2.default.createElement(
-            'form',
-            { onSubmit: props.createUser, className: 'form-horizontal' },
+            "form",
+            { onSubmit: props.createUser, className: "form-horizontal" },
             _react2.default.createElement(
-              'div',
-              { className: 'form-group ' },
+              "div",
+              { className: "form-group " },
               _react2.default.createElement(
-                'label',
-                { htmlFor: 'exampleInputName2', className: 'col-sm-2 control-label' },
-                'Nombre'
+                "label",
+                { htmlFor: "exampleInputName2", className: "col-sm-2 control-label" },
+                "Nombre"
               ),
               _react2.default.createElement(
-                'div',
-                { className: 'col-sm-10' },
-                _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'inputEmail3', name: 'nombre', placeholder: 'Nombre' })
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("input", { type: "text", className: "form-control", id: "inputEmail3", name: "nombre", placeholder: "Nombre" })
               )
             ),
             _react2.default.createElement(
-              'div',
-              { className: 'form-group' },
+              "div",
+              { className: "form-group" },
               _react2.default.createElement(
-                'label',
-                { htmlFor: 'exampleInputName2', className: 'col-sm-2 control-label' },
-                'Direcci\xF3n'
+                "label",
+                { htmlFor: "exampleInputName2", className: "col-sm-2 control-label" },
+                "Direcci\xF3n"
               ),
               _react2.default.createElement(
-                'div',
-                { className: 'col-sm-10' },
-                _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'inputEmail3', name: 'direccion', placeholder: 'Direcci\xF3n' })
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("input", { type: "text", className: "form-control", id: "inputEmail3", name: "direccion", placeholder: "Direcci\xF3n" })
               )
             ),
             _react2.default.createElement(
-              'div',
-              { className: 'form-group' },
+              "div",
+              { className: "form-group" },
               _react2.default.createElement(
-                'label',
-                { htmlFor: 'inputnumber3', className: 'col-sm-2 control-label' },
-                'Tel\xE9fono'
+                "label",
+                { htmlFor: "inputnumber3", className: "col-sm-2 control-label" },
+                "Tel\xE9fono"
               ),
               _react2.default.createElement(
-                'div',
-                { className: 'col-sm-10' },
-                _react2.default.createElement('input', { type: 'tel', className: 'form-control', id: 'inputEmail3', name: 'telefono', placeholder: 'Tel\xE9fono' })
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("input", { type: "tel", className: "form-control", id: "inputEmail3", name: "telefono", placeholder: "Tel\xE9fono" })
               )
             ),
             _react2.default.createElement(
-              'div',
-              { className: 'form-group' },
+              "div",
+              { className: "form-group" },
               _react2.default.createElement(
-                'label',
-                { htmlFor: 'inputEmail3', className: 'col-sm-2 control-label' },
-                'Email'
+                "label",
+                { htmlFor: "inputEmail3", className: "col-sm-2 control-label" },
+                "Email"
               ),
               _react2.default.createElement(
-                'div',
-                { className: 'col-sm-10' },
-                _react2.default.createElement('input', { type: 'email', className: 'form-control', id: 'inputEmail3', name: 'email', placeholder: 'Email' })
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("input", { type: "email", className: "form-control", id: "inputEmail3", name: "email", placeholder: "Email" })
               )
             ),
             _react2.default.createElement(
-              'div',
-              { className: 'form-group' },
+              "div",
+              { className: "form-group" },
               _react2.default.createElement(
-                'label',
-                { htmlFor: 'inputEmail3', className: 'col-sm-2 control-label' },
-                'Username Temporal'
+                "label",
+                { htmlFor: "inputEmail3", className: "col-sm-2 control-label" },
+                "Username Temporal"
               ),
               _react2.default.createElement(
-                'div',
-                { className: 'col-sm-10' },
-                _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'inputEmail3', name: 'username', placeholder: 'Username' })
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("input", { type: "text", className: "form-control", id: "inputEmail3", name: "username", placeholder: "Username" })
               )
             ),
             _react2.default.createElement(
-              'div',
-              { className: 'form-group' },
+              "div",
+              { className: "form-group" },
               _react2.default.createElement(
-                'label',
-                { htmlFor: 'inputEmail3', className: 'col-sm-2 control-label' },
-                'Password Temporal'
+                "label",
+                { htmlFor: "inputEmail3", className: "col-sm-2 control-label" },
+                "Password Temporal"
               ),
               _react2.default.createElement(
-                'div',
-                { className: 'col-sm-10' },
-                _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'inputEmail3', name: 'password', placeholder: 'Password' })
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("input", { type: "text", className: "form-control", id: "inputEmail3", name: "password", placeholder: "Password" })
               )
             ),
             _react2.default.createElement(
-              'div',
-              { id: 'f1' },
+              "div",
+              { id: "f1" },
               _react2.default.createElement(
-                'label',
+                "label",
                 null,
-                'Obra Social'
+                "Obra Social"
               ),
               props.financiadors.map(function (financiador, i) {
                 return _react2.default.createElement(
-                  'div',
-                  { key: i, id: 'g1' },
-                  _react2.default.createElement('input', { name: 'financiadors', type: 'radio', 'data-id': financiador._id, value: financiador.name }),
+                  "div",
+                  { key: i, id: "g1" },
+                  _react2.default.createElement("input", { name: "financiadors", type: "radio", "data-id": financiador._id, value: financiador.name }),
                   financiador.name,
-                  _react2.default.createElement('br', null)
+                  _react2.default.createElement("br", null)
                 );
               })
             ),
             _react2.default.createElement(
-              'div',
-              { className: 'form-group' },
+              "div",
+              { className: "form-group" },
               _react2.default.createElement(
-                'div',
-                { className: 'col-sm-offset-2 col-sm-10' },
-                _react2.default.createElement('input', { type: 'submit', value: 'Save', className: 'btn button', id: 'button2' })
+                "div",
+                { className: "col-sm-offset-2 col-sm-10" },
+                _react2.default.createElement(
+                  "button",
+                  { type: "submit", value: "Save", className: " button", id: "newbtn" },
+                  "Save"
+                )
               )
             )
           )
         )
       )
+    ),
+    "  ",
+    _react2.default.createElement(
+      "div",
+      null,
+      popup
     )
   );
 }
@@ -33191,11 +33259,11 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _LargeButton = __webpack_require__(49);
+var _LargeButton = __webpack_require__(38);
 
 var _LargeButton2 = _interopRequireDefault(_LargeButton);
 
-var _reactRouter = __webpack_require__(17);
+var _reactRouter = __webpack_require__(14);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33205,14 +33273,14 @@ function HospitalHome(props) {
     null,
     _react2.default.createElement(
       'div',
-      { className: 'container-fluid b4' },
+      { className: 'container b4' },
       _react2.default.createElement(
         'div',
         { className: 'row' },
-        _react2.default.createElement('div', { className: 'col-xs-hidden col-sm-2 col-lg-2 col-xl-5' }),
+        _react2.default.createElement('div', { className: 'col-xs-hidden col-sm-2 col-lg-2 col-xl-2' }),
         _react2.default.createElement(
           'div',
-          { className: 'col-xs-12 col-sm-4 col-lg-4 col-xl-2 ' },
+          { className: 'col-xs-12 col-sm-4 col-lg-4 col-xl-4 ' },
           _react2.default.createElement(
             'h2',
             { className: 'e4' },
@@ -33280,7 +33348,7 @@ var _redux = __webpack_require__(7);
 
 var _reactRedux = __webpack_require__(9);
 
-var _formActions = __webpack_require__(38);
+var _formActions = __webpack_require__(39);
 
 var actionCreators = _interopRequireWildcard(_formActions);
 
@@ -33460,7 +33528,11 @@ function HospitalForm(props) {
               _react2.default.createElement(
                 "div",
                 { className: "col-sm-offset-2 col-sm-10" },
-                _react2.default.createElement("input", { type: "submit", value: "Save", className: "btn button", id: "button2" })
+                _react2.default.createElement(
+                  "button",
+                  { className: " button", type: "submit", value: "Save", id: "newbtn" },
+                  "Save"
+                )
               )
             )
           )
@@ -33910,7 +33982,7 @@ var _redux = __webpack_require__(7);
 
 var _reactRedux = __webpack_require__(9);
 
-var _formActions = __webpack_require__(38);
+var _formActions = __webpack_require__(39);
 
 var actionCreators = _interopRequireWildcard(_formActions);
 
@@ -34154,7 +34226,11 @@ function HospitalUserForm(props) {
               _react2.default.createElement(
                 "div",
                 { className: "col-sm-offset-2 col-sm-10" },
-                _react2.default.createElement("input", { type: "submit", value: "Save", className: "btn button", id: "button2" })
+                _react2.default.createElement(
+                  "button",
+                  { className: " button", type: "submit", value: "Save", id: "newbtn" },
+                  "Save"
+                )
               )
             )
           )
@@ -34181,11 +34257,11 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _LargeButton = __webpack_require__(49);
+var _LargeButton = __webpack_require__(38);
 
 var _LargeButton2 = _interopRequireDefault(_LargeButton);
 
-var _reactRouter = __webpack_require__(17);
+var _reactRouter = __webpack_require__(14);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34195,7 +34271,7 @@ function AdministradorHome(props) {
     null,
     _react2.default.createElement(
       'div',
-      { className: 'container-fluid b4' },
+      { className: 'container b4' },
       _react2.default.createElement(
         'div',
         { className: 'row' },
@@ -34205,7 +34281,7 @@ function AdministradorHome(props) {
           { className: 'col-xs-12 col-sm-4 col-lg-4 col-xl-4 ' },
           _react2.default.createElement(
             'h2',
-            { className: 'e4' },
+            { className: 'e4 ' },
             'Usuarios'
           ),
           _react2.default.createElement(
@@ -34249,7 +34325,7 @@ var _redux = __webpack_require__(7);
 
 var _reactRedux = __webpack_require__(9);
 
-var _formActions = __webpack_require__(38);
+var _formActions = __webpack_require__(39);
 
 var actionCreators = _interopRequireWildcard(_formActions);
 
@@ -34463,7 +34539,11 @@ function HospitalUserForm(props) {
               _react2.default.createElement(
                 "div",
                 { className: "col-sm-offset-2 col-sm-10" },
-                _react2.default.createElement("input", { type: "submit", value: "Save", className: "btn button", id: "button2" })
+                _react2.default.createElement(
+                  "button",
+                  { type: "submit", value: "Save", className: " button", id: "newbtn" },
+                  "Save"
+                )
               )
             )
           )
@@ -35373,11 +35453,11 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _LargeButton = __webpack_require__(49);
+var _LargeButton = __webpack_require__(38);
 
 var _LargeButton2 = _interopRequireDefault(_LargeButton);
 
-var _reactRouter = __webpack_require__(17);
+var _reactRouter = __webpack_require__(14);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35391,112 +35471,102 @@ function opcionHome(props) {
       _react2.default.createElement(
         'div',
         { className: 'row' },
-        _react2.default.createElement('div', { className: 'col-xs-12 col-sm-2 col-lg-1  col-xl-2 ', id: 'e7' }),
+        _react2.default.createElement('div', { className: 'col-xs-12 col-sm-2 col-lg-1  col-xl-1 ', id: 'e7' }),
         _react2.default.createElement(
           'div',
-          { className: 'col-xs-12 col-sm-4 col-lg-3 col-xl-3 oh' },
+          { className: 'col-xs-12 col-sm-4 col-lg-3 col-xl-3 flex-item-center ' },
           _react2.default.createElement(
             'div',
             { id: 'a7' },
             _react2.default.createElement(
               'h2',
-              { className: 'e4' },
+              { className: 'text-xs-center' },
               'Obra Social'
             ),
             _react2.default.createElement(
               _reactRouter.Link,
-              { to: '/Bedin/financiador/entcrear', className: 'btn icon-btn btn-info', id: 'c4' },
-              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon-plus img-circle text-info' }),
+              { to: '/Bedin/financiador/entcrear', className: 'btn icon-btn btn-info', id: 'c4a' },
+              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon-plus img-circle text-info flex-item-center' }),
               'Adherir Obra Social '
             ),
             _react2.default.createElement(
               _reactRouter.Link,
-              { to: '/Bedin/financiador/entver', className: 'btn icon-btn btn-info', id: 'c4' },
-              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-list img-circle text-info' }),
+              { to: '/Bedin/financiador/entver', className: 'btn icon-btn btn-info', id: 'c4a' },
+              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-list img-circle text-info flex-item-center' }),
               'Obras Sociales'
             ),
             _react2.default.createElement(
-              'h2',
-              { className: 'e4' },
-              'Usuarios '
-            ),
-            _react2.default.createElement(
               _reactRouter.Link,
-              { to: '/Bedin/financiador/usercrear', className: 'btn icon-btn btn-info', id: 'c4' },
-              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-user img-circle text-info' }),
+              { to: '/Bedin/financiador/usercrear', className: 'btn icon-btn btn-info', id: 'c4a' },
+              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-user img-circle text-info flex-item-center' }),
               'Generar Usuario  '
             ),
             _react2.default.createElement(
               _reactRouter.Link,
-              { to: '/Bedin/financiador/userver', className: 'btn icon-btn btn-info', id: 'c4' },
-              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-list img-circle text-info' }),
+              { to: '/Bedin/financiador/userver', className: 'btn icon-btn btn-info', id: 'c4a' },
+              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-list img-circle text-info flex-item-center' }),
               'Lista de Usuarios '
             )
           )
         ),
         _react2.default.createElement(
           'div',
-          { className: 'col-xs-12 col-sm-4 col-lg-3 col-xl-3 oh' },
+          { className: 'col-xs-12 col-sm-4 col-lg-3 col-xl-3 oh text-aligt-center ' },
           _react2.default.createElement(
             'div',
             { id: 'b7' },
             _react2.default.createElement(
               'h2',
-              { className: 'e4' },
+              { className: 'text-xs-center ' },
               'Hospital'
             ),
             _react2.default.createElement(
               _reactRouter.Link,
-              { to: 'Bedin/hospital/entcrear', className: 'btn  btn-info', id: 'c4' },
-              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon-plus img-circle text-info' }),
+              { to: 'Bedin/hospital/entcrear', className: 'btn  btn-info', id: 'c4a' },
+              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon-plus img-circle text-info flex-item-center' }),
               'Adherir Hospital'
             ),
             _react2.default.createElement(
               _reactRouter.Link,
-              { className: 'btn btn-info', id: 'c4', to: '/Bedin/hospital/entver' },
-              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-list img-circle text-info' }),
+              { className: 'btn btn-info', id: 'c4a', to: '/Bedin/hospital/entver' },
+              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-list img-circle text-info flex-item-center' }),
               'Lista de Hospitales'
             ),
             _react2.default.createElement(
-              'h2',
-              { className: 'e4' },
-              'Usuarios '
-            ),
-            _react2.default.createElement(
               _reactRouter.Link,
-              { to: 'Bedin/hospital/usercrear', className: 'btn btn-info', id: 'c4' },
-              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-user img-circle text-info' }),
+              { to: 'Bedin/hospital/usercrear', className: 'btn btn-info', id: 'c4a' },
+              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-user img-circle text-info flex-item-center' }),
               'Generar Usuario'
             ),
             _react2.default.createElement(
               _reactRouter.Link,
-              { to: '/Bedin/hospital/userver', className: 'btn   btn-info', id: 'c4' },
-              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-list img-circle text-info' }),
+              { to: '/Bedin/hospital/userver', className: 'btn   btn-info', id: 'c4a' },
+              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-list img-circle text-info flex-item-center' }),
               'Lista de Usuarios'
             )
           )
         ),
         _react2.default.createElement(
           'div',
-          { className: 'col-xs-12 col-sm-4 col-lg-3 col-xl-3 oh' },
+          { className: 'col-xs-12 col-sm-4 col-lg-3 col-xl-3 oh ' },
           _react2.default.createElement(
             'div',
             { id: 'c7' },
             _react2.default.createElement(
               'h2',
-              { className: 'e4' },
-              'Usuarios'
+              { className: ' text-xs-center' },
+              'Administraci\xF3n'
             ),
             _react2.default.createElement(
               _reactRouter.Link,
-              { to: '/Bedin/administrador/usercrear', className: 'btn icon-btn btn-info', id: 'c4' },
-              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-user img-circle text-info' }),
+              { to: '/Bedin/administrador/usercrear', className: 'btn icon-btn btn-info', id: 'c4a' },
+              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-user img-circle text-info flex-item-center ' }),
               'Generar Usuario'
             ),
             _react2.default.createElement(
               _reactRouter.Link,
-              { to: '/Bedin/administrador/userver', className: 'btn icon-btn btn-info', id: 'c4' },
-              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-list img-circle text-info' }),
+              { to: '/Bedin/administrador/userver', className: 'btn icon-btn btn-info', id: 'c4a' },
+              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-list img-circle text-info flex-item-center' }),
               'Lista de Usuarios'
             )
           )
@@ -35508,6 +35578,79 @@ function opcionHome(props) {
 }
 
 exports.default = opcionHome;
+
+/***/ }),
+/* 351 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _LargeButton = __webpack_require__(38);
+
+var _LargeButton2 = _interopRequireDefault(_LargeButton);
+
+var _reactRouter = __webpack_require__(14);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function opcionalHomeFinanciador(props) {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'div',
+      { className: 'container-fluid b4' },
+      _react2.default.createElement(
+        'div',
+        { className: 'row' },
+        _react2.default.createElement('div', { className: 'col-xs-12 col-sm-2 col-lg-1  col-xl-1 ', id: 'e7' }),
+        _react2.default.createElement('div', { className: 'col-xs-12 col-sm-4 col-lg-3 col-xl-3 flex-item-center ' }),
+        _react2.default.createElement(
+          'div',
+          { className: 'col-xs-12 col-sm-4 col-lg-3 col-xl-3 oh text-aligt-center ' },
+          _react2.default.createElement(
+            'div',
+            { id: 'b71' },
+            _react2.default.createElement(
+              'h2',
+              { className: 'text-xs-center ' },
+              'Hospital'
+            ),
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { className: 'btn btn-info', id: 'c4a1', to: '/Bedin/hospital/entver' },
+              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-list img-circle  flex-item-center', id: 'glyphicon-p' }),
+              'Solicitudes Pendientes'
+            ),
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { to: 'Bedin/hospital/usercrear', className: 'btn btn-info', id: 'c4a1' },
+              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-user img-circle  flex-item-center', id: 'glyphicon-p' }),
+              'Matcheados'
+            )
+          )
+        ),
+        _react2.default.createElement('div', { className: 'col-xs-12 col-sm-4 col-lg-1 col-xl-1 ', id: 'd7' })
+      )
+    )
+  );
+}
+
+exports.default = opcionalHomeFinanciador;
+
+// <Link to="Bedin/hospital/entcrear" className="btn  btn-info" id="c4a1">
+//   <span className="glyphicon a4 glyphicon-plus img-circle  flex-item-center" id="glyphicon-p"></span>
+//   Generar Solicitud
+// </Link>
 
 /***/ })
 /******/ ]);

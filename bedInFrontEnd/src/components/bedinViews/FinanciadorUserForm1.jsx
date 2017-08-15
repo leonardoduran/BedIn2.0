@@ -2,8 +2,15 @@ import React from 'react';
 
 
 function FinanciadorUserForm(props) {
-  console.log('USER FORM PROPS', props)
-  // props.createUser()
+
+   let popup = null;
+   if(props.success) {
+      popup = (<div>
+        qqqq
+        </div>)
+  }
+
+
   return (
     <div>
 
@@ -69,17 +76,18 @@ function FinanciadorUserForm(props) {
 
         <div className="form-group">
           <div className="col-sm-offset-2 col-sm-10">
-            <input type="submit" value="Save" className="btn button" id="button2"/>
+            <button type="submit" value="Save" className=" button" id="newbtn">Save</button>
           </div>
         </div>
 
       </form>
         </div>
+      
 
 
 
       </div>
-    </div>
+    </div>  <div >{popup}</div>
 
 
     </div>
