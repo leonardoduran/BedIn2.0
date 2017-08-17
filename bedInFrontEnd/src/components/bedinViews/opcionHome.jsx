@@ -14,13 +14,13 @@ function opcionHome(props) {
             <div className="col-xs-12 col-sm-4 col-lg-3 col-xl-3 flex-item-center ">
                 <div id="a7">
  
-                  <h2 className="text-xs-center">Obra Social</h2>
+                  <h2 className="text-xs-center">Solicitante</h2>
                   <Link to="/Bedin/financiador/entcrear" className="btn icon-btn btn-info" id="c4a" >
                   <span className="glyphicon a4 glyphicon-plus img-circle text-info flex-item-center"></span>
-                  Adherir Obra Social </Link>
+                  Adherir Solicitante </Link>
                   <Link to="/Bedin/financiador/entver" className="btn icon-btn btn-info" id="c4a">
                   <span className="glyphicon a4 glyphicon glyphicon-list img-circle text-info flex-item-center"></span>
-                  Obras Sociales</Link>
+                  Solicitante </Link>
                   <Link to="/Bedin/financiador/usercrear" className="btn icon-btn btn-info" id="c4a">
                   <span className="glyphicon a4 glyphicon glyphicon-user img-circle text-info flex-item-center"></span>
                   Generar Usuario  </Link>
@@ -38,11 +38,11 @@ function opcionHome(props) {
                   <h2 className="text-xs-center ">Hospital</h2>
                     <Link to="Bedin/hospital/entcrear" className="btn  btn-info" id="c4a">
                       <span className="glyphicon a4 glyphicon-plus img-circle text-info flex-item-center"></span>
-                      Adherir Hospital
+                      Adherir Prestador
                     </Link>
                     <Link className="btn btn-info" id="c4a" to="/Bedin/hospital/entver">
                       <span className="glyphicon a4 glyphicon glyphicon-list img-circle text-info flex-item-center"></span>
-                      Lista de Hospitales
+                      Lista de Prestadores
                     </Link>
    
                     <Link to="Bedin/hospital/usercrear" className="btn btn-info" id="c4a">

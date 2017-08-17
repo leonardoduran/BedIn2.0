@@ -2,6 +2,26 @@ import React from 'react';
 
 
 function HospitalUserForm(props) {
+
+let popup = null;
+   if(props.success) {
+      popup = (<div>
+        <div className="modal-backdrop" id="modal-backdrop"></div>
+        <div className="modal" id="modal">
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                    <h4 className="modal-title">El hospital se ha creado exitosamente</h4>
+                </div>
+                <div className="modal-footer ">
+                          <Link to="/Bedin" >
+                          <button type="submit" className=" button " data-dismiss="modal" id="newbtn11">Home</button></Link>
+                </div>
+              </div>
+            </div>
+        </div>
+              </div>)
+  }
   return (
     <div>
 
@@ -71,11 +91,10 @@ function HospitalUserForm(props) {
         </div>
       </form>
 
-
-
-        </div>
+       </div>
       </div>
     </div>
+    <div >{popup}</div>
 
 
     </div>

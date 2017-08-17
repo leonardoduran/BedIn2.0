@@ -83,7 +83,6 @@ export function createEntidadFinanciadora(inputData) {
     })
       .then(response => response.json())
       .then(data => {
-        console.log('DATA', data)
         if(data) {
           dispatch(receiveCreated(data))
         } else {
@@ -110,7 +109,6 @@ export function createEntidadHospital(inputData) {
     })
       .then(response => response.json())
       .then(data => {
-        //console.log('DATA', data)
         if(data) {
           dispatch(receiveCreatedHospital(data))
         } else {
@@ -173,14 +171,12 @@ export function createUser(inputData) {
     })
       .then(response => response.json())
       .then(data => {
-        console.log('DATA', data)
         if(!data.error) {
           dispatch(receiveCreatedUser(data))
         } else {
           dispatch(failedToCreate(data.err))
         }
       }).catch((err) => {
-        console.log(err);
         dispatch(failedRequest(err));
       })
   };

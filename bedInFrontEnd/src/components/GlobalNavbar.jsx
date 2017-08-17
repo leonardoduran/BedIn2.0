@@ -1,4 +1,4 @@
-import React from 'react';
+    import React from 'react';
 
 import { Link } from 'react-router';
                 
@@ -14,7 +14,7 @@ function GlobalNavbar (props) {
     <div>
 
     
-      <header id="header-container">
+      <header id="header-container" style={{backgroundColor:props.data.color}}>
         <div className="container">
           <div className="row flex-items-xs-middle">
             <div className="col-xs-6 columna">

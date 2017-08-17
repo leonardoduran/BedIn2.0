@@ -8,11 +8,8 @@ const mongoose = require('mongoose');
 
 const index = require('./routes/index');
 const indexBedin = require('./routes/bedin/index');
-
-/*
-const patient = require('./routes/patient');
-const rooms = require('./routes/rooms');
-*/
+const indexHealthcare = require('./routes/healthcare/index');
+const indexHospital = require('./routes/hospital/index')
 
 const app = express();
 
@@ -29,16 +26,20 @@ const cors = require('./controladores/cors');
 
 app.use('/', index);
 app.use('/bedin', indexBedin);
+app.use('/healthcare', indexHealthcare);
+app.use('/hospital', indexHospital);
 
+
+const moment = require('moment');
+
+const controllerHealthcare = require('./controladores/healthcare');
+
+controllerHealthcare.setPatientTimeOut();
 
 //app.use('/bedin/healthcares', healthcares)
 //app.use('/users',isLoggin , users);
 //app.use('/hospitals', hospitals)
 //app.use('/healthcares', healthcares)
-
-/*app.use('/rooms', rooms);
-app.use('/hospitals', hospitals);
-app.use('/patient', patient);*/
 
 // catch 404 and forward to error handler
 /*app.use(function(req, res, next) {

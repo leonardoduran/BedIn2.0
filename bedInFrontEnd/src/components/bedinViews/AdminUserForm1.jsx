@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function HospitalUserForm(props) {
+function AdminUserForm(props) {
   return (
     <div>
 
@@ -21,17 +21,17 @@ function HospitalUserForm(props) {
         </div>
 
         <div className="form-group">
-          <label htmlFor="exampleInputName2" className="col-sm-2 control-label">Dirección</label>
-            <div className="col-sm-10">
-              <input type="text" className="form-control" id="inputEmail3" name="direccion" placeholder="Dirección"></input>
-            </div>
+           <label htmlFor="inputEmail3" className="col-sm-2 control-label">Username Temporal</label>
+              <div className="col-sm-10">
+                <input type="text" className="form-control" id="inputEmail3" name="username" placeholder="Username"></input>
+              </div>
         </div>
 
         <div className="form-group">
-          <label htmlFor="inputnumber3" className="col-sm-2 control-label">Teléfono</label>
-            <div className="col-sm-10">
-              <input type="tel" className="form-control" id="inputEmail3" name="telefono" placeholder="Teléfono"></input>
-            </div>
+           <label htmlFor="inputEmail3" className="col-sm-2 control-label">Password Temporal</label>
+              <div className="col-sm-10">
+                <input type="text" className="form-control" id="inputEmail3" name="password" placeholder="Password"></input>
+              </div>
         </div>
 
         <div className="form-group">
@@ -42,17 +42,10 @@ function HospitalUserForm(props) {
         </div>
 
         <div className="form-group">
-           <label htmlFor="inputEmail3" className="col-sm-2 control-label">Username Temporario</label>
-              <div className="col-sm-10">
-                <input type="text" className="form-control" id="inputEmail3" name="username" placeholder="Username"></input>
-              </div>
-        </div>
-
-        <div className="form-group">
-           <label htmlFor="inputEmail3" className="col-sm-2 control-label">Password Temporario</label>
-              <div className="col-sm-10">
-                <input type="text" className="form-control" id="inputEmail3" name="password" placeholder="Password"></input>
-              </div>
+          <label htmlFor="inputnumber3" className="col-sm-2 control-label">Teléfono</label>
+            <div className="col-sm-10">
+              <input type="tel" className="form-control" id="inputEmail3" name="telefono" placeholder="Teléfono"></input>
+            </div>
         </div>
 
         <div className="form-group">
@@ -74,4 +67,4 @@ function HospitalUserForm(props) {
   )
 }
 
-export default HospitalUserForm;
+export default AdminUserForm;

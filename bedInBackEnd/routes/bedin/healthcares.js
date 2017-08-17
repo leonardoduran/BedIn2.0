@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
   })
   .exec()
   .then(healthcares =>{
-    res.send(healthcares) 
+    res.send(healthcares)
   })
   .catch(err => {
     return errorHandler.sendInternalServerError(res);
@@ -35,7 +35,7 @@ router.get('/:id', function(req, res, next) {
   })
   .exec()
   .then(healthcares =>{
-    res.send(healthcares) 
+    res.send(healthcares)
   })
   .catch(err => {
     return errorHandler.sendInternalServerError(res);
@@ -48,7 +48,7 @@ router.post('/', function(req, res, next) {
   let healthCare;
   let plans;
 
-  HealthCare.create({name: aNewHealthcare, email: Math.random()})
+  HealthCare.create({name: aNewHealthcare, email: req.body.email})
   .then(newHealthCare => {
     healthCare = newHealthCare;
     return Promise.all(arrayPlans.map(eachPlan =>
@@ -66,10 +66,10 @@ router.post('/', function(req, res, next) {
 });
 
 router.put('/', function(req, res, next) {
-  HealthCare.findByIdAndUpdate(req.body._id, 
-    { $set: 
-      { 
-        name: req.body.name 
+  HealthCare.findByIdAndUpdate(req.body._id,
+    { $set:
+      {
+        name: req.body.name
       }
     }, { new: true })
   .then(updateData => {
@@ -87,10 +87,8 @@ router.delete('/', function(req,res,next) {
     res.send();
   })
   .catch(err => {
-    return errorHandler.sendInternalServerError(res); 
+    return errorHandler.sendInternalServerError(res);
   })
 })
 
 module.exports = router;
-
-

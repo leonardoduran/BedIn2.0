@@ -26,16 +26,21 @@ import BedinHospitalViewData from './containers/HospitalViewData.jsx';
 import BedinHospitalUserViewData from './containers/HospitalUserViewData.jsx';
 import BedinHospitalUserForm from './containers/HospitalUserForm.jsx';
 
-import AdministradorHome from './components/bedinViews/AdministradorHome.jsx';
-import AdministradorUserForm from './containers/AdminUserForm.jsx';
-import AdministradorUserViewData from './containers/BedinUserViewData.jsx';
+import BedinAdminHome from './components/bedinViews/AdministradorHome.jsx';
+import BedinAdminUserForm from './containers/AdminUserForm.jsx';
+import BedinAdminUserViewData from './containers/BedinUserViewData.jsx';
 
 import PerfilContainer from './containers/PerfilContainer.jsx';
 
+import FinanciadorHome from './containers/financiadorContainers/FinanciadorHome.jsx';
+import CreatePatientRequest from './containers/financiadorContainers/CreatePatientRequest.jsx';
+import ViewPatientRequestsPending from './containers/financiadorContainers/ViewPatientRequestsPending.jsx';
+import ViewPatientRequestsMatched from './containers/financiadorContainers/ViewPatientRequestsMatched.jsx';
 
-//import FinanciadorHomeTestCSS from './containers/financiadorContainers/FinanciadorHomeTestCSS.jsx'
-import CreatePatientContainerTestCSS from './containers/financiadorContainers/CreatePatientContainerTestCSS.jsx'
-import ViewPatientRequestsTestCSS from './containers/financiadorContainers/ViewPatientRequestsTestCSS.jsx'
+import HospitalHome from './containers/hospitalContainers/HospitalHome.jsx';
+import ViewHospitalPatientRequestsPending from './containers/hospitalContainers/ViewPatientRequestPending.jsx';
+import ViewHospitalPatientRequestsAccepted from './containers/hospitalContainers/ViewPatientRequestAccepted.jsx';
+
 import opcionalHome from './components/bedinViews/opcionHome.jsx';
 import opcionalHomeFinanciador from './components/financiadorViews/opcionalHomeFinanciador.jsx';
 
@@ -48,7 +53,7 @@ const router = (
       <Route path="/Bedin" component={BedinHome}>
         <IndexRoute component={opcionalHome}/>
         <Route path="perfil/:id" component={PerfilContainer}/>
-        
+
         <Route path="financiador">
           <IndexRoute component={BedinFinanciadorHome}/>
           <Route path="entcrear" component={BedinFinanciadorForm}/>
@@ -64,21 +69,26 @@ const router = (
           <Route path="usercrear" component={BedinHospitalUserForm}/>
           <Route path="userver" component={BedinHospitalUserViewData}/>
         </Route>
-        
+
         <Route path="administrador" >
-          <IndexRoute component={AdministradorHome}/>
-          <Route path="usercrear" component={AdministradorUserForm }></Route>
-          <Route path="userver" component={AdministradorUserViewData}/>
+
+          <IndexRoute component={BedinAdminHome}/>
+          <Route path="usercrear" component={BedinAdminUserForm}></Route>
+          <Route path="userver" component={BedinAdminUserViewData}/>
+
         </Route>
 
       </Route>
 
-      <Route path="/Financiador">
-        <IndexRoute component={ViewPatientRequestsTestCSS}/>
-      </Route> 
+      <Route path="/Financiador" component={FinanciadorHome}>
+        <Route path="createrequest" component={CreatePatientRequest}/>
+        <Route path="viewpending" component={ViewPatientRequestsPending}></Route>
+        <Route path="viewmatched" component={ViewPatientRequestsMatched}></Route>
+      </Route>
 
-      <Route path="/Hospital">
-
+      <Route path="/Hospital" component={HospitalHome}>
+        <Route path="viewpending" component={ViewHospitalPatientRequestsPending}/>
+        <Route path="viewaccepted" component={ViewHospitalPatientRequestsAccepted}/>
       </Route>
 
     </Router>

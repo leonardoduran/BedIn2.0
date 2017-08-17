@@ -1,7 +1,6 @@
 import React from 'react';
 
 function UserInformation(props) {
-	console.log('users', props.users)
 	return (
 		<div className="container">
 			<form>

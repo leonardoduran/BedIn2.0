@@ -62,8 +62,6 @@ class FinanciadorForm extends React.Component {
 
   nextStep(e) {
     e.preventDefault();
-    //console.log(this)
-    //const step = this.state.step;
     this.setState({
       step: this.state.step + 1,
       name: e.target.nombre.value,
@@ -84,7 +82,6 @@ class FinanciadorForm extends React.Component {
   submitAllToStore() {
     let dataForBack = []
     for(let i = 0; i < this.state.planInputs.length; i++) {
-      console.log('PLAN INPUTS', this.state.planInputs[i])
       dataForBack.push({
         name: this.state.planInputs[i],
         hospitals: this.state.hospitalInputs[i].map(hospital => hospital.id)

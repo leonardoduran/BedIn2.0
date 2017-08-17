@@ -7,10 +7,11 @@ const Healthcares = new mongoose.Schema({
   name:  {type: String, required: true, unique : true},
   email: {type: String},
   phone: {type: String},
+  address: {type: String},
   plans : [{type : ObjectId, ref : "healthcareplans"}]
 }, {
     collections: 'healthcares',
-   } 
+   }
 );
 
 module.exports = mongoose.model('healthcares', Healthcares);

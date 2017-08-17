@@ -54,9 +54,7 @@ export function loginFetch(username,password) {
       body: JSON.stringify(userData)
     })
     .then(response => {
-      console.log('response', response)
       const test = response.json()
-      console.log(test)
       return test
     }
       )

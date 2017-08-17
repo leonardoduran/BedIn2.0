@@ -1,11 +1,16 @@
 import React from 'react';
 
+import moment from 'moment';
+
 function TableDataUserBedin(props) {
+	let formattedDate =  function(date) {
+		return moment(date).format('DD/MM/YYYY || HH:mm:ss');
+	}
 	const users = props.users.map(user =>
 		<tr key = {user._id}>
 			<td>{user.name}</td>
 			<td>{user.username}</td>
-			<td>{user.createdAt}</td>
+			<td>{formattedDate(user.createdAt)}</td>
 			<td>{user.workplace || 'Bedin'}</td>
 			<td>{user.rol || 'Admin'}</td>
 		</tr>
@@ -13,7 +18,7 @@ function TableDataUserBedin(props) {
 	return (
 
 		<div>
-			
+
 			<div className="container">
 				<div className="row">
 					<div className="col-xs-2 col-sm-2 col-lg-2"></div>
@@ -22,9 +27,9 @@ function TableDataUserBedin(props) {
 							<thead>
 								<tr>
 									<th>NOMBRE</th>
-									<th>USUARIO</th>
-									<th>FECHA DE CREACIÓN</th>
-									<th>ENTIDAD</th>
+									<th>USERNAME</th>
+									<th>FECHA/HORA DE CREACIÓN</th>
+									<th>EMPLEADOR</th>
 									<th>ROL</th>
 								</tr>
 							</thead>

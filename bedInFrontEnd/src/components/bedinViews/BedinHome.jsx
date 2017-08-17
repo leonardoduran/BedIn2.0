@@ -16,18 +16,19 @@ const navBarData = {
 		},
 		{
 			route: "/Bedin/financiador",
-			name: "Obras Sociales"
+			name: "Solicitante"
 		},
 		{
 			route: "/Bedin/hospital",
-			name: "Hospitales"
+			name: "Prestador"
 		},
 		{
 			route: "/Bedin/administrador",
 			name: "Administrador"
 		}
 	],
-	logo : '/public/img/logo_original.jpg'
+	logo : '/public/img/logo_original.jpg',
+	color : '#269abc'
 }
 
 function mapStateToProps(state) {
@@ -53,9 +54,15 @@ class Home extends React.Component {
 		this.props.logoutFetch();
 	}
 
-	// componentWillMount() {
-	// 	hashHistory.push('/Bedin/financiador');
-	// }
+
+	componentWillMount() {
+		hashHistory.push('/Bedin/financiador');
+	}
+
+	componentWillReceiveProps(props) {
+		if(!props.isLoggedIn) hashHistory.push('/');
+	}
+
 
 	componentWillReceiveProps(props) {
 		if(!props.isLoggedIn) hashHistory.push('/');

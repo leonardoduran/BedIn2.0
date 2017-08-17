@@ -25,7 +25,7 @@ function opcionalHomeFinanciador(props) {
    
                     <Link to="Bedin/hospital/usercrear" className="btn btn-info" id="c4a1">
                       <span className="glyphicon a4 glyphicon glyphicon-user img-circle  flex-item-center" id="glyphicon-p"></span>
-                      Matcheados
+                      Aceptados
                     </Link>      
                                     
                 </div>

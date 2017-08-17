@@ -46,8 +46,6 @@ class FinanciadorUserForm extends React.Component {
   }
 
   create(e) {
-    //console.log('HOLA...LLEGUE')
-    console.log('TARGET FINANCIADORS', e.target.financiadors)
     let checkedFinanciador = this.props.financiadors.filter(financiador => financiador.name === e.target.financiadors.value)
     e.preventDefault();
     this.props.createUser({

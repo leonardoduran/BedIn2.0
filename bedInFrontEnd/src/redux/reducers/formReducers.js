@@ -16,7 +16,6 @@ function formReducers(state = {
   receiveFinanciadors: false,
   financiadors: []
 }, action) {
-  console.log('ACTION', action)
 switch(action.type) {
   case 'REQUEST_CREATE':
     return Object.assign({}, state, {isRequesting: true});

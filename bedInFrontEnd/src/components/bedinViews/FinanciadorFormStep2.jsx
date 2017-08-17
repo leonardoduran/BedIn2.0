@@ -12,7 +12,7 @@ function FinanciadorFormStep2(props) {
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="modal-header">
-                    <h4 className="modal-title">La Obra Social se ha creado exitosamente</h4>
+                    <h4 className="modal-title">La solicitud se ha creado exitosamente</h4>
                 </div>
                 <div className="modal-footer ">
                           <Link to="/Bedin" >
@@ -43,7 +43,7 @@ function FinanciadorFormStep2(props) {
                   </div>
                 </div>
               
-              <label>Seleccione Hospital/es <br/>acorde al plan</label>
+              <label>Seleccione Prestador/es <br/>acorde al plan</label>
               <form name="hospitalChecklist">
                     {props.hospitals.map((hospital, i) =>
                       <div key={i} className="checkbox" id="c">
@@ -75,7 +75,7 @@ function FinanciadorFormStep2(props) {
                   <thead>
                     <tr id="th" >
                       <th >PLANES</th>
-                      <th >HOSPITALES</th>
+                      <th >PRESTADOR</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -104,10 +104,3 @@ function FinanciadorFormStep2(props) {
 export default FinanciadorFormStep2;
 
 
-
-// TODO: in document.query you are now quering input and form. If there was another input or form elements on page, it would select first one. GIVE IT AN ID TO SELECT CORRECT ONE
-
-// props.add(e.target.plan.value, e.target.hospitalChecklist.value)
-
-
-// TODO: popup should blur background (CSS index position) and have a button that does a redirect with hashhistory push

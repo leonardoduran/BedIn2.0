@@ -1,9 +1,9 @@
 import React from 'react';
 
 function TableDataFinanciador(props) {
-	
+
 	const allHospitals = hospitals => {
-		return hospitals.map(singleHospital => 
+		return hospitals.map(singleHospital =>
 			<p key = {singleHospital._id}> {singleHospital.name} </p>)
 	}
 
@@ -21,7 +21,9 @@ function TableDataFinanciador(props) {
     		<div className="col-xs-8 col-sm-6 col-lg-6 ">
 					<div>
 						<p>NOMBRE:  {props.financiador.name}</p>
-						<p>Email: {props.financiador.email}</p>
+						<p>EMAIL: {props.financiador.email}</p>
+						<p>TELÉFONO: {props.financiador.phone}</p>
+						<p>DIRECCIÓN: {props.financiador.address}</p>
 					</div>
 					<table className= "table">
 					  <thead className="a6">
