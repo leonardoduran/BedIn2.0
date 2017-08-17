@@ -3,6 +3,7 @@ import React from 'react';
 
 function FinanciadorUserForm(props) {
 
+
    let popup = null;
    if(props.success) {
       popup = (<div>
@@ -22,6 +23,7 @@ function FinanciadorUserForm(props) {
         </div>
               </div>)
   }
+
 
 
   return (
@@ -71,7 +73,9 @@ function FinanciadorUserForm(props) {
         </div>
 
        <div id="f1">
+
           <label>Seleccione Solicitante del Usuario</label>
+
           {props.financiadors.map((financiador, i) =>
           <div key={i} id="g1">
            <input name="financiadors" type="radio" data-id={financiador._id} value={financiador.name} />{financiador.name}<br/>

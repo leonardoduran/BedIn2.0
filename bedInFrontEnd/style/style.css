@@ -57,6 +57,17 @@ select.form-control:not([size]):not([multiple]) {
 /*BedinNavbar*/
 
 
+#a3{
+
+    width: 65px;
+    height: 35px;
+    position: relative;
+    top: -10px;
+    left: 10px;
+}
+
+/*Merge*/
+
 
 #b3{
 
@@ -178,6 +189,14 @@ select.form-control:not([size]):not([multiple]) {
 /*FinanciadorFormStep2*/
 
 
+
+.row {
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+
+/*Merge*
+
 #th {
 
      background-color: #fbfbfb;
@@ -232,16 +251,7 @@ select.form-control:not([size]):not([multiple]) {
     height: 350px;
 }
 
-/*#j {
 
-    position: absolute;
-    bottom: 10%;
-}
-
-#k {
-
-    position: fixed;
-    bottom: 175px;
 
 #l{
     color: black;
@@ -342,6 +352,7 @@ body {
     border: 1px solid black;
 
 }*/
+
 
 .nav-icn {
    color: white;
@@ -474,4 +485,3 @@ input[type=number] {
     color: #a90863 !important;
 
 }
-

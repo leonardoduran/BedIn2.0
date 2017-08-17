@@ -13,7 +13,9 @@ function ViewPatientRequestsAcceptedTable(props) {
 		: <p></p>
 
 	const tableBody = props.patientsList.map((patient, i) =>
-		<tr style={tableStyle} key={patient.dni}>
+
+		<tr style={tableStyle} key={patient._id}>
+
 			<td style={tableStyle}>{patient.dateCreated}</td>
 			<td style={tableStyle}>{patient.dni}</td>
 			<td style={tableStyle}>{patient.age}</td>
@@ -31,6 +33,7 @@ function ViewPatientRequestsAcceptedTable(props) {
 
 	return (
 		<div>
+
 			<div className="container">
 				<div className="row">
 

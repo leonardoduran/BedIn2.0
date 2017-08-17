@@ -1,42 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router';
 
 function CreatePatientRequestForm(props) {
- let popup = null;
-   if(props.success) {
-      popup = (<div>
-        <div className="modal-backdrop" id="modal-backdrop"></div>
-        <div className="modal" id="modal">
-            <div className="modal-dialog">
-              <div className="modal-content">
-                <div className="modal-header">
-                    <h4 className="modal-title">La solicitud se ha generado exitosamente.</h4>
-                </div>
-                <div className="modal-footer ">
-                          <Link to="/Financiador" >
-                          <button type="submit" className=" button " data-dismiss="modal" id="newbtn11">Home</button></Link>
-                </div>
-              </div>
-            </div>
-        </div>
-              </div>)
+  let popup = null;
+  if(props.success) {
+     popup = <div>PATIENT REQUEST CREADO</div>
  }
 
   return (
 
     <div className="container container_a">
       <div className="row">
-        <div className="col-xs-2 col-sm-4 col-lg-3"></div>
-        <div className="col-xs-8 col-sm-6 col-lg-5 ">
+        <div className="col-xs-2 col-sm-4 col-lg-2"></div>
+        <div className="col-xs-8 col-sm-6 col-lg-6 ">
 
           <h2>Generar Solicitud de Paciente</h2>
 
           <form className="form-horizontal" onSubmit={props.createRequest}>
 
             <div className="form-group ">
-              <label htmlFor="exampleInputName2" className="col-sm-3 control-label">PACIENTE</label>
+              <label htmlFor="exampleInputName2" className="col-sm-3 control-label">DNI</label>
               <div className="col-sm-9">
-                <input type="text" className="form-control" name="dni" placeholder="Paciente"></input>
+                <input type="text" className="form-control" name="dni" placeholder="Documento"></input>
               </div>
             </div>
 

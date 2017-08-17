@@ -16,10 +16,16 @@ const navBarData = {
 		{
 			route: "/Hospital/viewaccepted",
 			name: "ACEPTADOS"
+
 		}
 	],
 	logo : '/public/img/logo_original.jpg',
-	color : '#34c0de'
+	color : '#34c0de',
+	userType: 'Hospital'
+
+	
+
+
 }
 
 function mapStateToProps(state) {

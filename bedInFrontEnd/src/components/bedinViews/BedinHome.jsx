@@ -28,7 +28,10 @@ const navBarData = {
 		}
 	],
 	logo : '/public/img/logo_original.jpg',
+	userType: 'Bedin',
+
 	color : '#269abc'
+
 }
 
 function mapStateToProps(state) {
@@ -56,7 +59,7 @@ class Home extends React.Component {
 
 
 	componentWillMount() {
-		hashHistory.push('/Bedin/financiador');
+		//hashHistory.push('/Bedin/financiador');
 	}
 
 	componentWillReceiveProps(props) {
@@ -64,9 +67,7 @@ class Home extends React.Component {
 	}
 
 
-	componentWillReceiveProps(props) {
-		if(!props.isLoggedIn) hashHistory.push('/');
-	}
+
 
   render() {
     return (

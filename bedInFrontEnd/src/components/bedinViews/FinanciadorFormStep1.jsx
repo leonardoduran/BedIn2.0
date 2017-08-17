@@ -10,7 +10,9 @@ function FinanciadorFormStep1(props) {
             <form className="form-horizontal" onSubmit={props.nextStep}>
               <div className="form-group ">
                 <div id="b1">
-                  <span id="e1"><h>INGRESE NUEVA Solicitante</h></span>
+
+                  <span id="e1"><h>INGRESE NUEVA SOLICITANTE</h></span>
+
 
                 </div>
                   <label htmlFor="exampleInputName2" className="col-sm-2 control-label">Nombre</label>

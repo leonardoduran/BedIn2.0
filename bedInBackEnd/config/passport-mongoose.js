@@ -1,7 +1,6 @@
 const passport = require('passport');
 const  LocalStrategy = require('passport-local').Strategy;
 const expressSession = require('express-session');
-const flash = require('connect-flash');
 
 var User = require('../models/users');
 
@@ -10,10 +9,10 @@ module.exports = function(app) {
 	app.use(expressSession({
 		secret : 'secret',
 		resave: false,
-  		saveUninitialized: true,
+  	saveUninitialized: true,
+  	name: 'auth',
+  	maxAge: 36000000
 	}));
-
-	app.use(flash());
 
 	app.use(passport.initialize())
 	app.use(passport.session())

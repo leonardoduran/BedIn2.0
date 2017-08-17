@@ -2,52 +2,49 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../redux/actions/hospitalActions/patients';
-
 import TableViewPendingPatientRequests from '../../components/hospitalViews/TableViewPendingPatientRequests.jsx';
-
 function mapStateToProps(state) {
-	return {
-		isRequesting : state.patients.isRequesting,
-		patients: state.patients.patientsData
-	}
+    return {
+        isRequesting : state.patients.isRequesting,
+        patientsData: state.patients.patientsData
+    }
 }
-
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators(actionCreators, dispatch);
+    return bindActionCreators(actionCreators, dispatch);
 }
-
 class ViewPatientRequest extends React.Component {
-	constructor(props) {
-		super(props);
-		this.setState = this.setState.bind(this);
-	}
-
-	componentWillMount() {
-		this.props.fetchGetPatients();
-		this.idInterval = setInterval(() => {
-			this.props.fetchGetPatients();
-		},10000)
-	}
-
-	componentWillUnmount() {
-		clearInterval(this.idInterval);
-	}
-
-	setState(idPatient,state) {
-		this.props.fecthSetPatientState(idPatient, state)
-	}
-
-	render() {
-		let patients = (!this.props.patients) ? <p>Cargando...</p>
-		: <TableViewPendingPatientRequests 
-			patientsList = {this.props.patients} 
-			setState = {this.setState}/>
-		return (
-			<div>
-				{patients}
-			</div>
-		)
-	}
+    constructor(props) {
+        super(props);
+        this.setState = this.setState.bind(this);
+        this.setAllViewed = this.setAllViewed.bind(this);
+    }
+    componentWillMount() {
+        this.props.fetchGetPatients();
+        this.idInterval = setInterval(() => {
+            this.props.fetchGetPatients();
+        },10000)
+    }
+    componentWillUnmount() {
+        clearInterval(this.idInterval);
+    }
+    setState(idPatient,state) {
+        this.props.fecthSetPatientState(idPatient, state)
+    }
+    setAllViewed() {
+        this.props.fetchSetAllViewed(this.props.patients);
+    }
+    render() {
+//      alert(this.props.isRequesting)
+        let patients = this.props.isRequesting ? <p>Cargando...</p>
+        : <TableViewPendingPatientRequests 
+            patientsList = {this.props.patientsData} 
+            setState = {this.setState}
+            setAllViewed = {this.setAllViewed}/>
+        return (
+            <div>
+                {patients}
+            </div>
+        )
+    }
 }
-
 export default connect(mapStateToProps, mapDispatchToProps)(ViewPatientRequest);

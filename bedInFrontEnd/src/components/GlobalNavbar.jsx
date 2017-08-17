@@ -20,6 +20,7 @@ function GlobalNavbar (props) {
             <div className="col-xs-6 columna">
               <h1>BedIn</h1>
             </div>
+
             <div className="col-xs-6 columna text-xs-right">
               <div>
               
@@ -28,10 +29,11 @@ function GlobalNavbar (props) {
                     <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="aLog">{props.username}
                       </a>
                     <ul className="dropdown-menu text-xs-right" id="bLog" >
-                      <li><Link to={`/Bedin/perfil/${props.userId}`} id="color">Perfil</Link></li>
+                      <li><Link to={`/${props.data.userType}/perfil`} id="color"  >Perfil</Link></li>
                       <li><Link onClick={props.logOut} to="#" id="color">Log Out </Link></li>
                     </ul>
                   </li>
+
                 </ul>
 
               </div>

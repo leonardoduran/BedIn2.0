@@ -8,8 +8,8 @@ const errorHandler = require('../controladores/errorHandler');
 
 const userMiddleWare = require ('../controladores/user-middleware'); 
 
-router.get('/:id',authValidator.isLoggedIn, function(req, res, next) {
-  user.find(req.params._id)
+router.get('/',authValidator.isLoggedIn, function(req, res, next) {
+  user.find(req.user._id)
   .then(users =>{
     res.send(users);  
   })
@@ -18,16 +18,6 @@ router.get('/:id',authValidator.isLoggedIn, function(req, res, next) {
   })
 });
 
-
-router.post('/test', authValidator.isLoggedIn, 
-  userMiddleWare.checkUserType, function(req,res,next) {  
-  const userData = {
-    name : req.user.name,
-    username : req.user.userName,
-    type : req.user.type,
-    data : req.user.data
-  }
-  res.send(userData);
-});
+//router.put('/')
 
 module.exports = router;

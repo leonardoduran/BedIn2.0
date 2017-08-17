@@ -11,6 +11,7 @@ const navBarData = {
 	linkArray: [
 		{
 			route: "/Financiador/createrequest",
+
 			name: "Generar Solicitud"
 		},
 		{
@@ -19,12 +20,14 @@ const navBarData = {
 		},
 		{
 			route: "/Financiador/viewmatched",
-			name: "Acepatados"
+			name: "Aceptados"
 		}
 	],
 	logo : '/public/img/logo_original.jpg',
+	userType: 'Financiador',
 
 	color : '#1c14a5'
+
 }
 
 function mapStateToProps(state) {
@@ -54,9 +57,12 @@ class FinanciadorHome extends React.Component {
 	// 	hashHistory.push('/Financiador/createrequest');
 	// }
 
+
 	//componentWillReceiveProps(props) {
 	//	if(!props.isLoggedIn) hashHistory.push('/');
 	//}
+
+
 
   render() {
     return (
