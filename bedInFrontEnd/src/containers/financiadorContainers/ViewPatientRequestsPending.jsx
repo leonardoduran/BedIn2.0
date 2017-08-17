@@ -64,7 +64,6 @@ class ViewPatientRequestsPending extends React.Component {
 	}
 
   openModal(patient) {
-  	console.log(patient)
     this.setState({modalIsOpen: true, patientDetail: patient});
   }
  

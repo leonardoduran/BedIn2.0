@@ -7,18 +7,24 @@ function viewUser (state = {
 	switch(action.type){
 		case 'IS_REQUESTING_TO_SERVER': 
 			return Object.assign({}, state, {
-				users: null,
+				//users: null,
 				isRequesting: true
 			}) 
 		case 'GET_USER_BY_ID': 
 			return Object.assign({}, state, {
 				isRequesting: false,
-				users: action.user
+				users: action.user,
+				error: null
 			})
 		case 'GET_USER_BY_TYPE': 
 			return Object.assign({}, state, {
 				isRequesting: false,
 				users: action.users
+			})
+		case 'PASSWORD_UPDATED': 
+			return Object.assign({}, state, {
+				isRequesting: false,
+				error: null
 			})
 		case 'FAILED_TO_GET_USER':
 			return Object.assign({}, state, {

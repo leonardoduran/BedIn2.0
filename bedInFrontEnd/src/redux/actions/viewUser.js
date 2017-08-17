@@ -18,6 +18,12 @@ export function getUsersByType (users) {
 	}
 }
 
+export function passwordUpdated () {
+	return {
+		type: 'PASSWORD_UPDATED',
+	}
+}
+
 export function faildToGetUser(err) {
 	return {
 		type: 'FAILED_TO_GET_USER',
@@ -28,7 +34,7 @@ export function faildToGetUser(err) {
 export function fetchGetUserById(id) {
 	return (dispatch => {
 		dispatch(isRequestingToServer());
-		fetch(`./bedin/users/id/${id}`, {
+		fetch(`./bedin/users/id`, {
 			method: 'GET',
 			credentials: 'include'
 		})
@@ -49,4 +55,31 @@ export function fetchGetUsersByType(type) {
 		.then(users => dispatch(getUsersByType(users)))
 		.catch(error => dispatch(faildToGetUser(error)))
 	})
+}
+
+export function fetchChangePassword(oldPassword, newPassword) {
+	return (dispatch => {
+		dispatch(isRequestingToServer());
+		const objReq = {
+			anteriorPassword: oldPassword,
+			nuevoPassword: newPassword
+		}
+		fetch(`./bedin/users`, {
+			method: 'PUT',
+			credentials: 'include',
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+      body: JSON.stringify(objReq)
+		})
+
+		.then(result => result.json())
+		.then(user => {
+			if(user.error) return dispatch(faildToGetUser(user.error))
+			return dispatch(passwordUpdated())
+		})
+		.catch(error => dispatch(faildToGetUser(error)))
+	})
+
 }

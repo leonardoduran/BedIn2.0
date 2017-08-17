@@ -11,7 +11,7 @@ function ViewPatientRequestsMatchedTable(props) {
 	}
 
 	const tableBody = props.patients.map((patient, i) =>
-		<tr style={tableStyle} key={patient.dni}>
+		<tr style={tableStyle} key={patient._id}>
 			<td style={tableStyle}>{formattedDate(patient.dateCreated)}</td>
 			<td style={tableStyle}>{patient.dni}</td>
 			<td style={tableStyle}>{patient.healthcareplan.name}</td>

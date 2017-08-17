@@ -11,7 +11,7 @@ function mapStateToProps(state) {
     isRequesting: state.authentication.isRequesting,
     isLoggedIn: state.authentication.isLoggedIn,
     userType :  state.authentication.userType,
-    error: state.authentication.error
+    error: state.authentication.errorCredentials
   }
 };
 
@@ -25,12 +25,11 @@ class LoginContainer extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    if(nextProps.userType)
+    if(nextProps.userType) 
       hashHistory.push(`/${nextProps.userType}`);
   }
 
   render() {
-
     const loading = (this.props.isRequesting) 
     ? <div>Cargando</div>   
     : <div></div>

@@ -5,6 +5,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const moment = require('moment');
 
 const index = require('./routes/index');
 const indexBedin = require('./routes/bedin/index');
@@ -28,9 +29,6 @@ app.use('/', index);
 app.use('/bedin', indexBedin);
 app.use('/healthcare', indexHealthcare);
 app.use('/hospital', indexHospital);
-
-
-const moment = require('moment');
 
 const controllerHealthcare = require('./controladores/healthcare');
 

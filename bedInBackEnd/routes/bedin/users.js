@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 const user = require ('../../models/users');
-const errorHandler = require('../../controladores/errorHandler')
+const authValidator = require ('../../controladores/auth');
+const errorHandler = require('../../controladores/errorHandler');
 
 router.get('/', function(req, res, next) {
   user.find({})
@@ -14,8 +15,8 @@ router.get('/', function(req, res, next) {
   })
 });
 
-router.get('/id/:id', function(req, res, next) {
-  user.findById(req.params.id)
+router.get('/id', authValidator.isLoggedIn, function(req, res, next) {
+  user.findById(req.user._id)
   .then(_user =>{
     res.send(_user);
   })
@@ -69,21 +70,20 @@ router.post('/', function(req, res ,next) {
   )
 });
 
-router.put('/', function(req, res, next) {
-  user.findByIdAndUpdate(req.body._id,
-    { $set:
-      {
-        name : req.body.name
-      }
-    }, { new: true })
-  .then(updateData => {
-    res.send(updateData);
-  })
+router.put('/', authValidator.isLoggedIn,function(req, res, next) {
+  user.findById(req.user._id, (error, _user) => {
+    if(error) return res.send({error: 'No se pudo encontrar el usuario'})
+    _user.changePassword(req.body.anteriorPassword, req.body.nuevoPassword, (err,updateUser) => {
+      if(err) res.send({error:'Las clave anterior no coincide'});
+        res.send(updateUser)
+    })
+   }) 
   .catch(err => {
+    res.send(err)
     if(err.code === 11000) return errorHandler.sendCustomError(res, 'Ya existe un financiador con ese nombre');
     return errorHandler.sendInternalServerError(res);
   })
-});
+})
 
 router.delete('/', function(req,res,next) {
   user.remove({_id : req.body._id})

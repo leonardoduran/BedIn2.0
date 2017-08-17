@@ -22,7 +22,8 @@ const navBarData = {
 			name: "ADMINISTRADOR"
 		}
 	],
-	logo : '/public/img/logo_original.jpg'
+	logo : '/public/img/logo_original.jpg',
+	userType: 'Bedin'
 }
 
 function mapStateToProps(state) {

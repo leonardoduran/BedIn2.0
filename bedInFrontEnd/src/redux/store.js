@@ -7,11 +7,15 @@ import { hashHistory } from 'react-router';
 
 import rootReducer from './reducers/index';
 
+//import {loadState} from '../sessionStorage';
+
 const loggerMiddleware = createLogger();
+
+//let persistedState=loadState();
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, composeEnhancers(
-    applyMiddleware(thunkMiddleware, // lets us dispatch() functions
+    applyMiddleware(thunkMiddleware,
     loggerMiddleware,
     )));
 

@@ -31,7 +31,7 @@ function GlobalNavbar (props) {
                 <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span className="glyphicon glyphicon-user" id="f3">{props.username}
                   </span><span className="caret"></span></a>
                 <ul className="dropdown-menu">
-                  <li><Link to={`/Bedin/perfil/${props.userId}`}>Perfil</Link></li>
+                  <li><Link to={`/${props.data.userType}/perfil`}>Perfil</Link></li>
                   <li><Link onClick={props.logOut} to="#">Log Out <span className="glyphicon glyphicon-off" aria-hidden="true" id="e3"></span></Link></li>
                 </ul>
               </li>

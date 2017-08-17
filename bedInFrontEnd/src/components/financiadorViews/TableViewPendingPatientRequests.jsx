@@ -15,7 +15,7 @@ function ViewPatientRequestsPendingTable(props) {
 	const buildPendingTable = (listOfPending = [], acceptedByHospital, idPending) => {
 		return listOfPending.map(eachPending =>
 			acceptedByHospital ?
-			<p key={eachPending.hospital._id} >{eachPending.hospital.name}
+			<p key={eachPending._id} >{eachPending.hospital.name}
       	<button type="button" className="btn btn-success btn-xs" style={marginLeft}
       		onClick={() => props.matchHospital(idPending,eachPending.hospital._id)}>
         	<span className="glyphicon glyphicon-ok"></span>
@@ -26,11 +26,12 @@ function ViewPatientRequestsPendingTable(props) {
 	}
 
 	const tableBody = props.listOfPending.map((pending, i) => {
-		let colorStyle = (pending.viewedByHospitals.length) ? setRowColor('lightblue')
+		let colorStyle = (pending.timeout) ? setRowColor('pink')
+		: (pending.viewedByHospitals.length) ? setRowColor('lightblue')
 		: (pending.acceptedByHospital.length) ? setRowColor('lightgreen')
 		: setRowColor(null)
 		
-		return ( <tr style={Object.assign({}, tableStyle, colorStyle)} key={pending.dni}>
+		return ( <tr style={Object.assign({}, tableStyle, colorStyle)} key={pending._id}>
 				<td style={tableStyle}>{formattedDate(pending.dateCreated)}</td>
 				<td style={tableStyle}>{pending.dni}</td>
 				<td style={tableStyle}>{pending.age}</td>

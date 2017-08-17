@@ -1,7 +1,7 @@
 function patients(state = {
 		isRequesting: false,
 		error: null,
-		patientsData: null,
+		patientsData: [],
 		viewedPatientsData: null
 	}, action) {
 	switch(action.type) {

@@ -6,7 +6,7 @@ const marginLeft = {marginLeft:"5px"}
 function ViewPatientRequestsPendingTable(props) {
 
 	const tableBody = props.patientsList.map((patient, i) =>
-		<tr style={tableStyle} key={patient.dni}>
+		<tr style={tableStyle} key={patient._id}>
 			<td style={tableStyle}>{patient.dateCreated}</td>
 			<td style={tableStyle}>{patient.dni}</td>
 			<td style={tableStyle}>{patient.age}</td>

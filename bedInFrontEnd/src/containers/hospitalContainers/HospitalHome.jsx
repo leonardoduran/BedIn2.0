@@ -22,7 +22,8 @@ const navBarData = {
 			name: "VISTOS"
 		}
 	],
-	logo : '/public/img/logo_original.jpg'
+	logo : '/public/img/logo_original.jpg',
+	userType: 'Hospital'
 }
 
 function mapStateToProps(state) {

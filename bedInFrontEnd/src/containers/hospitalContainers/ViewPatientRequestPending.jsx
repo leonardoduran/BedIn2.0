@@ -8,7 +8,7 @@ import TableViewPendingPatientRequests from '../../components/hospitalViews/Tabl
 function mapStateToProps(state) {
 	return {
 		isRequesting : state.patients.isRequesting,
-		patients: state.patients.patientsData
+		patientsData: state.patients.patientsData
 	}
 }
 
@@ -43,9 +43,10 @@ class ViewPatientRequest extends React.Component {
 	}
 
 	render() {
-		let patients = (!this.props.patients) ? <p>Cargando...</p>
+//		alert(this.props.isRequesting)
+		let patients = this.props.isRequesting ? <p>Cargando...</p>
 		: <TableViewPendingPatientRequests 
-			patientsList = {this.props.patients} 
+			patientsList = {this.props.patientsData} 
 			setState = {this.setState}
 			setAllViewed = {this.setAllViewed}/>
 		return (

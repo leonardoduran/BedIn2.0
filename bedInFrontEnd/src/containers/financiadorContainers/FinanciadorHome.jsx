@@ -22,7 +22,8 @@ const navBarData = {
 			name: "MATCHED"
 		}
 	],
-	logo : '/public/img/logo_original.jpg'
+	logo : '/public/img/logo_original.jpg',
+	userType: 'Financiador'
 }
 
 function mapStateToProps(state) {
@@ -52,9 +53,9 @@ class FinanciadorHome extends React.Component {
 	// 	hashHistory.push('/Financiador/createrequest');
 	// }
 
-	//componentWillReceiveProps(props) {
-	//	if(!props.isLoggedIn) hashHistory.push('/');
-	//}
+	/*componentWillReceiveProps(props) {
+		if(!props.isLoggedIn) hashHistory.push('/');
+	}*/
 
   render() {
     return (
