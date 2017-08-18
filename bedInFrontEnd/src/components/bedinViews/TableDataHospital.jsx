@@ -4,6 +4,9 @@ function TableDataHospital(props) {
 	const hospitals = props.hospitals.map(hospital =>
 		<tr key = {hospital._id}>
 			<td>{hospital.name}</td>
+			<td>{hospital.address}</td>
+			<td>{hospital.email}</td>
+			<td>{hospital.phone}</td>
 		</tr>
 	)
 
@@ -17,9 +20,10 @@ return (
 					<table className = "table" >
 						<thead>
 							<tr>
-								<th>Nombre</th>
-								<th>Direccion</th>
-								<th>Telefono</th>
+								<th>NOMBRE</th>
+								<th>DIRECCIÓN</th>
+								<th>EMAIL</th>
+								<th>TELÉFONO</th>
 							</tr>
 						</thead>
 						<tbody>

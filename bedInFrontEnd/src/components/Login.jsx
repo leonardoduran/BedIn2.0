@@ -21,13 +21,11 @@ function Login (props) {
 									<input id="email" type="text" className="form-control" name="username" placeholder="Username"></input>
 								</div>
 
-								<div className="input-group">
+								<div className="input-group ">
 									<span className="input-group-addon"><i className="glyphicon glyphicon-lock"></i></span>
 									<input id="password" type="password" className="form-control" name="password" placeholder="Password"></input>
 								</div>
-								<button type="submit" className=" btn button" id="bb">Login
-								</button>
-								<br></br>
+								<button type="submit" className=" button " id="newbtn">Login</button>
 							
 							</form>
 						</div>

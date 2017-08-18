@@ -46,7 +46,6 @@ class HospitalUserForm extends React.Component {
   }
 
   create(e) {
-    //console.log('HOLA...LLEGUE')
     let checkedHospital = this.props.hospitals.filter(hospital => hospital.name === e.target.hospitals.value)
     e.preventDefault();
     this.props.createUser({

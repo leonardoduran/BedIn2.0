@@ -1,10 +1,10 @@
 import React from 'react';
 
 function UserInformation(props) {
-	console.log('users', props.users)
+
 	return (
 		<div className="container">
-			<form>
+			<form >
 			  <div className="form-group col-xs-6">
 			    <label htmlFor="name">Nombre:</label>
 			    <input className="form-control" type="text" name="name" disabled value={props.users.name}/>
@@ -21,6 +21,17 @@ function UserInformation(props) {
 			    <label htmlFor="tipo">Rol:</label>
 			    <input className="form-control" type="text" name="rol" disabled value={props.users.rol}/>
 				</div>
+				<div className="form-group col-xs-6">
+			    <label htmlFor="tipo">Contraseña anterior</label>
+			    <input className="form-control" id="oldPassword" type="password"/>
+				</div>
+				<div className="form-group col-xs-6">
+			    <label htmlFor="tipo">Nueva Contraseña</label>
+			    <input className="form-control" id="newPassword" type="password"/>
+				</div>
+        <div className="form-group col-xs-6" style={{marginTop:"20px"}}>
+            <button onClick={props.changePassword} className=" btn button">Modificar contraseña</button>
+        </div>				
 			</form>
 		</div>
 	)

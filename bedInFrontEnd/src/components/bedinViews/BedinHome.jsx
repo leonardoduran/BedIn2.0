@@ -9,20 +9,29 @@ import GlobalNavbar from '../GlobalNavbar.jsx';
 
 const navBarData = {
 	linkArray: [
+
+		{
+			route: "/Bedin",
+			name: "Home"
+		},
 		{
 			route: "/Bedin/financiador",
-			name: "OBRAS SOCIALES"
+			name: "Solicitante"
 		},
 		{
 			route: "/Bedin/hospital",
-			name: "HOSPITAL"
+			name: "Prestador"
 		},
 		{
 			route: "/Bedin/administrador",
-			name: "ADMINISTRADOR"
+			name: "Administrador"
 		}
 	],
-	logo : '/public/img/logo_original.jpg'
+	logo : '/public/img/logo_original.jpg',
+	userType: 'Bedin',
+
+	color : '#269abc'
+
 }
 
 function mapStateToProps(state) {
@@ -48,13 +57,17 @@ class Home extends React.Component {
 		this.props.logoutFetch();
 	}
 
+
 	componentWillMount() {
-		hashHistory.push('/Bedin/financiador');
+		//hashHistory.push('/Bedin/financiador');
 	}
 
-	//componentWillReceiveProps(props) {
-	//	if(!props.isLoggedIn) hashHistory.push('/');
-	//}
+	componentWillReceiveProps(props) {
+		if(!props.isLoggedIn) hashHistory.push('/');
+	}
+
+
+
 
   render() {
     return (

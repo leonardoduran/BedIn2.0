@@ -1,5 +1,10 @@
 /*Login*/
 
+select.form-control:not([size]):not([multiple]) {
+    height: auto;
+}
+
+
 .container_a {
   top: 200px;
 }
@@ -14,20 +19,20 @@
     z-index: -9999
 }*/
 
-#button{
+/*#button{
 	background: white;
 	border-color: lightgrey;
 	color: gray;
 	display: block;
     margin: 10px auto;
-}
+}*/
 #a {
     color: #777;
     font-size: 13px;
 }
 
 #a1 {
-    top:80px;
+    top:180px;
 
 }
 
@@ -35,32 +40,34 @@
    fondo. Esperar.
 }*/
 
-#bb {
+/*#bb {
     background-color: #e7e7e7;
     color: black;
     display: block;
-    margin: 10px auto;
-}
+    margin: 30px auto;
+}*/
 
-#bb:hover {
+/*#bb:hover {
     background-color: #777;
     color: black;
     display: block;
     margin: 10px auto;
-}
+}*/
 
 /*BedinNavbar*/
 
+
 #a3{
-    
+
     width: 65px;
     height: 35px;
     position: relative;
     top: -10px;
     left: 10px;
-  
-
 }
+
+/*Merge*/
+
 
 #b3{
 
@@ -93,7 +100,7 @@
 
 
 
-#d3 > li > a {
+/*#d3 > li > a {
     position: relative;
     display: block;
     padding: 15px 20px;
@@ -105,7 +112,7 @@
         font-size: 16px !important;
         font-weight: bold !important;
 
-}
+}*/
 
 
 /*
@@ -121,22 +128,34 @@
 
 .a4 {
     padding:8px;
-    background:#ffffff;
+    background:white;
     margin-right:4px;
+
 
 }
 
 .b4 { padding: 1px 15px 3px 2px;}
 
 #c4 {
-    border-radius:20px;
+    border-radius:10px;
     margin-top: 10px;
-    margin-left: 70px;
+    margin-left: 10px;
+    width: 200px;
+    text-align: left;
+}
+
+#c4a{
+    border-radius:10px;
+    margin-top: 10px;
+    margin-left: 55px;
+    width: 200px;
+    text-align: left;
+
 }
 
 /*.d4 { margin-top: 100px; }*/
 
-.e4 { margin-left: 70px; }
+.e4 { margin-left: 30px; }
 
 /*FinanciadorFormStep1*/
 
@@ -147,13 +166,10 @@
     font-weight: bold;
 }
 
-#c1 {
+/*#c1 {
      float: right;
-     border-radius:20px;
-     margin-top: 10px;
-     margin-left: 70px;
-     width: 20%;
-}
+
+}*/
 
 #e1{
     position: relative;
@@ -162,7 +178,7 @@
 
 #f1 {
     height: 250px;
-    
+
 }
 
 #g1{
@@ -172,13 +188,17 @@
 
 /*FinanciadorFormStep2*/
 
-.row { 
-    margin-top: 50px;
+
+
+.row {
+    margin-top: 10px;
     margin-bottom: 8px;
 }
 
+/*Merge*
+
 #th {
-   
+
      background-color: #fbfbfb;
 
      }
@@ -192,6 +212,7 @@
     padding: 35px;
     padding-top: 30px;
     margin: 8px;
+   overflow: auto;
 }
 
 #b { margin-bottom: 40px; }
@@ -214,10 +235,11 @@
     margin: 8px;
     padding: 25px;
     padding-top: 25px;
+    overflow: auto;
 }
 
 .g {
-       
+
     border-width: 1.5px;
     border-radius: 20px;
     border-spacing: 5px;
@@ -229,17 +251,7 @@
     height: 350px;
 }
 
-#j {
 
-    position: absolute;
-    bottom: 10%;
-}
-
-#k {
-    
-    position: fixed;
-    bottom: 175px;
-}    
 
 #l{
     color: black;
@@ -254,23 +266,23 @@
 .a6{
 
     border-width: 1px;
-    border-color: lightgrey;
+    border-color: black;
     border-style: solid;
     box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.2);
 }
 
 .b6 {
 
-    background-color: #e7e7e7;
-    color: #777;
+    background-color: #31b0d5;
+    color: white;
  }
 
 /*OpcionaHome*/
 
-.oh {
+/*.oh {
     background-color: #e9ebee;
 
-}
+}*/
 
 /*opcionHome*/
 
@@ -280,6 +292,7 @@
     border-width: 1.5px;
     border-radius: 20px;
     margin-bottom: 10%;
+    padding-top:5%;
 
 
 }
@@ -291,6 +304,7 @@
     border-width: 1.5px;
     border-radius: 20px;
     margin-bottom: 10%;
+    padding-top:5%;
 }
 
 #c7{
@@ -300,9 +314,174 @@
     border-width: 1.5px;
     border-radius: 20px;
     margin-bottom: 10%;
+    padding-top:5%;
 }
 
-/*#d7, #e7 {
-    background-color: #e9ebee;
-    height: 500px;
+
+
+/*Nueva Navbar*/
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#header-container {
+
+    color: white;
+}
+
+#login {
+    color: white;
+}
+
+#menu-container {
+    background-color: #f7f7f9;
+}
+
+
+/*      .row {
+    border: 1px solid black;
+}
+
+.columna { 
+    border: 1px solid black;
+ }*/
+
+/*div {
+
+    border: 1px solid black;
+
 }*/
+
+
+.nav-icn {
+   color: white;
+
+}
+
+
+#aLog:focus {
+    background-color: rgba(247, 247, 249, 0.3);
+}
+
+#aLog:hover {
+    background-color: rgba(247, 247, 249, 0.3);
+}
+
+#bLog{
+    background-color: rgba(247, 247, 249, 0.39);
+    border-radius: 10px;
+    
+
+
+}
+
+#color{
+    color: black;
+
+}
+
+#color:hover{
+/*    background-color: rgba(0, 0, 0, 0.19);*/
+    background-color: lightgrey;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+
+input[type=number] {
+   -moz-appearance:textfield;
+}
+
+#newbtn{
+    border-radius:10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 100px;
+    float: right;
+}
+
+#newbtn:focus{
+    border-color: #555;
+  
+  
+}
+
+#newbtn1 { 
+    border-radius:10px;
+    margin-top: 10px;
+    margin-right: 15%;
+    width: 100px;
+    float: right;
+ }
+
+ #spinner{
+    position: absolute;
+    left: 725px;
+    top: 260px;
+ }
+
+#modal {
+    display: block;
+    position:absolute;
+    top: 200px;
+    
+}
+
+#modal-backdrop {
+    background-color: #000;
+    opacity: 0.6;
+}
+
+#newbtn11 { 
+    border-radius:10px;
+    margin-top: 10px;
+    margin-right: 2%;
+    width: 150px;
+    float: right;
+    color: black;
+   
+ }
+
+/* opcionalHomeFinanciador*/
+
+#c4a1{
+    border-radius:10px;
+    margin-top: 10px;
+    margin-left: 50px;
+    width: 230px;
+    text-align: left;
+    background-color: #de3e98;
+    border-color: #de3e98;
+
+}
+
+#b71{
+
+    background-color: #ff6bbf;
+    height: 400px;
+    width: 330px;
+    border-width: 1.5px;
+    border-radius: 20px;
+    margin-bottom: 10%;
+    padding-top:5%;
+    color: #ff6bbf;
+}
+
+#glyphicon-p {
+    color: #a90863 !important;
+
+}
+
+#glyphicon-p {
+    color: #a90863 !important;
+
+}
+
+#glyphicon-p {
+    color: #a90863 !important;
+
+}

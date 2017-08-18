@@ -3,6 +3,8 @@ module.exports = {
       'script-loader!jquery/dist/jquery.min.js',
       'bootstrap/dist/js/bootstrap.min.js',
       'bootstrap/dist/css/bootstrap.css',
+      
+
       './src/index.js'
     ],
     module: {
@@ -11,7 +13,7 @@ module.exports = {
           test: /(\.js|\.jsx)$/,
           loader: 'babel-loader',
           exclude: /node_modules/,
-          query: { presets: ['es2015', 'react', 'stage-0'] }
+          query: { presets: ['es2015', 'react'] }
         },
         {
           test: /\.ncss$/,
@@ -28,6 +30,7 @@ module.exports = {
         },
       ]
     },
+    devtool: "source-map",
     output: {
       filename: "indexBundle.js",
       path: __dirname + '/dist'

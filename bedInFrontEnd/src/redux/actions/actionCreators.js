@@ -1,7 +1,7 @@
 // First to dispatch when making a request to server (get or post)
 export function isRequestingToServer() {
  return {
-   type: 'IS_REQUESTING_TO_SERVER',
+   type: 'IS_REQUESTING_TO_SERVER_LOGIN',
  }
 }
 
@@ -19,6 +19,12 @@ export function userFailedToLogin(err) {
   }
 }
 
+export function failedCheckLogin(err) {
+  return {
+    type: 'FAILED_CHECK_LOGIN',
+    err
+  }
+}
 
 export function userIsLoggedOut() {
  return {
@@ -66,10 +72,28 @@ export function loginFetch(username,password) {
   };
 };
 
+export function checkLoginFetch() {
+  return (dispatch) => {
+    dispatch(isRequestingToServer());
+    return fetch('./login', {
+      credentials: 'include',
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.error) return dispatch(failedCheckLogin(data.error));
+      return dispatch(userIsLoggedIn(data));
+    })
+    .catch(err => dispatch(failedRequest(err)))
+  };
+};
+
+
 export function logoutFetch () {
   return (dispatch) => {
     dispatch(isRequestingToServer());
-    return fetch('./logout')
+    return fetch('./logout', {
+      credentials: 'include'
+    })
     .then(() => dispatch(userIsLoggedOut()))
     .catch(err => dispatch(failedRequest(err)))
   }

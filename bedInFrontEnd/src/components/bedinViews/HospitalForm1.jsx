@@ -10,7 +10,7 @@ function HospitalForm(props) {
             <div className="col-xs-2 col-sm-3 col-lg-3"></div>
             <div className="col-xs-8 col-sm-6 col-lg-6 ">
 
-      <h2>Detalles de Hospital</h2>
+      <h2>Detalles del prestador</h2>
 
       <form onSubmit={props.createHospital} className="form-horizontal">
         <div className="form-group ">
@@ -43,7 +43,7 @@ function HospitalForm(props) {
 
         <div className="form-group">
           <div className="col-sm-offset-2 col-sm-10">
-            <input type="submit" value="Save" className="btn button" id="button2"/>
+            <button className=" button" type="submit" value="Save" id="newbtn">Save</button>
           </div>
         </div>
       </form>

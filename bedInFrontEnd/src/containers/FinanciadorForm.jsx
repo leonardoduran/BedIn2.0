@@ -8,6 +8,7 @@ import FinanciadorFormStep1 from '../components/bedinViews/FinanciadorFormStep1.
 import FinanciadorFormStep2 from '../components/bedinViews/FinanciadorFormStep2.jsx';
 
 
+
 function mapStateToProps(state) {
   return {
     isRequesting: state.formReducers.isRequesting,
@@ -61,8 +62,6 @@ class FinanciadorForm extends React.Component {
 
   nextStep(e) {
     e.preventDefault();
-    //console.log(this)
-    //const step = this.state.step;
     this.setState({
       step: this.state.step + 1,
       name: e.target.nombre.value,
@@ -83,7 +82,6 @@ class FinanciadorForm extends React.Component {
   submitAllToStore() {
     let dataForBack = []
     for(let i = 0; i < this.state.planInputs.length; i++) {
-      console.log('PLAN INPUTS', this.state.planInputs[i])
       dataForBack.push({
         name: this.state.planInputs[i],
         hospitals: this.state.hospitalInputs[i].map(hospital => hospital.id)
@@ -109,7 +107,7 @@ class FinanciadorForm extends React.Component {
   render() {
     switch (this.state.step) {
       case 1:
-        return <FinanciadorFormStep1 nextStep={this.nextStep} />
+        return <FinanciadorFormStep1 nextStep={this.nextStep} success={this.props.createSuccess}/>
       case 2:
         return <FinanciadorFormStep2
           planInputs={this.state.planInputs}

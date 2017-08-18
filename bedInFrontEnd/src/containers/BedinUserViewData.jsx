@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../redux/actions/viewUser';
 
 import TableDataUserBedin from '../components/bedinViews/TableDataUserBedin.jsx';
+import Loading from '../components/Loading.jsx';
 
 function mapStateToProps(state) {
 	return {
@@ -26,9 +27,9 @@ class BedinUserViewData extends React.Component {
 	}
 
 	render() {
-		const dataUserBedin = (this.props.usersBedin === null) 
-		? <p>Cargando...</p>
-		: <TableDataUserBedin users = {this.props.usersBedin}/> 
+		const dataUserBedin = (this.props.usersBedin === null)
+		? <Loading />
+		: <TableDataUserBedin users = {this.props.usersBedin}/>
 		return (
 			<div>
 				{dataUserBedin}

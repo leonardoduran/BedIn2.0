@@ -26,7 +26,6 @@ class FinanciadorUserViewData extends React.Component {
 	}
 
 	render() {
-		console.log('users', this.props.usersFinanciador)
 		const dataUserFinanciador = (this.props.usersFinanciador === null) 
 		? <p>Cargando...</p>
 		: <TableDataUserFinanciador users = {this.props.usersFinanciador}/> 
