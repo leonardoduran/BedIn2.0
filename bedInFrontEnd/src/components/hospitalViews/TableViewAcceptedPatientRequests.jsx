@@ -1,22 +1,22 @@
 import React from 'react';
-
-const tableStyle = {border:"1px solid black"};
+import moment from 'moment';
+const tableStyle = {border:"1px solid grey"};
 const marginLeft = {marginLeft:"50%"}
 
 function ViewPatientRequestsAcceptedTable(props) {
-
+    let formattedDate =  function(date) {
+        return moment(date).format('DD/MM/YYYY || HH:mm:ss');
+    }
 	const checkMatch = (isMatched) => 
 		(isMatched) ? 
 			<p>
 				<span style = {marginLeft} className="glyphicon glyphicon-ok"></span>
 			</p>    
 		: <p></p>
-
+	const setRowColor = (color) => ({backgroundColor : color})
 	const tableBody = props.patientsList.map((patient, i) =>
 
 		<tr style={tableStyle} key={patient._id}>
-
-			<td style={tableStyle}>{patient.dateCreated}</td>
 			<td style={tableStyle}>{patient.dni}</td>
 			<td style={tableStyle}>{patient.age}</td>
 			<td style={tableStyle}>{patient.sex}</td>
@@ -24,7 +24,8 @@ function ViewPatientRequestsAcceptedTable(props) {
 			<td style={tableStyle}>{patient.complexity}</td>
 			<td style={tableStyle}>{patient.healthcare.name}</td>
 			<td style={tableStyle}>{patient.healthcareplan.name}</td>
-			<td style={tableStyle}>{patient.hospitalsAndState.userHospital.username}</td>
+			<td style={tableStyle}>{patient.hospitalsAndState.userHospital.name}</td>
+			<td style={tableStyle}>{formattedDate(patient.dateCreated)}</td>
 			<td style={tableStyle}>
 				{checkMatch(patient.sentTo.hospital)}
 			</td>
@@ -40,19 +41,19 @@ function ViewPatientRequestsAcceptedTable(props) {
 					<div className="col-xs-1"></div>
 						<div className="col-xs-10">
 
-					<table style={{border:"1px solid black"}} className= "table">
-					  <thead style={{border:"1px solid black"}}>
-					    <tr>
-					    	<th style={{border:"1px solid black"}}>Fecha/Hora</th>
-								<th style={{border:"1px solid black"}}>DNI</th>
-								<th style={{border:"1px solid black"}}>Edad</th>
-								<th style={{border:"1px solid black"}}>Sexo</th>
-								<th style={{border:"1px solid black"}}>CIE 10</th>
-								<th style={{border:"1px solid black"}}>Complejidad de Cama</th>
-								<th style={{border:"1px solid black"}}>Solicitante</th>
-								<th style={{border:"1px solid black"}}>Plan</th>
-								<th style={{border:"1px solid black"}}>Usuario</th>
-					      <th style={{border:"1px solid black"}}>Confirmado</th>
+					<table style={{border:"1px solid grey"}} className= "table">
+					  <thead style={{border:"1px solid grey"}}>
+					    <tr style={Object.assign({}, setRowColor('lightgrey'))}>
+							<th style={{border:"1px solid grey"}}>DNI</th>
+							<th style={{border:"1px solid grey"}}>Edad</th>
+							<th style={{border:"1px solid grey"}}>Sexo</th>
+							<th style={{border:"1px solid grey"}}>Diagnóstico</th>
+							<th style={{border:"1px solid grey"}}>Complejidad de Cama</th>
+							<th style={{border:"1px solid grey"}}>Solicitante</th>
+							<th style={{border:"1px solid grey"}}>Plan</th>
+							<th style={{border:"1px solid grey"}}>Usuario</th>
+							<th style={{border:"1px solid grey"}}>Fecha/Hora</th>
+					      <th style={{border:"1px solid grey"}}>Confirmado</th>
 					    </tr>
 					  </thead>
 					  <tbody>

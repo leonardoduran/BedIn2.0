@@ -11,7 +11,7 @@ function FinanciadorFormStep1(props) {
               <div className="form-group ">
                 <div id="b1">
 
-                  <span id="e1"><h>INGRESE NUEVA SOLICITANTE</h></span>
+                  <span id="e1"><h>INGRESE NUEVO SOLICITANTE</h></span>
 
 
                 </div>

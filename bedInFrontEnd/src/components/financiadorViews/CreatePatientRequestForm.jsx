@@ -18,9 +18,9 @@ function CreatePatientRequestForm(props) {
           <form className="form-horizontal" onSubmit={props.createRequest}>
 
             <div className="form-group ">
-              <label htmlFor="exampleInputName2" className="col-sm-3 control-label">DNI</label>
+              <label htmlFor="exampleInputName2" className="col-sm-3 control-label">Paciente</label>
               <div className="col-sm-9">
-                <input type="text" className="form-control" name="dni" placeholder="Documento"></input>
+                <input type="text" className="form-control" name="dni" placeholder="DNI / Nro Afiliado"></input>
               </div>
             </div>
 
@@ -43,9 +43,9 @@ function CreatePatientRequestForm(props) {
             </div>
 
             <div className="form-group ">
-              <label htmlFor="exampleInputName2" className="col-sm-3 control-label">Diagnostico CIE 10</label>
+              <label htmlFor="exampleInputName2" className="col-sm-3 control-label">Diagnóstico</label>
               <div className="col-sm-9">
-                <input type="text" className="form-control" name="cie" placeholder="CIE"></input>
+                <input type="text" className="form-control" name="cie" placeholder="Diagnóstico"></input>
               </div>
             </div>
 

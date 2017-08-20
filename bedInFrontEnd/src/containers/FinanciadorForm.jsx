@@ -50,6 +50,7 @@ class FinanciadorForm extends React.Component {
   }
 
   add(input, checkedHospitals) {
+debugger;
     const array = this.state.planInputs.slice();
     array.push(input);
     const arrayChecked = this.state.hospitalInputs.slice();

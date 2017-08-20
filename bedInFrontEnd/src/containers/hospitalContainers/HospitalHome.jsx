@@ -17,7 +17,12 @@ const navBarData = {
 			route: "/Hospital/viewaccepted",
 			name: "ACEPTADOS"
 
-		}
+		},
+		{
+			route: "/Hospital/viewviewed",
+			name: "VISTOS"
+
+		}		
 	],
 	logo : '/public/img/logo_original.jpg',
 	color : '#34c0de',

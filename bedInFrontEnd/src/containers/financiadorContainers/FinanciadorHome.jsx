@@ -16,7 +16,7 @@ const navBarData = {
 		},
 		{
 			route: "/Financiador/viewpending",
-			name: "Pre acepatos"
+			name: "Solicitudes Generadas"
 		},
 		{
 			route: "/Financiador/viewmatched",
