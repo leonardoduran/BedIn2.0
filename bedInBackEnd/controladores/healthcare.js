@@ -6,7 +6,7 @@ const errorHandler = require('./errorHandler');
 module.exports = {
     
     setPatientTimeOut: function() {
-        const endTime = 1;
+        const endTime = 3;
         setInterval(() => {
             patientRequest.find({
             'sentTo.hospital' : null,
@@ -19,7 +19,6 @@ module.exports = {
                     timeDifference = parseInt(moment().diff(patient.dateCreated, 'minutes'));
                     //console.log('timeDifference', timeDifference);
                     if(timeDifference >= endTime) {
-                        console.log('entro');
                         patient.timeout = true; 
                         patient.save();
                     }  
