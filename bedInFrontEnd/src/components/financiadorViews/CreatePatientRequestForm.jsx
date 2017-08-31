@@ -20,7 +20,7 @@ function CreatePatientRequestForm(props) {
             <div className="form-group ">
               <label htmlFor="exampleInputName2" className="col-sm-3 control-label">Paciente</label>
               <div className="col-sm-9">
-                <input type="text" className="form-control" name="dni" placeholder="DNI / Nro Afiliado"></input>
+                <input type="text" className="form-control" name="dni" placeholder="Nombre y Apellido"></input>
               </div>
             </div>
 
@@ -54,9 +54,11 @@ function CreatePatientRequestForm(props) {
               <div className="col-sm-9">
                 <select className="form-control" name="complejidad" id="complexity-select">
                   <option value="select-option">---Seleccione Una Opción---</option>
+                  <option>Guardia</option>
                   <option>Neonatología</option>
-                  <option>UTI Pediátrica</option>
+                  <option>Sala Común</option>
                   <option>Sala Pediátrica</option>
+                  <option>UTI Pediátrica</option>
                   <option>UTI Adultos</option>
                   <option>UCO</option>
                 </select>

@@ -21,8 +21,8 @@ function ViewPatientRequestsPendingTable(props) {
     }
     const tableBody = props.listOfPending.map((pending, i) => {
         let colorStyle = (pending.timeout) ? setRowColor('pink')
-        : (pending.viewedByHospitals.length) ? setRowColor('lightblue')
         : (pending.acceptedByHospital.length) ? setRowColor('lightgreen')
+        : (pending.viewedByHospitals.length) ? setRowColor('lightblue')
         : setRowColor(null)
         
         return ( <tr style={Object.assign({}, tableStyle, colorStyle)} key={pending._id}>
@@ -53,7 +53,7 @@ function ViewPatientRequestsPendingTable(props) {
                     <th style={{border:"1px solid grey"}}>Edad</th>
                     <th style={{border:"1px solid grey"}}>Sexo</th>
                     <th style={{border:"1px solid grey"}}>Diagnóstico</th>
-                    <th style={{border:"1px solid grey"}}>Complejidad de Cama</th>
+                    <th style={{border:"1px solid grey"}}>Complejidad</th>
                     <th style={{border:"1px solid grey"}}>Plan</th>
                     <th style={{border:"1px solid grey"}}>Fecha/Hora Creado</th>
                     <th style={{border:"1px solid grey"}}>Detalle</th>

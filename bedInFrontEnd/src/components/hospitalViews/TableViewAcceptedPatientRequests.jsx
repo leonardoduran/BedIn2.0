@@ -23,7 +23,6 @@ function ViewPatientRequestsAcceptedTable(props) {
 			<td style={tableStyle}>{patient.cie10}</td>
 			<td style={tableStyle}>{patient.complexity}</td>
 			<td style={tableStyle}>{patient.healthcare.name}</td>
-			<td style={tableStyle}>{patient.healthcareplan.name}</td>
 			<td style={tableStyle}>{patient.hospitalsAndState.userHospital.name}</td>
 			<td style={tableStyle}>{formattedDate(patient.dateCreated)}</td>
 			<td style={tableStyle}>
@@ -44,13 +43,12 @@ function ViewPatientRequestsAcceptedTable(props) {
 					<table style={{border:"1px solid grey"}} className= "table">
 					  <thead style={{border:"1px solid grey"}}>
 					    <tr style={Object.assign({}, setRowColor('lightgrey'))}>
-							<th style={{border:"1px solid grey"}}>DNI</th>
+							<th style={{border:"1px solid grey"}}>Paciente</th>
 							<th style={{border:"1px solid grey"}}>Edad</th>
 							<th style={{border:"1px solid grey"}}>Sexo</th>
 							<th style={{border:"1px solid grey"}}>Diagnóstico</th>
 							<th style={{border:"1px solid grey"}}>Complejidad de Cama</th>
 							<th style={{border:"1px solid grey"}}>Solicitante</th>
-							<th style={{border:"1px solid grey"}}>Plan</th>
 							<th style={{border:"1px solid grey"}}>Usuario</th>
 							<th style={{border:"1px solid grey"}}>Fecha/Hora</th>
 					      <th style={{border:"1px solid grey"}}>Confirmado</th>

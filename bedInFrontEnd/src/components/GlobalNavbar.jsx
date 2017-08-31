@@ -18,7 +18,7 @@ function GlobalNavbar (props) {
         <div className="container">
           <div className="row flex-items-xs-middle">
             <div className="col-xs-6 columna">
-              <h1>BedIn</h1>
+              <h1>BdIn</h1>
             </div>
 
             <div className="col-xs-6 columna text-xs-right">

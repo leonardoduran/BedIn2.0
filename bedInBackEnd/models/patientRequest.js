@@ -4,7 +4,7 @@ const moment = require('moment');
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const patientRequest = new mongoose.Schema({
-  dni: { type: Number, required: true },
+  dni: { type: String, required: true },
   sex: { type: String }, // , required: true
   age: { type: Number }, // , required: true
   cie10: { type: String }, // , required: true

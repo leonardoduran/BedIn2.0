@@ -17,7 +17,7 @@ function opcionalHomeFinanciador(props) {
             <div className="col-xs-12 col-sm-4 col-lg-3 col-xl-3 oh text-aligt-center ">
                 <div id="b71">
                   
-                  <h2 className="text-xs-center ">Hospital</h2>
+                  <h2 className="text-xs-center ">Institución</h2>
                     <Link className="btn btn-info" id="c4a1" to="/Bedin/hospital/entver">
                       <span className="glyphicon a4 glyphicon glyphicon-list img-circle  flex-item-center" id="glyphicon-p"></span>
                       Solicitudes Pendientes
@@ -25,7 +25,7 @@ function opcionalHomeFinanciador(props) {
    
                     <Link to="Bedin/hospital/usercrear" className="btn btn-info" id="c4a1">
                       <span className="glyphicon a4 glyphicon glyphicon-user img-circle  flex-item-center" id="glyphicon-p"></span>
-                      Aceptados
+                      Confirmados
                     </Link>      
                                     
                 </div>

@@ -37,9 +37,9 @@ function TableViewRequestDetails(props) {
 			<table style={{border:"1px solid black"}} className= "table">
 			  <thead style={{border:"1px solid black"}}>
 			    <tr>
-						<th style={{border:"1px solid black"}}>Hospitales Solicitados:</th>
-		  			<th style={{border:"1px solid black"}}>Visto Por:</th>
-					  <th style={{border:"1px solid black"}}>Aceptado Por:</th>
+						<th style={{border:"1px solid black"}}>Instituciones Solicitadas</th>
+		  			<th style={{border:"1px solid black"}}>Vista</th>
+					  <th style={{border:"1px solid black"}}>Aceptada</th>
 			    </tr>
 			  </thead>
 			  <tbody>

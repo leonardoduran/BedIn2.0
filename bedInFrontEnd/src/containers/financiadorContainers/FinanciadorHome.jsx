@@ -20,7 +20,7 @@ const navBarData = {
 		},
 		{
 			route: "/Financiador/viewmatched",
-			name: "Aceptados"
+			name: "Solicitudes Confirmadas"
 		}
 	],
 	logo : '/public/img/logo_original.jpg',

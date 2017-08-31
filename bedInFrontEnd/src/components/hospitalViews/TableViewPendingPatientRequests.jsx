@@ -47,7 +47,7 @@ function ViewPatientRequestsPendingTable(props) {
                     <th style={{border:"1px solid grey"}}>Sexo</th>
                     <th style={{border:"1px solid grey"}}>Diagnóstico</th>
                     <th style={{border:"1px solid grey"}}>Complejidad de Cama</th>
-                    <th style={{border:"1px solid grey"}}>Obra Social</th>
+                    <th style={{border:"1px solid grey"}}>Solicitante</th>
                     <th style={{border:"1px solid grey"}}>Fecha/Hora</th>    
                   <th style={{border:"1px solid grey"}}>
                             <a style={{cursor:"pointer"}} onClick={props.setAllViewed}>Ver Todos</a>

@@ -10741,7 +10741,7 @@ function GlobalNavbar(props) {
             _react2.default.createElement(
               'h1',
               null,
-              'BedIn'
+              'BdIn'
             )
           ),
           _react2.default.createElement(
@@ -32434,7 +32434,6 @@ var _reactRouter = __webpack_require__(12);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function RedirectControl(props) {
-	alert('asnd');
 	_reactRouter.hashHistory.push('/' + props.userType);
 	return _react2.default.createElement('div', null);
 }
@@ -34677,7 +34676,7 @@ function CreatePatientRequestForm(props) {
             _react2.default.createElement(
               "div",
               { className: "col-sm-9" },
-              _react2.default.createElement("input", { type: "text", className: "form-control", name: "dni", placeholder: "DNI / Nro Afiliado" })
+              _react2.default.createElement("input", { type: "text", className: "form-control", name: "dni", placeholder: "Nombre y Apellido" })
             )
           ),
           _react2.default.createElement(
@@ -34762,17 +34761,27 @@ function CreatePatientRequestForm(props) {
                 _react2.default.createElement(
                   "option",
                   null,
+                  "Guardia"
+                ),
+                _react2.default.createElement(
+                  "option",
+                  null,
                   "Neonatolog\xEDa"
                 ),
                 _react2.default.createElement(
                   "option",
                   null,
-                  "UTI Pedi\xE1trica"
+                  "Sala Com\xFAn"
                 ),
                 _react2.default.createElement(
                   "option",
                   null,
                   "Sala Pedi\xE1trica"
+                ),
+                _react2.default.createElement(
+                  "option",
+                  null,
+                  "UTI Pedi\xE1trica"
                 ),
                 _react2.default.createElement(
                   "option",
@@ -34883,7 +34892,12 @@ function ViewPatientRequestsMatchedTable(props) {
             _react2.default.createElement(
                 'td',
                 { style: tableStyle },
-                patient.healthcareplan.name
+                patient.age
+            ),
+            _react2.default.createElement(
+                'td',
+                { style: tableStyle },
+                patient.sex
             ),
             _react2.default.createElement(
                 'td',
@@ -34899,6 +34913,11 @@ function ViewPatientRequestsMatchedTable(props) {
                 'td',
                 { style: tableStyle },
                 patient.sentTo.hospital.name
+            ),
+            _react2.default.createElement(
+                'td',
+                { style: tableStyle },
+                patient.healthcareplan.name
             ),
             _react2.default.createElement(
                 'td',
@@ -34942,7 +34961,12 @@ function ViewPatientRequestsMatchedTable(props) {
                                 _react2.default.createElement(
                                     'th',
                                     { style: { border: "1px solid grey" } },
-                                    'Plan'
+                                    'Edad'
+                                ),
+                                _react2.default.createElement(
+                                    'th',
+                                    { style: { border: "1px solid grey" } },
+                                    'Sexo'
                                 ),
                                 _react2.default.createElement(
                                     'th',
@@ -34957,7 +34981,12 @@ function ViewPatientRequestsMatchedTable(props) {
                                 _react2.default.createElement(
                                     'th',
                                     { style: { border: "1px solid grey" } },
-                                    'Hospital'
+                                    'Instituci\xF3n'
+                                ),
+                                _react2.default.createElement(
+                                    'th',
+                                    { style: { border: "1px solid grey" } },
+                                    'Plan'
                                 ),
                                 _react2.default.createElement(
                                     'th',
@@ -35040,7 +35069,7 @@ function ViewPatientRequestsPendingTable(props) {
         });
     };
     var tableBody = props.listOfPending.map(function (pending, i) {
-        var colorStyle = pending.timeout ? setRowColor('pink') : pending.viewedByHospitals.length ? setRowColor('lightblue') : pending.acceptedByHospital.length ? setRowColor('lightgreen') : setRowColor(null);
+        var colorStyle = pending.timeout ? setRowColor('pink') : pending.acceptedByHospital.length ? setRowColor('lightgreen') : pending.viewedByHospitals.length ? setRowColor('lightblue') : setRowColor(null);
 
         return _react2.default.createElement(
             'tr',
@@ -35138,7 +35167,7 @@ function ViewPatientRequestsPendingTable(props) {
                                 _react2.default.createElement(
                                     'th',
                                     { style: { border: "1px solid grey" } },
-                                    'Complejidad de Cama'
+                                    'Complejidad'
                                 ),
                                 _react2.default.createElement(
                                     'th',
@@ -35256,17 +35285,17 @@ function TableViewRequestDetails(props) {
 					_react2.default.createElement(
 						'th',
 						{ style: { border: "1px solid black" } },
-						'Hospitales Solicitados:'
+						'Instituciones Solicitadas'
 					),
 					_react2.default.createElement(
 						'th',
 						{ style: { border: "1px solid black" } },
-						'Visto Por:'
+						'Vista'
 					),
 					_react2.default.createElement(
 						'th',
 						{ style: { border: "1px solid black" } },
-						'Aceptado Por:'
+						'Aceptada'
 					)
 				)
 			),
@@ -35356,11 +35385,6 @@ function ViewPatientRequestsAcceptedTable(props) {
 			_react2.default.createElement(
 				'td',
 				{ style: tableStyle },
-				patient.healthcareplan.name
-			),
-			_react2.default.createElement(
-				'td',
-				{ style: tableStyle },
 				patient.hospitalsAndState.userHospital.name
 			),
 			_react2.default.createElement(
@@ -35401,7 +35425,7 @@ function ViewPatientRequestsAcceptedTable(props) {
 								_react2.default.createElement(
 									'th',
 									{ style: { border: "1px solid grey" } },
-									'DNI'
+									'Paciente'
 								),
 								_react2.default.createElement(
 									'th',
@@ -35427,11 +35451,6 @@ function ViewPatientRequestsAcceptedTable(props) {
 									'th',
 									{ style: { border: "1px solid grey" } },
 									'Solicitante'
-								),
-								_react2.default.createElement(
-									'th',
-									{ style: { border: "1px solid grey" } },
-									'Plan'
 								),
 								_react2.default.createElement(
 									'th',
@@ -35609,7 +35628,7 @@ function ViewPatientRequestsPendingTable(props) {
                                 _react2.default.createElement(
                                     'th',
                                     { style: { border: "1px solid grey" } },
-                                    'Obra Social'
+                                    'Solicitante'
                                 ),
                                 _react2.default.createElement(
                                     'th',
@@ -35768,7 +35787,7 @@ function ViewPatientRequestsViewedTable(props) {
 								_react2.default.createElement(
 									'th',
 									{ style: { border: "1px solid grey" } },
-									'Obra Social'
+									'Solicitante'
 								),
 								_react2.default.createElement(
 									'th',
@@ -37293,7 +37312,7 @@ var navBarData = {
 		name: "Solicitudes Generadas"
 	}, {
 		route: "/Financiador/viewmatched",
-		name: "Aceptados"
+		name: "Solicitudes Confirmadas"
 	}],
 	logo: '/public/img/logo_original.jpg',
 	userType: 'Financiador',
