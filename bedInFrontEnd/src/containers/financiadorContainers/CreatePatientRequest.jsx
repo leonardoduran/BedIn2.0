@@ -1,4 +1,4 @@
- import React from 'react';
+import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -33,6 +33,7 @@ class CreatePatientRequest extends React.Component {
 	constructor(props) {
 		super(props);
 		this.create = this.create.bind(this)
+		this.createOk = this.createOk.bind(this)
 	}
 
 	componentWillMount() {
@@ -41,8 +42,8 @@ class CreatePatientRequest extends React.Component {
 
 	create(e) {
 		e.preventDefault();
-		let selectedSex = document.getElementById("sex-select").value;
-		let selectedComplexity = document.getElementById("complexity-select").value;
+		let selectedSex = e.target.sexo.value;
+		let selectedComplexity = e.target.complejidad.value;
 		let selectedPlan = e.target.plan.value;
 
     this.props.createPatientRequest({
@@ -55,13 +56,26 @@ class CreatePatientRequest extends React.Component {
     })
   }
 
+	createOk(e){
+		e.preventDefault();
+debugger;		
+		document.getElementById("dni").value	   ='';
+		document.getElementById("sexSelect").value='---Seleccione Sexo---';
+		document.getElementById("edad").value      ='';
+		document.getElementById("cie").value       ='';
+		document.getElementById("complexitySelect").value='---Seleccione Complejidad---';
+		document.getElementById("planSelect").value='---Selecccione Plan---';
+		this.props.resetCreateSuccess();
+	}
+
+
 	componentWillUnmount() {
     this.props.resetCreateSuccess();
   }
-
+	
 	render() {
 		return (
-			<CreatePatientRequestForm plans={this.props.plans} createRequest={this.create} success={this.props.createSuccess} />
+			<CreatePatientRequestForm plans={this.props.plans} createRequest={this.create} success={this.props.createSuccess} createRequestOk={this.createOk} />
 		)
 	}
 }

@@ -10847,10 +10847,17 @@ function requestCreate() {
 }
 
 function receiveCreatedPatient(input) {
-  return {
-    type: 'RECEIVE_CREATED_PATIENT',
-    input: input
-  };
+  if (input.error) {
+    return {
+      type: 'FAILED_TO_CREATE',
+      input: input
+    };
+  } else {
+    return {
+      type: 'RECEIVE_CREATED_PATIENT',
+      input: input
+    };
+  }
 }
 
 function failedToCreate(err) {
@@ -32924,7 +32931,7 @@ function FinanciadorFormStep2(props) {
               _react2.default.createElement(
                 'h4',
                 { className: 'modal-title' },
-                'La solicitud se ha creado exitosamente'
+                'El financiador se ha creado exitosamente'
               )
             ),
             _react2.default.createElement(
@@ -34638,12 +34645,43 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function CreatePatientRequestForm(props) {
+
   var popup = null;
   if (props.success) {
     popup = _react2.default.createElement(
       "div",
       null,
-      "PATIENT REQUEST CREADO"
+      _react2.default.createElement("div", { className: "modal-backdrop", id: "modal-backdrop" }),
+      _react2.default.createElement(
+        "div",
+        { className: "modal", id: "modal" },
+        _react2.default.createElement(
+          "div",
+          { className: "modal-dialog" },
+          _react2.default.createElement(
+            "div",
+            { className: "modal-content" },
+            _react2.default.createElement(
+              "div",
+              { className: "modal-header" },
+              _react2.default.createElement(
+                "h4",
+                { className: "modal-title" },
+                "La solicitud se ha creado exitosamente"
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "modal-footer " },
+              _react2.default.createElement(
+                "button",
+                { type: "button", onClick: props.createRequestOk, className: " button ", "data-dismiss": "modal", id: "newbtn11" },
+                "Home"
+              )
+            )
+          )
+        )
+      )
     );
   }
 
@@ -34676,7 +34714,7 @@ function CreatePatientRequestForm(props) {
             _react2.default.createElement(
               "div",
               { className: "col-sm-9" },
-              _react2.default.createElement("input", { type: "text", className: "form-control", name: "dni", placeholder: "Nombre y Apellido" })
+              _react2.default.createElement("input", { type: "text", className: "form-control", name: "dni", id: "dni", placeholder: "Nombre y Apellido" })
             )
           ),
           _react2.default.createElement(
@@ -34692,10 +34730,10 @@ function CreatePatientRequestForm(props) {
               { className: "col-sm-9" },
               _react2.default.createElement(
                 "select",
-                { className: "form-control", id: "sex-select" },
+                { className: "form-control", name: "sexo", id: "sexSelect" },
                 _react2.default.createElement(
                   "option",
-                  { value: "select-sex" },
+                  null,
                   "---Seleccione Sexo---"
                 ),
                 _react2.default.createElement(
@@ -34722,7 +34760,7 @@ function CreatePatientRequestForm(props) {
             _react2.default.createElement(
               "div",
               { className: "col-sm-9" },
-              _react2.default.createElement("input", { type: "number", className: "form-control", name: "edad", placeholder: "Edad" })
+              _react2.default.createElement("input", { type: "number", className: "form-control", name: "edad", id: "edad", placeholder: "Edad" })
             )
           ),
           _react2.default.createElement(
@@ -34736,7 +34774,7 @@ function CreatePatientRequestForm(props) {
             _react2.default.createElement(
               "div",
               { className: "col-sm-9" },
-              _react2.default.createElement("input", { type: "text", className: "form-control", name: "cie", placeholder: "Diagn\xF3stico" })
+              _react2.default.createElement("input", { type: "text", className: "form-control", name: "cie", id: "cie", placeholder: "Diagn\xF3stico" })
             )
           ),
           _react2.default.createElement(
@@ -34752,11 +34790,11 @@ function CreatePatientRequestForm(props) {
               { className: "col-sm-9" },
               _react2.default.createElement(
                 "select",
-                { className: "form-control", name: "complejidad", id: "complexity-select" },
+                { className: "form-control", name: "complejidad", id: "complexitySelect" },
                 _react2.default.createElement(
                   "option",
-                  { value: "select-option" },
-                  "---Seleccione Una Opci\xF3n---"
+                  null,
+                  "---Seleccione Complejidad---"
                 ),
                 _react2.default.createElement(
                   "option",
@@ -34809,11 +34847,11 @@ function CreatePatientRequestForm(props) {
               { className: "col-sm-9" },
               _react2.default.createElement(
                 "select",
-                { className: "form-control", name: "plan", id: "plan-select" },
+                { className: "form-control", name: "plan", id: "planSelect" },
                 _react2.default.createElement(
                   "option",
                   null,
-                  "---Selecccione Plan del Paciente---"
+                  "---Selecccione Plan---"
                 ),
                 props.plans.map(function (plan, i) {
                   return _react2.default.createElement(
@@ -34834,7 +34872,7 @@ function CreatePatientRequestForm(props) {
               _react2.default.createElement(
                 "button",
                 { className: "btn button", id: "button2" },
-                "Send"
+                "Generar solicitud"
               )
             )
           )
@@ -35038,7 +35076,8 @@ function ViewPatientRequestsPendingTable(props) {
     var tableStyle = { border: "1px solid grey" };
     var marginLeft = { marginLeft: "5px" };
     var formattedDate = function formattedDate(date) {
-        return (0, _moment2.default)(date).format('DD/MM/YYYY || HH:mm:ss');
+        return ((0, _moment2.default)(date).isSame((0, _moment2.default)(), 'day') ? 'HOY  ' : 'AYER ') + (0, _moment2.default)(date).format('HH:mm:ss');
+        // return moment(date).format('DD/MM/YYYY || HH:mm:ss');
     };
     var setRowColor = function setRowColor(color) {
         return { backgroundColor: color };
@@ -35122,6 +35161,7 @@ function ViewPatientRequestsPendingTable(props) {
             )
         );
     });
+
     return _react2.default.createElement(
         'div',
         null,
@@ -36186,7 +36226,6 @@ var FinanciadorForm = function (_React$Component) {
   _createClass(FinanciadorForm, [{
     key: 'add',
     value: function add(input, checkedHospitals) {
-      debugger;
       var array = this.state.planInputs.slice();
       array.push(input);
       var arrayChecked = this.state.hospitalInputs.slice();
@@ -37219,6 +37258,7 @@ var CreatePatientRequest = function (_React$Component) {
 		var _this = _possibleConstructorReturn(this, (CreatePatientRequest.__proto__ || Object.getPrototypeOf(CreatePatientRequest)).call(this, props));
 
 		_this.create = _this.create.bind(_this);
+		_this.createOk = _this.createOk.bind(_this);
 		return _this;
 	}
 
@@ -37231,8 +37271,8 @@ var CreatePatientRequest = function (_React$Component) {
 		key: 'create',
 		value: function create(e) {
 			e.preventDefault();
-			var selectedSex = document.getElementById("sex-select").value;
-			var selectedComplexity = document.getElementById("complexity-select").value;
+			var selectedSex = e.target.sexo.value;
+			var selectedComplexity = e.target.complejidad.value;
 			var selectedPlan = e.target.plan.value;
 
 			this.props.createPatientRequest({
@@ -37245,6 +37285,19 @@ var CreatePatientRequest = function (_React$Component) {
 			});
 		}
 	}, {
+		key: 'createOk',
+		value: function createOk(e) {
+			e.preventDefault();
+			debugger;
+			document.getElementById("dni").value = '';
+			document.getElementById("sexSelect").value = '---Seleccione Sexo---';
+			document.getElementById("edad").value = '';
+			document.getElementById("cie").value = '';
+			document.getElementById("complexitySelect").value = '---Seleccione Complejidad---';
+			document.getElementById("planSelect").value = '---Selecccione Plan---';
+			this.props.resetCreateSuccess();
+		}
+	}, {
 		key: 'componentWillUnmount',
 		value: function componentWillUnmount() {
 			this.props.resetCreateSuccess();
@@ -37252,7 +37305,7 @@ var CreatePatientRequest = function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			return _react2.default.createElement(_CreatePatientRequestForm2.default, { plans: this.props.plans, createRequest: this.create, success: this.props.createSuccess });
+			return _react2.default.createElement(_CreatePatientRequestForm2.default, { plans: this.props.plans, createRequest: this.create, success: this.props.createSuccess, createRequestOk: this.createOk });
 		}
 	}]);
 

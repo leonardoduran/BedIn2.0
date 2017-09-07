@@ -5,10 +5,18 @@ export function requestCreate() {
 }
 
 export function receiveCreatedPatient(input) {
+if(input.error){
+  return{
+   type: 'FAILED_TO_CREATE',
+   input
+  }
+}
+else{
   return {
     type: 'RECEIVE_CREATED_PATIENT',
     input
-  };
+  }
+}
 }
 
 export function failedToCreate(err) {

@@ -12,7 +12,7 @@ function FinanciadorFormStep2(props) {
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="modal-header">
-                    <h4 className="modal-title">La solicitud se ha creado exitosamente</h4>
+                    <h4 className="modal-title">El financiador se ha creado exitosamente</h4>
                 </div>
                 <div className="modal-footer ">
                           <Link to="/Bedin" >
@@ -102,5 +102,3 @@ function FinanciadorFormStep2(props) {
 }
 
 export default FinanciadorFormStep2;
-
-

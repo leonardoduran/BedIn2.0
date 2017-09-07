@@ -4,7 +4,8 @@ function ViewPatientRequestsPendingTable(props) {
     const tableStyle = {border:"1px solid grey"};
     const marginLeft = {marginLeft:"5px"};
     let formattedDate =  function(date) {
-        return moment(date).format('DD/MM/YYYY || HH:mm:ss');
+        return  (moment(date).isSame(moment(), 'day')?'HOY  ':'AYER ') + moment(date).format('HH:mm:ss');
+        // return moment(date).format('DD/MM/YYYY || HH:mm:ss');
     }
     const setRowColor = (color) => ({backgroundColor : color})  
     const buildPendingTable = (listOfPending = [], acceptedByHospital, idPending) => {
@@ -39,6 +40,7 @@ function ViewPatientRequestsPendingTable(props) {
             </tr>
             )
         })
+
     return (
         <div>
         <div className="container container_a">
