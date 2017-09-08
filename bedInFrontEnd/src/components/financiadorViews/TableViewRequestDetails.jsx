@@ -7,6 +7,7 @@ function TableViewRequestDetails(props) {
 	const marginLeft = {marginLeft:"5px"};
 
 	const buildDetailTable = (listOfPending = [], acceptedByHospital, idPending) => {
+		console.log("listOfPending",listOfPending)
 		return listOfPending.map(eachPending =>
 			acceptedByHospital ?
 			<p key={eachPending._id} >{eachPending.hospital.name}

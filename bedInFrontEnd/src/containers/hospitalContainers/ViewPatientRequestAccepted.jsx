@@ -2,7 +2,6 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../redux/actions/hospitalActions/patients';
-
 import TableViewAcceptedPatientRequests from '../../components/hospitalViews/TableViewAcceptedPatientRequests.jsx';
 
 function mapStateToProps(state) {
@@ -24,7 +23,6 @@ class ViewAcceptedPatientRequest extends React.Component {
 	}
 
 	componentWillMount() {
-
 		this.props.fetchGetPatientsByState('Aceptado');
 		this.idInterval = setInterval(() => {
 			this.props.fetchGetPatientsByState('Aceptado');	

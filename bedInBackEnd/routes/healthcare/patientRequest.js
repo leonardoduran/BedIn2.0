@@ -14,25 +14,51 @@ app.post('/',hospitalsController.getHospitalsByPlan, function(req,res) {
 	.catch(error => {console.log(error); errorHandler.sendInternalServerError(res)});
 })
 
+
+/*
+   var startOfDay = moment(req.params.serviceDate, 'MM/DD/YYYY')
+                          .startOf('day').format('MM/DD/YYYY'),
+   nextDay = moment(startOfDay, 'MM/DD/YYYY').add(1,'days')
+                   .format('MM/DD/YYYY');
+
+   console.log('startOfDay: ' + startOfDay);
+   console.log('nextDay: ' + nextDay);
+   BillingLog.find({
+      _userId: new ObjectId(req.params.id),
+      serviceDate: {
+         $gte: startOfDay,
+         $lt: nextDay
+      }
+   }).exec(function(err, billingLogs) {
+      res.send(billingLogs);
+   })
+};
+*/
+
 app.get('/pending', function(req,res) {
-	const hoursViewev = 24;
+   var startOfDay = moment(moment(), 'MM/DD/YYYY')
+                          .startOf('day').format('MM/DD/YYYY'),
+
+   nextDay = moment(startOfDay, 'MM/DD/YYYY').add(1,'days')
+                   .format('MM/DD/YYYY');   
+   prevDay = moment(startOfDay, 'MM/DD/YYYY').subtract(1,'days')
+                   .format('MM/DD/YYYY');	
+
 	patientRequest.find({
 		healthcare: req.user.osCode,
-		'sentTo.hospital': null
+		'sentTo.hospital': null,
+        dateCreated: {
+           $gte: prevDay,
+           $lt: nextDay
+        }		
 	})
 	.populate('healthcareplan', 'name')
 	.populate('hospitalsAndState.hospital', 'name')
 	.sort({dateCreated: -1})
 	.exec()
 	.then(patient => {
-			patient = patient.filter(eachPatient => {
+		patient = patient.map(eachPatient => {
 			eachPatient = eachPatient.toObject();
-	
-			var now = moment(new Date()); //todays date
-			var end = moment(eachPatient.dateCreated); // another date
-			var duration = moment.duration(now.diff(end));
-			var hours = parseInt(duration.asHours());
-
 			eachPatient.allRequestedHospitals = eachPatient.hospitalsAndState;
 			delete eachPatient.hospitalsAndState;	
 			eachPatient.viewedByHospitals = [];
@@ -41,51 +67,37 @@ app.get('/pending', function(req,res) {
 				if(eachHospital.state === 'Visto') return eachPatient.viewedByHospitals.push(eachHospital)
 				if(eachHospital.state === 'Aceptado') return eachPatient.acceptedByHospital.push(eachHospital)	
 			})
-			if(hours<hoursViewev)
-				{
-					return eachPatient
-				}
+
+			// if(moment(dateCreated).isSame(moment(), 'day'))
+			// 	return eachPatient
+
+			return eachPatient
 		})
 		res.send(patient)
 	})
 	.catch(error => {console.log(error); errorHandler.sendInternalServerError(res)});
 })
 
-// app.get('/matched', function(req,res) {
-// 	const hoursViewev = 24;
-// 	patientRequest.find({
-// 		healthcare: req.user.osCode,
-// 		'sentTo.hospital' : {"$ne": null}
-// 	})
-// 	.populate('healthcareplan', 'name')
-// 	.populate('sentTo.hospital')
-// 	.populate('sentTo.userFinanciador', 'name username')
-// 	.exec()
-// 	.then(patient => {
-// 			patient = patient.filter(eachPatient => {
-// 			eachPatient = eachPatient.toObject();	
-// 			var now = moment(new Date()); //todays date
-// 			var end = moment(eachPatient.dateCreated); // another date
-// 			var duration = moment.duration(now.diff(end));
-// 			var hours = parseInt(duration.asHours());
-// 			if(hours<hoursViewev)
-// 				{
-// 					return eachPatient
-// 				}
-// 		})
-// 		res.send(patient)
-// 	})
-// 	.catch(error => {console.log(error); errorHandler.sendInternalServerError(res)});
-// })
-
 app.get('/matched', function(req,res) {
+   var startOfDay = moment(moment(), 'MM/DD/YYYY')
+                          .startOf('day').format('MM/DD/YYYY'),
+
+   nextDay = moment(startOfDay, 'MM/DD/YYYY').add(1,'days')
+                   .format('MM/DD/YYYY');   
+   prevDay = moment(startOfDay, 'MM/DD/YYYY').subtract(1,'days')
+                   .format('MM/DD/YYYY');
 	patientRequest.find({
 		healthcare: req.user.osCode,
-		'sentTo.hospital' : {"$ne": null}
+		'sentTo.hospital' : {"$ne": null},
+        dateCreated: {
+           $gte: prevDay,
+           $lt: nextDay
+        }	
 	})
 	.populate('healthcareplan', 'name')
 	.populate('sentTo.hospital')
 	.populate('sentTo.userFinanciador', 'name username')
+	.sort({dateCreated: -1})
 	.exec()
 	.then(patient => {res.send(patient)})
 	.catch(error => {console.log(error); errorHandler.sendInternalServerError(res)});

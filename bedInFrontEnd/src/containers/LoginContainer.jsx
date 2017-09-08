@@ -33,14 +33,7 @@ class LoginContainer extends React.Component {
     const loading = (this.props.isRequesting) 
     ? <div id="spinner">
     <i className="fa fa-spinner fa-spin" style={{fontSize:"24px"}}></i>
-
-
-
-
     </div>   
-    : <div></div>
-    const error = (this.props.error) ?
-    <div>{this.props.error}</div>
     : <div></div>
     
     return (
@@ -48,8 +41,7 @@ class LoginContainer extends React.Component {
         <Login fetchLogin = {this.props.loginFetch}
           userType = {this.props.userType}
         />
-      {loading}
-      {error}
+        {loading}
       </div>
     )
   }

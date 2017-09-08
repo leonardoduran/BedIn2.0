@@ -6,7 +6,8 @@ const marginLeft = {marginLeft:"50%"}
 
 function ViewPatientRequestsViewedTable(props) {
     let formattedDate =  function(date) {
-        return moment(date).format('DD/MM/YYYY || HH:mm:ss');
+        // return moment(date).format('DD/MM/YYYY || HH:mm:ss');
+        return  (moment(date).isSame(moment(), 'day')?'HOY  ':'AYER ') + moment(date).format('HH:mm:ss');
     }
 	const tableBody = props.patientsList.map((patient, i) =>
 		<tr style={tableStyle} key={patient._id}>

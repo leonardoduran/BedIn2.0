@@ -13,6 +13,7 @@ export function userIsLoggedIn(user) {
 }
 
 export function userFailedToLogin(err) {
+  alert(err)
   return {
     type: 'USER_FAILED_TO_LOG_IN',
     err

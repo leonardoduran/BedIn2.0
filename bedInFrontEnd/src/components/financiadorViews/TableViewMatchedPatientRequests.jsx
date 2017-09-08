@@ -3,7 +3,8 @@ import moment from 'moment';
 const tableStyle = {border:"1px solid grey"};
 function ViewPatientRequestsMatchedTable(props) {
     let formattedDate =  function(date) {
-        return moment(date).format('DD/MM/YYYY || HH:mm:ss');
+        // return moment(date).format('DD/MM/YYYY || HH:mm:ss');
+        return  (moment(date).isSame(moment(), 'day')?'HOY  ':'AYER ') + moment(date).format('HH:mm:ss');
     }
     const setRowColor = (color) => ({backgroundColor : color})  
     const tableBody = props.patients.map((patient, i) =>

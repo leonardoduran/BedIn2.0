@@ -1,18 +1,24 @@
 import React from 'react';
 import moment from 'moment';
+
+import store from '../../redux/store';
+
 const tableStyle = {border:"1px solid grey"};
 const marginLeft = {marginLeft:"50%"}
 
 function ViewPatientRequestsAcceptedTable(props) {
     let formattedDate =  function(date) {
-        return moment(date).format('DD/MM/YYYY || HH:mm:ss');
+        // return moment(date).format('DD/MM/YYYY || HH:mm:ss');
+        return  (moment(date).isSame(moment(), 'day')?'HOY  ':'AYER ') + moment(date).format('HH:mm:ss');
     }
-	const checkMatch = (isMatched) => 
-		(isMatched) ? 
+	const checkMatch = (idHospital) => 
+		(idHospital == store.getState().authentication.institucionCode) ? 
 			<p>
 				<span style = {marginLeft} className="glyphicon glyphicon-ok"></span>
-			</p>    
-		: <p></p>
+			</p>:
+		    <p>
+				<span style = {marginLeft} className="glyphicon glyphicon-remove"></span>
+		    </p>
 	const setRowColor = (color) => ({backgroundColor : color})
 	const tableBody = props.patientsList.map((patient, i) =>
 

@@ -20,6 +20,7 @@ function authentication (state = {
         userName: action.user.name,
         userData : action.user.data,
         userId: action.user.id,
+        institucionCode : action.user.institucionCode,
         errorCheckLogin : false,
         errorCredentials: false  
       });

@@ -8382,6 +8382,7 @@ function userIsLoggedIn(user) {
 }
 
 function userFailedToLogin(err) {
+  alert(err);
   return {
     type: 'USER_FAILED_TO_LOG_IN',
     err: err
@@ -34913,7 +34914,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var tableStyle = { border: "1px solid grey" };
 function ViewPatientRequestsMatchedTable(props) {
     var formattedDate = function formattedDate(date) {
-        return (0, _moment2.default)(date).format('DD/MM/YYYY || HH:mm:ss');
+        // return moment(date).format('DD/MM/YYYY || HH:mm:ss');
+        return ((0, _moment2.default)(date).isSame((0, _moment2.default)(), 'day') ? 'HOY  ' : 'AYER ') + (0, _moment2.default)(date).format('HH:mm:ss');
     };
     var setRowColor = function setRowColor(color) {
         return { backgroundColor: color };
@@ -35108,7 +35110,10 @@ function ViewPatientRequestsPendingTable(props) {
         });
     };
     var tableBody = props.listOfPending.map(function (pending, i) {
-        var colorStyle = pending.timeout ? setRowColor('pink') : pending.acceptedByHospital.length ? setRowColor('lightgreen') : pending.viewedByHospitals.length ? setRowColor('lightblue') : setRowColor(null);
+        var colorStyle = pending.timeout ? setRowColor('pink') : setRowColor(null);
+        //     : (pending.acceptedByHospital.length) ? setRowColor('lightgreen')
+        //     : (pending.viewedByHospitals.length) ? setRowColor('lightblue')
+        //     : setRowColor(null)
 
         return _react2.default.createElement(
             'tr',
@@ -35269,6 +35274,7 @@ function TableViewRequestDetails(props) {
 		var acceptedByHospital = arguments[1];
 		var idPending = arguments[2];
 
+		console.log("listOfPending", listOfPending);
 		return listOfPending.map(function (eachPending) {
 			return acceptedByHospital ? _react2.default.createElement(
 				'p',
@@ -35369,6 +35375,10 @@ var _moment = __webpack_require__(0);
 
 var _moment2 = _interopRequireDefault(_moment);
 
+var _store = __webpack_require__(326);
+
+var _store2 = _interopRequireDefault(_store);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var tableStyle = { border: "1px solid grey" };
@@ -35376,14 +35386,19 @@ var marginLeft = { marginLeft: "50%" };
 
 function ViewPatientRequestsAcceptedTable(props) {
 	var formattedDate = function formattedDate(date) {
-		return (0, _moment2.default)(date).format('DD/MM/YYYY || HH:mm:ss');
+		// return moment(date).format('DD/MM/YYYY || HH:mm:ss');
+		return ((0, _moment2.default)(date).isSame((0, _moment2.default)(), 'day') ? 'HOY  ' : 'AYER ') + (0, _moment2.default)(date).format('HH:mm:ss');
 	};
-	var checkMatch = function checkMatch(isMatched) {
-		return isMatched ? _react2.default.createElement(
+	var checkMatch = function checkMatch(idHospital) {
+		return idHospital == _store2.default.getState().authentication.institucionCode ? _react2.default.createElement(
 			'p',
 			null,
 			_react2.default.createElement('span', { style: marginLeft, className: 'glyphicon glyphicon-ok' })
-		) : _react2.default.createElement('p', null);
+		) : _react2.default.createElement(
+			'p',
+			null,
+			_react2.default.createElement('span', { style: marginLeft, className: 'glyphicon glyphicon-remove' })
+		);
 	};
 	var setRowColor = function setRowColor(color) {
 		return { backgroundColor: color };
@@ -35551,7 +35566,8 @@ function ViewPatientRequestsPendingTable(props) {
         return { backgroundColor: color };
     };
     var formattedDate = function formattedDate(date) {
-        return (0, _moment2.default)(date).format('DD/MM/YYYY || HH:mm:ss');
+        // return moment(date).format('DD/MM/YYYY || HH:mm:ss');
+        return ((0, _moment2.default)(date).isSame((0, _moment2.default)(), 'day') ? 'HOY  ' : 'AYER ') + (0, _moment2.default)(date).format('HH:mm:ss');
     };
     var tableBody = props.patientsList.map(function (patient, i) {
         return _react2.default.createElement(
@@ -35726,7 +35742,8 @@ var marginLeft = { marginLeft: "50%" };
 
 function ViewPatientRequestsViewedTable(props) {
 	var formattedDate = function formattedDate(date) {
-		return (0, _moment2.default)(date).format('DD/MM/YYYY || HH:mm:ss');
+		// return moment(date).format('DD/MM/YYYY || HH:mm:ss');
+		return ((0, _moment2.default)(date).isSame((0, _moment2.default)(), 'day') ? 'HOY  ' : 'AYER ') + (0, _moment2.default)(date).format('HH:mm:ss');
 	};
 	var tableBody = props.patientsList.map(function (patient, i) {
 		return _react2.default.createElement(
@@ -37063,11 +37080,6 @@ var LoginContainer = function (_React$Component) {
         { id: 'spinner' },
         _react2.default.createElement('i', { className: 'fa fa-spinner fa-spin', style: { fontSize: "24px" } })
       ) : _react2.default.createElement('div', null);
-      var error = this.props.error ? _react2.default.createElement(
-        'div',
-        null,
-        this.props.error
-      ) : _react2.default.createElement('div', null);
 
       return _react2.default.createElement(
         'div',
@@ -37075,8 +37087,7 @@ var LoginContainer = function (_React$Component) {
         _react2.default.createElement(_Login2.default, { fetchLogin: this.props.loginFetch,
           userType: this.props.userType
         }),
-        loading,
-        error
+        loading
       );
     }
   }]);
@@ -38265,6 +38276,7 @@ function authentication() {
         userName: action.user.name,
         userData: action.user.data,
         userId: action.user.id,
+        institucionCode: action.user.institucionCode,
         errorCheckLogin: false,
         errorCredentials: false
       });
