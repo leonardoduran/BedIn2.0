@@ -104,6 +104,7 @@ export function receivePending(pending) {
 }
 
 export function receiveMatched(matched) {
+  // Tengo que identificar qué Item del array hospitalsAndState fue el que matcheó el financiador 
   return {
     type: 'RECEIVE_MATCHED',
     matched
@@ -140,7 +141,7 @@ export function fetchMatchedPatientRequests() {
       },
     })
       .then(response => response.json())
-      .then(data => dispatch(receiveMatched(data)))
+      .then(data => {console.log(data);dispatch(receiveMatched(data))})
       .catch(err => dispatch(failedRequest(err)))
   };
 };
@@ -154,7 +155,7 @@ export function matchWithHospital(patientRequestId, idHospital) {
       idHospital
     }
     return fetch('./healthcare/patientRequest/matched', {
-      method: 'POST',
+      method: 'PUT',
       credentials: 'include',
       headers: {
         'Accept': 'application/json',

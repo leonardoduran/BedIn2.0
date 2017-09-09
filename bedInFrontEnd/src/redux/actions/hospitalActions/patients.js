@@ -41,7 +41,8 @@ export function fetchGetPatients () {
             credentials: 'include'
         })
         .then(response => response.json())
-        .then(patients => dispatch(getPatients(patients)))
+        .then(patients => {
+            dispatch(getPatients(patients))})
         .catch(err => dispatch(failedToFetch(err)))
     })
 } 

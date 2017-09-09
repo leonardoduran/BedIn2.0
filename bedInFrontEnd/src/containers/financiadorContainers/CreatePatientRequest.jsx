@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-
+import store from '../../redux/store';
 import * as actionCreators from '../../redux/actions/financiadorActions/patientRequestCreateView';
 
 import CreatePatientRequestForm from '../../components/financiadorViews/CreatePatientRequestForm.jsx';
@@ -46,19 +46,21 @@ class CreatePatientRequest extends React.Component {
 		let selectedComplexity = e.target.complejidad.value;
 		let selectedPlan = e.target.plan.value;
 
+console.log(store.getState().authentication.userId)
+
     this.props.createPatientRequest({
       dni: e.target.dni.value,
       age: e.target.edad.value,
       sex: selectedSex,
 			cie10: e.target.cie.value,
 			complexity: selectedComplexity,
-			healthcareplan: selectedPlan
+			healthcareplan: selectedPlan,
+			userCreator : store.getState().authentication.userId
     })
   }
 
 	createOk(e){
-		e.preventDefault();
-debugger;		
+		e.preventDefault();	
 		document.getElementById("dni").value	   ='';
 		document.getElementById("sexSelect").value='---Seleccione Sexo---';
 		document.getElementById("edad").value      ='';

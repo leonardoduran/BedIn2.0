@@ -58,7 +58,7 @@ app.get('/:state', function(req,res) {
                    .format('MM/DD/YYYY'),  
    prevDay = moment(startOfDay, 'MM/DD/YYYY').subtract(1,'days')
                    .format('MM/DD/YYYY');
-
+console.log(req.user.hospitalCode)
     patientRequest.find({
         hospitalsAndState: {
             $elemMatch: {

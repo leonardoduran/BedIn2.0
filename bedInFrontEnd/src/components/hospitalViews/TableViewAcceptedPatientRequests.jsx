@@ -11,8 +11,8 @@ function ViewPatientRequestsAcceptedTable(props) {
         // return moment(date).format('DD/MM/YYYY || HH:mm:ss');
         return  (moment(date).isSame(moment(), 'day')?'HOY  ':'AYER ') + moment(date).format('HH:mm:ss');
     }
-	const checkMatch = (idHospital) => 
-		(idHospital == store.getState().authentication.institucionCode) ? 
+	const checkMatch = (idHospital,matchedDate) => 
+		(idHospital == store.getState().authentication.institucionCode && matchedDate) ? 
 			<p>
 				<span style = {marginLeft} className="glyphicon glyphicon-ok"></span>
 			</p>:
@@ -29,10 +29,11 @@ function ViewPatientRequestsAcceptedTable(props) {
 			<td style={tableStyle}>{patient.cie10}</td>
 			<td style={tableStyle}>{patient.complexity}</td>
 			<td style={tableStyle}>{patient.healthcare.name}</td>
-			<td style={tableStyle}>{patient.hospitalsAndState.userHospital.name}</td>
+			<td style={tableStyle}>{patient.hospitalsAndState ? patient.hospitalsAndState.userHospital.name : ''}</td>
 			<td style={tableStyle}>{formattedDate(patient.dateCreated)}</td>
 			<td style={tableStyle}>
-				{checkMatch(patient.sentTo.hospital)}
+				{checkMatch(patient.hospitalsAndState ? patient.hospitalsAndState.hospital : 0, patient.hospitalsAndState ? patient.hospitalsAndState.matchedDate : 0)}
+
 			</td>
 		</tr>
 		)
@@ -75,3 +76,6 @@ function ViewPatientRequestsAcceptedTable(props) {
 }
 
 export default ViewPatientRequestsAcceptedTable;
+
+
+// {checkMatch(patient.hospitalsAndState[0] ? patient.hospitalsAndState[0].hospital : 0)}
