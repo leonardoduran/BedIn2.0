@@ -69,8 +69,8 @@ class FinanciadorHome extends React.Component {
       <div>
         <GlobalNavbar data={navBarData}
 	        logOut={this.logOut}
-					username={this.props.username}
-					userId={this.props.userId}
+			username={this.props.username}
+			userId={this.props.userId}
         />
         {this.props.children}
       </div>

@@ -28,7 +28,8 @@ const patientRequest = new mongoose.Schema({
   dateCreated: { type: Date, default: moment},
   timeout: {type: Boolean, default: false},
   userCreator: {type: ObjectId, ref: 'users', default: null},
-  isConfirm: {type: Boolean, default: false} 
+  isConfirm: {type: Boolean, default: false},
+  obs: { type: String }
 }, { collections: 'patientRequest' })
 
 module.exports = mongoose.model('patientRequest', patientRequest);

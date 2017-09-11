@@ -80,7 +80,7 @@ const router = (
           <Route path="viewpending" component={ViewHospitalPatientRequestsPending}/>
           <Route path="viewaccepted" component={ViewHospitalPatientRequestsAccepted}/>
           <Route path="viewViewed" component={ViewHospitalPatientRequestsViewed}/>
-        </Route>
+        </Route>      
       </Router>
     </Router>
   </Provider>

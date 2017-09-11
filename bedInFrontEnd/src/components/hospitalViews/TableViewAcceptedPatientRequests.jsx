@@ -22,7 +22,7 @@ function ViewPatientRequestsAcceptedTable(props) {
 	const setRowColor = (color) => ({backgroundColor : color})
 	const tableBody = props.patientsList.map((patient, i) =>
 
-		<tr style={tableStyle} key={patient._id}>
+		<tr style={tableStyle} key={patient._id} title= {patient.obs ? patient.obs : null}>
 			<td style={tableStyle}>{patient.dni}</td>
 			<td style={tableStyle}>{patient.age}</td>
 			<td style={tableStyle}>{patient.sex}</td>

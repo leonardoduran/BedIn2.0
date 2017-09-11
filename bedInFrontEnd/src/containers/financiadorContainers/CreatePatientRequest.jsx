@@ -45,17 +45,16 @@ class CreatePatientRequest extends React.Component {
 		let selectedSex = e.target.sexo.value;
 		let selectedComplexity = e.target.complejidad.value;
 		let selectedPlan = e.target.plan.value;
-
-console.log(store.getState().authentication.userId)
-
+		let observation = e.target.obs.value;
     this.props.createPatientRequest({
-      dni: e.target.dni.value,
-      age: e.target.edad.value,
-      sex: selectedSex,
-			cie10: e.target.cie.value,
-			complexity: selectedComplexity,
-			healthcareplan: selectedPlan,
-			userCreator : store.getState().authentication.userId
+      	dni: e.target.dni.value,
+      	age: e.target.edad.value,
+      	sex: selectedSex,
+		cie10: e.target.cie.value,
+		complexity: selectedComplexity,
+		healthcareplan: selectedPlan,
+		userCreator : store.getState().authentication.userId,
+		obs : observation
     })
   }
 
@@ -67,6 +66,7 @@ console.log(store.getState().authentication.userId)
 		document.getElementById("cie").value       ='';
 		document.getElementById("complexitySelect").value='---Seleccione Complejidad---';
 		document.getElementById("planSelect").value='---Selecccione Plan---';
+		document.getElementById("obs").value       ='';
 		this.props.resetCreateSuccess();
 	}
 

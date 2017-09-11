@@ -38,7 +38,7 @@ class ViewAcceptedPatientRequest extends React.Component {
 		let patients = (!this.props.patients) ? <p>Cargando...</p>
 		: <TableViewAcceptedPatientRequests 
 			patientsList = {this.props.patients} 
-			setState = {this.setState}/>
+			setState = {this.setState}/>			
 		return (
 			<div>
 				{patients}

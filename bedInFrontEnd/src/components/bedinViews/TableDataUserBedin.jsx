@@ -1,6 +1,17 @@
 import React from 'react';
-
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import moment from 'moment';
+import * as actionCreators from '../../redux/actions/bdinActions/actions';
+
+function mapStateToProps(state) {
+    return {
+        isChangingPass : state.patients.isChangingPass
+    }
+}
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators(actionCreators, dispatch);
+}
 
 function TableDataUserBedin(props) {
 	let formattedDate =  function(date) {
@@ -13,6 +24,7 @@ function TableDataUserBedin(props) {
 			<td>{formattedDate(user.createdAt)}</td>
 			<td>{user.workplace || 'Bedin'}</td>
 			<td>{user.rol || 'Admin'}</td>
+			<button onClick={()=> props.changePass(user._id)}>Reset Password</button>
 		</tr>
 	)
 	return (
@@ -46,4 +58,4 @@ function TableDataUserBedin(props) {
 	)
 }
 
-export default TableDataUserBedin;
+export default connect(mapStateToProps, mapDispatchToProps)(TableDataUserBedin);

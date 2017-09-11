@@ -14,7 +14,8 @@ function formReducers(state = {
   receiveHospitals: false,
   hospitals: [],
   receiveFinanciadors: false,
-  financiadors: []
+  financiadors: [],
+  isChangingPass : false
 }, action) {
 switch(action.type) {
   case 'REQUEST_CREATE':
@@ -77,6 +78,13 @@ switch(action.type) {
     });
   case 'RESET_CREATE_SUCCESS':
     return Object.assign({}, state, {createSuccess: false});
+
+    case 'CHANGING_PASSWORD' :
+      return Object.assign({}, state, {isChangingPass: true});
+
+    case 'CHANGING_PASSWORD_END' :
+      return Object.assign({}, state, {isChangingPass: false});
+
   default:
     return state;
 }

@@ -93,6 +93,13 @@ function CreatePatientRequestForm(props) {
               </div>
             </div>
 
+            <div className="form-group ">
+              <label htmlFor="exampleInputName2" className="col-sm-3 control-label">Observación</label>
+              <div className="col-sm-9">
+                <input type="text" className="form-control" name="obs" id="obs" placeholder="Comentario / Observación"></input>
+              </div>
+            </div>
+
             <div className="form-group">
               <div className="col-sm-offset-3 col-sm-9">
                 <button className="btn button" id="button2">Generar solicitud</button>

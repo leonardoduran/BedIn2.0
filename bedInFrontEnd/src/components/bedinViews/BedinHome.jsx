@@ -25,7 +25,7 @@ const navBarData = {
 		{
 			route: "/Bedin/administrador",
 			name: "Administrador"
-		}
+		}		
 	],
 	logo : '/public/img/logo_original.jpg',
 	userType: 'Bedin',
@@ -57,7 +57,6 @@ class Home extends React.Component {
 		this.props.logoutFetch();
 	}
 
-
 	componentWillMount() {
 		//hashHistory.push('/Bedin/financiador');
 	}
@@ -74,8 +73,8 @@ class Home extends React.Component {
       <div>
         <GlobalNavbar data={navBarData} 
 	        logOut={this.logOut}
-					username={this.props.username}
-					userId={this.props.userId}
+			username={this.props.username}
+			userId={this.props.userId}
         />
         {this.props.children}
       </div>
