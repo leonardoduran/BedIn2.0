@@ -6,7 +6,7 @@ const errorHandler = require('./errorHandler');
 module.exports = {
     
     setPatientTimeOut: function() {
-        const endTime = 3;
+        const endTime = 30; // 30 minutos
         setInterval(() => {
             patientRequest.find({
             'sentTo.hospital' : null,

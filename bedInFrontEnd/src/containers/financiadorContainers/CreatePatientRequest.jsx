@@ -42,24 +42,20 @@ class CreatePatientRequest extends React.Component {
 
 	create(e) {
 		e.preventDefault();
-		let selectedSex = e.target.sexo.value;
-		let selectedComplexity = e.target.complejidad.value;
-		let selectedPlan = e.target.plan.value;
-		let observation = e.target.obs.value;
+		let selectedSex = document.getElementById("sexSelect").value //e.target.sexo.value;
+		let selectedComplexity = document.getElementById("complexitySelect").value //e.target.complejidad.value;
+		let selectedPlan = document.getElementById("planSelect").value //e.target.plan.value;
+		let observation = document.getElementById("obs").value // e.target.obs.value;
     this.props.createPatientRequest({
-      	dni: e.target.dni.value,
-      	age: e.target.edad.value,
+      	dni: document.getElementById("dni").value, //e.target.dni.value,
+      	age: document.getElementById("edad").value, //e.target.edad.value,
       	sex: selectedSex,
-		cie10: e.target.cie.value,
+		cie10: document.getElementById("cie").value, //e.target.cie.value,
 		complexity: selectedComplexity,
 		healthcareplan: selectedPlan,
 		userCreator : store.getState().authentication.userId,
 		obs : observation
     })
-  }
-
-	createOk(e){
-		e.preventDefault();	
 		document.getElementById("dni").value	   ='';
 		document.getElementById("sexSelect").value='---Seleccione Sexo---';
 		document.getElementById("edad").value      ='';
@@ -67,6 +63,10 @@ class CreatePatientRequest extends React.Component {
 		document.getElementById("complexitySelect").value='---Seleccione Complejidad---';
 		document.getElementById("planSelect").value='---Selecccione Plan---';
 		document.getElementById("obs").value       ='';
+  }
+
+	createOk(e){
+		e.preventDefault();	
 		this.props.resetCreateSuccess();
 	}
 

@@ -31,6 +31,7 @@ import ViewPatientRequestsMatched from './containers/financiadorContainers/ViewP
 import HospitalHome from './containers/hospitalContainers/HospitalHome.jsx';
 import ViewHospitalPatientRequestsPending from './containers/hospitalContainers/ViewPatientRequestPending.jsx';
 import ViewHospitalPatientRequestsAccepted from './containers/hospitalContainers/ViewPatientRequestAccepted.jsx';
+import ViewHospitalPatientRequestsRejected from './containers/hospitalContainers/ViewPatientRequestRejected.jsx';
 import ViewHospitalPatientRequestsViewed from './containers/hospitalContainers/ViewPatientRequestViewed.jsx';
 import opcionalHome from './components/bedinViews/opcionHome.jsx';
 //import {saveState} from './sessionStorage';
@@ -79,6 +80,7 @@ const router = (
           <Route path="perfil" component={PerfilContainer}/>
           <Route path="viewpending" component={ViewHospitalPatientRequestsPending}/>
           <Route path="viewaccepted" component={ViewHospitalPatientRequestsAccepted}/>
+          <Route path="viewrejected" component={ViewHospitalPatientRequestsRejected}/>
           <Route path="viewViewed" component={ViewHospitalPatientRequestsViewed}/>
         </Route>      
       </Router>

@@ -14,7 +14,7 @@ function CreatePatientRequestForm(props) {
                   <h4 className="modal-title">La solicitud se ha creado exitosamente</h4>
               </div>
               <div className="modal-footer ">
-                <button type="button" onClick={props.createRequestOk} className=" button " data-dismiss="modal" id="newbtn11">Home</button>
+                <button type="button" onClick={props.createRequestOk} className=" button " data-dismiss="modal" id="btnOk">Home</button>
               </div>
             </div>
           </div>
@@ -31,7 +31,7 @@ function CreatePatientRequestForm(props) {
 
           <h2>Generar Solicitud de Paciente</h2>
 
-          <form className="form-horizontal" onSubmit={props.createRequest}>
+          <form className="form-horizontal">
 
             <div className="form-group ">
               <label htmlFor="exampleInputName2" className="col-sm-3 control-label">Paciente</label>
@@ -102,7 +102,7 @@ function CreatePatientRequestForm(props) {
 
             <div className="form-group">
               <div className="col-sm-offset-3 col-sm-9">
-                <button className="btn button" id="button2">Generar solicitud</button>
+                <button className="btn button" onClick={props.createRequest} id="button2">Generar solicitud</button>
               </div>
             </div>
 
@@ -118,3 +118,4 @@ function CreatePatientRequestForm(props) {
 }
 
 export default CreatePatientRequestForm;
+// <form className="form-horizontal" onSubmit={props.createRequest}>

@@ -61,9 +61,12 @@ app.get('/pending', function(req,res) {
 			delete eachPatient.hospitalsAndState;	
 			eachPatient.viewedByHospitals = [];
 			eachPatient.acceptedByHospital = [];
+			eachPatient.rejectedByHospital = [];
+
 			eachPatient.allRequestedHospitals.forEach(eachHospital => {
 				if(eachHospital.state === 'Visto') return eachPatient.viewedByHospitals.push(eachHospital)
-				if(eachHospital.state === 'Aceptado') return eachPatient.acceptedByHospital.push(eachHospital)	
+				if(eachHospital.state === 'Aceptado') return eachPatient.acceptedByHospital.push(eachHospital)
+				if(eachHospital.state === 'Rechazado') return eachPatient.rejectedByHospital.push(eachHospital)	
 			})
 
 			return eachPatient

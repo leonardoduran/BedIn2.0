@@ -34,7 +34,7 @@ class ViewPatientRequestsPending extends React.Component {
             modalIsOpen : false,
             patientDetail: null
         }
-        this.openModal = this.openModal.bind(this);
+    this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     }
@@ -65,22 +65,23 @@ class ViewPatientRequestsPending extends React.Component {
     render() {
     const tableRequests = this.props.isRequesting ? <p>Cargando..</p>
     : <TableViewPendingPatientRequests 
-    listOfPending={this.props.pendingList} 
-    openModal={this.openModal}/>
+        listOfPending= {this.props.pendingList}
+        openModal={this.openModal}
+      />
         return (
             <div>
                 {tableRequests}
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
-          style={customStyles}
-          contentLabel="Example Modal">
-          <button onClick={this.closeModal}>close</button>
-            <TableViewRequestDetails 
-                    patientDetail = {this.state.patientDetail}
-                    matchHospital={this.matchHospital}/>
-        </Modal>
+              <Modal
+                isOpen={this.state.modalIsOpen}
+                onAfterOpen={this.afterOpenModal}
+                onRequestClose={this.closeModal}
+                style={customStyles}
+                contentLabel="Example Modal">
+                <button onClick={this.closeModal}>close</button>
+                  <TableViewRequestDetails 
+                          patientDetail = {this.state.patientDetail}
+                          matchHospital={this.matchHospital}/>
+              </Modal>
             </div>
         )
     }

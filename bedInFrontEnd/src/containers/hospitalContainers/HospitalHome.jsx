@@ -19,6 +19,11 @@ const navBarData = {
 
 		},
 		{
+			route: "/Hospital/viewrejected",
+			name: "RECHAZADOS"
+
+		},
+		{
 			route: "/Hospital/viewviewed",
 			name: "VISTOS"
 

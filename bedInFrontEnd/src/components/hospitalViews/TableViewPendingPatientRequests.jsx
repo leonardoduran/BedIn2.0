@@ -19,17 +19,23 @@ function ViewPatientRequestsPendingTable(props) {
             <td style={tableStyle}>{patient.healthcare.name}</td>
             <td style={tableStyle}>{formattedDate(patient.dateCreated)}</td>
             <td style={tableStyle}>
-                 <button type="button" className="btn btn-primary btn-xs" style={marginLeft}
+                 <button title="Visar" type="button" className="btn btn-primary btn-xs" style={marginLeft}
                      onClick={()=> props.setState(patient._id, 'Visto')}>
-            <span className="glyphicon glyphicon-eye-open"></span>
-        </button>
+                  <span className="glyphicon glyphicon-eye-open"></span>
+                </button>
             </td>
             <td style={tableStyle}>
-                 <button type="button" className="btn btn-success btn-xs" style={marginLeft}
+                 <button title="Aceptar" type="button" className="btn btn-success btn-xs" style={marginLeft}
                      onClick={()=> props.setState(patient._id, 'Aceptado')}>
-            <span className="glyphicon glyphicon-ok"></span>
-        </button>
+                  <span className="glyphicon glyphicon-ok"></span>
+                  </button>
             </td>
+            <td style={tableStyle}>
+                 <button title="Rechazar" type="button" className="btn btn-danger btn-xs" style={marginLeft}
+                     onClick={()=> props.setState(patient._id, 'Rechazado')}>
+                  <span className="glyphicon glyphicon-remove-circle"></span>
+                </button>
+            </td>            
         </tr>)
     return (
         <div>
@@ -53,6 +59,7 @@ function ViewPatientRequestsPendingTable(props) {
                   <th style={{border:"1px solid grey"}}>
                             <a style={{cursor:"pointer"}} onClick={props.setAllViewed}>Ver Todos</a>
                   </th>
+                  <th style={{border:"1px solid grey"}}></th>
                   <th style={{border:"1px solid grey"}}></th>
                 </tr>
               </thead>

@@ -4,8 +4,7 @@ import moment from 'moment';
 const tableStyle = {border:"1px solid grey"};
 const marginLeft = {marginLeft:"50%"}
 const marginLeftBtn = {marginLeft:"5px"}
-
-function ViewPatientRequestsViewedTable(props) {
+function ViewPatientRequestsRejectedTable(props) {
     let formattedDate =  function(date) {
         // return moment(date).format('DD/MM/YYYY || HH:mm:ss');
         return  (moment(date).isSame(moment(), 'day')?'HOY  ':'AYER ') + moment(date).format('HH:mm:ss');
@@ -20,27 +19,6 @@ function ViewPatientRequestsViewedTable(props) {
 			<td style={tableStyle}>{patient.healthcare.name}</td>
 			<td style={tableStyle}>{patient.hospitalsAndState.userHospital.name}</td>
 			<td style={tableStyle}>{formattedDate(patient.dateCreated)}</td>
-            
-            <td style={tableStyle}>
-                 <button title="Aceptar" type="button" className="btn btn-success btn-xs" style={marginLeftBtn}
-                     onClick={()=> props.setStateV(patient._id, 'Aceptado')}>
-                  <span className="glyphicon glyphicon-ok"></span>
-                  </button>
-            </td>
-            <td style={tableStyle}>
-                 <button title="Rechazar" type="button" className="btn btn-danger btn-xs" style={marginLeftBtn}
-                     onClick={()=> props.setStateV(patient._id, 'Rechazado')}>
-                  <span className="glyphicon glyphicon-remove-circle"></span>
-                </button>
-            </td>
-            <td style={tableStyle}>
-                 <button title="Enviar mensaje" type="button" className="btn btn-info btn-xs" style={marginLeftBtn}
-                     onClick={()=> props.openModal(patient._id)}>
-                     
-                  <span className="glyphicon glyphicon-envelope"></span>
-                </button>
-            </td>
-
 		</tr>
 		)	
 	const setRowColor = (color) => ({backgroundColor : color})
@@ -63,9 +41,6 @@ function ViewPatientRequestsViewedTable(props) {
 					<th style={{border:"1px solid grey"}}>Solicitante</th>
 					<th style={{border:"1px solid grey"}}>Usuario</th>
 					<th style={{border:"1px solid grey"}}>Fecha/Hora</th>
-                  	<th style={{border:"1px solid grey"}}></th>
-                  	<th style={{border:"1px solid grey"}}></th>
-                  	<th style={{border:"1px solid grey"}}></th>
 			    </tr>
 			  </thead>
 			  <tbody>
@@ -79,6 +54,4 @@ function ViewPatientRequestsViewedTable(props) {
 	)
 }
 
-export default ViewPatientRequestsViewedTable;
-
-// props.sendMessage(patient._id)
+export default ViewPatientRequestsRejectedTable;

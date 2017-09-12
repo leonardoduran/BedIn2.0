@@ -1,5 +1,8 @@
 import React from 'react';
 import moment from 'moment';
+
+
+
 function ViewPatientRequestsPendingTable(props) {
     const tableStyle = {border:"1px solid grey"};
     const marginLeft = {marginLeft:"5px"};
@@ -8,6 +11,7 @@ function ViewPatientRequestsPendingTable(props) {
         // return moment(date).format('DD/MM/YYYY || HH:mm:ss');
     }
     const setRowColor = (color) => ({backgroundColor : color})  
+    
     const buildPendingTable = (listOfPending = [], acceptedByHospital, idPending) => {
         return listOfPending.map(eachPending =>
             acceptedByHospital ?
@@ -20,12 +24,13 @@ function ViewPatientRequestsPendingTable(props) {
         : <p key={eachPending.hospital._id}>{eachPending.hospital.name}</p>
         )
     }
+
     const tableBody = props.listOfPending.map((pending, i) => {
         let colorStyle = (pending.timeout) ? setRowColor('pink')
         : (pending.acceptedByHospital.length) ? setRowColor('lightgreen')
         : (pending.viewedByHospitals.length) ? setRowColor('lightblue')
         : setRowColor(null)
-        
+    
         return ( <tr style={Object.assign({}, tableStyle, colorStyle)} key={pending._id} title= {pending.obs ? pending.obs : null}> 
                 <td style={tableStyle}>{pending.dni}</td>
                 <td style={tableStyle}>{pending.age}</td>

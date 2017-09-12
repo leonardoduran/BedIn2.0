@@ -50,6 +50,28 @@ app.put('/allViewed', function(req,res) {
     .catch(error => {console.log(error); errorHandler.sendInternalServerError(res)}) 
 })
 
+app.put('/addMessage', function(req, res, next) {
+  let patientId   = req.body.patientId;
+  let hospitalId  = req.body.hospitalId;
+  let message     = req.body.message;
+  let userId=req.body.userId
+
+  patientRequest.findByIdAndUpdate(
+    patientId,
+        {$push : {
+            "messages": {
+                hospitalId,
+                userId,
+                message,
+                dateMsg:moment()
+            }}},
+    {safe: true, upsert: true},
+    function(err, model) {
+        console.log(err);
+    }
+    )
+})
+
 app.get('/:state', function(req,res) {
    var startOfDay = moment(moment(), 'MM/DD/YYYY')
                           .startOf('day').format('MM/DD/YYYY'),
@@ -58,7 +80,7 @@ app.get('/:state', function(req,res) {
                    .format('MM/DD/YYYY'),  
    prevDay = moment(startOfDay, 'MM/DD/YYYY').subtract(1,'days')
                    .format('MM/DD/YYYY');
-console.log(req.user.hospitalCode)
+
     patientRequest.find({
         hospitalsAndState: {
             $elemMatch: {

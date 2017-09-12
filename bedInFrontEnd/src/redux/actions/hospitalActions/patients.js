@@ -15,6 +15,14 @@ export function getAcceptedPatients (acceptedPatients) {
         acceptedPatients
     }
 }
+
+export function getRejectedPatients (rejectedPatients) {
+    return {
+        type: 'GET_REJECTED_PATIENTS',
+        rejectedPatients
+    }
+}
+
 export function getViewedPatients (viewedPatients) {
     return {
         type: 'GET_VIEWED_PATIENTS',
@@ -56,7 +64,8 @@ export function fetchGetPatientsByState(state) {
         .then(response => response.json())
         .then(patients => {
             (state === 'Aceptado') ? dispatch(getAcceptedPatients(patients)) 
-            : dispatch(getViewedPatients(patients))
+            :(state === 'Rechazado') ? dispatch(getRejectedPatients(patients)) 
+            :dispatch(getViewedPatients(patients))
         })
         .catch(err => dispatch(failedToFetch(err)))
     })
@@ -104,4 +113,47 @@ export function fetchSetAllViewed (patients) {
         .then(data => dispatch(fetchGetPatients()))
         .catch(err => dispatch(failedToFetch()))
     })
+}
+
+export function sendingMessage () {
+    return {
+        type: "SENDING_MESSAGE",
+    }
+}
+
+export function messageSendOk () {
+    return {
+        type: "SENDING_MESSAGE_END",
+    }
+}
+
+export function messageSendError () {
+    return {
+        type: "SENDING_MESSAGE_END",
+    }
+}
+
+export function sendMessageTo (patientId, hospitalId, userId,message){
+    return (dispatch => {
+    dispatch(sendingMessage());
+    const objRequest = {
+        patientId,
+        hospitalId,
+        userId,
+        message
+    }
+    console.log("sendMessageTo ",objRequest)
+    return fetch('./hospital/patientRequest/addMessage', {
+      method: 'PUT',
+      credentials: 'include',
+      headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+      body: JSON.stringify(objRequest)
+    })
+      .then(response => response.json())
+      .then(data => dispatch(messageSendOk  (data)))
+      .catch(err => dispatch(messageSendError(err)))
+  });
 }

@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../redux/actions/hospitalActions/patients';
 import TableViewPendingPatientRequests from '../../components/hospitalViews/TableViewPendingPatientRequests.jsx';
 
-
 function mapStateToProps(state) {
     return {
         isRequesting : state.patients.isRequesting,

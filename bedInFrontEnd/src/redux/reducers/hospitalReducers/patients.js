@@ -1,7 +1,7 @@
 function patients(state = {
 		isRequesting: false,
 		error: null,
-
+		isSendingMsg : false,
 		patientsData: [],
 		viewedPatientsData: null
 
@@ -22,6 +22,12 @@ function patients(state = {
 				acceptedPatientsData: action.acceptedPatients
 			})
 
+		case 'GET_REJECTED_PATIENTS': 
+			return Object.assign({}, state, {
+				isRequesting: false,
+				rejectedPatientsData: action.rejectedPatients
+			})
+
 		case 'GET_VIEWED_PATIENTS': 
 			return Object.assign({}, state, {
 				isRequesting: false,
@@ -33,6 +39,17 @@ function patients(state = {
 				isRequesting: false,
 				error: action.err
 			})
+
+		case 'SENDING_MESSAGE':
+			return Object.assign({}, state, {
+				isSendingMsg: true
+			})
+
+		case 'SENDING_MESSAGE_END':
+			return Object.assign({}, state, {
+				isSendingMsg: false
+			})
+
 		default: 
 			return state
 	}

@@ -29,7 +29,14 @@ const patientRequest = new mongoose.Schema({
   timeout: {type: Boolean, default: false},
   userCreator: {type: ObjectId, ref: 'users', default: null},
   isConfirm: {type: Boolean, default: false},
-  obs: { type: String }
+  obs: { type: String },
+  messages : [{
+    hospitalId : {type : ObjectId, ref : "hospitals"},
+    userId: {type: ObjectId, ref: 'users'}, // Usuario del Htal que envia el mensaje
+    message    : {type: String},
+    dateMsg    : { type: Date, default: null}
+  }]
+
 }, { collections: 'patientRequest' })
 
 module.exports = mongoose.model('patientRequest', patientRequest);
