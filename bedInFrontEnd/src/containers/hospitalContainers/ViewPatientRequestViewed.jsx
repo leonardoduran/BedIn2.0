@@ -34,7 +34,7 @@ class ViewViewedPatientRequest extends React.Component {
         }
 		// this.idInterval = null;
         // this.modalIsOpen = false;
-        this.setState = this.setState.bind(this);
+        this.setStateV = this.setStateV.bind(this);
         this.openModal = this.openModal.bind(this);
     	this.closeModal = this.closeModal.bind(this);
     	this.sendMessage = this.sendMessage.bind(this);
@@ -49,7 +49,7 @@ class ViewViewedPatientRequest extends React.Component {
 		clearInterval(this.idInterval);
 	}
     
-    setStateV(idPatient,state) {
+    setStateV(idPatient,state) {	
         this.props.fecthSetPatientState(idPatient, state)
     }
 

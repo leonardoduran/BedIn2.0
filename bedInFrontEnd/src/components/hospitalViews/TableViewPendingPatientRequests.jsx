@@ -2,7 +2,8 @@ import React from 'react';
 import moment from 'moment';
 
 const tableStyle = {border:"1px solid grey"};
-const marginLeft = {marginLeft:"5px"}
+const tableStyle1 = {border:"1px solid grey", backgroundColor:"#E7E7CF"};
+const marginLeft = {marginLeft:"5px"} 
 function ViewPatientRequestsPendingTable(props) {
     const setRowColor = (color) => ({backgroundColor : color})
     let formattedDate =  function(date) {
@@ -10,27 +11,27 @@ function ViewPatientRequestsPendingTable(props) {
         return  (moment(date).isSame(moment(), 'day')?'HOY  ':'AYER ') + moment(date).format('HH:mm:ss');
     }    
     const tableBody = props.patientsList.map((patient, i) =>
-        <tr style={tableStyle} key={patient._id} title= {patient.obs ? patient.obs : null}>
-            <td style={tableStyle}>{patient.dni}</td>
-            <td style={tableStyle}>{patient.age}</td>
-            <td style={tableStyle}>{patient.sex}</td>
-            <td style={tableStyle}>{patient.cie10}</td>
-            <td style={tableStyle}>{patient.complexity}</td>
-            <td style={tableStyle}>{patient.healthcare.name}</td>
-            <td style={tableStyle}>{formattedDate(patient.dateCreated)}</td>
-            <td style={tableStyle}>
+        <tr style={i%2==0 ? tableStyle : tableStyle1} key={patient._id} title= {patient.obs ? patient.obs : null}>
+            <td>{patient.dni}</td>
+            <td>{patient.age}</td>
+            <td>{patient.sex}</td>
+            <td>{patient.cie10}</td>
+            <td>{patient.complexity}</td>
+            <td>{patient.healthcare.name}</td>
+            <td>{formattedDate(patient.dateCreated)}</td>
+            <td>
                  <button title="Visar" type="button" className="btn btn-primary btn-xs" style={marginLeft}
                      onClick={()=> props.setState(patient._id, 'Visto')}>
                   <span className="glyphicon glyphicon-eye-open"></span>
                 </button>
             </td>
-            <td style={tableStyle}>
+            <td>
                  <button title="Aceptar" type="button" className="btn btn-success btn-xs" style={marginLeft}
                      onClick={()=> props.setState(patient._id, 'Aceptado')}>
                   <span className="glyphicon glyphicon-ok"></span>
                   </button>
             </td>
-            <td style={tableStyle}>
+            <td>
                  <button title="Rechazar" type="button" className="btn btn-danger btn-xs" style={marginLeft}
                      onClick={()=> props.setState(patient._id, 'Rechazado')}>
                   <span className="glyphicon glyphicon-remove-circle"></span>

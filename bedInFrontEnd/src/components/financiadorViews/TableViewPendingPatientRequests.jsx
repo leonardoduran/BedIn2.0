@@ -31,6 +31,7 @@ function ViewPatientRequestsPendingTable(props) {
         : (pending.viewedByHospitals.length) ? setRowColor('lightblue')
         : setRowColor(null)
     
+
         return ( <tr style={Object.assign({}, tableStyle, colorStyle)} key={pending._id} title= {pending.obs ? pending.obs : null}> 
                 <td style={tableStyle}>{pending.dni}</td>
                 <td style={tableStyle}>{pending.age}</td>
@@ -42,6 +43,15 @@ function ViewPatientRequestsPendingTable(props) {
                 <td style={tableStyle}>
                     <a style={{cursor: "pointer", color: "blue"}} onClick={() => props.openModal(pending)}>Ver</a>
                 </td>
+                {pending.messages.length > 0 ? 
+                (<td style={tableStyle}>
+                    <button title="Ver Mensajes " type="button" className="btn btn-info btn-xs" style={marginLeft}
+                        onClick={()=> props.verMensajes(pending.messages)}>
+                    <span className="glyphicon glyphicon-envelope"></span>
+                    </button>
+                </td>)
+                :
+                (<td style={tableStyle}></td>)}
             </tr>
             )
         })
@@ -64,6 +74,7 @@ function ViewPatientRequestsPendingTable(props) {
                     <th style={{border:"1px solid grey"}}>Plan</th>
                     <th style={{border:"1px solid grey"}}>Fecha/Hora Creado</th>
                     <th style={{border:"1px solid grey"}}>Detalle</th>
+                    <th style={{border:"1px solid grey"}}>Mensajes</th>
                 </tr>
               </thead>
               <tbody>
@@ -79,3 +90,5 @@ function ViewPatientRequestsPendingTable(props) {
     )
 }
 export default ViewPatientRequestsPendingTable;
+
+// onClick={()=> props.setState(patient._id, 'Rechazado')}

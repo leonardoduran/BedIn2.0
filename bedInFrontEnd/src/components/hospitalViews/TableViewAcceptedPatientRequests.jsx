@@ -4,6 +4,7 @@ import moment from 'moment';
 import store from '../../redux/store';
 
 const tableStyle = {border:"1px solid grey"};
+const tableStyle1 = {border:"1px solid grey", backgroundColor:"#E7E7CF"};
 const marginLeft = {marginLeft:"50%"}
 
 function ViewPatientRequestsAcceptedTable(props) {
@@ -22,16 +23,16 @@ function ViewPatientRequestsAcceptedTable(props) {
 	const setRowColor = (color) => ({backgroundColor : color})
 	const tableBody = props.patientsList.map((patient, i) =>
 
-		<tr style={tableStyle} key={patient._id} title= {patient.obs ? patient.obs : null}>
-			<td style={tableStyle}>{patient.dni}</td>
-			<td style={tableStyle}>{patient.age}</td>
-			<td style={tableStyle}>{patient.sex}</td>
-			<td style={tableStyle}>{patient.cie10}</td>
-			<td style={tableStyle}>{patient.complexity}</td>
-			<td style={tableStyle}>{patient.healthcare.name}</td>
-			<td style={tableStyle}>{patient.hospitalsAndState ? patient.hospitalsAndState.userHospital.name : ''}</td>
-			<td style={tableStyle}>{formattedDate(patient.dateCreated)}</td>
-			<td style={tableStyle}>
+		<tr style={i%2==0 ? tableStyle : tableStyle1} key={patient._id} title= {patient.obs ? patient.obs : null}>
+			<td>{patient.dni}</td>
+			<td>{patient.age}</td>
+			<td>{patient.sex}</td>
+			<td>{patient.cie10}</td>
+			<td>{patient.complexity}</td>
+			<td>{patient.healthcare.name}</td>
+			<td>{patient.hospitalsAndState ? patient.hospitalsAndState.userHospital.name : ''}</td>
+			<td>{formattedDate(patient.dateCreated)}</td>
+			<td>
 				{checkMatch(patient.hospitalsAndState ? patient.hospitalsAndState.hospital : 0, patient.hospitalsAndState ? patient.hospitalsAndState.matchedDate : 0)}
 
 			</td>

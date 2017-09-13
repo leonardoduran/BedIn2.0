@@ -5,6 +5,7 @@ import Modal from 'react-modal';
 import * as actionCreators from '../../redux/actions/financiadorActions/patientRequestCreateView';
 import TableViewPendingPatientRequests from '../../components/financiadorViews/TableViewPendingPatientRequests.jsx';
 import TableViewRequestDetails from '../../components/financiadorViews/TableViewRequestDetails.jsx';
+import TableViewMessages from '../../components/financiadorViews/TableViewMessages.jsx';
 const customStyles = {
   content : {
     top                   : '50%',
@@ -32,11 +33,16 @@ class ViewPatientRequestsPending extends React.Component {
         this.matchHospital = this.matchHospital.bind(this);
         this.state = {
             modalIsOpen : false,
-            patientDetail: null
+            patientDetail: null,
+            modalMenssagesIsOpen:false,
+            messages: null
         }
     this.openModal = this.openModal.bind(this);
+    this.verMensajes=this.verMensajes.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.closeMessagesModal = this.closeMessagesModal.bind(this);
+    
     }
     componentWillMount() {
         this.props.fetchPendingPatientRequests();
@@ -55,6 +61,10 @@ class ViewPatientRequestsPending extends React.Component {
     this.setState({modalIsOpen: true, patientDetail: patient});
   }
  
+  verMensajes(messages){
+    this.setState({modalMenssagesIsOpen: true, messages: messages});
+  }
+
   afterOpenModal() {
    // this.subtitle.style.color = '#f00';
   }
@@ -62,11 +72,16 @@ class ViewPatientRequestsPending extends React.Component {
   closeModal() {
     this.setState({modalIsOpen: false});
   }
+  closeMessagesModal() {
+    this.setState({modalMenssagesIsOpen: false});
+  }
+
     render() {
     const tableRequests = this.props.isRequesting ? <p>Cargando..</p>
     : <TableViewPendingPatientRequests 
         listOfPending= {this.props.pendingList}
         openModal={this.openModal}
+        verMensajes={this.verMensajes}
       />
         return (
             <div>
@@ -82,6 +97,16 @@ class ViewPatientRequestsPending extends React.Component {
                           patientDetail = {this.state.patientDetail}
                           matchHospital={this.matchHospital}/>
               </Modal>
+              <Modal
+                isOpen={this.state.modalMenssagesIsOpen}
+                onRequestClose={this.closeMessagesModal}
+                style={customStyles}
+                contentLabel="Example Modal">
+                <button onClick={this.closeMessagesModal}>close</button>
+                <TableViewMessages
+                  messages={this.state.messages}
+                />
+              </Modal>              
             </div>
         )
     }

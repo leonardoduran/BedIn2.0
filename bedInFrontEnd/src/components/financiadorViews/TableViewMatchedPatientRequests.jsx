@@ -1,21 +1,32 @@
 import React from 'react';
 import moment from 'moment';
 const tableStyle = {border:"1px solid grey"};
+const tableStyle1 = {border:"1px solid grey", backgroundColor:"#E7E7CF"};
 function ViewPatientRequestsMatchedTable(props) {
     let formattedDate =  function(date) {
         // return moment(date).format('DD/MM/YYYY || HH:mm:ss');
         return (moment(date).isSame(moment(), 'day')?'HOY  ':'AYER ') + moment(date).format('HH:mm:ss');
     }
     const setRowColor = (color) => ({backgroundColor : color})  
+    const marginLeft = {marginLeft:"5px"};
     const tableBody = props.patients.map((patient, i) =>
-        <tr style={tableStyle} key={patient._id} title= {patient.obs ? patient.obs : null}>
-            <td style={tableStyle}>{patient.dni}</td>
-            <td style={tableStyle}>{patient.cie10}</td>
-            <td style={tableStyle}>{patient.complexity}</td>
-            <td style={tableStyle}>{patient.hospitalsAndState[0].hospital.name}</td>
-            <td style={tableStyle} title= {formattedDate(patient.dateCreated)}>{patient.userCreator ? patient.userCreator.name : ''}</td>
-            <td style={tableStyle} title= {formattedDate(patient.updatedDate)}>{patient.hospitalsAndState[0].userHospital.name}</td>
-            <td style={tableStyle} title= {formattedDate(patient.matchedDate)}>{patient.hospitalsAndState[0].userFinanciador.name}</td>
+        <tr style={i%2==0 ? tableStyle : tableStyle1} key={patient._id} title= {patient.obs ? patient.obs : null}>
+            <td>{patient.dni}</td>
+            <td>{patient.cie10}</td>
+            <td>{patient.complexity}</td>
+            <td>{patient.hospitalsAndState[0].hospital.name}</td>
+            <td title= {formattedDate(patient.dateCreated)}>{patient.userCreator ? patient.userCreator.name : ''}</td>
+            <td title= {formattedDate(patient.updatedDate)}>{patient.hospitalsAndState[0].userHospital.name}</td>
+            <td title= {formattedDate(patient.matchedDate)}>{patient.hospitalsAndState[0].userFinanciador.name}</td>
+            {patient.messages.length > 0 ? 
+              (<td>
+                  <button title="Ver Mensajes " type="button" className="btn btn-info btn-xs" style={marginLeft}
+                    onClick={()=> props.verMensajes(patient.messages)}>
+                  <span className="glyphicon glyphicon-envelope"></span>
+                  </button>
+              </td>)
+              :
+              (<td> </td>)}
         </tr>)
     return (
         <div>
@@ -35,6 +46,7 @@ function ViewPatientRequestsMatchedTable(props) {
                   <th style={{border:"1px solid grey"}}>Generó</th>
                   <th style={{border:"1px solid grey"}}>Aceptó</th>
                   <th style={{border:"1px solid grey"}}>Confirmó</th>
+                  <th style={{border:"1px solid grey"}}>Mensajes</th>
                 </tr>
               </thead>
               <tbody>

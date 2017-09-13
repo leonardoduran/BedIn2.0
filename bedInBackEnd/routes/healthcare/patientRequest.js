@@ -52,6 +52,8 @@ app.get('/pending', function(req,res) {
 	.populate('healthcareplan', 'name')
 	.populate('hospitalsAndState.hospital', 'name')
 	.populate('users','name')
+	.populate('messages.hospitalId','name')
+	.populate('messages.userId','name')
 	.sort({dateCreated: -1})
 	.exec()
 	.then(patient => {
@@ -98,6 +100,8 @@ app.get('/matched', function(req,res) {
 	.populate('hospitalsAndState.userFinanciador', 'name username')
 	.populate('hospitalsAndState.userHospital','name')
 	.populate('hospitalsAndState.hospital','name')
+	.populate('messages.hospitalId','name')
+	.populate('messages.userId','name')	
 	.sort({dateCreated: -1})
 	.exec()
 	.then(patient => {

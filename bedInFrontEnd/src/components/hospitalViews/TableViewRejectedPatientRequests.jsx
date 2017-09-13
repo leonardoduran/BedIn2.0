@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 
 const tableStyle = {border:"1px solid grey"};
+const tableStyle1 = {border:"1px solid grey", backgroundColor:"#E7E7CF"};
 const marginLeft = {marginLeft:"50%"}
 const marginLeftBtn = {marginLeft:"5px"}
 function ViewPatientRequestsRejectedTable(props) {
@@ -10,15 +11,15 @@ function ViewPatientRequestsRejectedTable(props) {
         return  (moment(date).isSame(moment(), 'day')?'HOY  ':'AYER ') + moment(date).format('HH:mm:ss');
     }
 	const tableBody = props.patientsList.map((patient, i) =>
-		<tr style={tableStyle} key={patient._id} title= {patient.obs ? patient.obs : null}>
-			<td style={tableStyle}>{patient.dni}</td>
-			<td style={tableStyle}>{patient.age}</td>
-			<td style={tableStyle}>{patient.sex}</td>
-			<td style={tableStyle}>{patient.cie10}</td>
-			<td style={tableStyle}>{patient.complexity}</td>
-			<td style={tableStyle}>{patient.healthcare.name}</td>
-			<td style={tableStyle}>{patient.hospitalsAndState.userHospital.name}</td>
-			<td style={tableStyle}>{formattedDate(patient.dateCreated)}</td>
+		<tr style={i%2==0 ? tableStyle : tableStyle1} key={patient._id} title= {patient.obs ? patient.obs : null}>
+			<td>{patient.dni}</td>
+			<td>{patient.age}</td>
+			<td>{patient.sex}</td>
+			<td>{patient.cie10}</td>
+			<td>{patient.complexity}</td>
+			<td>{patient.healthcare.name}</td>
+			<td>{patient.hospitalsAndState.userHospital.name}</td>
+			<td>{formattedDate(patient.dateCreated)}</td>
 		</tr>
 		)	
 	const setRowColor = (color) => ({backgroundColor : color})
