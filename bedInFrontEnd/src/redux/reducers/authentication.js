@@ -7,7 +7,8 @@ function authentication (state = {
     userType : null,
     userId: null,
     userData : null,
-    error: null
+    error: null,
+    institucionCode: null
   }, action) {
   switch(action.type) {
     case 'IS_REQUESTING_TO_SERVER_LOGIN':
@@ -44,13 +45,18 @@ function authentication (state = {
         userData : null,
         errorCheckLogin: action.err
       });
-    case 'USER_IS_LOGGED_OUT' : 
+    case 'USER_IS_LOGGED_OUT_A' : 
       return Object.assign({}, state, {
         isRequesting: false,
         isLoggedIn: false,
+        errorCredentials: null,
+        errorCheckLogin: null,
         userType: null,
         userName: null,
-        userData : null
+        userData : null,
+        userId: null,
+        error: null,
+        institucionCode: null
       });
     case 'FAILED_REQUEST':
       return Object.assign({}, state, {

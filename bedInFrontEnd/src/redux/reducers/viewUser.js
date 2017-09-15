@@ -5,6 +5,12 @@ function viewUser (state = {
 },action) {
 
 	switch(action.type){
+		case 'USER_IS_LOGGED_OUT_VU':
+			return Object.assign({}, state, {
+				isRequesting: false,
+				users: null,
+				error: null
+			}) 		
 		case 'IS_REQUESTING_TO_SERVER': 
 			return Object.assign({}, state, {
 				//users: null,

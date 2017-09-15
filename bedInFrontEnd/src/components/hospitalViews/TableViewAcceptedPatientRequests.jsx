@@ -12,13 +12,16 @@ function ViewPatientRequestsAcceptedTable(props) {
         // return moment(date).format('DD/MM/YYYY || HH:mm:ss');
         return  (moment(date).isSame(moment(), 'day')?'HOY  ':'AYER ') + moment(date).format('HH:mm:ss');
     }
-	const checkMatch = (idHospital,matchedDate) => 
+	const checkMatch = (idHospital,matchedDate, isConfirm) => 
 		(idHospital == store.getState().authentication.institucionCode && matchedDate) ? 
 			<p>
 				<span style = {marginLeft} className="glyphicon glyphicon-ok"></span>
 			</p>:
+		    (isConfirm) ? 
 		    <p>
 				<span style = {marginLeft} className="glyphicon glyphicon-remove"></span>
+		    </p>:
+		    <p>
 		    </p>
 	const setRowColor = (color) => ({backgroundColor : color})
 	const tableBody = props.patientsList.map((patient, i) =>
@@ -33,8 +36,7 @@ function ViewPatientRequestsAcceptedTable(props) {
 			<td>{patient.hospitalsAndState ? patient.hospitalsAndState.userHospital.name : ''}</td>
 			<td>{formattedDate(patient.dateCreated)}</td>
 			<td>
-				{checkMatch(patient.hospitalsAndState ? patient.hospitalsAndState.hospital : 0, patient.hospitalsAndState ? patient.hospitalsAndState.matchedDate : 0)}
-
+				{checkMatch(patient.hospitalsAndState ? patient.hospitalsAndState.hospital : 0, patient.hospitalsAndState ? patient.hospitalsAndState.matchedDate : 0, patient.isConfirm)}
 			</td>
 		</tr>
 		)

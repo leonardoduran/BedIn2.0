@@ -34,10 +34,12 @@ import ViewHospitalPatientRequestsAccepted from './containers/hospitalContainers
 import ViewHospitalPatientRequestsRejected from './containers/hospitalContainers/ViewPatientRequestRejected.jsx';
 import ViewHospitalPatientRequestsViewed from './containers/hospitalContainers/ViewPatientRequestViewed.jsx';
 import opcionalHome from './components/bedinViews/opcionHome.jsx';
-//import {saveState} from './sessionStorage';
-/*store.subscribe(() => {
+import ViewReportes from './containers/reportForm.jsx';
+
+import {saveState} from './sessionStorage';
+store.subscribe(() => {
   saveState(store.getState());
-})*/
+})
 const router = (
   <Provider store={store}>
     <Router history={history}>
@@ -69,19 +71,22 @@ const router = (
             <Route path="usercrear" component={BedinAdminUserForm}></Route>
             <Route path="userver" component={BedinAdminUserViewData}/>
           </Route>
+          <Route path="viewReportes" component={ViewReportes}/>
         </Route>
         <Route path="/Financiador" component={FinanciadorHome}>
           <Route path="perfil" component={PerfilContainer}/>
           <Route path="createrequest" component={CreatePatientRequest}/>
           <Route path="viewpending" component={ViewPatientRequestsPending}></Route>
           <Route path="viewmatched" component={ViewPatientRequestsMatched}></Route>
+          <Route path="viewReportes" component={ViewReportes}/>
         </Route>
         <Route path="/Hospital" component={HospitalHome}>
           <Route path="perfil" component={PerfilContainer}/>
           <Route path="viewpending" component={ViewHospitalPatientRequestsPending}/>
           <Route path="viewaccepted" component={ViewHospitalPatientRequestsAccepted}/>
           <Route path="viewrejected" component={ViewHospitalPatientRequestsRejected}/>
-          <Route path="viewViewed" component={ViewHospitalPatientRequestsViewed}/>
+          <Route path="viewviewed" component={ViewHospitalPatientRequestsViewed}/>
+          <Route path="viewReportes" component={ViewReportes}/>
         </Route>      
       </Router>
     </Router>

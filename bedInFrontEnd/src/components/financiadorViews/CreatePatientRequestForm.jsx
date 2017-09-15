@@ -33,6 +33,25 @@ function CreatePatientRequestForm(props) {
 
           <form className="form-horizontal">
 
+            <div className="form-group">
+              <label htmlFor="sel1" className="control-label col-sm-3">Plan</label>
+              <div className="col-sm-9">
+                <select className="form-control" name="plan" id="planSelect">
+                  <option>---Selecccione Plan---</option>
+                  {props.plans.map((plan, i) =>
+                    <option key={i} value={plan._id}>{plan.name}</option>
+                  )}
+                </select>
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="exampleInputName2" className="col-sm-3 control-label">Edad</label>
+                <div className="col-sm-9">
+                  <input type="number" className="form-control" name="edad" id="edad" placeholder="Edad"></input>
+                </div>
+            </div>
+
             <div className="form-group ">
               <label htmlFor="exampleInputName2" className="col-sm-3 control-label">Paciente</label>
               <div className="col-sm-9">
@@ -52,20 +71,6 @@ function CreatePatientRequestForm(props) {
             </div>
 
             <div className="form-group">
-              <label htmlFor="exampleInputName2" className="col-sm-3 control-label">Edad</label>
-                <div className="col-sm-9">
-                  <input type="number" className="form-control" name="edad" id="edad" placeholder="Edad"></input>
-                </div>
-            </div>
-
-            <div className="form-group ">
-              <label htmlFor="exampleInputName2" className="col-sm-3 control-label">Diagnóstico</label>
-              <div className="col-sm-9">
-                <input type="text" className="form-control" name="cie" id="cie" placeholder="Diagnóstico"></input>
-              </div>
-            </div>
-
-            <div className="form-group">
               <label htmlFor="sel1" className="control-label col-sm-3">Complejidad de Cama</label>
               <div className="col-sm-9">
                 <select className="form-control" name="complejidad" id="complexitySelect">
@@ -81,15 +86,10 @@ function CreatePatientRequestForm(props) {
               </div>
             </div>
 
-            <div className="form-group">
-              <label htmlFor="sel1" className="control-label col-sm-3">Plan</label>
+            <div className="form-group ">
+              <label htmlFor="exampleInputName2" className="col-sm-3 control-label">Diagnóstico</label>
               <div className="col-sm-9">
-                <select className="form-control" name="plan" id="planSelect">
-                  <option>---Selecccione Plan---</option>
-                  {props.plans.map((plan, i) =>
-                    <option key={i} value={plan._id}>{plan.name}</option>
-                  )}
-                </select>
+                <input type="text" className="form-control" name="cie" id="cie" placeholder="Diagnóstico"></input>
               </div>
             </div>
 

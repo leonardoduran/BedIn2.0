@@ -71,7 +71,6 @@ export function createEntidadFinanciadora(inputData) {
 
   return (dispatch) => {
     dispatch(requestCreate());
-
     return fetch('./bedin/healthcares', {
       method: 'POST',
       credentials: 'include',
@@ -153,6 +152,49 @@ export function fetchFinanciadorList() {
       .catch(err => dispatch(failedRequest(err)))
   };
 };
+
+export function gettingHistoricalPatients () {
+    return {
+        type: 'REQUEST_LIST'
+    }
+}
+export function receiveHistoricalPatients(patients) {
+    return {
+        type: "RECEIVE_HIST_PATIENTS",
+        patients
+    }
+}
+export function failedHistoricalPatients (err) {
+    return {
+        type: "FAILED_HIST_PATIENTS",
+        err
+    }
+}
+
+export function fecthHistoricalPatients(dateFrom, dateTo, hospitalId, healthcareId){  
+  return (dispatch) => {
+    dispatch(gettingHistoricalPatients());
+      return fetch(`./patient/getAllWithFilter?dateFrom=${dateFrom}&dateTo=${dateTo}&hospitalId=${hospitalId}&healthcareId=${healthcareId}`, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('then',data)
+      dispatch(receiveHistoricalPatients(data))})
+    .catch(err => dispatch(failedHistoricalPatients(err)))
+  };
+};
+
+export function cleanHistoricalPatients(){
+    return {
+        type: "CLEAR_HIST_PATIENTS"
+    }
+};
+
 
 
 export function createUser(inputData) {

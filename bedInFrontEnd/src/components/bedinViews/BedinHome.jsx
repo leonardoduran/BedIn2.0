@@ -25,7 +25,11 @@ const navBarData = {
 		{
 			route: "/Bedin/administrador",
 			name: "Administrador"
-		}		
+		},
+		{
+			route: "/Bedin/viewReportes",
+			name: "Reportes"
+		}					
 	],
 	logo : '/public/img/logo_original.jpg',
 	userType: 'Bedin',

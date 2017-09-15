@@ -11,6 +11,7 @@ function ViewPatientRequestsViewedTable(props) {
         // return moment(date).format('DD/MM/YYYY || HH:mm:ss');
         return  (moment(date).isSame(moment(), 'day')?'HOY  ':'AYER ') + moment(date).format('HH:mm:ss');
     }
+	
 	const tableBody = props.patientsList.map((patient, i) =>
 		<tr style={i%2==0 ? tableStyle : tableStyle1} key={patient._id} title= {patient.obs ? patient.obs : null}>
 			<td>{patient.dni}</td>
@@ -81,5 +82,3 @@ function ViewPatientRequestsViewedTable(props) {
 }
 
 export default ViewPatientRequestsViewedTable;
-
-// props.sendMessage(patient._id)

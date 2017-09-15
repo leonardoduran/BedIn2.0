@@ -11,22 +11,27 @@ const navBarData = {
 	linkArray: [
 		{
 			route: "/Hospital/viewpending",
-			name: "PENDIENTES"
+			name: "Pendientes"
 		},
 		{
 			route: "/Hospital/viewaccepted",
-			name: "ACEPTADOS"
+			name: "Aceptados"
 
 		},
 		{
 			route: "/Hospital/viewrejected",
-			name: "RECHAZADOS"
+			name: "Rechazados"
 
 		},
 		{
 			route: "/Hospital/viewviewed",
-			name: "VISTOS"
+			name: "Vistos"
 
+		}
+		,
+		{
+			route: "/Hospital/viewReportes",
+			name: "Reportes"
 		}		
 	],
 	logo : '/public/img/logo_original.jpg',

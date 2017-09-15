@@ -15,9 +15,31 @@ function formReducers(state = {
   hospitals: [],
   receiveFinanciadors: false,
   financiadors: [],
-  isChangingPass : false
+  isChangingPass : false,
+  historicalPatients: []
 }, action) {
 switch(action.type) {
+  case 'USER_IS_LOGGED_OUT_FR' : 
+    return Object.assign({}, state, {
+      isRequesting: false,
+      createSuccess: false,
+      requestFail: false,
+      error: null,
+      name: null,
+      address: null,
+      phone: null,
+      email: null,
+      plans: [],
+      type: null,
+      osCode: null,
+      hospitalCode: null,
+      receiveHospitals: false,
+      hospitals: [],
+      receiveFinanciadors: false,
+      financiadors: [],
+      isChangingPass : false,
+      historicalPatients: []
+    });
   case 'REQUEST_CREATE':
     return Object.assign({}, state, {isRequesting: true});
   case 'RECEIVE_CREATED':
@@ -85,6 +107,23 @@ switch(action.type) {
     case 'CHANGING_PASSWORD_END' :
       return Object.assign({}, state, {isChangingPass: false});
 
+    case "RECEIVE_HIST_PATIENTS" :
+      return Object.assign({}, state, {
+        isRequesting: false,
+        historicalPatients:action.patients
+      });
+    
+    case "FAILED_HIST_PATIENTS":
+      return Object.assign({}, state, {
+        isRequesting: false,
+        error: action.err
+      });
+
+    case 'CLEAR_HIST_PATIENTS':
+      return Object.assign({}, state, {
+        isRequesting: false,
+        historicalPatients:[]
+      });    
   default:
     return state;
 }

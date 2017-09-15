@@ -41,6 +41,7 @@ export function failedToFetch (err) {
         err
     }
 }
+
 export function fetchGetPatients () {
     return (dispatch => {
         dispatch(isRequestingToServer());

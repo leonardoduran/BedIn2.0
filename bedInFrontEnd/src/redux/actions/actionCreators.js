@@ -28,9 +28,22 @@ export function failedCheckLogin(err) {
 }
 
 export function userIsLoggedOut() {
- return {
-   type: 'USER_IS_LOGGED_OUT',
- }
+// Reseteo todas las variables de estado de todos los reducers
+ return [
+    {type: 'USER_IS_LOGGED_OUT_H'},
+    {type: 'USER_IS_LOGGED_OUT_A'},
+    {type: 'USER_IS_LOGGED_OUT_FR'},
+    {type: 'USER_IS_LOGGED_OUT_PRR'},
+    {type: 'USER_IS_LOGGED_OUT_VF'},
+    {type: 'USER_IS_LOGGED_OUT_VH'},
+    {type: 'USER_IS_LOGGED_OUT_VU'},]
+}
+
+function signupUser () {
+  return [
+    createUserIsLoading(),
+    createUser()
+  ]
 }
 
 export function failedRequest(err) {

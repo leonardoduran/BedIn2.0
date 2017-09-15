@@ -21,7 +21,11 @@ const navBarData = {
 		{
 			route: "/Financiador/viewmatched",
 			name: "Solicitudes Confirmadas"
-		}
+		},
+		{
+			route: "/Financiador/viewReportes",
+			name: "Reportes"
+		}			
 	],
 	logo : '/public/img/logo_original.jpg',
 	userType: 'Financiador',

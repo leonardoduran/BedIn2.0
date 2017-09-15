@@ -4,6 +4,12 @@ function viewHospitals (state = {
 	error : false
 	}, action) {
 	switch(action.type) {
+		case 'USER_IS_LOGGED_OUT_VH':		
+			return Object.assign({}, state, {
+				hospitals : null,
+				isRequesting : false,
+				error : false
+			});		
 		case 'IS_REQUESTING_TO_SERVER': 
 			return Object.assign({}, state, {
 				isRequesting: true

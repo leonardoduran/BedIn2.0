@@ -18,6 +18,26 @@ function patientRequestReducers(state = {
   matchedList: []
 }, action) {
 switch(action.type) {
+  case 'USER_IS_LOGGED_OUT_PRR': 
+    return Object.assign({}, state, {
+      isRequesting: false,
+      createSuccess: false,
+      dni: null,
+      age: null,
+      sex: null,
+      cie10: null,
+      complexity: null,
+      patientPlan: null,
+      dateCreated: null,
+      hospitalsRequested: [],
+      error: null,
+      receivePlans: false,
+      plans: [],
+      requestFail: false,
+      receivePending: false,
+      pendingList: [],
+      matchedList: []
+    });
   case 'REQUEST_CREATE':
     return Object.assign({}, state, {isRequesting: true});
   case 'RECEIVE_CREATED_PATIENT':

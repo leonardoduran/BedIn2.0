@@ -10,6 +10,7 @@ const index = require('./routes/index');
 const indexBedin = require('./routes/bedin/index');
 const indexHealthcare = require('./routes/healthcare/index');
 const indexHospital = require('./routes/hospital/index')
+const patient = require('./routes/patient')
 const app = express();
 require('./config/mongoose')
 require('./config/passport-mongoose')(app);
@@ -24,6 +25,7 @@ app.use('/', index);
 app.use('/bedin', indexBedin);
 app.use('/healthcare', indexHealthcare);
 app.use('/hospital', indexHospital);
+app.use('/patient', patient);
 const controllerHealthcare = require('./controladores/healthcare');
 controllerHealthcare.setPatientTimeOut();
 //app.use('/bedin/healthcares', healthcares)

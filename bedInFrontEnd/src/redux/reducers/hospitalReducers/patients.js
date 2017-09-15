@@ -7,6 +7,14 @@ function patients(state = {
 
 	}, action) {
 	switch(action.type) {
+		case 'USER_IS_LOGGED_OUT_H':
+			return Object.assign({}, state, {
+				isRequesting: false,
+				error: null,
+				isSendingMsg : false,
+				patientsData: [],
+				viewedPatientsData: null				
+			})		
 		case 'IS_REQUESTING_TO_SERVER': 
 			return Object.assign({}, state, {
 				isRequesting: true
