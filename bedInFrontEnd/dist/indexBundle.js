@@ -32903,7 +32903,7 @@ function ViewTableReport(props) {
 				_react2.default.createElement('div', { className: 'col-xs-2 col-sm-4 col-lg-1' }),
 				_react2.default.createElement(
 					'div',
-					{ className: 'col-xs-8 col-sm-6 col-lg-10 ' },
+					{ className: 'col-xs-8 col-sm-6 col-lg-10 ', id: 'table_wrapper' },
 					_react2.default.createElement(
 						'table',
 						{ style: { border: "1px solid grey" }, className: 'table' },
@@ -32958,9 +32958,6 @@ function ViewTableReport(props) {
 }
 
 exports.default = ViewTableReport;
-
-// <td>{patient.healthcare}</td>
-// 		<th style={{border:"1px solid grey"}}>Solicitante</th>
 
 /***/ }),
 /* 277 */
@@ -39328,6 +39325,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var tabButton = { marginLeft: "10px" };
+
 function mapStateToProps(state) {
     return {
         isRequesting: state.formReducers.isRequesting,
@@ -39371,12 +39370,31 @@ var ViewReport = function (_React$Component) {
             this.props.cleanHistoricalPatients();
         }
     }, {
+        key: 'saveTable',
+        value: function saveTable() {
+            var data_type = 'data:application/vnd.ms-excel';
+            var table_div = document.getElementById('table_wrapper');
+            var table_html = table_div.outerHTML.replace(/ /g, '%20');
+            var dateFrom = document.getElementById("dateFrom").value;
+            var dateTo = document.getElementById("dateTo").value;
+
+            var a = document.createElement('a');
+            a.href = data_type + ', ' + table_html;
+            a.download = 'Reporte_Desde_' + dateFrom + '_Hasta_' + dateTo + '.xls';
+            a.click();
+        }
+    }, {
         key: 'render',
         value: function render() {
             var patients = this.props.patientsData && this.props.patientsData.length > 0 ? _react2.default.createElement(_TableViewReport2.default, {
                 patientsList: this.props.patientsData
             }) : null;
-
+            var btnExcel = this.props.patientsData && this.props.patientsData.length > 0 ? _react2.default.createElement(
+                'button',
+                { title: 'Generar Excel', type: 'button', className: 'btn btn-success', style: tabButton,
+                    onClick: this.saveTable.bind(this) },
+                'Excel'
+            ) : null;
             return _react2.default.createElement(
                 'div',
                 null,
@@ -39391,30 +39409,35 @@ var ViewReport = function (_React$Component) {
                             null,
                             'Desde'
                         ),
-                        _react2.default.createElement('input', { type: 'date', className: 'form-control', id: 'dateFrom' })
+                        _react2.default.createElement('input', { type: 'date', className: 'form-control', id: 'dateFrom', style: tabButton })
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: 'form-group' },
+                        { className: 'form-group', style: tabButton },
                         _react2.default.createElement(
                             'label',
-                            null,
+                            { style: tabButton },
                             'Hasta'
                         ),
-                        _react2.default.createElement('input', { type: 'date', className: 'form-control', id: 'dateTo' })
+                        _react2.default.createElement('input', { type: 'date', className: 'form-control', id: 'dateTo', style: tabButton })
                     ),
                     _react2.default.createElement(
                         'button',
-                        { onClick: this.getPatients.bind(this), className: 'btn btn-default' },
+                        { onClick: this.getPatients.bind(this), className: 'btn btn-default', style: tabButton },
                         'Buscar'
                     ),
                     _react2.default.createElement(
                         'button',
-                        { onClick: this.clean.bind(this), className: 'btn btn-default' },
+                        { onClick: this.clean.bind(this), className: 'btn btn-default', style: tabButton },
                         'Limpiar'
-                    )
+                    ),
+                    btnExcel
                 ),
-                patients
+                _react2.default.createElement(
+                    'div',
+                    null,
+                    patients
+                )
             );
         }
     }]);

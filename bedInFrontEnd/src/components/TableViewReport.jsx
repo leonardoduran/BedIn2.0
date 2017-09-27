@@ -27,7 +27,7 @@ function ViewTableReport(props) {
         <div className="container container_a">
           <div className="row">
             <div className="col-xs-2 col-sm-4 col-lg-1"></div>
-            <div className="col-xs-8 col-sm-6 col-lg-10 ">
+            <div className="col-xs-8 col-sm-6 col-lg-10 " id="table_wrapper">
 
 			<table style={{border:"1px solid grey"}} className= "table">
 			  <thead style={{border:"1px solid grey"}}>
@@ -52,6 +52,3 @@ function ViewTableReport(props) {
 }
 
 export default ViewTableReport;
-
-			// <td>{patient.healthcare}</td>
-			// 		<th style={{border:"1px solid grey"}}>Solicitante</th>
