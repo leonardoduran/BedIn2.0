@@ -50,6 +50,21 @@ class ViewReport extends React.Component {
         let data_type = 'data:application/vnd.ms-excel';
         let table_div = document.getElementById('table_wrapper');
         let table_html = table_div.outerHTML.replace(/ /g, '%20');
+
+        while (table_html.indexOf('á') != -1) table_html = table_html.replace('á', '&aacute;');
+        while (table_html.indexOf('Á') != -1) table_html = table_html.replace('Á', '&Aacute;');
+        while (table_html.indexOf('é') != -1) table_html = table_html.replace('é', '&eacute;');
+        while (table_html.indexOf('É') != -1) table_html = table_html.replace('É', '&Eacute;');
+        while (table_html.indexOf('í') != -1) table_html = table_html.replace('í', '&iacute;');
+        while (table_html.indexOf('Í') != -1) table_html = table_html.replace('Í', '&Iacute;');
+        while (table_html.indexOf('ó') != -1) table_html = table_html.replace('ó', '&oacute;');
+        while (table_html.indexOf('Ó') != -1) table_html = table_html.replace('Ó', '&Oacute;');
+        while (table_html.indexOf('ú') != -1) table_html = table_html.replace('ú', '&uacute;');
+        while (table_html.indexOf('Ú') != -1) table_html = table_html.replace('Ú', '&Uacute;');
+        while (table_html.indexOf('º') != -1) table_html = table_html.replace('º', '&ordm;');
+        while (table_html.indexOf('ñ') != -1) table_html = table_html.replace('ñ', '&ntilde;'); 
+        while (table_html.indexOf('Ñ') != -1) table_html = table_html.replace('Ñ', '&Ntilde;');
+
         let dateFrom=document.getElementById("dateFrom").value
         let dateTo=document.getElementById("dateTo").value
 
@@ -57,6 +72,7 @@ class ViewReport extends React.Component {
         a.href = data_type + ', ' + table_html;
         a.download = 'Reporte_Desde_'+dateFrom+'_Hasta_'+dateTo+'.xls';
         a.click();
+
     }
 
     render() {

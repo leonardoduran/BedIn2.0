@@ -10,12 +10,14 @@ function TableViewRequestDetails(props) {
 		return listOfPending.map(eachPending =>
 			acceptedByHospital ?
 			<p key={eachPending._id} >{eachPending.hospital.name}
-      	<button type="button" className="btn btn-success btn-xs" style={marginLeft}
-      		onClick={() => props.matchHospital(idPending,eachPending.hospital._id)}>
-        	<span className="glyphicon glyphicon-ok"></span>
-      	</button>
-  		</p>
-    	: <p key={eachPending._id}>{eachPending.hospital.name}</p>
+      			<button type="button" className="btn btn-success btn-xs" style={marginLeft}
+      				onClick={() => props.matchHospital(idPending,eachPending.hospital._id)}>
+        			<span className="glyphicon glyphicon-ok"></span>
+      			</button>
+  			</p>
+    		:
+    		<p key={eachPending._id}>{eachPending.hospital.name}</p>
+			
 		)
 	}
 
@@ -55,3 +57,5 @@ function TableViewRequestDetails(props) {
 }
 
 export default TableViewRequestDetails;
+
+// {(withMsj && buildMessages(eachPending.messages,eachPending.hospital._id) )? <p>Btn</p> : null}
