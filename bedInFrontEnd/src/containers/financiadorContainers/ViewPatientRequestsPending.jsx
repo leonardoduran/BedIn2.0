@@ -48,7 +48,7 @@ class ViewPatientRequestsPending extends React.Component {
         this.props.fetchPendingPatientRequests();
         this.idInterval = setInterval(() => {
             this.props.fetchPendingPatientRequests();
-        },10000)
+        },1000*60)
     }
     componentWillUnmount() {
         clearInterval(this.idInterval)
