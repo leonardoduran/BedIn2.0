@@ -4,14 +4,14 @@ function FinanciadorFormStep1(props) {
  return (
     <div>
       <div className="container a1">
-        <div className="row">
-          <div className="col-xs-2 col-sm-3 col-lg-3"></div>
-          <div className="col-xs-8 col-sm-5 col-lg-5 ">
+        <div className="row ">
+          <div className="col-xs-2 col-sm-2"></div>
+          <div className="col-xs-8 col-sm-8  ">
             <form className="form-horizontal" onSubmit={props.nextStep}>
               <div className="form-group ">
-                <div id="b1">
+                <div >
 
-                  <span id="e1"><h>INGRESE NUEVO SOLICITANTE</h></span>
+                 <h2 className='flexItems'>INGRESE NUEVO SOLICITANTE</h2>
 
 
                 </div>

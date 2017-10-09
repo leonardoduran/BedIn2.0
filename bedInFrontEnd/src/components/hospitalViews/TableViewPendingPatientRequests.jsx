@@ -47,7 +47,7 @@ function ViewPatientRequestsPendingTable(props) {
             <div className="col-xs-8 col-sm-6 col-lg-10 ">
 
 
-            <table style={{border:"1px solid grey"}} className= "table">
+            <table style={{border:"1px solid grey"}} className= "table table-responsive">
               <thead style={{border:"1px solid grey"}}>
                 <tr style={Object.assign({}, setRowColor('lightgrey'))}>
                     <th style={{border:"1px solid grey"}}>Paciente</th>

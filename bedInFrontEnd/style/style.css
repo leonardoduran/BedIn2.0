@@ -1,4 +1,4 @@
-/*Login*/
+/*Loge1n*/
 
 select.form-control:not([size]):not([multiple]) {
     height: auto;
@@ -139,7 +139,7 @@ select.form-control:not([size]):not([multiple]) {
 #c4 {
     border-radius:10px;
     margin-top: 10px;
-    margin-left: 10px;
+ 
     width: 200px;
     text-align: left;
 }
@@ -147,7 +147,7 @@ select.form-control:not([size]):not([multiple]) {
 #c4a{
     border-radius:10px;
     margin-top: 10px;
-    margin-left: 55px;
+ /*  margin-left: 10%;*/
     width: 200px;
     text-align: left;
 
@@ -159,12 +159,12 @@ select.form-control:not([size]):not([multiple]) {
 
 /*FinanciadorFormStep1*/
 
-#b1 {
+/*#b1 {
     margin-bottom: 20px;
     margin-left: 90px;
     font-size: 15px;
     font-weight: bold;
-}
+}*/
 
 /*#c1 {
      float: right;
@@ -172,8 +172,7 @@ select.form-control:not([size]):not([multiple]) {
 }*/
 
 #e1{
-    position: relative;
-    left: 10px;
+    display: inline;    
 }
 
 #f1 {
@@ -273,8 +272,8 @@ select.form-control:not([size]):not([multiple]) {
 
 .b6 {
 
-    background-color: #31b0d5;
-    color: white;
+    background-color: #f7f7f9;
+    color: black;
  }
 
 /*OpcionaHome*/
@@ -293,6 +292,9 @@ select.form-control:not([size]):not([multiple]) {
     border-radius: 20px;
     margin-bottom: 10%;
     padding-top:5%;
+    min-width: 235px;
+ /*   max-width: 300px;*/
+   
 
 
 }
@@ -305,6 +307,8 @@ select.form-control:not([size]):not([multiple]) {
     border-radius: 20px;
     margin-bottom: 10%;
     padding-top:5%;
+    min-width: 235px;
+   /* max-width: 300px;*/
 }
 
 #c7{
@@ -315,6 +319,8 @@ select.form-control:not([size]):not([multiple]) {
     border-radius: 20px;
     margin-bottom: 10%;
     padding-top:5%;
+    min-width: 235px;
+/*    max-width: 300px;*/
 }
 
 
@@ -451,7 +457,7 @@ input[type=number] {
 #c4a1{
     border-radius:10px;
     margin-top: 10px;
-    margin-left: 50px;
+    
     width: 230px;
     text-align: left;
     background-color: #de3e98;
@@ -484,4 +490,24 @@ input[type=number] {
 #glyphicon-p {
     color: #a90863 !important;
 
+}
+/*
+div {
+     border: 1px solid black
+}
+*/
+.flexItems {
+    display: flex; 
+    flex-direction:column;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+
+.flexItemss {
+    display: flex; 
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    
 }

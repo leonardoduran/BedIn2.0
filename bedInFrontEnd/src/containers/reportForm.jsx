@@ -54,21 +54,29 @@ class ViewReport extends React.Component {
 
         return (
             <div>
- 
-                <form className="form-inline">
-                  <div className="form-group">
-                    <label>Desde</label>
-                    <input type="date" className="form-control" id="dateFrom"></input>
-                  </div>
-                  <div className="form-group">
-                    <label>Hasta</label>
-                    <input type="date" className="form-control" id="dateTo"></input>
-                  </div>
-                  <button onClick={this.getPatients.bind(this)} className="btn btn-default">Buscar</button>
-                  <button onClick={this.clean.bind(this)} className="btn btn-default">Limpiar</button>
-                </form>   
-                    {patients}
+                <div className="container container_a">
+                  <div className="row flexItems">
+                <div className="col-xs-1 col-sm-2 col-lg-2"></div>
+                    <div className="col-xs-10 col-sm-8 col-lg-8 ">
+
+                    <form >
+                          <div className="form-group">
+                            <label>Desde</label>
+                            <input type="date" className="form-control" id="dateFrom"></input>
+                          </div>
+                          <div className="form-group">
+                            <label>Hasta</label>
+                            <input type="date" className="form-control" id="dateTo"></input>
+                          </div>
+                          <button onClick={this.getPatients.bind(this)} className="btn btn-default">Buscar</button>
+                          <button onClick={this.clean.bind(this)} className="btn btn-default">Limpiar</button>
+                    </form>   
+                        {patients}
+                        
+                        </div>
+                    </div>
             </div>
+         </div>
         )
     }
 }

@@ -31,8 +31,8 @@ function FinanciadorUserForm(props) {
 
         <div className="container container_a">
           <div className="row">
-            <div className="col-xs-2 col-sm-3 col-lg-3"></div>
-            <div className="col-xs-8 col-sm-6 col-lg-6 ">
+            <div className="col-xs-2 col-sm-2 col-lg-2"></div>
+            <div className="col-xs-8 col-sm-8 col-lg-8 ">
 
       <h2>Detalles de Usuario Financiador</h2>
 
@@ -74,7 +74,7 @@ function FinanciadorUserForm(props) {
 
        <div id="f1">
 
-          <label>Seleccione Solicitante del Usuario</label>
+          <label>Seleccione Obra Social del Usuario</label>
 
           {props.financiadors.map((financiador, i) =>
           <div key={i} id="g1">

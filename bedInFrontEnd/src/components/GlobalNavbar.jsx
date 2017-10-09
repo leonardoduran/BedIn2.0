@@ -4,8 +4,8 @@ import { Link } from 'react-router';
                 
 function GlobalNavbar (props) {
   const links = props.data.linkArray.map((linkData,i) => 
-    <li className="nav-item" key={i}>
-      <Link className="nav-link" activeClassName= 'active' to = {`${linkData.route}`}>{linkData.name}</Link>
+    <li  key={i}>
+      <Link className="nav-link" to = {`${linkData.route}`}>{linkData.name}</Link>
     </li>      
   )
   const logo = props.data.logo; 
@@ -18,7 +18,7 @@ function GlobalNavbar (props) {
         <div className="container">
           <div className="row flex-items-xs-middle">
             <div className="col-xs-6 columna">
-              <h1>BdIn</h1>
+              <h1>BedIn</h1>
             </div>
 
             <div className="col-xs-6 columna text-xs-right">
@@ -47,8 +47,8 @@ function GlobalNavbar (props) {
 
       <nav id="menu-container" className="navbar navbar-light">
         <div className="container">
-          <div className="row">
-            <div className="col-xs-10 col-md-6">
+          <div className="row flexItems">
+            <div className="col-xs-3 col-xs-3 col-md-12 ">
               <ul className="nav navbar-nav">
 
                 {links} 

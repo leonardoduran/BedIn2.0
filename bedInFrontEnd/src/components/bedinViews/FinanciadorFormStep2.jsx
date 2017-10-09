@@ -29,9 +29,9 @@ function FinanciadorFormStep2(props) {
         <div className="container container_a">
           <div className="row">
            
-            <div className="col-xs- col-sm-2 col-lg-2"></div>
+            <div className="col-xs-1 col-sm-1 col-lg-1"></div>
             
-            <div className="col-xs-5 col-sm-4 col-lg-4" id="a">
+            <div className="col-xs-5 col-sm-5 col-lg-5" id="a">
               
                 <div className="form-horizontal">  
                   <div className="form-group " id="b">
@@ -70,7 +70,7 @@ function FinanciadorFormStep2(props) {
             </div>
             
 
-            <div className="col-xs-5 col-sm-4 col-lg-4" id="f">
+            <div className="col-xs-5 col-sm-5 col-lg-5" id="f">
                 <table className="table  g" >
                   <thead>
                     <tr id="th" >
@@ -90,7 +90,7 @@ function FinanciadorFormStep2(props) {
                 
             </div>
 
-            <div className="col-xs-1 col-sm-3 col-lg-3 "></div>
+          
             
           </div><button  id="newbtn1"onClick={props.submitAll}>Submit All</button>
         </div>

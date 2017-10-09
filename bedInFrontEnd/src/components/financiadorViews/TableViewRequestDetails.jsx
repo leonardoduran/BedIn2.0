@@ -37,7 +37,7 @@ function TableViewRequestDetails(props) {
 
 	return (
 		<div>
-			<table style={{border:"1px solid black"}} className= "table">
+			<table style={{border:"1px solid black"}} className= "table table-responsive">
 			  <thead style={{border:"1px solid black"}}>
 			    <tr>
 					<th style={{border:"1px solid black"}}>Instituciones Solicitadas</th>

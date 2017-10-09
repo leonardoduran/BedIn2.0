@@ -17,8 +17,8 @@ function TableDataFinanciador(props) {
 	return (
 		<div className="container">
       <div className="row">
-    		<div className="col-xs-2 col-sm-4 col-lg-3"></div>
-    		<div className="col-xs-8 col-sm-6 col-lg-6 ">
+    		<div className="col-xs-1 col-sm-1"></div>
+    		<div className="col-xs-10 col-sm-10  ">
 					<div>
 						<p>NOMBRE:  {props.financiador.name}</p>
 						<p>EMAIL: {props.financiador.email}</p>

@@ -11,7 +11,7 @@ const navBarData = {
 	linkArray: [
 
 		{
-			route: "/Bedin",
+			route: "/Bdin",
 			name: "Home"
 		},
 		{

@@ -25,9 +25,9 @@ function CreatePatientRequestForm(props) {
   return (
 
     <div className="container container_a">
-      <div className="row">
-        <div className="col-xs-2 col-sm-4 col-lg-2"></div>
-        <div className="col-xs-8 col-sm-6 col-lg-6 ">
+      <div className="row flexItems">
+        <div className="col-xs-2 col-sm-2 col-lg-2"></div>
+        <div className="col-xs-8 col-sm-8 col-lg-8 ">
 
           <h2>Generar Solicitud de Paciente</h2>
 

@@ -30,7 +30,7 @@ const navBarData = {
 	logo : '/public/img/logo_original.jpg',
 	userType: 'Financiador',
 
-	color : '#1c14a5'
+	color : '#3755bb'
 
 }
 

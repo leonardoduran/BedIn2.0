@@ -17,7 +17,7 @@
     "moment": "^2.18.1",
     "mongoose": "^4.8.6",
     "mongoose-schema-extend": "^0.2.2",
-    "morgan": "~1.7.0",
+    "morgan": "^1.7.0",
     "nodemon": "^1.11.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",

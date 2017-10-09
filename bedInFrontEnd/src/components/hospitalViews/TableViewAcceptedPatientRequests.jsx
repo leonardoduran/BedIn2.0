@@ -50,7 +50,7 @@ function ViewPatientRequestsAcceptedTable(props) {
 					<div className="col-xs-1"></div>
 						<div className="col-xs-10">
 
-					<table style={{border:"1px solid grey"}} className= "table">
+					<table style={{border:"1px solid grey"}} className= "table table-responsive">
 					  <thead style={{border:"1px solid grey"}}>
 					    <tr style={Object.assign({}, setRowColor('lightgrey'))}>
 							<th style={{border:"1px solid grey"}}>Paciente</th>
