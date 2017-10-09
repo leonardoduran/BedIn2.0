@@ -52,6 +52,8 @@ function ViewPatientRequestsPendingTable(props) {
                 </td>)
                 :
                 (<td style={tableStyle}></td>)}
+
+                                
             </tr>
             )
         })
@@ -90,5 +92,3 @@ function ViewPatientRequestsPendingTable(props) {
     )
 }
 export default ViewPatientRequestsPendingTable;
-
-// onClick={()=> props.setState(patient._id, 'Rechazado')}

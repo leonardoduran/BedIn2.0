@@ -27,7 +27,7 @@ class ViewRejectedPatientRequest extends React.Component {
 		this.props.fetchGetPatientsByState('Rechazado');
 		this.idInterval = setInterval(() => {
 			this.props.fetchGetPatientsByState('Rechazado');	
-		},10000)
+		},1000*60)
 	}
 
 	componentWillUnmount() {

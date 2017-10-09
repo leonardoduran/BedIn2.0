@@ -29,11 +29,10 @@ function CreatePatientRequestForm(props) {
         <div className="col-xs-2 col-sm-2 col-lg-2"></div>
         <div className="col-xs-8 col-sm-8 col-lg-8 ">
 
-          <h2>Generar Solicitud de Paciente</h2>
-
+          <h3> Generar Solicitud de Admisión de Paciente </h3>
+          <br></br>
           <form className="form-horizontal">
-
-            <div className="form-group">
+            <div className="form-group">             
               <label htmlFor="sel1" className="control-label col-sm-3">Plan</label>
               <div className="col-sm-9">
                 <select className="form-control" name="plan" id="planSelect">

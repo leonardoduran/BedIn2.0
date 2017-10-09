@@ -27,7 +27,7 @@ class ViewAcceptedPatientRequest extends React.Component {
 		this.idInterval = setInterval(() => {
 			this.props.fetchGetPatientsByState('Aceptado');	
 
-		},10000)
+		},1000*60)
 	}
 
 	componentWillUnmount() {

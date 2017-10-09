@@ -6007,7 +6007,7 @@ var CallbackQueue = __webpack_require__(104);
 var PooledClass = __webpack_require__(26);
 var ReactFeatureFlags = __webpack_require__(105);
 var ReactReconciler = __webpack_require__(29);
-var Transaction = __webpack_require__(45);
+var Transaction = __webpack_require__(44);
 
 var invariant = __webpack_require__(3);
 
@@ -7049,7 +7049,7 @@ var _assign = __webpack_require__(8);
 var ReactCurrentOwner = __webpack_require__(17);
 
 var warning = __webpack_require__(4);
-var canDefineProperty = __webpack_require__(42);
+var canDefineProperty = __webpack_require__(41);
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 
 var REACT_ELEMENT_TYPE = __webpack_require__(93);
@@ -7527,7 +7527,7 @@ var cloneElement = ReactElement.cloneElement;
 
 if (process.env.NODE_ENV !== 'production') {
   var lowPriorityWarning = __webpack_require__(55);
-  var canDefineProperty = __webpack_require__(42);
+  var canDefineProperty = __webpack_require__(41);
   var ReactElementValidator = __webpack_require__(95);
   var didWarnPropTypesDeprecated = false;
   createElement = ReactElementValidator.createElement;
@@ -7864,7 +7864,7 @@ module.exports = ReactReconciler;
 
 
 var DOMNamespaces = __webpack_require__(63);
-var setInnerHTML = __webpack_require__(47);
+var setInnerHTML = __webpack_require__(46);
 
 var createMicrosoftUnsafeLocalFunction = __webpack_require__(64);
 var setTextContent = __webpack_require__(109);
@@ -8274,7 +8274,7 @@ var _warning2 = _interopRequireDefault(_warning);
 
 var _PathUtils = __webpack_require__(24);
 
-var _Actions = __webpack_require__(50);
+var _Actions = __webpack_require__(49);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8354,267 +8354,6 @@ var locationsAreEqual = exports.locationsAreEqual = function locationsAreEqual(a
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.requestCreate = requestCreate;
-exports.requestList = requestList;
-exports.receiveCreated = receiveCreated;
-exports.receiveCreatedHospital = receiveCreatedHospital;
-exports.receiveCreatedUser = receiveCreatedUser;
-exports.receiveHospitals = receiveHospitals;
-exports.receiveFinanciadors = receiveFinanciadors;
-exports.failedToCreate = failedToCreate;
-exports.failedRequest = failedRequest;
-exports.resetCreateSuccess = resetCreateSuccess;
-exports.createEntidadFinanciadora = createEntidadFinanciadora;
-exports.createEntidadHospital = createEntidadHospital;
-exports.fetchHospitalList = fetchHospitalList;
-exports.fetchFinanciadorList = fetchFinanciadorList;
-exports.gettingHistoricalPatients = gettingHistoricalPatients;
-exports.receiveHistoricalPatients = receiveHistoricalPatients;
-exports.failedHistoricalPatients = failedHistoricalPatients;
-exports.fecthHistoricalPatients = fecthHistoricalPatients;
-exports.cleanHistoricalPatients = cleanHistoricalPatients;
-exports.createUser = createUser;
-function requestCreate() {
-  return {
-    type: 'REQUEST_CREATE'
-  };
-}
-
-function requestList() {
-  return {
-    type: 'REQUEST_LIST'
-  };
-}
-
-function receiveCreated(input) {
-  return {
-    type: 'RECEIVE_CREATED',
-    input: input
-  };
-}
-
-function receiveCreatedHospital(input) {
-  return {
-    type: 'RECEIVE_CREATED_HOSPITAL',
-    input: input
-  };
-}
-
-function receiveCreatedUser(input) {
-  return {
-    type: 'RECEIVE_CREATED_USER',
-    input: input
-  };
-}
-
-function receiveHospitals(hospitals) {
-  return {
-    type: 'RECEIVE_HOSPITALS',
-    hospitals: hospitals
-  };
-}
-
-function receiveFinanciadors(financiadors) {
-  return {
-    type: 'RECEIVE_FINANCIADORS',
-    financiadors: financiadors
-  };
-}
-
-function failedToCreate(err) {
-  return {
-    type: 'FAILED_TO_CREATE',
-    err: err
-  };
-}
-
-function failedRequest(err) {
-  return {
-    type: 'FAILED_REQUEST',
-    err: err
-  };
-}
-
-function resetCreateSuccess() {
-  return {
-    type: 'RESET_CREATE_SUCCESS'
-  };
-}
-
-function createEntidadFinanciadora(inputData) {
-
-  return function (dispatch) {
-    dispatch(requestCreate());
-    return fetch('./bedin/healthcares', {
-      method: 'POST',
-      credentials: 'include',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(inputData)
-    }).then(function (response) {
-      return response.json();
-    }).then(function (data) {
-      if (data) {
-        dispatch(receiveCreated(data));
-      } else {
-        dispatch(failedToCreate(data.err));
-      }
-    }).catch(function (err) {
-      return dispatch(failedRequest(err));
-    });
-  };
-};
-
-function createEntidadHospital(inputData) {
-
-  return function (dispatch) {
-    dispatch(requestCreate());
-
-    return fetch('./bedin/hospitals', {
-      method: 'POST',
-      credentials: 'include',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(inputData)
-    }).then(function (response) {
-      return response.json();
-    }).then(function (data) {
-      if (data) {
-        dispatch(receiveCreatedHospital(data));
-      } else {
-        dispatch(failedToCreate(data.err));
-      }
-    }).catch(function (err) {
-      return dispatch(failedRequest(err));
-    });
-  };
-};
-
-function fetchHospitalList() {
-  return function (dispatch) {
-    dispatch(requestList());
-
-    return fetch('./bedin/hospitals', {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    }).then(function (response) {
-      return response.json();
-    }).then(function (data) {
-      return dispatch(receiveHospitals(data));
-    }).catch(function (err) {
-      return dispatch(failedRequest(err));
-    });
-  };
-};
-
-function fetchFinanciadorList() {
-  return function (dispatch) {
-    dispatch(requestList());
-
-    return fetch('./bedin/healthcares', {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    }).then(function (response) {
-      return response.json();
-    }).then(function (data) {
-      return dispatch(receiveFinanciadors(data));
-    }).catch(function (err) {
-      return dispatch(failedRequest(err));
-    });
-  };
-};
-
-function gettingHistoricalPatients() {
-  return {
-    type: 'REQUEST_LIST'
-  };
-}
-function receiveHistoricalPatients(patients) {
-  return {
-    type: "RECEIVE_HIST_PATIENTS",
-    patients: patients
-  };
-}
-function failedHistoricalPatients(err) {
-  return {
-    type: "FAILED_HIST_PATIENTS",
-    err: err
-  };
-}
-
-function fecthHistoricalPatients(dateFrom, dateTo, hospitalId, healthcareId) {
-  return function (dispatch) {
-    dispatch(gettingHistoricalPatients());
-    return fetch('./patient/getAllWithFilter?dateFrom=' + dateFrom + '&dateTo=' + dateTo + '&hospitalId=' + hospitalId + '&healthcareId=' + healthcareId, {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    }).then(function (response) {
-      return response.json();
-    }).then(function (data) {
-      console.log('then', data);
-      dispatch(receiveHistoricalPatients(data));
-    }).catch(function (err) {
-      return dispatch(failedHistoricalPatients(err));
-    });
-  };
-};
-
-function cleanHistoricalPatients() {
-  return {
-    type: "CLEAR_HIST_PATIENTS"
-  };
-};
-
-function createUser(inputData) {
-
-  return function (dispatch) {
-    dispatch(requestCreate());
-
-    return fetch('./bedin/users', {
-      method: 'POST',
-      credentials: 'include',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(inputData)
-    }).then(function (response) {
-      return response.json();
-    }).then(function (data) {
-      if (!data.error) {
-        dispatch(receiveCreatedUser(data));
-      } else {
-        dispatch(failedToCreate(data.err));
-      }
-    }).catch(function (err) {
-      dispatch(failedRequest(err));
-    });
-  };
-};
-
-/***/ }),
-/* 35 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -8627,7 +8366,7 @@ function createUser(inputData) {
 
 
 
-var EventPluginHub = __webpack_require__(36);
+var EventPluginHub = __webpack_require__(35);
 var EventPluginUtils = __webpack_require__(57);
 
 var accumulateInto = __webpack_require__(101);
@@ -8751,7 +8490,7 @@ module.exports = EventPropagators;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 36 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8769,7 +8508,7 @@ module.exports = EventPropagators;
 
 var _prodInvariant = __webpack_require__(5);
 
-var EventPluginRegistry = __webpack_require__(44);
+var EventPluginRegistry = __webpack_require__(43);
 var EventPluginUtils = __webpack_require__(57);
 var ReactErrorUtils = __webpack_require__(58);
 
@@ -9031,7 +8770,7 @@ module.exports = EventPluginHub;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9095,7 +8834,7 @@ SyntheticEvent.augmentClass(SyntheticUIEvent, UIEventInterface);
 module.exports = SyntheticUIEvent;
 
 /***/ }),
-/* 38 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9146,7 +8885,7 @@ var ReactInstanceMap = {
 module.exports = ReactInstanceMap;
 
 /***/ }),
-/* 39 */
+/* 38 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9179,59 +8918,7 @@ var route = __WEBPACK_IMPORTED_MODULE_0_prop_types__["oneOfType"]([__WEBPACK_IMP
 var routes = __WEBPACK_IMPORTED_MODULE_0_prop_types__["oneOfType"]([route, __WEBPACK_IMPORTED_MODULE_0_prop_types__["arrayOf"](route)]);
 
 /***/ }),
-/* 40 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.history = undefined;
-
-var _reduxThunk = __webpack_require__(430);
-
-var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
-
-var _reduxLogger = __webpack_require__(431);
-
-var _redux = __webpack_require__(6);
-
-var _reduxMulti = __webpack_require__(432);
-
-var _reduxMulti2 = _interopRequireDefault(_reduxMulti);
-
-var _reactRouterRedux = __webpack_require__(145);
-
-var _reactRouter = __webpack_require__(11);
-
-var _index = __webpack_require__(435);
-
-var _index2 = _interopRequireDefault(_index);
-
-var _sessionStorage = __webpack_require__(148);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var loggerMiddleware = (0, _reduxLogger.createLogger)();
-
-var persistedState = (0, _sessionStorage.loadState)();
-
-var composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || _redux.compose;
-var store = (0, _redux.createStore)(_index2.default, persistedState, composeEnhancers((0, _redux.applyMiddleware)(_reduxThunk2.default, loggerMiddleware, _reduxMulti2.default)));
-
-// const store = createStore(rootReducer, composeEnhancers(
-//     applyMiddleware(thunkMiddleware,
-//     loggerMiddleware,
-//     )));
-
-var history = exports.history = (0, _reactRouterRedux.syncHistoryWithStore)(_reactRouter.hashHistory, store);
-
-exports.default = store;
-
-/***/ }),
-/* 41 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9354,7 +9041,268 @@ function logoutFetch() {
 };
 
 /***/ }),
-/* 42 */
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.requestCreate = requestCreate;
+exports.requestList = requestList;
+exports.receiveCreated = receiveCreated;
+exports.receiveCreatedHospital = receiveCreatedHospital;
+exports.receiveCreatedUser = receiveCreatedUser;
+exports.receiveHospitals = receiveHospitals;
+exports.receiveFinanciadors = receiveFinanciadors;
+exports.failedToCreate = failedToCreate;
+exports.failedRequest = failedRequest;
+exports.resetCreateSuccess = resetCreateSuccess;
+exports.createEntidadFinanciadora = createEntidadFinanciadora;
+exports.createEntidadHospital = createEntidadHospital;
+exports.fetchHospitalList = fetchHospitalList;
+exports.fetchFinanciadorList = fetchFinanciadorList;
+exports.gettingHistoricalPatients = gettingHistoricalPatients;
+exports.receiveHistoricalPatients = receiveHistoricalPatients;
+exports.failedHistoricalPatients = failedHistoricalPatients;
+exports.fecthHistoricalPatients = fecthHistoricalPatients;
+exports.cleanHistoricalPatients = cleanHistoricalPatients;
+exports.createUser = createUser;
+function requestCreate() {
+  return {
+    type: 'REQUEST_CREATE'
+  };
+}
+
+function requestList() {
+  return {
+    type: 'REQUEST_LIST'
+  };
+}
+
+function receiveCreated(input) {
+  return {
+    type: 'RECEIVE_CREATED',
+    input: input
+  };
+}
+
+function receiveCreatedHospital(input) {
+  return {
+    type: 'RECEIVE_CREATED_HOSPITAL',
+    input: input
+  };
+}
+
+function receiveCreatedUser(input) {
+  return {
+    type: 'RECEIVE_CREATED_USER',
+    input: input
+  };
+}
+
+function receiveHospitals(hospitals) {
+  return {
+    type: 'RECEIVE_HOSPITALS',
+    hospitals: hospitals
+  };
+}
+
+function receiveFinanciadors(financiadors) {
+  return {
+    type: 'RECEIVE_FINANCIADORS',
+    financiadors: financiadors
+  };
+}
+
+function failedToCreate(err) {
+  return {
+    type: 'FAILED_TO_CREATE',
+    err: err
+  };
+}
+
+function failedRequest(err) {
+  return {
+    type: 'FAILED_REQUEST',
+    err: err
+  };
+}
+
+function resetCreateSuccess() {
+  return {
+    type: 'RESET_CREATE_SUCCESS'
+  };
+}
+
+function createEntidadFinanciadora(inputData) {
+
+  return function (dispatch) {
+    dispatch(requestCreate());
+    return fetch('./bedin/healthcares', {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(inputData)
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      if (data) {
+        dispatch(receiveCreated(data));
+      } else {
+        dispatch(failedToCreate(data.err));
+      }
+    }).catch(function (err) {
+      return dispatch(failedRequest(err));
+    });
+  };
+};
+
+function createEntidadHospital(inputData) {
+
+  return function (dispatch) {
+    dispatch(requestCreate());
+
+    return fetch('./bedin/hospitals', {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(inputData)
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      if (data) {
+        dispatch(receiveCreatedHospital(data));
+      } else {
+        dispatch(failedToCreate(data.err));
+      }
+    }).catch(function (err) {
+      return dispatch(failedRequest(err));
+    });
+  };
+};
+
+function fetchHospitalList() {
+  return function (dispatch) {
+    dispatch(requestList());
+
+    return fetch('./bedin/hospitals', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      return dispatch(receiveHospitals(data));
+    }).catch(function (err) {
+      return dispatch(failedRequest(err));
+    });
+  };
+};
+
+function fetchFinanciadorList() {
+  return function (dispatch) {
+    dispatch(requestList());
+
+    return fetch('./bedin/healthcares', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      return dispatch(receiveFinanciadors(data));
+    }).catch(function (err) {
+      return dispatch(failedRequest(err));
+    });
+  };
+};
+
+function gettingHistoricalPatients() {
+  return {
+    type: 'REQUEST_LIST'
+  };
+}
+function receiveHistoricalPatients(patients) {
+  return {
+    type: "RECEIVE_HIST_PATIENTS",
+    patients: patients
+  };
+}
+function failedHistoricalPatients(err) {
+  return {
+    type: "FAILED_HIST_PATIENTS",
+    err: err
+  };
+}
+
+function fecthHistoricalPatients(dateFrom, dateTo, hospitalId, healthcareId) {
+  return function (dispatch) {
+    dispatch(gettingHistoricalPatients());
+    return fetch('./patient/getAllWithFilter?dateFrom=' + dateFrom + '&dateTo=' + dateTo + '&hospitalId=' + hospitalId + '&healthcareId=' + healthcareId, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      console.log('then', data);
+      dispatch(receiveHistoricalPatients(data));
+    }).catch(function (err) {
+      return dispatch(failedHistoricalPatients(err));
+    });
+  };
+};
+
+function cleanHistoricalPatients() {
+  return {
+    type: "CLEAR_HIST_PATIENTS"
+  };
+};
+
+function createUser(inputData) {
+
+  return function (dispatch) {
+    dispatch(requestCreate());
+
+    return fetch('./bedin/users', {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(inputData)
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      if (!data.error) {
+        dispatch(receiveCreatedUser(data));
+      } else {
+        dispatch(failedToCreate(data.err));
+      }
+    }).catch(function (err) {
+      dispatch(failedRequest(err));
+    });
+  };
+};
+
+/***/ }),
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9386,7 +9334,7 @@ module.exports = canDefineProperty;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 43 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9412,7 +9360,7 @@ module.exports = emptyObject;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 44 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9671,7 +9619,7 @@ module.exports = EventPluginRegistry;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 45 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9905,7 +9853,7 @@ module.exports = TransactionImpl;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 46 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9921,7 +9869,7 @@ module.exports = TransactionImpl;
 
 
 
-var SyntheticUIEvent = __webpack_require__(37);
+var SyntheticUIEvent = __webpack_require__(36);
 var ViewportMetrics = __webpack_require__(108);
 
 var getEventModifierState = __webpack_require__(61);
@@ -9982,7 +9930,7 @@ SyntheticUIEvent.augmentClass(SyntheticMouseEvent, MouseEventInterface);
 module.exports = SyntheticMouseEvent;
 
 /***/ }),
-/* 47 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10085,7 +10033,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = setInnerHTML;
 
 /***/ }),
-/* 48 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10212,7 +10160,7 @@ function escapeTextContentForBrowser(text) {
 module.exports = escapeTextContentForBrowser;
 
 /***/ }),
-/* 49 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10230,7 +10178,7 @@ module.exports = escapeTextContentForBrowser;
 
 var _assign = __webpack_require__(8);
 
-var EventPluginRegistry = __webpack_require__(44);
+var EventPluginRegistry = __webpack_require__(43);
 var ReactEventEmitterMixin = __webpack_require__(329);
 var ViewportMetrics = __webpack_require__(108);
 
@@ -10541,7 +10489,7 @@ var ReactBrowserEventEmitter = _assign({}, ReactEventEmitterMixin, {
 module.exports = ReactBrowserEventEmitter;
 
 /***/ }),
-/* 50 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10569,7 +10517,7 @@ var REPLACE = exports.REPLACE = 'REPLACE';
 var POP = exports.POP = 'POP';
 
 /***/ }),
-/* 51 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10622,6 +10570,58 @@ var supportsPopstateOnHashchange = exports.supportsPopstateOnHashchange = functi
 var isExtraneousPopstateEvent = exports.isExtraneousPopstateEvent = function isExtraneousPopstateEvent(event) {
   return event.state === undefined && navigator.userAgent.indexOf('CriOS') === -1;
 };
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.history = undefined;
+
+var _reduxThunk = __webpack_require__(430);
+
+var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
+
+var _reduxLogger = __webpack_require__(431);
+
+var _redux = __webpack_require__(6);
+
+var _reduxMulti = __webpack_require__(432);
+
+var _reduxMulti2 = _interopRequireDefault(_reduxMulti);
+
+var _reactRouterRedux = __webpack_require__(145);
+
+var _reactRouter = __webpack_require__(11);
+
+var _index = __webpack_require__(435);
+
+var _index2 = _interopRequireDefault(_index);
+
+var _sessionStorage = __webpack_require__(148);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var loggerMiddleware = (0, _reduxLogger.createLogger)();
+
+var persistedState = (0, _sessionStorage.loadState)();
+
+var composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || _redux.compose;
+var store = (0, _redux.createStore)(_index2.default, persistedState, composeEnhancers((0, _redux.applyMiddleware)(_reduxThunk2.default, loggerMiddleware, _reduxMulti2.default)));
+
+// const store = createStore(rootReducer, composeEnhancers(
+//     applyMiddleware(thunkMiddleware,
+//     loggerMiddleware,
+//     )));
+
+var history = exports.history = (0, _reactRouterRedux.syncHistoryWithStore)(_reactRouter.hashHistory, store);
+
+exports.default = store;
 
 /***/ }),
 /* 52 */
@@ -11545,7 +11545,7 @@ var ReactDOMComponentTree = __webpack_require__(9);
 var ReactInstrumentation = __webpack_require__(16);
 
 var createMicrosoftUnsafeLocalFunction = __webpack_require__(64);
-var setInnerHTML = __webpack_require__(47);
+var setInnerHTML = __webpack_require__(46);
 var setTextContent = __webpack_require__(109);
 
 function getNodeAfter(parentNode, node) {
@@ -12214,7 +12214,7 @@ module.exports = KeyEscapeUtils;
 var _prodInvariant = __webpack_require__(5);
 
 var ReactCurrentOwner = __webpack_require__(17);
-var ReactInstanceMap = __webpack_require__(38);
+var ReactInstanceMap = __webpack_require__(37);
 var ReactInstrumentation = __webpack_require__(16);
 var ReactUpdates = __webpack_require__(18);
 
@@ -13288,7 +13288,7 @@ var _runTransitionHook = __webpack_require__(77);
 
 var _runTransitionHook2 = _interopRequireDefault(_runTransitionHook);
 
-var _Actions = __webpack_require__(50);
+var _Actions = __webpack_require__(49);
 
 var _LocationUtils = __webpack_require__(33);
 
@@ -13475,7 +13475,7 @@ exports.go = exports.replaceLocation = exports.pushLocation = exports.startListe
 
 var _LocationUtils = __webpack_require__(33);
 
-var _DOMUtils = __webpack_require__(51);
+var _DOMUtils = __webpack_require__(50);
 
 var _DOMStateStorage = __webpack_require__(134);
 
@@ -13899,6 +13899,8 @@ exports.requestList = requestList;
 exports.receivePlans = receivePlans;
 exports.resetCreateSuccess = resetCreateSuccess;
 exports.fetchPlanList = fetchPlanList;
+exports.receiveDiagnosis = receiveDiagnosis;
+exports.fetchDiagnosis = fetchDiagnosis;
 exports.createPatientRequest = createPatientRequest;
 exports.receivePending = receivePending;
 exports.receiveMatched = receiveMatched;
@@ -13973,6 +13975,34 @@ function fetchPlanList() {
       return response.json();
     }).then(function (data) {
       dispatch(receivePlans(data));
+    }).catch(function (err) {
+      return dispatch(failedRequest(err));
+    });
+  };
+};
+
+function receiveDiagnosis(diagnosis) {
+  return {
+    type: 'RECEIVE_DIAGNOSIS',
+    diagnosis: diagnosis
+  };
+}
+
+function fetchDiagnosis() {
+  return function (dispatch) {
+    dispatch(requestList());
+
+    return fetch('./healthcare/diagnosis', {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      dispatch(receiveDiagnosis(data));
     }).catch(function (err) {
       return dispatch(failedRequest(err));
     });
@@ -14575,8 +14605,8 @@ var _prodInvariant = __webpack_require__(28),
 
 var ReactNoopUpdateQueue = __webpack_require__(92);
 
-var canDefineProperty = __webpack_require__(42);
-var emptyObject = __webpack_require__(43);
+var canDefineProperty = __webpack_require__(41);
+var emptyObject = __webpack_require__(42);
 var invariant = __webpack_require__(3);
 var lowPriorityWarning = __webpack_require__(55);
 
@@ -14904,7 +14934,7 @@ var ReactElement = __webpack_require__(25);
 
 var checkReactTypeSpec = __webpack_require__(287);
 
-var canDefineProperty = __webpack_require__(42);
+var canDefineProperty = __webpack_require__(41);
 var getIteratorFn = __webpack_require__(94);
 var warning = __webpack_require__(4);
 var lowPriorityWarning = __webpack_require__(55);
@@ -15702,7 +15732,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 var _assign = __webpack_require__(8);
 
-var emptyObject = __webpack_require__(43);
+var emptyObject = __webpack_require__(42);
 var _invariant = __webpack_require__(3);
 
 if (process.env.NODE_ENV !== 'production') {
@@ -17118,8 +17148,8 @@ module.exports = ViewportMetrics;
 
 
 var ExecutionEnvironment = __webpack_require__(10);
-var escapeTextContentForBrowser = __webpack_require__(48);
-var setInnerHTML = __webpack_require__(47);
+var escapeTextContentForBrowser = __webpack_require__(47);
+var setInnerHTML = __webpack_require__(46);
 
 /**
  * Set the textContent property of a node, ensuring that whitespace is preserved
@@ -18566,23 +18596,23 @@ var _prodInvariant = __webpack_require__(5);
 var DOMLazyTree = __webpack_require__(30);
 var DOMProperty = __webpack_require__(21);
 var React = __webpack_require__(27);
-var ReactBrowserEventEmitter = __webpack_require__(49);
+var ReactBrowserEventEmitter = __webpack_require__(48);
 var ReactCurrentOwner = __webpack_require__(17);
 var ReactDOMComponentTree = __webpack_require__(9);
 var ReactDOMContainerInfo = __webpack_require__(370);
 var ReactDOMFeatureFlags = __webpack_require__(371);
 var ReactFeatureFlags = __webpack_require__(105);
-var ReactInstanceMap = __webpack_require__(38);
+var ReactInstanceMap = __webpack_require__(37);
 var ReactInstrumentation = __webpack_require__(16);
 var ReactMarkupChecksum = __webpack_require__(372);
 var ReactReconciler = __webpack_require__(29);
 var ReactUpdateQueue = __webpack_require__(70);
 var ReactUpdates = __webpack_require__(18);
 
-var emptyObject = __webpack_require__(43);
+var emptyObject = __webpack_require__(42);
 var instantiateReactComponent = __webpack_require__(115);
 var invariant = __webpack_require__(3);
-var setInnerHTML = __webpack_require__(47);
+var setInnerHTML = __webpack_require__(46);
 var shouldUpdateReactComponent = __webpack_require__(68);
 var warning = __webpack_require__(4);
 
@@ -19594,7 +19624,7 @@ var Link = __WEBPACK_IMPORTED_MODULE_1_create_react_class___default.a({
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__RouteUtils__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__PatternUtils__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__InternalPropTypes__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__InternalPropTypes__ = __webpack_require__(38);
 
 
 
@@ -32672,7 +32702,7 @@ var _reactRouter = __webpack_require__(11);
 
 var _reactRedux = __webpack_require__(7);
 
-var _store = __webpack_require__(40);
+var _store = __webpack_require__(51);
 
 var _store2 = _interopRequireDefault(_store);
 
@@ -34237,7 +34267,7 @@ module.exports = ARIADOMPropertyConfig;
 
 
 
-var EventPropagators = __webpack_require__(35);
+var EventPropagators = __webpack_require__(34);
 var ExecutionEnvironment = __webpack_require__(10);
 var FallbackCompositionState = __webpack_require__(299);
 var SyntheticCompositionEvent = __webpack_require__(300);
@@ -34809,8 +34839,8 @@ module.exports = SyntheticInputEvent;
 
 
 
-var EventPluginHub = __webpack_require__(36);
-var EventPropagators = __webpack_require__(35);
+var EventPluginHub = __webpack_require__(35);
+var EventPropagators = __webpack_require__(34);
 var ExecutionEnvironment = __webpack_require__(10);
 var ReactDOMComponentTree = __webpack_require__(9);
 var ReactUpdates = __webpack_require__(18);
@@ -35866,9 +35896,9 @@ module.exports = DefaultEventPluginOrder;
 
 
 
-var EventPropagators = __webpack_require__(35);
+var EventPropagators = __webpack_require__(34);
 var ReactDOMComponentTree = __webpack_require__(9);
-var SyntheticMouseEvent = __webpack_require__(46);
+var SyntheticMouseEvent = __webpack_require__(45);
 
 var eventTypes = {
   mouseEnter: {
@@ -36668,9 +36698,9 @@ var DOMLazyTree = __webpack_require__(30);
 var DOMNamespaces = __webpack_require__(63);
 var DOMProperty = __webpack_require__(21);
 var DOMPropertyOperations = __webpack_require__(112);
-var EventPluginHub = __webpack_require__(36);
-var EventPluginRegistry = __webpack_require__(44);
-var ReactBrowserEventEmitter = __webpack_require__(49);
+var EventPluginHub = __webpack_require__(35);
+var EventPluginRegistry = __webpack_require__(43);
+var ReactBrowserEventEmitter = __webpack_require__(48);
 var ReactDOMComponentFlags = __webpack_require__(100);
 var ReactDOMComponentTree = __webpack_require__(9);
 var ReactDOMInput = __webpack_require__(331);
@@ -36682,7 +36712,7 @@ var ReactMultiChild = __webpack_require__(334);
 var ReactServerRenderingTransaction = __webpack_require__(343);
 
 var emptyFunction = __webpack_require__(15);
-var escapeTextContentForBrowser = __webpack_require__(48);
+var escapeTextContentForBrowser = __webpack_require__(47);
 var invariant = __webpack_require__(3);
 var isEventSupported = __webpack_require__(60);
 var shallowEqual = __webpack_require__(67);
@@ -38207,7 +38237,7 @@ module.exports = memoizeStringOnly;
 
 
 
-var escapeTextContentForBrowser = __webpack_require__(48);
+var escapeTextContentForBrowser = __webpack_require__(47);
 
 /**
  * Escapes attribute value to prevent scripting attacks.
@@ -38238,7 +38268,7 @@ module.exports = quoteAttributeValueForBrowser;
 
 
 
-var EventPluginHub = __webpack_require__(36);
+var EventPluginHub = __webpack_require__(35);
 
 function runEventQueueInBatch(events) {
   EventPluginHub.enqueueEvents(events);
@@ -38971,7 +39001,7 @@ module.exports = ReactDOMTextarea;
 var _prodInvariant = __webpack_require__(5);
 
 var ReactComponentEnvironment = __webpack_require__(66);
-var ReactInstanceMap = __webpack_require__(38);
+var ReactInstanceMap = __webpack_require__(37);
 var ReactInstrumentation = __webpack_require__(16);
 
 var ReactCurrentOwner = __webpack_require__(17);
@@ -39586,7 +39616,7 @@ var React = __webpack_require__(27);
 var ReactComponentEnvironment = __webpack_require__(66);
 var ReactCurrentOwner = __webpack_require__(17);
 var ReactErrorUtils = __webpack_require__(58);
-var ReactInstanceMap = __webpack_require__(38);
+var ReactInstanceMap = __webpack_require__(37);
 var ReactInstrumentation = __webpack_require__(16);
 var ReactNodeTypes = __webpack_require__(116);
 var ReactReconciler = __webpack_require__(29);
@@ -39595,7 +39625,7 @@ if (process.env.NODE_ENV !== 'production') {
   var checkReactTypeSpec = __webpack_require__(337);
 }
 
-var emptyObject = __webpack_require__(43);
+var emptyObject = __webpack_require__(42);
 var invariant = __webpack_require__(3);
 var shallowEqual = __webpack_require__(67);
 var shouldUpdateReactComponent = __webpack_require__(68);
@@ -40791,7 +40821,7 @@ module.exports = flattenChildren;
 var _assign = __webpack_require__(8);
 
 var PooledClass = __webpack_require__(26);
-var Transaction = __webpack_require__(45);
+var Transaction = __webpack_require__(44);
 var ReactInstrumentation = __webpack_require__(16);
 var ReactServerUpdateQueue = __webpack_require__(344);
 
@@ -41243,7 +41273,7 @@ var DOMChildrenOperations = __webpack_require__(62);
 var DOMLazyTree = __webpack_require__(30);
 var ReactDOMComponentTree = __webpack_require__(9);
 
-var escapeTextContentForBrowser = __webpack_require__(48);
+var escapeTextContentForBrowser = __webpack_require__(47);
 var invariant = __webpack_require__(3);
 var validateDOMNesting = __webpack_require__(71);
 
@@ -41407,7 +41437,7 @@ module.exports = ReactDOMTextComponent;
 var _assign = __webpack_require__(8);
 
 var ReactUpdates = __webpack_require__(18);
-var Transaction = __webpack_require__(45);
+var Transaction = __webpack_require__(44);
 
 var emptyFunction = __webpack_require__(15);
 
@@ -41682,11 +41712,11 @@ module.exports = getUnboundedScrollPosition;
 
 
 var DOMProperty = __webpack_require__(21);
-var EventPluginHub = __webpack_require__(36);
+var EventPluginHub = __webpack_require__(35);
 var EventPluginUtils = __webpack_require__(57);
 var ReactComponentEnvironment = __webpack_require__(66);
 var ReactEmptyComponent = __webpack_require__(117);
-var ReactBrowserEventEmitter = __webpack_require__(49);
+var ReactBrowserEventEmitter = __webpack_require__(48);
 var ReactHostComponent = __webpack_require__(118);
 var ReactUpdates = __webpack_require__(18);
 
@@ -41724,10 +41754,10 @@ var _assign = __webpack_require__(8);
 
 var CallbackQueue = __webpack_require__(104);
 var PooledClass = __webpack_require__(26);
-var ReactBrowserEventEmitter = __webpack_require__(49);
+var ReactBrowserEventEmitter = __webpack_require__(48);
 var ReactInputSelection = __webpack_require__(121);
 var ReactInstrumentation = __webpack_require__(16);
-var Transaction = __webpack_require__(45);
+var Transaction = __webpack_require__(44);
 var ReactUpdateQueue = __webpack_require__(70);
 
 /**
@@ -42612,7 +42642,7 @@ module.exports = SVGDOMPropertyConfig;
 
 
 
-var EventPropagators = __webpack_require__(35);
+var EventPropagators = __webpack_require__(34);
 var ExecutionEnvironment = __webpack_require__(10);
 var ReactDOMComponentTree = __webpack_require__(9);
 var ReactInputSelection = __webpack_require__(121);
@@ -42809,18 +42839,18 @@ module.exports = SelectEventPlugin;
 var _prodInvariant = __webpack_require__(5);
 
 var EventListener = __webpack_require__(120);
-var EventPropagators = __webpack_require__(35);
+var EventPropagators = __webpack_require__(34);
 var ReactDOMComponentTree = __webpack_require__(9);
 var SyntheticAnimationEvent = __webpack_require__(361);
 var SyntheticClipboardEvent = __webpack_require__(362);
 var SyntheticEvent = __webpack_require__(19);
 var SyntheticFocusEvent = __webpack_require__(363);
 var SyntheticKeyboardEvent = __webpack_require__(364);
-var SyntheticMouseEvent = __webpack_require__(46);
+var SyntheticMouseEvent = __webpack_require__(45);
 var SyntheticDragEvent = __webpack_require__(366);
 var SyntheticTouchEvent = __webpack_require__(367);
 var SyntheticTransitionEvent = __webpack_require__(368);
-var SyntheticUIEvent = __webpack_require__(37);
+var SyntheticUIEvent = __webpack_require__(36);
 var SyntheticWheelEvent = __webpack_require__(369);
 
 var emptyFunction = __webpack_require__(15);
@@ -43124,7 +43154,7 @@ module.exports = SyntheticClipboardEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(37);
+var SyntheticUIEvent = __webpack_require__(36);
 
 /**
  * @interface FocusEvent
@@ -43165,7 +43195,7 @@ module.exports = SyntheticFocusEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(37);
+var SyntheticUIEvent = __webpack_require__(36);
 
 var getEventCharCode = __webpack_require__(72);
 var getEventKey = __webpack_require__(365);
@@ -43371,7 +43401,7 @@ module.exports = getEventKey;
 
 
 
-var SyntheticMouseEvent = __webpack_require__(46);
+var SyntheticMouseEvent = __webpack_require__(45);
 
 /**
  * @interface DragEvent
@@ -43412,7 +43442,7 @@ module.exports = SyntheticDragEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(37);
+var SyntheticUIEvent = __webpack_require__(36);
 
 var getEventModifierState = __webpack_require__(61);
 
@@ -43506,7 +43536,7 @@ module.exports = SyntheticTransitionEvent;
 
 
 
-var SyntheticMouseEvent = __webpack_require__(46);
+var SyntheticMouseEvent = __webpack_require__(45);
 
 /**
  * @interface WheelEvent
@@ -43752,7 +43782,7 @@ var _prodInvariant = __webpack_require__(5);
 
 var ReactCurrentOwner = __webpack_require__(17);
 var ReactDOMComponentTree = __webpack_require__(9);
-var ReactInstanceMap = __webpack_require__(38);
+var ReactInstanceMap = __webpack_require__(37);
 
 var getHostComponentFromComposite = __webpack_require__(124);
 var invariant = __webpack_require__(3);
@@ -43836,7 +43866,7 @@ module.exports = ReactMount.renderSubtreeIntoContainer;
 
 
 var DOMProperty = __webpack_require__(21);
-var EventPluginRegistry = __webpack_require__(44);
+var EventPluginRegistry = __webpack_require__(43);
 var ReactComponentTreeHook = __webpack_require__(14);
 
 var warning = __webpack_require__(4);
@@ -44098,7 +44128,7 @@ module.exports = ReactDOMInvalidARIAHook;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__InternalPropTypes__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__InternalPropTypes__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__RouterContext__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__RouteUtils__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__RouterUtils__ = __webpack_require__(127);
@@ -45213,7 +45243,7 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Redirect__ = __webpack_require__(129);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__InternalPropTypes__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__InternalPropTypes__ = __webpack_require__(38);
 
 
 
@@ -45269,7 +45299,7 @@ var IndexRedirect = __WEBPACK_IMPORTED_MODULE_0_create_react_class___default.a({
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__RouteUtils__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__InternalPropTypes__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__InternalPropTypes__ = __webpack_require__(38);
 
 
 
@@ -45325,7 +45355,7 @@ var IndexRoute = __WEBPACK_IMPORTED_MODULE_0_create_react_class___default.a({
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__RouteUtils__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__InternalPropTypes__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__InternalPropTypes__ = __webpack_require__(38);
 
 
 
@@ -45372,7 +45402,7 @@ var Route = __WEBPACK_IMPORTED_MODULE_0_create_react_class___default.a({
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_history_lib_Actions__ = __webpack_require__(50);
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_history_lib_Actions__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_history_lib_Actions___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_history_lib_Actions__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
@@ -45689,7 +45719,7 @@ var _createHistory = __webpack_require__(78);
 
 var _createHistory2 = _interopRequireDefault(_createHistory);
 
-var _Actions = __webpack_require__(50);
+var _Actions = __webpack_require__(49);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -45960,7 +45990,7 @@ var _RefreshProtocol = __webpack_require__(402);
 
 var RefreshProtocol = _interopRequireWildcard(_RefreshProtocol);
 
-var _DOMUtils = __webpack_require__(51);
+var _DOMUtils = __webpack_require__(50);
 
 var _createHistory = __webpack_require__(78);
 
@@ -46111,7 +46141,7 @@ var _invariant2 = _interopRequireDefault(_invariant);
 
 var _ExecutionEnvironment = __webpack_require__(79);
 
-var _DOMUtils = __webpack_require__(51);
+var _DOMUtils = __webpack_require__(50);
 
 var _HashProtocol = __webpack_require__(405);
 
@@ -46275,7 +46305,7 @@ var _warning2 = _interopRequireDefault(_warning);
 
 var _LocationUtils = __webpack_require__(33);
 
-var _DOMUtils = __webpack_require__(51);
+var _DOMUtils = __webpack_require__(50);
 
 var _DOMStateStorage = __webpack_require__(134);
 
@@ -48327,7 +48357,8 @@ function patientRequestReducers() {
     requestFail: false,
     receivePending: false,
     pendingList: [],
-    matchedList: []
+    matchedList: [],
+    diagnosis: []
   };
   var action = arguments[1];
 
@@ -48350,7 +48381,8 @@ function patientRequestReducers() {
         requestFail: false,
         receivePending: false,
         pendingList: [],
-        matchedList: []
+        matchedList: [],
+        diagnosis: []
       });
     case 'REQUEST_CREATE':
       return Object.assign({}, state, { isRequesting: true });
@@ -48381,6 +48413,13 @@ function patientRequestReducers() {
         receivePlans: true,
         plans: action.plans // receiving an array of plans belonging to the financiador signed in
       });
+
+    case 'RECEIVE_DIAGNOSIS':
+      return Object.assign({}, state, {
+        isRequesting: false,
+        diagnosis: action.diagnosis
+      });
+
     case 'FAILED_REQUEST':
       return Object.assign({}, state, {
         isRequesting: false,
@@ -48556,7 +48595,7 @@ var _reactRedux = __webpack_require__(7);
 
 var _reactRouter = __webpack_require__(11);
 
-var _actionCreators = __webpack_require__(41);
+var _actionCreators = __webpack_require__(39);
 
 var actionCreators = _interopRequireWildcard(_actionCreators);
 
@@ -48928,7 +48967,7 @@ var _reactRedux = __webpack_require__(7);
 
 var _reactRouter = __webpack_require__(11);
 
-var _actionCreators = __webpack_require__(41);
+var _actionCreators = __webpack_require__(39);
 
 var actionCreators = _interopRequireWildcard(_actionCreators);
 
@@ -49044,7 +49083,7 @@ var _reactRedux = __webpack_require__(7);
 
 var _reactRouter = __webpack_require__(11);
 
-var _actionCreators = __webpack_require__(41);
+var _actionCreators = __webpack_require__(39);
 
 var actionCreators = _interopRequireWildcard(_actionCreators);
 
@@ -49252,7 +49291,7 @@ var _redux = __webpack_require__(6);
 
 var _reactRedux = __webpack_require__(7);
 
-var _formActions = __webpack_require__(34);
+var _formActions = __webpack_require__(40);
 
 var actionCreators = _interopRequireWildcard(_formActions);
 
@@ -50503,7 +50542,7 @@ var _redux = __webpack_require__(6);
 
 var _reactRedux = __webpack_require__(7);
 
-var _formActions = __webpack_require__(34);
+var _formActions = __webpack_require__(40);
 
 var actionCreators = _interopRequireWildcard(_formActions);
 
@@ -50902,7 +50941,7 @@ var _redux = __webpack_require__(6);
 
 var _reactRedux = __webpack_require__(7);
 
-var _formActions = __webpack_require__(34);
+var _formActions = __webpack_require__(40);
 
 var actionCreators = _interopRequireWildcard(_formActions);
 
@@ -51590,7 +51629,7 @@ var _redux = __webpack_require__(6);
 
 var _reactRedux = __webpack_require__(7);
 
-var _formActions = __webpack_require__(34);
+var _formActions = __webpack_require__(40);
 
 var actionCreators = _interopRequireWildcard(_formActions);
 
@@ -51980,7 +52019,7 @@ var _redux = __webpack_require__(6);
 
 var _reactRedux = __webpack_require__(7);
 
-var _formActions = __webpack_require__(34);
+var _formActions = __webpack_require__(40);
 
 var actionCreators = _interopRequireWildcard(_formActions);
 
@@ -52476,7 +52515,7 @@ var _reactRedux = __webpack_require__(7);
 
 var _reactRouter = __webpack_require__(11);
 
-var _actionCreators = __webpack_require__(41);
+var _actionCreators = __webpack_require__(39);
 
 var actionCreators = _interopRequireWildcard(_actionCreators);
 
@@ -52599,7 +52638,7 @@ var _redux = __webpack_require__(6);
 
 var _reactRedux = __webpack_require__(7);
 
-var _store = __webpack_require__(40);
+var _store = __webpack_require__(51);
 
 var _store2 = _interopRequireDefault(_store);
 
@@ -52634,7 +52673,8 @@ function mapStateToProps(state) {
 		dateCreated: state.patientRequestReducers.dateCreated,
 		hospitalsRequested: state.patientRequestReducers.hospitalsRequested,
 		plans: state.patientRequestReducers.plans,
-		error: state.patientRequestReducers.error
+		error: state.patientRequestReducers.error,
+		diagnosis: state.patientRequestReducers.diagnosis
 	};
 };
 
@@ -52659,6 +52699,13 @@ var CreatePatientRequest = function (_React$Component) {
 		key: 'componentWillMount',
 		value: function componentWillMount() {
 			this.props.fetchPlanList();
+			this.props.fetchDiagnosis();
+		}
+	}, {
+		key: 'validDiagnosis',
+		value: function validDiagnosis(aDiagnosis) {
+			//Valido que sea un diagnóstico que exista en los predefinidos
+			return true;
 		}
 	}, {
 		key: 'create',
@@ -52668,11 +52715,50 @@ var CreatePatientRequest = function (_React$Component) {
 			var selectedComplexity = document.getElementById("complexitySelect").value; //e.target.complejidad.value;
 			var selectedPlan = document.getElementById("planSelect").value; //e.target.plan.value;
 			var observation = document.getElementById("obs").value; // e.target.obs.value;
+			var edad = document.getElementById("edad").value;
+			var patient = document.getElementById("dni").value;
+			var diagnosis = document.getElementById("cie").value;
+
+			if (selectedPlan == "---Selecccione Plan---") {
+				alert("No se seleccinó plan");
+				document.getElementById("planSelect").focus();
+				return;
+			}
+			if (edad == '' || isNaN(edad) || edad < 0) {
+				alert("Edad no ingresada o no válida");
+				document.getElementById("edad").focus();
+				return;
+			}
+
+			if (patient == '') {
+				alert("No se ingresó el paciente");
+				document.getElementById("dni").focus();
+				return;
+			}
+
+			if (selectedSex == '---Seleccione Sexo---') {
+				alert("No se seleccinó sexo");
+				document.getElementById("sexSelect").focus();
+				return;
+			}
+
+			if (selectedComplexity == '---Seleccione Complejidad---') {
+				alert("No se seleccinó complejidad");
+				document.getElementById("complexitySelect").focus();
+				return;
+			}
+
+			if (diagnosis == '' || !this.validDiagnosis(diagnosis)) {
+				alert("Diagnóstico no ingresado o no válido");
+				document.getElementById("cie").focus();
+				return;
+			}
+
 			this.props.createPatientRequest({
-				dni: document.getElementById("dni").value, //e.target.dni.value,
-				age: document.getElementById("edad").value, //e.target.edad.value,
+				dni: patient,
+				age: edad,
 				sex: selectedSex,
-				cie10: document.getElementById("cie").value, //e.target.cie.value,
+				cie10: diagnosis,
 				complexity: selectedComplexity,
 				healthcareplan: selectedPlan,
 				userCreator: _store2.default.getState().authentication.userId,
@@ -52778,10 +52864,11 @@ function CreatePatientRequestForm(props) {
         "div",
         { className: "col-xs-8 col-sm-8 col-lg-8 " },
         _react2.default.createElement(
-          "h2",
+          "h3",
           null,
-          "Generar Solicitud de Paciente"
+          " Generar Solicitud de Admisi\xF3n de Paciente "
         ),
+        _react2.default.createElement("br", null),
         _react2.default.createElement(
           "form",
           { className: "form-horizontal" },
@@ -53091,7 +53178,7 @@ var ViewPatientRequestsPending = function (_React$Component) {
       this.props.fetchPendingPatientRequests();
       this.idInterval = setInterval(function () {
         _this2.props.fetchPendingPatientRequests();
-      }, 10000);
+      }, 1000 * 60);
     }
   }, {
     key: 'componentWillUnmount',
@@ -54200,8 +54287,6 @@ function ViewPatientRequestsPendingTable(props) {
 }
 exports.default = ViewPatientRequestsPendingTable;
 
-// onClick={()=> props.setState(patient._id, 'Rechazado')}
-
 /***/ }),
 /* 491 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -54323,6 +54408,8 @@ function TableViewRequestDetails(props) {
 
 exports.default = TableViewRequestDetails;
 
+// {(withMsj && buildMessages(eachPending.messages,eachPending.hospital._id) )? <p>Btn</p> : null}
+
 /***/ }),
 /* 492 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -54419,7 +54506,7 @@ var ViewPatientRequestsMatched = function (_React$Component) {
       this.props.fetchMatchedPatientRequests();
       this.idInterval = setInterval(function () {
         _this2.props.fetchMatchedPatientRequests();
-      }, 10000);
+      }, 1000 * 60);
     }
   }, {
     key: 'componentWillUnmount',
@@ -54484,7 +54571,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _react = __webpack_require__(2);
@@ -54500,147 +54587,173 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var tableStyle = { border: "1px solid grey" };
 var tableStyle1 = { border: "1px solid grey", backgroundColor: "#E7E7CF" };
 function ViewPatientRequestsMatchedTable(props) {
-    var formattedDate = function formattedDate(date) {
-        // return moment(date).format('DD/MM/YYYY || HH:mm:ss');
-        return ((0, _moment2.default)(date).isSame((0, _moment2.default)(), 'day') ? 'HOY  ' : 'AYER ') + (0, _moment2.default)(date).format('HH:mm:ss');
-    };
-    var setRowColor = function setRowColor(color) {
-        return { backgroundColor: color };
-    };
-    var marginLeft = { marginLeft: "5px" };
-    var tableBody = props.patients.map(function (patient, i) {
-        return _react2.default.createElement(
-            'tr',
-            { style: i % 2 == 0 ? tableStyle : tableStyle1, key: patient._id, title: patient.obs ? patient.obs : null },
-            _react2.default.createElement(
-                'td',
-                null,
-                patient.dni
-            ),
-            _react2.default.createElement(
-                'td',
-                null,
-                patient.cie10
-            ),
-            _react2.default.createElement(
-                'td',
-                null,
-                patient.complexity
-            ),
-            _react2.default.createElement(
-                'td',
-                null,
-                patient.hospitalsAndState[0].hospital.name
-            ),
-            _react2.default.createElement(
-                'td',
-                { title: formattedDate(patient.dateCreated) },
-                patient.userCreator ? patient.userCreator.name : ''
-            ),
-            _react2.default.createElement(
-                'td',
-                { title: formattedDate(patient.updatedDate) },
-                patient.hospitalsAndState[0].userHospital.name
-            ),
-            _react2.default.createElement(
-                'td',
-                { title: formattedDate(patient.matchedDate) },
-                patient.hospitalsAndState[0].userFinanciador.name
-            ),
-            patient.messages.length > 0 ? _react2.default.createElement(
-                'td',
-                null,
-                _react2.default.createElement(
-                    'button',
-                    { title: 'Ver Mensajes ', type: 'button', className: 'btn btn-info btn-xs', style: marginLeft,
-                        onClick: function onClick() {
-                            return props.verMensajes(patient.messages);
-                        } },
-                    _react2.default.createElement('span', { className: 'glyphicon glyphicon-envelope' })
-                )
-            ) : _react2.default.createElement(
-                'td',
-                null,
-                ' '
-            )
-        );
-    });
+  var formattedDate = function formattedDate(date) {
+    // return moment(date).format('DD/MM/YYYY || HH:mm:ss');
+    return ((0, _moment2.default)(date).isSame((0, _moment2.default)(), 'day') ? 'HOY  ' : 'AYER ') + (0, _moment2.default)(date).format('HH:mm:ss');
+  };
+
+  var buildMessages = function buildMessages() {
+    var listMsgs = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+    var idHosp = arguments[1];
+
+    var hayMsg = void 0;
+    hayMsg = false;
+    for (var i = 0; i < listMsgs.length; i++) {
+      if (listMsgs[i].hospitalId._id == idHosp) {
+        hayMsg = true;
+        break;
+      }
+    }
+    return hayMsg;
+  };
+
+  var setRowColor = function setRowColor(color) {
+    return { backgroundColor: color };
+  };
+  var marginLeft = { marginLeft: "5px" };
+  var tableBody = props.patients.map(function (patient, i) {
     return _react2.default.createElement(
-        'div',
+      'tr',
+      { style: i % 2 == 0 ? tableStyle : tableStyle1, key: patient._id, title: patient.obs ? patient.obs : null },
+      _react2.default.createElement(
+        'td',
+        null,
+        patient.dni
+      ),
+      _react2.default.createElement(
+        'td',
+        null,
+        patient.cie10
+      ),
+      _react2.default.createElement(
+        'td',
+        null,
+        patient.complexity
+      ),
+      _react2.default.createElement(
+        'td',
+        null,
+        patient.hospitalsAndState[0].hospital.name
+      ),
+      _react2.default.createElement(
+        'td',
+        { title: formattedDate(patient.dateCreated) },
+        patient.userCreator ? patient.userCreator.name : ''
+      ),
+      _react2.default.createElement(
+        'td',
+        { title: formattedDate(patient.updatedDate) },
+        patient.hospitalsAndState[0].userHospital.name
+      ),
+      _react2.default.createElement(
+        'td',
+        { title: formattedDate(patient.matchedDate) },
+        patient.hospitalsAndState[0].userFinanciador.name
+      ),
+      patient.hospitalsAndState[0].matchedDate && buildMessages(patient.messages, patient.hospitalsAndState[0].hospital._id) ? _react2.default.createElement(
+        'td',
         null,
         _react2.default.createElement(
-            'div',
-            { className: 'container container_a' },
-            _react2.default.createElement(
-                'div',
-                { className: 'row' },
-                _react2.default.createElement('div', { className: 'col-xs-2 col-sm-4 col-lg-1' }),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'col-xs-8 col-sm-6 col-lg-10 ' },
-                    _react2.default.createElement(
-                        'table',
-                        { style: { border: "1px solid grey" }, className: 'table table-responsive' },
-                        _react2.default.createElement(
-                            'thead',
-                            { style: { border: "1px solid grey" } },
-                            _react2.default.createElement(
-                                'tr',
-                                { style: Object.assign({}, setRowColor('lightgrey')) },
-                                _react2.default.createElement(
-                                    'th',
-                                    { style: { border: "1px solid grey" } },
-                                    'Paciente'
-                                ),
-                                _react2.default.createElement(
-                                    'th',
-                                    { style: { border: "1px solid grey" } },
-                                    'Diagn\xF3stico'
-                                ),
-                                _react2.default.createElement(
-                                    'th',
-                                    { style: { border: "1px solid grey" } },
-                                    'Complejidad'
-                                ),
-                                _react2.default.createElement(
-                                    'th',
-                                    { style: { border: "1px solid grey" } },
-                                    'Instituci\xF3n'
-                                ),
-                                _react2.default.createElement(
-                                    'th',
-                                    { style: { border: "1px solid grey" } },
-                                    'Gener\xF3'
-                                ),
-                                _react2.default.createElement(
-                                    'th',
-                                    { style: { border: "1px solid grey" } },
-                                    'Acept\xF3'
-                                ),
-                                _react2.default.createElement(
-                                    'th',
-                                    { style: { border: "1px solid grey" } },
-                                    'Confirm\xF3'
-                                ),
-                                _react2.default.createElement(
-                                    'th',
-                                    { style: { border: "1px solid grey" } },
-                                    'Mensajes'
-                                )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'tbody',
-                            null,
-                            tableBody
-                        )
-                    )
-                )
-            )
+          'button',
+          { title: 'Ver Mensajes ', type: 'button', className: 'btn btn-info btn-xs', style: marginLeft,
+            onClick: function onClick() {
+              return props.verMensajes(patient.messages);
+            } },
+          _react2.default.createElement('span', { className: 'glyphicon glyphicon-envelope' })
         )
+      ) : _react2.default.createElement(
+        'td',
+        null,
+        ' '
+      )
     );
+  });
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'div',
+      { className: 'container container_a' },
+      _react2.default.createElement(
+        'div',
+        { className: 'row' },
+        _react2.default.createElement('div', { className: 'col-xs-2 col-sm-4 col-lg-1' }),
+        _react2.default.createElement(
+          'div',
+          { className: 'col-xs-8 col-sm-6 col-lg-10 ' },
+          _react2.default.createElement(
+            'table',
+            { style: { border: "1px solid grey" }, className: 'table table-responsive' },
+            _react2.default.createElement(
+              'thead',
+              { style: { border: "1px solid grey" } },
+              _react2.default.createElement(
+                'tr',
+                { style: Object.assign({}, setRowColor('lightgrey')) },
+                _react2.default.createElement(
+                  'th',
+                  { style: { border: "1px solid grey" } },
+                  'Paciente'
+                ),
+                _react2.default.createElement(
+                  'th',
+                  { style: { border: "1px solid grey" } },
+                  'Diagn\xF3stico'
+                ),
+                _react2.default.createElement(
+                  'th',
+                  { style: { border: "1px solid grey" } },
+                  'Complejidad'
+                ),
+                _react2.default.createElement(
+                  'th',
+                  { style: { border: "1px solid grey" } },
+                  'Instituci\xF3n'
+                ),
+                _react2.default.createElement(
+                  'th',
+                  { style: { border: "1px solid grey" } },
+                  'Gener\xF3'
+                ),
+                _react2.default.createElement(
+                  'th',
+                  { style: { border: "1px solid grey" } },
+                  'Acept\xF3'
+                ),
+                _react2.default.createElement(
+                  'th',
+                  { style: { border: "1px solid grey" } },
+                  'Confirm\xF3'
+                ),
+                _react2.default.createElement(
+                  'th',
+                  { style: { border: "1px solid grey" } },
+                  'Mensajes'
+                )
+              )
+            ),
+            _react2.default.createElement(
+              'tbody',
+              null,
+              tableBody
+            )
+          )
+        )
+      )
+    )
+  );
 }
 exports.default = ViewPatientRequestsMatchedTable;
+
+// {patient.messages.length > 0 ? 
+//   (<td>
+//       <button title="Ver Mensajes " type="button" className="btn btn-info btn-xs" style={marginLeft}
+//         onClick={()=> props.verMensajes(patient.messages)}>
+//       <span className="glyphicon glyphicon-envelope"></span>
+//       </button>
+//   </td>)
+//   :
+//   (<td> </td>)}
 
 /***/ }),
 /* 494 */
@@ -54665,7 +54778,7 @@ var _reactRedux = __webpack_require__(7);
 
 var _reactRouter = __webpack_require__(11);
 
-var _actionCreators = __webpack_require__(41);
+var _actionCreators = __webpack_require__(39);
 
 var actionCreators = _interopRequireWildcard(_actionCreators);
 
@@ -54840,7 +54953,7 @@ var ViewPatientRequest = function (_React$Component) {
             this.props.fetchGetPatients();
             this.idInterval = setInterval(function () {
                 _this2.props.fetchGetPatients();
-            }, 10000);
+            }, 1000 * 60);
         }
     }, {
         key: 'componentWillUnmount',
@@ -55145,7 +55258,7 @@ var ViewAcceptedPatientRequest = function (_React$Component) {
 			this.props.fetchGetPatientsByState('Aceptado');
 			this.idInterval = setInterval(function () {
 				_this2.props.fetchGetPatientsByState('Aceptado');
-			}, 10000);
+			}, 1000 * 60);
 		}
 	}, {
 		key: 'componentWillUnmount',
@@ -55194,7 +55307,7 @@ var _moment = __webpack_require__(0);
 
 var _moment2 = _interopRequireDefault(_moment);
 
-var _store = __webpack_require__(40);
+var _store = __webpack_require__(51);
 
 var _store2 = _interopRequireDefault(_store);
 
@@ -55431,7 +55544,7 @@ var ViewRejectedPatientRequest = function (_React$Component) {
 			this.props.fetchGetPatientsByState('Rechazado');
 			this.idInterval = setInterval(function () {
 				_this2.props.fetchGetPatientsByState('Rechazado');
-			}, 10000);
+			}, 1000 * 60);
 		}
 	}, {
 		key: 'componentWillUnmount',
@@ -55643,7 +55756,7 @@ var _reactModal = __webpack_require__(87);
 
 var _reactModal2 = _interopRequireDefault(_reactModal);
 
-var _store = __webpack_require__(40);
+var _store = __webpack_require__(51);
 
 var _store2 = _interopRequireDefault(_store);
 
@@ -55714,7 +55827,7 @@ var ViewViewedPatientRequest = function (_React$Component) {
       this.props.fetchGetPatientsByState('Visto');
       this.state.idInterval = setInterval(function () {
         _this2.props.fetchGetPatientsByState('Visto');
-      }, 10000);
+      }, 1000 * 60);
     }
   }, {
     key: 'componentWillUnmount',
@@ -56154,7 +56267,7 @@ var _redux = __webpack_require__(6);
 
 var _reactRedux = __webpack_require__(7);
 
-var _formActions = __webpack_require__(34);
+var _formActions = __webpack_require__(40);
 
 var actionCreators = _interopRequireWildcard(_formActions);
 
@@ -56166,7 +56279,7 @@ var _moment = __webpack_require__(0);
 
 var _moment2 = _interopRequireDefault(_moment);
 
-var _store = __webpack_require__(40);
+var _store = __webpack_require__(51);
 
 var _store2 = _interopRequireDefault(_store);
 
@@ -56179,6 +56292,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var tabButton = { marginLeft: "10px" };
 
 function mapStateToProps(state) {
     return {
@@ -56223,62 +56338,100 @@ var ViewReport = function (_React$Component) {
             this.props.cleanHistoricalPatients();
         }
     }, {
+        key: 'saveTable',
+        value: function saveTable() {
+            var data_type = 'data:application/vnd.ms-excel';
+            var table_div = document.getElementById('table_wrapper');
+            var table_html = table_div.outerHTML.replace(/ /g, '%20');
+
+            while (table_html.indexOf('á') != -1) {
+                table_html = table_html.replace('á', '&aacute;');
+            }while (table_html.indexOf('Á') != -1) {
+                table_html = table_html.replace('Á', '&Aacute;');
+            }while (table_html.indexOf('é') != -1) {
+                table_html = table_html.replace('é', '&eacute;');
+            }while (table_html.indexOf('É') != -1) {
+                table_html = table_html.replace('É', '&Eacute;');
+            }while (table_html.indexOf('í') != -1) {
+                table_html = table_html.replace('í', '&iacute;');
+            }while (table_html.indexOf('Í') != -1) {
+                table_html = table_html.replace('Í', '&Iacute;');
+            }while (table_html.indexOf('ó') != -1) {
+                table_html = table_html.replace('ó', '&oacute;');
+            }while (table_html.indexOf('Ó') != -1) {
+                table_html = table_html.replace('Ó', '&Oacute;');
+            }while (table_html.indexOf('ú') != -1) {
+                table_html = table_html.replace('ú', '&uacute;');
+            }while (table_html.indexOf('Ú') != -1) {
+                table_html = table_html.replace('Ú', '&Uacute;');
+            }while (table_html.indexOf('º') != -1) {
+                table_html = table_html.replace('º', '&ordm;');
+            }while (table_html.indexOf('ñ') != -1) {
+                table_html = table_html.replace('ñ', '&ntilde;');
+            }while (table_html.indexOf('Ñ') != -1) {
+                table_html = table_html.replace('Ñ', '&Ntilde;');
+            }var dateFrom = document.getElementById("dateFrom").value;
+            var dateTo = document.getElementById("dateTo").value;
+
+            var a = document.createElement('a');
+            a.href = data_type + ', ' + table_html;
+            a.download = 'Reporte_Desde_' + dateFrom + '_Hasta_' + dateTo + '.xls';
+            a.click();
+        }
+    }, {
         key: 'render',
         value: function render() {
             var patients = this.props.patientsData && this.props.patientsData.length > 0 ? _react2.default.createElement(_TableViewReport2.default, {
                 patientsList: this.props.patientsData
             }) : null;
-
+            var btnExcel = this.props.patientsData && this.props.patientsData.length > 0 ? _react2.default.createElement(
+                'button',
+                { title: 'Generar Excel', type: 'button', className: 'btn btn-success', style: tabButton,
+                    onClick: this.saveTable.bind(this) },
+                'Excel'
+            ) : null;
             return _react2.default.createElement(
                 'div',
                 null,
                 _react2.default.createElement(
-                    'div',
-                    { className: 'container container_a' },
+                    'form',
+                    { className: 'form-inline' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'row flexItems' },
-                        _react2.default.createElement('div', { className: 'col-xs-1 col-sm-2 col-lg-2' }),
+                        { className: 'form-group' },
                         _react2.default.createElement(
-                            'div',
-                            { className: 'col-xs-10 col-sm-8 col-lg-8 ' },
-                            _react2.default.createElement(
-                                'form',
-                                null,
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'form-group' },
-                                    _react2.default.createElement(
-                                        'label',
-                                        null,
-                                        'Desde'
-                                    ),
-                                    _react2.default.createElement('input', { type: 'date', className: 'form-control', id: 'dateFrom' })
-                                ),
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'form-group' },
-                                    _react2.default.createElement(
-                                        'label',
-                                        null,
-                                        'Hasta'
-                                    ),
-                                    _react2.default.createElement('input', { type: 'date', className: 'form-control', id: 'dateTo' })
-                                ),
-                                _react2.default.createElement(
-                                    'button',
-                                    { onClick: this.getPatients.bind(this), className: 'btn btn-default' },
-                                    'Buscar'
-                                ),
-                                _react2.default.createElement(
-                                    'button',
-                                    { onClick: this.clean.bind(this), className: 'btn btn-default' },
-                                    'Limpiar'
-                                )
-                            ),
-                            patients
-                        )
-                    )
+                            'label',
+                            null,
+                            'Desde'
+                        ),
+                        _react2.default.createElement('input', { type: 'date', className: 'form-control', id: 'dateFrom', style: tabButton })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'form-group', style: tabButton },
+                        _react2.default.createElement(
+                            'label',
+                            { style: tabButton },
+                            'Hasta'
+                        ),
+                        _react2.default.createElement('input', { type: 'date', className: 'form-control', id: 'dateTo', style: tabButton })
+                    ),
+                    _react2.default.createElement(
+                        'button',
+                        { onClick: this.getPatients.bind(this), className: 'btn btn-default', style: tabButton },
+                        'Buscar'
+                    ),
+                    _react2.default.createElement(
+                        'button',
+                        { onClick: this.clean.bind(this), className: 'btn btn-default', style: tabButton },
+                        'Limpiar'
+                    ),
+                    btnExcel
+                ),
+                _react2.default.createElement(
+                    'div',
+                    null,
+                    patients
                 )
             );
         }
@@ -56319,11 +56472,42 @@ function ViewTableReport(props) {
 	var formattedDate = function formattedDate(date) {
 		return (0, _moment2.default)(date).format('DD/MM/YYYY || HH:mm:ss');
 	};
+	var buildDetailTable = function buildDetailTable() {
+		var listRequest = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+		var state = arguments[1];
 
+		return listRequest.map(function (request) {
+			return state == null || request.state == state ? _react2.default.createElement(
+				'p',
+				null,
+				'- ',
+				request.hospital.name
+			) : null;
+		});
+	};
+	var buildConfirm = function buildConfirm() {
+		var listRequest = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+
+		return listRequest.map(function (request) {
+			return request.matchedDate ? _react2.default.createElement(
+				'p',
+				null,
+				request.hospital.name,
+				' (',
+				request.userFinanciador.name,
+				')'
+			) : null;
+		});
+	};
 	var tableBody = props.patientsList.map(function (patient, i) {
 		return _react2.default.createElement(
 			'tr',
-			{ style: i % 2 == 0 ? tableStyle : tableStyle1, key: patient._id, title: patient.obs ? patient.obs : null },
+			{ style: i % 2 == 0 ? tableStyle : tableStyle1, key: patient._id },
+			_react2.default.createElement(
+				'td',
+				null,
+				patient.healthcare.name
+			),
 			_react2.default.createElement(
 				'td',
 				null,
@@ -56352,7 +56536,44 @@ function ViewTableReport(props) {
 			_react2.default.createElement(
 				'td',
 				null,
-				formattedDate(patient.dateCreated)
+				formattedDate(patient.dateCreated),
+				' por ',
+				patient.userCreator.name
+			),
+			_react2.default.createElement(
+				'td',
+				null,
+				patient.healthcareplan.name
+			),
+			_react2.default.createElement(
+				'td',
+				{ style: tableStyle },
+				buildDetailTable(patient.hospitalsAndState)
+			),
+			_react2.default.createElement(
+				'td',
+				{ style: tableStyle },
+				buildDetailTable(patient.hospitalsAndState, "Aceptado")
+			),
+			_react2.default.createElement(
+				'td',
+				{ style: tableStyle },
+				buildDetailTable(patient.hospitalsAndState, "Rechazado")
+			),
+			_react2.default.createElement(
+				'td',
+				{ style: tableStyle },
+				buildDetailTable(patient.hospitalsAndState, "Visto")
+			),
+			_react2.default.createElement(
+				'td',
+				null,
+				buildConfirm(patient.hospitalsAndState)
+			),
+			_react2.default.createElement(
+				'td',
+				null,
+				patient.obs
 			)
 		);
 	});
@@ -56371,7 +56592,7 @@ function ViewTableReport(props) {
 				_react2.default.createElement('div', { className: 'col-xs-2 col-sm-4 col-lg-1' }),
 				_react2.default.createElement(
 					'div',
-					{ className: 'col-xs-8 col-sm-6 col-lg-10 ' },
+					{ className: 'col-xs-8 col-sm-6 col-lg-10 ', id: 'table_wrapper' },
 					_react2.default.createElement(
 						'table',
 						{ style: { border: "1px solid grey" }, className: 'table' },
@@ -56381,6 +56602,11 @@ function ViewTableReport(props) {
 							_react2.default.createElement(
 								'tr',
 								{ style: Object.assign({}, setRowColor('lightgrey')) },
+								_react2.default.createElement(
+									'th',
+									{ style: { border: "1px solid grey" } },
+									'Solicitante'
+								),
 								_react2.default.createElement(
 									'th',
 									{ style: { border: "1px solid grey" } },
@@ -56404,12 +56630,47 @@ function ViewTableReport(props) {
 								_react2.default.createElement(
 									'th',
 									{ style: { border: "1px solid grey" } },
-									'Complejidad de Cama'
+									'Complejidad'
 								),
 								_react2.default.createElement(
 									'th',
 									{ style: { border: "1px solid grey" } },
-									'Fecha/Hora'
+									'Creado'
+								),
+								_react2.default.createElement(
+									'th',
+									{ style: { border: "1px solid grey" } },
+									'Plan'
+								),
+								_react2.default.createElement(
+									'th',
+									{ style: { border: "1px solid grey" } },
+									'Enviado a'
+								),
+								_react2.default.createElement(
+									'th',
+									{ style: { border: "1px solid grey" } },
+									'Aceptado por'
+								),
+								_react2.default.createElement(
+									'th',
+									{ style: { border: "1px solid grey" } },
+									'Rechazado por'
+								),
+								_react2.default.createElement(
+									'th',
+									{ style: { border: "1px solid grey" } },
+									'Visto por'
+								),
+								_react2.default.createElement(
+									'th',
+									{ style: { border: "1px solid grey" } },
+									'Confirmado a/por'
+								),
+								_react2.default.createElement(
+									'th',
+									{ style: { border: "1px solid grey" } },
+									'Comentario'
 								)
 							)
 						),
@@ -56426,9 +56687,6 @@ function ViewTableReport(props) {
 }
 
 exports.default = ViewTableReport;
-
-// <td>{patient.healthcare}</td>
-// 		<th style={{border:"1px solid grey"}}>Solicitante</th>
 
 /***/ })
 /******/ ]);

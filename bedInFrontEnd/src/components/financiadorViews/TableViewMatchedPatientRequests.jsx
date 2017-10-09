@@ -7,6 +7,19 @@ function ViewPatientRequestsMatchedTable(props) {
         // return moment(date).format('DD/MM/YYYY || HH:mm:ss');
         return (moment(date).isSame(moment(), 'day')?'HOY  ':'AYER ') + moment(date).format('HH:mm:ss');
     }
+    
+    const buildMessages = (listMsgs = [],idHosp) => {
+      let hayMsg;
+      hayMsg=false;
+      for(let i=0;i<listMsgs.length;i++){       
+        if(listMsgs[i].hospitalId._id == idHosp){
+          hayMsg=true;
+          break;
+        }
+      }
+      return hayMsg
+    }
+
     const setRowColor = (color) => ({backgroundColor : color})  
     const marginLeft = {marginLeft:"5px"};
     const tableBody = props.patients.map((patient, i) =>
@@ -18,7 +31,7 @@ function ViewPatientRequestsMatchedTable(props) {
             <td title= {formattedDate(patient.dateCreated)}>{patient.userCreator ? patient.userCreator.name : ''}</td>
             <td title= {formattedDate(patient.updatedDate)}>{patient.hospitalsAndState[0].userHospital.name}</td>
             <td title= {formattedDate(patient.matchedDate)}>{patient.hospitalsAndState[0].userFinanciador.name}</td>
-            {patient.messages.length > 0 ? 
+            {(patient.hospitalsAndState[0].matchedDate && buildMessages (patient.messages,patient.hospitalsAndState[0].hospital._id)) ? 
               (<td>
                   <button title="Ver Mensajes " type="button" className="btn btn-info btn-xs" style={marginLeft}
                     onClick={()=> props.verMensajes(patient.messages)}>
@@ -27,6 +40,7 @@ function ViewPatientRequestsMatchedTable(props) {
               </td>)
               :
               (<td> </td>)}
+
         </tr>)
     return (
         <div>
@@ -60,3 +74,14 @@ function ViewPatientRequestsMatchedTable(props) {
     )
 }
 export default ViewPatientRequestsMatchedTable;
+
+
+            // {patient.messages.length > 0 ? 
+            //   (<td>
+            //       <button title="Ver Mensajes " type="button" className="btn btn-info btn-xs" style={marginLeft}
+            //         onClick={()=> props.verMensajes(patient.messages)}>
+            //       <span className="glyphicon glyphicon-envelope"></span>
+            //       </button>
+            //   </td>)
+            //   :
+            //   (<td> </td>)}

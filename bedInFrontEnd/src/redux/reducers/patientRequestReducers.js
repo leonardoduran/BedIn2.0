@@ -15,7 +15,8 @@ function patientRequestReducers(state = {
   requestFail: false,
   receivePending: false,
   pendingList: [],
-  matchedList: []
+  matchedList: [],
+  diagnosis: []
 }, action) {
 switch(action.type) {
   case 'USER_IS_LOGGED_OUT_PRR': 
@@ -36,7 +37,8 @@ switch(action.type) {
       requestFail: false,
       receivePending: false,
       pendingList: [],
-      matchedList: []
+      matchedList: [],
+      diagnosis: []
     });
   case 'REQUEST_CREATE':
     return Object.assign({}, state, {isRequesting: true});
@@ -67,6 +69,13 @@ switch(action.type) {
       receivePlans: true,
       plans: action.plans // receiving an array of plans belonging to the financiador signed in
     });
+
+  case 'RECEIVE_DIAGNOSIS':
+  return Object.assign({}, state, {
+      isRequesting: false,
+      diagnosis: action.diagnosis
+    });
+
   case 'FAILED_REQUEST':
     return Object.assign({}, state, {
       isRequesting: false,

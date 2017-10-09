@@ -7,9 +7,9 @@ import * as actionCreators from '../redux/actions/actionCreators';
 function mapStateToProps(state) {
 	return {
 		isRequesting: state.authentication.isRequesting,
-    isLoggedIn: state.authentication.isLoggedIn,
-    userType :  state.authentication.userType,
-    error: state.authentication.errorCheckLogin
+    	isLoggedIn: state.authentication.isLoggedIn,
+    	userType :  state.authentication.userType,
+    	error: state.authentication.errorCheckLogin
 	}
 }
 
@@ -22,8 +22,10 @@ class accessRouting extends React.Component {
 		super(props)
 	}
 
+
 	componentWillMount() {
-    if(!this.props.userType) this.props.checkLoginFetch();
+    	if(!this.props.userType) this.props.checkLoginFetch();
+    
 	}
 
   componentWillReceiveProps (nextProps) {

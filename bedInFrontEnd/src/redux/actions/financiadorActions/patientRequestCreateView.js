@@ -71,6 +71,31 @@ export function fetchPlanList() {
   };
 };
 
+export function receiveDiagnosis(diagnosis) {
+  return {
+    type: 'RECEIVE_DIAGNOSIS',
+    diagnosis
+  };
+}
+
+export function fetchDiagnosis(){
+  return (dispatch) => {
+    dispatch(requestList());
+
+    return fetch('./healthcare/diagnosis', {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    })
+      .then(response => response.json())
+      .then(data => {
+        dispatch(receiveDiagnosis(data))})
+      .catch(err => dispatch(failedRequest(err)))
+  };
+};
 
 export function createPatientRequest(inputData) {
   return (dispatch) => {

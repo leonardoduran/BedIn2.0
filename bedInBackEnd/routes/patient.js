@@ -17,26 +17,22 @@ const moment = require('moment');
     }
   }
 
-console.log('hospitalId'+hospitalId)
-console.log('healthcareId'+healthcareId)
-  if(!hospitalId)
-     {
-      queryFind["hospitalsAndState.hospital"] = hospitalId}
+  if(hospitalId!=='null')
+      queryFind["hospitalsAndState.hospital"] = hospitalId
   
-  if(!healthcareId)
-    queryFind["healthcare"] = healthcareId
+  if(healthcareId!=='null')
+      queryFind["healthcare"] = healthcareId
 
-console.log(queryFind)
 
   RequestPatient.find(queryFind)
-  // .populate('healthCare','name')
-  // .populate('healthCarePlan','name')
-  // .populate('hospitalsAndState.hospital','name')
-  // .populate('hospitalsAndState.userHospital','name')
-  // .populate('hospitalsAndState.userFinanciador','name')
-  // .populate('userCreator','name')
-  // .populate('messages.hospitalId','name')
-  // .populate('messages.userId','name')
+  .populate('healthcare','name')
+  .populate('healthcareplan','name')
+  .populate('hospitalsAndState.hospital','name')
+  .populate('hospitalsAndState.userHospital','name')
+  .populate('hospitalsAndState.userFinanciador','name')
+  .populate('userCreator','name')
+  .populate('messages.hospitalId','name')
+  .populate('messages.userId','name')
   .sort({dateCreated:1})
   .exec()
   .then(data => {
