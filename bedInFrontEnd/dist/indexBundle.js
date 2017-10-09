@@ -56244,8 +56244,6 @@ function opcionHome(props) {
 
 exports.default = opcionHome;
 
-// col-xs-6  col-xs-offset-1  col-sm-6 col-sm-offset-2   col-md-3  col-md-offset-0
-
 /***/ }),
 /* 504 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -56394,44 +56392,57 @@ var ViewReport = function (_React$Component) {
                 'div',
                 null,
                 _react2.default.createElement(
-                    'form',
-                    { className: 'form-inline' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'form-group' },
-                        _react2.default.createElement(
-                            'label',
-                            null,
-                            'Desde'
-                        ),
-                        _react2.default.createElement('input', { type: 'date', className: 'form-control', id: 'dateFrom', style: tabButton })
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'form-group', style: tabButton },
-                        _react2.default.createElement(
-                            'label',
-                            { style: tabButton },
-                            'Hasta'
-                        ),
-                        _react2.default.createElement('input', { type: 'date', className: 'form-control', id: 'dateTo', style: tabButton })
-                    ),
-                    _react2.default.createElement(
-                        'button',
-                        { onClick: this.getPatients.bind(this), className: 'btn btn-default', style: tabButton },
-                        'Buscar'
-                    ),
-                    _react2.default.createElement(
-                        'button',
-                        { onClick: this.clean.bind(this), className: 'btn btn-default', style: tabButton },
-                        'Limpiar'
-                    ),
-                    btnExcel
-                ),
-                _react2.default.createElement(
                     'div',
-                    null,
-                    patients
+                    { className: 'container container_a' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row' },
+                        _react2.default.createElement('div', { className: 'col-xs-2 col-sm-4 col-lg-1' }),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-xs-8 col-sm-6 col-lg-10 ' },
+                            _react2.default.createElement(
+                                'form',
+                                { className: 'form-inline' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'form-group' },
+                                    _react2.default.createElement(
+                                        'label',
+                                        null,
+                                        'Desde'
+                                    ),
+                                    _react2.default.createElement('input', { type: 'date', className: 'form-control', id: 'dateFrom', style: tabButton })
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'form-group', style: tabButton },
+                                    _react2.default.createElement(
+                                        'label',
+                                        { style: tabButton },
+                                        'Hasta'
+                                    ),
+                                    _react2.default.createElement('input', { type: 'date', className: 'form-control', id: 'dateTo', style: tabButton })
+                                ),
+                                _react2.default.createElement(
+                                    'button',
+                                    { onClick: this.getPatients.bind(this), className: 'btn btn-default', style: tabButton },
+                                    'Buscar'
+                                ),
+                                _react2.default.createElement(
+                                    'button',
+                                    { onClick: this.clean.bind(this), className: 'btn btn-default', style: tabButton },
+                                    'Limpiar'
+                                ),
+                                btnExcel
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                null,
+                                patients
+                            )
+                        )
+                    )
                 )
             );
         }

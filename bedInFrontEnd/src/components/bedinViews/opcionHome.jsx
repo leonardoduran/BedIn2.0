@@ -84,4 +84,3 @@ function opcionHome(props) {
 
 export default opcionHome;
 
-// col-xs-6  col-xs-offset-1  col-sm-6 col-sm-offset-2   col-md-3  col-md-offset-0 

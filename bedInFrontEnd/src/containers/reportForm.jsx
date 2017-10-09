@@ -91,7 +91,10 @@ class ViewReport extends React.Component {
         return (
             <div>
 
-
+        <div className="container container_a">
+          <div className="row">
+            <div className="col-xs-2 col-sm-4 col-lg-1"></div>
+            <div className="col-xs-8 col-sm-6 col-lg-10 ">
 
                 <form className="form-inline">
                   <div className="form-group">
@@ -110,6 +113,10 @@ class ViewReport extends React.Component {
                 <div>
                     {patients}
                 </div>
+                </div>
+            </div>
+        </div>    
+            
             </div>
        
         )
