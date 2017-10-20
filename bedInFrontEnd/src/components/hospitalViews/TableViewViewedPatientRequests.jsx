@@ -13,6 +13,7 @@ function ViewPatientRequestsViewedTable(props) {
     }
 	
 	const tableBody = props.patientsList.map((patient, i) =>
+		patient.isConfirm ? (
 		<tr style={i%2==0 ? tableStyle : tableStyle1} key={patient._id} title= {patient.obs ? patient.obs : null}>
 			<td>{patient.dni}</td>
 			<td>{patient.age}</td>
@@ -22,7 +23,22 @@ function ViewPatientRequestsViewedTable(props) {
 			<td>{patient.healthcare.name}</td>
 			<td>{patient.hospitalsAndState.userHospital.name}</td>
 			<td>{formattedDate(patient.dateCreated)}</td>
-            
+			<td></td>
+			<td></td>
+			<td></td>
+			</tr>
+			) 
+		:(
+		<tr style={i%2==0 ? tableStyle : tableStyle1} key={patient._id} title= {patient.obs ? patient.obs : null}>
+			<td>{patient.dni}</td>
+			<td>{patient.age}</td>
+			<td>{patient.sex}</td>
+			<td>{patient.cie10}</td>
+			<td>{patient.complexity}</td>
+			<td>{patient.healthcare.name}</td>
+			<td>{patient.hospitalsAndState.userHospital.name}</td>
+			<td>{formattedDate(patient.dateCreated)}</td>
+        
             <td>
                  <button title="Aceptar" type="button" className="btn btn-success btn-xs" style={marginLeftBtn}
                      onClick={()=> props.setStateV(patient._id, 'Aceptado')}>
@@ -42,8 +58,7 @@ function ViewPatientRequestsViewedTable(props) {
                   <span className="glyphicon glyphicon-envelope"></span>
                 </button>
             </td>
-
-		</tr>
+		</tr>)
 		)	
 	const setRowColor = (color) => ({backgroundColor : color})
 	return (

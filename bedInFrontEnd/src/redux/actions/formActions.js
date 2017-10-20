@@ -183,10 +183,14 @@ export function fecthHistoricalPatients(dateFrom, dateTo, hospitalId, healthcare
     })
     .then(response => response.json())
     .then(data => {
-      console.log('then',data)
-      dispatch(receiveHistoricalPatients(data))})
+        if(!data.error) {
+          dispatch(receiveHistoricalPatients(data))
+        } else {
+          dispatch(failedHistoricalPatients(data.err))
+        }
+      })
     .catch(err => dispatch(failedHistoricalPatients(err)))
-  };
+  }
 };
 
 export function cleanHistoricalPatients(){

@@ -50,7 +50,8 @@ class ViewViewedPatientRequest extends React.Component {
 	}
     
     setStateV(idPatient,state) {	
-        this.props.fecthSetPatientState(idPatient, state)
+        this.props.fecthSetPatientState(idPatient, state);
+        this.props.fetchGetPatientsByState('Visto');
     }
 
   openModal(patientId) {

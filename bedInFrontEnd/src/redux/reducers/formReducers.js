@@ -20,6 +20,7 @@ function formReducers(state = {
 }, action) {
 switch(action.type) {
   case 'USER_IS_LOGGED_OUT_FR' : 
+console.log('USER_IS_LOGGED_OUT_FR')
     return Object.assign({}, state, {
       isRequesting: false,
       createSuccess: false,
@@ -106,6 +107,7 @@ switch(action.type) {
 
     case 'CHANGING_PASSWORD_END' :
       return Object.assign({}, state, {isChangingPass: false});
+
 
     case "RECEIVE_HIST_PATIENTS" :
       return Object.assign({}, state, {

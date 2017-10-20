@@ -16,7 +16,8 @@ function patientRequestReducers(state = {
   receivePending: false,
   pendingList: [],
   matchedList: [],
-  diagnosis: []
+  diagnosis: [],
+  // valueDiagnosisSuggest:''
 }, action) {
 switch(action.type) {
   case 'USER_IS_LOGGED_OUT_PRR': 
