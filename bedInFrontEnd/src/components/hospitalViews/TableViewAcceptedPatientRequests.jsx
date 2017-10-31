@@ -43,14 +43,9 @@ function ViewPatientRequestsAcceptedTable(props) {
 
 	return (
 		<div>
-
 			<div className="container">
-				<div className="row">
-
-					<div className="col-xs-1"></div>
-						<div className="col-xs-10">
-
-					<table style={{border:"1px solid grey"}} className= "table table-responsive">
+				<div class="table-responsive">
+					<table className= "table">
 					  <thead style={{border:"1px solid grey"}}>
 					    <tr style={Object.assign({}, setRowColor('lightgrey'))}>
 							<th style={{border:"1px solid grey"}}>Paciente</th>
@@ -65,15 +60,11 @@ function ViewPatientRequestsAcceptedTable(props) {
 					    </tr>
 					  </thead>
 					  <tbody>
-					  {tableBody}
+					  	{tableBody}
 					  </tbody>
 					</table>
-						</div>
-					
 				</div>
 			</div>
-
-
 		</div>
 	)
 }

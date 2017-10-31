@@ -40,16 +40,11 @@ function ViewPatientRequestsPendingTable(props) {
         </tr>)
     return (
         <div>
-
-        <div className="container container_a">
-          <div className="row">
-            <div className="col-xs-2 col-sm-4 col-lg-1"></div>
-            <div className="col-xs-8 col-sm-6 col-lg-10 ">
-
-
-            <table style={{border:"1px solid grey"}} className= "table table-responsive">
-              <thead style={{border:"1px solid grey"}}>
-                <tr style={Object.assign({}, setRowColor('lightgrey'))}>
+          <div className="container">
+            <div class="table-responsive">
+              <table className= "table">
+                <thead style={{border:"1px solid grey"}}>
+                  <tr style={Object.assign({}, setRowColor('lightgrey'))}>
                     <th style={{border:"1px solid grey"}}>Paciente</th>
                     <th style={{border:"1px solid grey"}}>Edad</th>
                     <th style={{border:"1px solid grey"}}>Sexo</th>
@@ -57,20 +52,19 @@ function ViewPatientRequestsPendingTable(props) {
                     <th style={{border:"1px solid grey"}}>Complejidad de Cama</th>
                     <th style={{border:"1px solid grey"}}>Solicitante</th>
                     <th style={{border:"1px solid grey"}}>Fecha/Hora</th>    
-                  <th style={{border:"1px solid grey"}}>
-                            <a style={{cursor:"pointer"}} onClick={props.setAllViewed}>Ver Todos</a>
-                  </th>
-                  <th style={{border:"1px solid grey"}}></th>
-                  <th style={{border:"1px solid grey"}}></th>
-                </tr>
-              </thead>
-              <tbody>
-              {tableBody}
-              </tbody>
-            </table>
+                    <th style={{border:"1px solid grey"}}>
+                      <a style={{cursor:"pointer"}} onClick={props.setAllViewed}>Ver Todos</a>
+                    </th>
+                    <th style={{border:"1px solid grey"}}></th>
+                    <th style={{border:"1px solid grey"}}></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {tableBody}
+                </tbody>
+              </table>
             </div>
           </div>
-        </div>
         </div>
     )
 }
