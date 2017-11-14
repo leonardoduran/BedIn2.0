@@ -82,7 +82,8 @@ export function loginFetch(username,password) {
       if (data.error) return dispatch(userFailedToLogin(data.error));
       return dispatch(userIsLoggedIn(data));
     })
-    .catch(err => dispatch(failedRequest(err)))
+    .catch(err => {
+      dispatch(failedRequest(err))})
   };
 };
 

@@ -109,6 +109,11 @@ console.log('USER_IS_LOGGED_OUT_FR')
       return Object.assign({}, state, {isChangingPass: false});
 
 
+    case 'UNLOGGEDING_USER_END' :
+      return Object.assign({}, state, {isRequesting: false});
+    case 'UNLOGGEDING_USER' :
+      return Object.assign({}, state, {isRequesting: true});
+
     case "RECEIVE_HIST_PATIENTS" :
       return Object.assign({}, state, {
         isRequesting: false,

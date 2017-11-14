@@ -27,6 +27,7 @@ function TableDataUserFinanciador(props) {
 			<td>{user.workplace}</td>
 			<td>{user.rol}</td>
 			<button onClick={()=> props.changePass(user._id)}>Reset Password</button>
+			<button onClick={()=> props.unloggedUser(user)}>Desloguear</button>
 		</tr>
 	)
 	return (

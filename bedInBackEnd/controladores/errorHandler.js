@@ -16,5 +16,9 @@ module.exports = {
 		return res.send({error : err});
 	},
 
+	sendUserIsLoggedError : function(res) {
+		return res.send({error : 'El usuario ya se encuentra logueado'});
+	},
+
 }
 

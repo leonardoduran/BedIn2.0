@@ -25,6 +25,7 @@ function TableDataUserBedin(props) {
 			<td>{user.workplace || 'Bedin'}</td>
 			<td>{user.rol || 'Admin'}</td>
 			<button onClick={()=> props.changePass(user._id)}>Reset Password</button>
+			<button onClick={()=> props.unloggedUser(user)}>Desloguear</button>
 		</tr>
 	)
 	return (

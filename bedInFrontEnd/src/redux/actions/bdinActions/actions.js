@@ -45,3 +45,44 @@ export function changePass(userId) {
     })
   })
 }
+
+export function unloggedingUser() {
+  return {
+    type: 'UNLOGGEDING_USER'
+  };
+}
+
+export function unloggedUserEndError() {
+  alert("Error al desloguear el usuario")
+  return {
+    type: 'UNLOGGEDING_USER_END',
+  };
+}
+
+export function unloggedUserEnd() {
+  alert("El usuario fue deslogueado")
+  return {
+    type: 'UNLOGGEDING_USER_END'
+  };
+}
+
+export function unloggedUser(user){
+  return (dispatch => {
+    console.log("unloggedUser")
+    dispatch(unloggedingUser());
+    return fetch('./forceLogout', {
+      method: 'PUT',
+      credentials: 'include',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+    .then(response => response.json())
+    .then(data => {
+      if(!data.error) return dispatch(unloggedUserEnd())
+      return dispatch(unloggedUserEndError(data.error))
+    })
+  })
+}
