@@ -9470,7 +9470,7 @@ function fetchGetPatients() {
         }).then(function (response) {
             return response.json();
         }).then(function (patients) {
-            dispatch(getPatients(patients));
+            if (patients.error) alert(patients.error);else dispatch(getPatients(patients));
         }).catch(function (err) {
             return dispatch(failedToFetch(err));
         });
@@ -9485,7 +9485,9 @@ function fetchGetPatientsByState(state) {
         }).then(function (response) {
             return response.json();
         }).then(function (patients) {
-            state === 'Aceptado' ? dispatch(getAcceptedPatients(patients)) : state === 'Rechazado' ? dispatch(getRejectedPatients(patients)) : dispatch(getViewedPatients(patients));
+            if (patients.error) alert(patients.error);else {
+                state === 'Aceptado' ? dispatch(getAcceptedPatients(patients)) : state === 'Rechazado' ? dispatch(getRejectedPatients(patients)) : dispatch(getViewedPatients(patients));
+            }
         }).catch(function (err) {
             return dispatch(failedToFetch(err));
         });
@@ -9516,6 +9518,7 @@ function fecthSetPatientState(idPatientRequest, state) {
         });
     };
 }
+
 function fetchSetAllViewed(patients) {
     return function (dispatch) {
         dispatch(isRequestingToServer());
@@ -11316,7 +11319,7 @@ function fetchPlanList() {
     }).then(function (response) {
       return response.json();
     }).then(function (data) {
-      dispatch(receivePlans(data));
+      if (!data.error) dispatch(receivePlans(data));
     }).catch(function (err) {
       return dispatch(failedRequest(err));
     });
@@ -11344,7 +11347,7 @@ function fetchDiagnosis() {
     }).then(function (response) {
       return response.json();
     }).then(function (data) {
-      dispatch(receiveDiagnosis(data));
+      if (!data.error) dispatch(receiveDiagnosis(data));
     }).catch(function (err) {
       return dispatch(failedRequest(err));
     });
@@ -11405,7 +11408,7 @@ function fetchPendingPatientRequests() {
     }).then(function (response) {
       return response.json();
     }).then(function (data) {
-      return dispatch(receivePending(data));
+      if (data.error) alert(data.error);else dispatch(receivePending(data));
     }).catch(function (err) {
       return dispatch(failedRequest(err));
     });
@@ -11425,7 +11428,7 @@ function fetchMatchedPatientRequests() {
     }).then(function (response) {
       return response.json();
     }).then(function (data) {
-      console.log(data);dispatch(receiveMatched(data));
+      if (data.error) alert(data.error);else dispatch(receiveMatched(data));
     }).catch(function (err) {
       return dispatch(failedRequest(err));
     });

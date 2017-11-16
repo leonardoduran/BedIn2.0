@@ -20,8 +20,8 @@ function mapStateToProps(state) {
 	  	patientPlan: state.patientRequestReducers.patientPlan,
 	  	dateCreated: state.patientRequestReducers.dateCreated,
 	  	hospitalsRequested: state.patientRequestReducers.hospitalsRequested,
-		plans: state.patientRequestReducers.plans,
-		error: state.patientRequestReducers.error,
+		  plans: state.patientRequestReducers.plans ,
+		  error: state.patientRequestReducers.error,
 		// diagnosisSuggest: state.patientRequestReducers.diagnosis,
 		// valueDiagnosisSuggest : state.patientRequestReducers.diagnosisSuggest
   }

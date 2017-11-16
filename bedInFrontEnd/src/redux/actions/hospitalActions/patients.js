@@ -50,8 +50,13 @@ export function fetchGetPatients () {
             credentials: 'include'
         })
         .then(response => response.json())
-        .then(patients => {
-            dispatch(getPatients(patients))})
+        .then(patients => 
+        {
+            if (patients.error)
+                alert(patients.error)
+            else
+                dispatch(getPatients(patients))
+        })
         .catch(err => dispatch(failedToFetch(err)))
     })
 } 
@@ -64,9 +69,14 @@ export function fetchGetPatientsByState(state) {
         })
         .then(response => response.json())
         .then(patients => {
-            (state === 'Aceptado') ? dispatch(getAcceptedPatients(patients)) 
-            :(state === 'Rechazado') ? dispatch(getRejectedPatients(patients)) 
-            :dispatch(getViewedPatients(patients))
+            if (patients.error)
+                alert(patients.error)
+                else
+            {
+                (state === 'Aceptado') ? dispatch(getAcceptedPatients(patients)) 
+                :(state === 'Rechazado') ? dispatch(getRejectedPatients(patients)) 
+                :dispatch(getViewedPatients(patients))
+            }
         })
         .catch(err => dispatch(failedToFetch(err)))
     })
@@ -95,6 +105,7 @@ export function fecthSetPatientState (idPatientRequest, state) {
         .catch(err => dispatch(failedToFetch()))
     })
 }
+
 export function fetchSetAllViewed (patients) {
     return (dispatch => {
         dispatch(isRequestingToServer());

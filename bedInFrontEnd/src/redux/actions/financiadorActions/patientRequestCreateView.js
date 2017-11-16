@@ -66,7 +66,9 @@ export function fetchPlanList() {
     })
       .then(response => response.json())
       .then(data => {
-        dispatch(receivePlans(data))})
+        if (!data.error)
+          dispatch(receivePlans(data))
+      })
       .catch(err => dispatch(failedRequest(err)))
   };
 };
@@ -92,7 +94,8 @@ export function fetchDiagnosis(){
     })
       .then(response => response.json())
       .then(data => {
-        dispatch(receiveDiagnosis(data))})
+        if (!data.error)
+          dispatch(receiveDiagnosis(data))})
       .catch(err => dispatch(failedRequest(err)))
   };
 };
@@ -111,11 +114,11 @@ export function createPatientRequest(inputData) {
     })
       .then(response => response.json())
       .then(data => {
-        if(data) {
-          dispatch(receiveCreatedPatient(data))
-        } else {
-          dispatch(failedToCreate(data.err))
-        }
+          if(data) {
+            dispatch(receiveCreatedPatient(data))
+          } else {
+            dispatch(failedToCreate(data.err))
+          }
       })
       .catch(err => dispatch(failedRequest(err)))
   };
@@ -149,7 +152,12 @@ export function fetchPendingPatientRequests() {
       },
     })
       .then(response => response.json())
-      .then(data => dispatch(receivePending(data)))
+      .then(data => {
+        if (data.error)
+          alert(data.error)
+        else
+          dispatch(receivePending(data))
+        })
       .catch(err => dispatch(failedRequest(err)))
   };
 };
@@ -166,7 +174,11 @@ export function fetchMatchedPatientRequests() {
       },
     })
       .then(response => response.json())
-      .then(data => {console.log(data);dispatch(receiveMatched(data))})
+      .then(data => {
+        if (data.error)
+          alert(data.error)
+        else
+          dispatch(receiveMatched(data))})
       .catch(err => dispatch(failedRequest(err)))
   };
 };
