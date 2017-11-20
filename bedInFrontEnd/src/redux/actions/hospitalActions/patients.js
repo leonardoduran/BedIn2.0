@@ -3,12 +3,26 @@ export function isRequestingToServer () {
         type: "IS_REQUESTING_TO_SERVER"
     }
 }
+
+export function isCheckRequestingToServer() {
+    return {
+        type: "IS_CHECK_REQUESTING_TO_SERVER"
+    }
+}
+
 export function getPatients (patients) {
     return {
         type: "GET_PATIENTS",
         patients
     }
 }
+
+export function thereAreNewPatients () {
+    return {
+        type: "THERE_ARE_NEW_PATIENTS"
+    }
+}
+
 export function getAcceptedPatients (acceptedPatients) {
     return {
         type: 'GET_ACCEPTED_PATIENTS',
@@ -59,7 +73,30 @@ export function fetchGetPatients () {
         })
         .catch(err => dispatch(failedToFetch(err)))
     })
+}
+
+export function fetchGetPatientsCheck () {
+    return (dispatch => {
+        dispatch(isCheckRequestingToServer());
+        return fetch('./hospital/patientRequest/check', {
+            method: 'GET',
+            credentials: 'include'
+        })
+        .then(response => response.json())
+        .then(objResp => 
+        {
+            if (objResp.cantidad>0)
+// alert("Hay nuevas solicitudes sin recibir")
+// Aca cambio el estado para muestrar el boton de nuevas solicitudes, que al apretarlo,
+// ejecuta el fetch a la BD
+                // fetchGetPatients();
+            dispatch(thereAreNewPatients())
+        })
+        .catch(err => dispatch(failedToFetch(err)))
+    })
 } 
+
+
 export function fetchGetPatientsByState(state) {
     return (dispatch => {
         dispatch(isRequestingToServer())

@@ -24,7 +24,7 @@ module.exports = {
 	  users.findById(
 	    req.user._id,
 	    function(err, user) {
-	        if(user.instancesLogged > 0) return errorHandler.sendUserIsLoggedError(res);
+	        //if(user.instancesLogged > 0) return errorHandler.sendUserIsLoggedError(res);
 	    	return next();
 	    }
 	    )

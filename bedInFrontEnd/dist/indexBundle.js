@@ -9403,13 +9403,16 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.isRequestingToServer = isRequestingToServer;
+exports.isCheckRequestingToServer = isCheckRequestingToServer;
 exports.getPatients = getPatients;
+exports.thereAreNewPatients = thereAreNewPatients;
 exports.getAcceptedPatients = getAcceptedPatients;
 exports.getRejectedPatients = getRejectedPatients;
 exports.getViewedPatients = getViewedPatients;
 exports.failedToSetPatientStatus = failedToSetPatientStatus;
 exports.failedToFetch = failedToFetch;
 exports.fetchGetPatients = fetchGetPatients;
+exports.fetchGetPatientsCheck = fetchGetPatientsCheck;
 exports.fetchGetPatientsByState = fetchGetPatientsByState;
 exports.fecthSetPatientState = fecthSetPatientState;
 exports.fetchSetAllViewed = fetchSetAllViewed;
@@ -9422,12 +9425,26 @@ function isRequestingToServer() {
         type: "IS_REQUESTING_TO_SERVER"
     };
 }
+
+function isCheckRequestingToServer() {
+    return {
+        type: "IS_CHECK_REQUESTING_TO_SERVER"
+    };
+}
+
 function getPatients(patients) {
     return {
         type: "GET_PATIENTS",
         patients: patients
     };
 }
+
+function thereAreNewPatients() {
+    return {
+        type: "THERE_ARE_NEW_PATIENTS"
+    };
+}
+
 function getAcceptedPatients(acceptedPatients) {
     return {
         type: 'GET_ACCEPTED_PATIENTS',
@@ -9476,6 +9493,28 @@ function fetchGetPatients() {
         });
     };
 }
+
+function fetchGetPatientsCheck() {
+    return function (dispatch) {
+        dispatch(isCheckRequestingToServer());
+        return fetch('./hospital/patientRequest/check', {
+            method: 'GET',
+            credentials: 'include'
+        }).then(function (response) {
+            return response.json();
+        }).then(function (objResp) {
+            if (objResp.cantidad > 0)
+                // alert("Hay nuevas solicitudes sin recibir")
+                // Aca cambio el estado para muestrar el boton de nuevas solicitudes, que al apretarlo,
+                // ejecuta el fetch a la BD
+                // fetchGetPatients();
+                dispatch(thereAreNewPatients());
+        }).catch(function (err) {
+            return dispatch(failedToFetch(err));
+        });
+    };
+}
+
 function fetchGetPatientsByState(state) {
     return function (dispatch) {
         dispatch(isRequestingToServer());
@@ -36416,6 +36455,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var tableStyle = { border: "1px solid grey" };
 var tableStyle1 = { border: "1px solid grey", backgroundColor: "#E7E7CF" };
 var marginLeft = { marginLeft: "5px" };
+
 function ViewPatientRequestsPendingTable(props) {
   var setRowColor = function setRowColor(color) {
     return { backgroundColor: color };
@@ -39640,10 +39680,14 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+// const tabCenterButtonDiv = {textAlign:"center"} 
+// const tabCenterButton = {margin:"auto"}
+
 function mapStateToProps(state) {
     return {
         isRequesting: state.patients.isRequesting,
-        patientsData: state.patients.patientsData
+        patientsData: state.patients.patientsData,
+        newPatients: state.patients.thereAreNewPatients
     };
 }
 function mapDispatchToProps(dispatch) {
@@ -39669,9 +39713,12 @@ var ViewPatientRequest = function (_React$Component) {
             var _this2 = this;
 
             this.props.fetchGetPatients();
+            // this.idInterval = setInterval(() => {
+            //     this.props.fetchGetPatients();
+            // },1000*60)
             this.idInterval = setInterval(function () {
-                _this2.props.fetchGetPatients();
-            }, 1000 * 60);
+                _this2.props.fetchGetPatientsCheck();
+            }, 1000 * 10);
         }
     }, {
         key: 'componentWillUnmount',
@@ -39689,9 +39736,29 @@ var ViewPatientRequest = function (_React$Component) {
             this.props.fetchSetAllViewed(this.props.patients);
         }
     }, {
+        key: 'getNewPatients',
+        value: function getNewPatients() {
+            // Ejecuto el query para traer las solicitudes y actualizo la grilla
+            this.props.fetchGetPatients();
+        }
+    }, {
         key: 'render',
         value: function render() {
             //      alert(this.props.isRequesting)
+            var btnNewPatients = this.props.newPatients ? _react2.default.createElement(
+                'div',
+                { className: 'no-padding text-center' },
+                _react2.default.createElement('div', { className: 'col-sm-1 col-md-1 col-lg-1 col-xl-1' }),
+                _react2.default.createElement(
+                    'button',
+                    { title: 'Nuevas solicitudes', type: 'button',
+                        className: 'btn btn-info col-sm-10 col-md-10 col-lg-10 col-xl-10',
+                        onClick: this.getNewPatients.bind(this) },
+                    'Nuevas Solicitudes'
+                ),
+                _react2.default.createElement('div', { className: 'col-sm-1 col-md-1 col-lg-1 col-xl-1' })
+            ) : null;
+
             var patients = this.props.isRequesting ? _react2.default.createElement(
                 'p',
                 null,
@@ -39703,6 +39770,7 @@ var ViewPatientRequest = function (_React$Component) {
             return _react2.default.createElement(
                 'div',
                 null,
+                btnNewPatients,
                 patients
             );
         }
@@ -40563,7 +40631,8 @@ function patients() {
 		error: null,
 		isSendingMsg: false,
 		patientsData: [],
-		viewedPatientsData: null
+		viewedPatientsData: null,
+		thereAreNewPatients: false
 
 	};
 	var action = arguments[1];
@@ -40581,11 +40650,24 @@ function patients() {
 			return Object.assign({}, state, {
 				isRequesting: true
 			});
+
+		case 'IS_CHECK_REQUESTING_TO_SERVER':
+			{
+				return state;
+			}
+
 		case 'GET_PATIENTS':
 			return Object.assign({}, state, {
 				isRequesting: false,
+				thereAreNewPatients: false,
 				patientsData: action.patients
 			});
+
+		case 'THERE_ARE_NEW_PATIENTS':
+			return Object.assign({}, state, {
+				thereAreNewPatients: true
+			});
+
 		case 'GET_ACCEPTED_PATIENTS':
 			return Object.assign({}, state, {
 				isRequesting: false,

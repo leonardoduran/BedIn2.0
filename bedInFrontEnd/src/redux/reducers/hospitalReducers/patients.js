@@ -3,7 +3,8 @@ function patients(state = {
 		error: null,
 		isSendingMsg : false,
 		patientsData: [],
-		viewedPatientsData: null
+		viewedPatientsData: null,
+		thereAreNewPatients: false 
 
 	}, action) {
 	switch(action.type) {
@@ -19,11 +20,23 @@ function patients(state = {
 			return Object.assign({}, state, {
 				isRequesting: true
 			})
+		
+		case 'IS_CHECK_REQUESTING_TO_SERVER':{
+			return state
+		}
+
 		case 'GET_PATIENTS': 
 			return Object.assign({}, state, {
 				isRequesting: false,
+				thereAreNewPatients: false,
 				patientsData: action.patients
 			})
+
+		case 'THERE_ARE_NEW_PATIENTS' :
+			return Object.assign({}, state, {
+				thereAreNewPatients: true
+			})
+			
 		case 'GET_ACCEPTED_PATIENTS': 
 			return Object.assign({}, state, {
 				isRequesting: false,

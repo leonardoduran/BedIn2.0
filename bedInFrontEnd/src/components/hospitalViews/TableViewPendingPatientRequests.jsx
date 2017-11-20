@@ -4,6 +4,7 @@ import moment from 'moment';
 const tableStyle = {border:"1px solid grey"};
 const tableStyle1 = {border:"1px solid grey", backgroundColor:"#E7E7CF"};
 const marginLeft = {marginLeft:"5px"} 
+
 function ViewPatientRequestsPendingTable(props) {
     const setRowColor = (color) => ({backgroundColor : color})
     let formattedDate =  function(date) {
