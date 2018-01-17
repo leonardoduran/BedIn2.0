@@ -24,30 +24,32 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators(actionCreators, dispatch);
 }
+
 class ViewViewedPatientRequest extends React.Component {
-	constructor(props) {
-		super(props);
+  constructor(props) {
+    super(props);
         this.state = {
             modalIsOpen : false,
-            idInterval : null,
+            // idInterval : null,
             patientId : null
         }
-		// this.idInterval = null;
+        this.idInterval = null;
+    // this.idInterval = null;
         // this.modalIsOpen = false;
         this.setStateV = this.setStateV.bind(this);
         this.openModal = this.openModal.bind(this);
-    	this.closeModal = this.closeModal.bind(this);
-    	this.sendMessage = this.sendMessage.bind(this);
-	}
-	componentWillMount() {
-		this.props.fetchGetPatientsByState('Visto');
-		this.state.idInterval = setInterval(() => {
-			this.props.fetchGetPatientsByState('Visto');	
-		},1000*60)
-	}
-	componentWillUnmount() {
-		clearInterval(this.idInterval);
-	}
+      this.closeModal = this.closeModal.bind(this);
+      this.sendMessage = this.sendMessage.bind(this);
+  }
+  componentWillMount() {
+    this.props.fetchGetPatientsByState('Visto');
+    this.idInterval = setInterval(() => {
+      this.props.fetchGetPatientsByState('Visto');  
+    },1000*60)
+  }
+  componentWillUnmount() {
+    clearInterval(this.idInterval);
+  }
     
     setStateV(idPatient,state) {	
         this.props.fecthSetPatientState(idPatient, state);
