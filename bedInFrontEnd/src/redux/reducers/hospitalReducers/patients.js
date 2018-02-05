@@ -4,7 +4,8 @@ function patients(state = {
 		isSendingMsg : false,
 		patientsData: [],
 		viewedPatientsData: null,
-		thereAreNewPatients: false 
+		thereAreNewPatients: false,
+		reasons: []
 
 	}, action) {
 	switch(action.type) {
@@ -14,7 +15,8 @@ function patients(state = {
 				error: null,
 				isSendingMsg : false,
 				patientsData: [],
-				viewedPatientsData: null				
+				viewedPatientsData: null,
+				reasons: []			
 			})		
 		case 'IS_REQUESTING_TO_SERVER': 
 			return Object.assign({}, state, {
@@ -30,6 +32,12 @@ function patients(state = {
 				isRequesting: false,
 				thereAreNewPatients: false,
 				patientsData: action.patients
+			})
+
+		case 'GET_REASONS':
+			return Object.assign({}, state, {
+				isRequesting: false,
+				reasons: action.reasons
 			})
 
 		case 'THERE_ARE_NEW_PATIENTS' :

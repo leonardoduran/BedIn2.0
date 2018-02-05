@@ -22,19 +22,19 @@ function ViewPatientRequestsPendingTable(props) {
             <td>{formattedDate(patient.dateCreated)}</td>
             <td>
                  <button title="Visar" type="button" className="btn btn-primary btn-xs" style={marginLeft}
-                     onClick={()=> props.setState(patient._id, 'Visto')}>
+                     onClick={()=> props.setStateF(patient._id, 'Visto')}>
                   <span className="glyphicon glyphicon-eye-open"></span>
                 </button>
             </td>
             <td>
                  <button title="Aceptar" type="button" className="btn btn-success btn-xs" style={marginLeft}
-                     onClick={()=> props.setState(patient._id, 'Aceptado')}>
+                     onClick={()=> props.setStateF(patient._id, 'Aceptado')}>
                   <span className="glyphicon glyphicon-ok"></span>
                   </button>
             </td>
             <td>
                  <button title="Rechazar" type="button" className="btn btn-danger btn-xs" style={marginLeft}
-                     onClick={()=> props.setState(patient._id, 'Rechazado')}>
+                     onClick={()=> props.setReasonRejection(patient._id)}>
                   <span className="glyphicon glyphicon-remove-circle"></span>
                 </button>
             </td>            

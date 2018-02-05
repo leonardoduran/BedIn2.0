@@ -17,6 +17,13 @@ export function getPatients (patients) {
     }
 }
 
+export function getReasons (reasons) {
+    return {
+        type: "GET_REASONS",
+        reasons
+    }
+}
+
 export function thereAreNewPatients () {
     return {
         type: "THERE_ARE_NEW_PATIENTS"
@@ -75,6 +82,25 @@ export function fetchGetPatients () {
     })
 }
 
+export function fetchReasonReject () {
+    return (dispatch => {
+        dispatch(isRequestingToServer());
+        return fetch('./hospital/patientRequest/reasonsReject', {
+            method: 'GET',
+            credentials: 'include'
+        })
+        .then(response => response.json())
+        .then(reasons => 
+        {
+            if (reasons.error)
+                alert(reasons.error)
+            else
+                dispatch(getReasons(reasons))
+        })
+        .catch(err => dispatch(failedToFetch(err)))
+    })
+}
+
 export function fetchGetPatientsCheck () {
     return (dispatch => {
         dispatch(isCheckRequestingToServer());
@@ -118,12 +144,13 @@ export function fetchGetPatientsByState(state) {
         .catch(err => dispatch(failedToFetch(err)))
     })
 }
-export function fecthSetPatientState (idPatientRequest, state) {
+export function fecthSetPatientState (idPatientRequest, state, mot) {
     return (dispatch => {
         dispatch(isRequestingToServer());
         const objRequest = {
             idPatientRequest,
-            state
+            state,
+            mot
         }
         return fetch('./hospital/patientRequest', {
             method: 'PUT',

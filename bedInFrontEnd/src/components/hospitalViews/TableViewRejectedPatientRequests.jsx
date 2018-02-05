@@ -19,6 +19,7 @@ function ViewPatientRequestsRejectedTable(props) {
 			<td>{patient.complexity}</td>
 			<td>{patient.healthcare.name}</td>
 			<td>{patient.hospitalsAndState.userHospital.name}</td>
+			<td>{patient.hospitalsAndState.reasonReject.reason}</td>
 			<td>{formattedDate(patient.dateCreated)}</td>
 		</tr>
 		)	
@@ -37,6 +38,7 @@ function ViewPatientRequestsRejectedTable(props) {
 								<th style={{border:"1px solid grey"}}>Complejidad de Cama</th>
 								<th style={{border:"1px solid grey"}}>Solicitante</th>
 								<th style={{border:"1px solid grey"}}>Usuario</th>
+								<th style={{border:"1px solid grey"}}>Motivo</th>
 								<th style={{border:"1px solid grey"}}>Fecha/Hora</th>
 			    			</tr>
 			  			</thead>

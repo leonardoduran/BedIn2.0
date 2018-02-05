@@ -24,6 +24,15 @@ function ViewTableReport(props) {
 				: null
 		)
 	}
+
+	const buildReasonReject = (listRequest = []) => {
+		return listRequest.map(request =>
+			props.hospitalId === request.hospital._id && request.reasonReject ?
+				(<p>{request.reasonReject.reason}</p>)
+				: null
+		)
+	}
+
 	const buildConfirm = (listRequest = []) => {
 		return listRequest.map(request =>
 			request.matchedDate && props.hospitalId === request.hospital._id ?
@@ -54,6 +63,11 @@ function ViewTableReport(props) {
 			<td>
 				{buildDateAnswer(patient.hospitalsAndState)}
 			</td>
+
+			<td>
+				{buildReasonReject(patient.hospitalsAndState)}
+			</td>
+
 			<td>
 				{buildConfirm(patient.hospitalsAndState)}
 			</td>
@@ -84,6 +98,7 @@ function ViewTableReport(props) {
 					<th style={{border:"1px solid grey"}}>Fecha creación</th>
 					<th style={{border:"1px solid grey"}}>Respuesta</th>
 					<th style={{border:"1px solid grey"}}>Fecha respuesta</th>
+					<th style={{border:"1px solid grey"}}>Motivo rechazo</th>
 					<th style={{border:"1px solid grey"}}>Confirmado</th>
 					<th style={{border:"1px solid grey"}}>Fecha confirmación</th>
 					<th style={{border:"1px solid grey"}}>Comentario</th>
@@ -101,3 +116,5 @@ function ViewTableReport(props) {
 }
 
 export default ViewTableReport;
+
+// <td>{patient.reasonReject.reason}</td>

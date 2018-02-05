@@ -71,6 +71,7 @@ class ViewViewedPatientRequest extends React.Component {
 	this.setState({modalIsOpen: false});
 	this.props.sendMessageTo(patientId, hospitalCode,userid,msg)
   }
+  
 	render() {
 		let patients = (!this.props.patientsData) ? <p>Cargando...</p>
 		: <TableViewViewedPatientRequests 
