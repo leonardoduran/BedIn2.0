@@ -39,8 +39,8 @@ class ViewPatientRequest extends React.Component {
         this.confirmReject = this.confirmReject.bind(this);
         this.state = {
             modalIsOpen : false,
-            idPatientReject : null,
-            reasonReject : []
+            idPatientReject : null
+            // reasonReject : []
         }
 
     }
@@ -68,7 +68,11 @@ class ViewPatientRequest extends React.Component {
 
     confirmReject(){
         let mot = document.getElementById("rejectReason").value
-debugger;
+        if (mot=="---Motivo---")
+        {
+            alert("Motivo no ingresado")
+            return;
+        }
         this.setStateF(this.state.idPatientReject,'Rechazado',mot);
         this.setState({modalIsOpen: false, idPatientReject: null});
     }
@@ -122,7 +126,7 @@ debugger;
                       </div>
                     </div>
                   </form>
-        </div>
+         </div>
 
         return (
             <div>
@@ -135,7 +139,6 @@ debugger;
                 style={customStyles}
                 contentLabel="Example Modal">
                 {rejects}
-
 
                 <button onClick={this.confirmReject}>Confirmar</button>
                 <button onClick={this.closeModal}>Cancelar</button>

@@ -15,6 +15,7 @@ function ViewPatientRequestsViewedTable(props) {
 	const tableBody = props.patientsList.map((patient, i) =>
 		patient.isConfirm ? (
 		<tr style={i%2==0 ? tableStyle : tableStyle1} key={patient._id} title= {patient.obs ? patient.obs : null}>
+			<td>{patient.healthcareplan.name}</td>
 			<td>{patient.dni}</td>
 			<td>{patient.age}</td>
 			<td>{patient.sex}</td>
@@ -30,6 +31,7 @@ function ViewPatientRequestsViewedTable(props) {
 			) 
 		:(
 		<tr style={i%2==0 ? tableStyle : tableStyle1} key={patient._id} title= {patient.obs ? patient.obs : null}>
+			<td>{patient.healthcareplan.name}</td>
 			<td>{patient.dni}</td>
 			<td>{patient.age}</td>
 			<td>{patient.sex}</td>
@@ -47,14 +49,13 @@ function ViewPatientRequestsViewedTable(props) {
             </td>
             <td>
                  <button title="Rechazar" type="button" className="btn btn-danger btn-xs" style={marginLeftBtn}
-                     onClick={()=> props.setStateV(patient._id, 'Rechazado')}>
+                     onClick={()=> props.setReasonRejection(patient._id)}>
                   <span className="glyphicon glyphicon-remove-circle"></span>
                 </button>
             </td>
             <td>
                  <button title="Enviar mensaje" type="button" className="btn btn-info btn-xs" style={marginLeftBtn}
                      onClick={()=> props.openModal(patient._id)}>
-                     
                   <span className="glyphicon glyphicon-envelope"></span>
                 </button>
             </td>
@@ -68,6 +69,7 @@ function ViewPatientRequestsViewedTable(props) {
                     <table className= "table">
 					  <thead style={{border:"1px solid grey"}}>
 					    <tr style={Object.assign({}, setRowColor('lightgrey'))}>
+							<th style={{border:"1px solid grey"}}>Plan</th>
 							<th style={{border:"1px solid grey"}}>Paciente</th>
 							<th style={{border:"1px solid grey"}}>Edad</th>
 							<th style={{border:"1px solid grey"}}>Sexo</th>
@@ -92,3 +94,5 @@ function ViewPatientRequestsViewedTable(props) {
 }
 
 export default ViewPatientRequestsViewedTable;
+
+// onClick={()=> props.setStateV(patient._id, 'Rechazado')}>

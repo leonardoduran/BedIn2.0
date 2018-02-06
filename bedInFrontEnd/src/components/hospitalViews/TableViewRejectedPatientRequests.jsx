@@ -10,8 +10,14 @@ function ViewPatientRequestsRejectedTable(props) {
         // return moment(date).format('DD/MM/YYYY || HH:mm:ss');
         return  (moment(date).isSame(moment(), 'day')?'HOY  ':'AYER ') + moment(date).format('HH:mm:ss');
     }
+    let getReason = function(hospital){
+    	return hospital.reasonReject ? hospital.reasonReject.reason : '';
+    }
+
+
 	const tableBody = props.patientsList.map((patient, i) =>
 		<tr style={i%2==0 ? tableStyle : tableStyle1} key={patient._id} title= {patient.obs ? patient.obs : null}>
+			<td>{patient.healthcareplan.name}</td>
 			<td>{patient.dni}</td>
 			<td>{patient.age}</td>
 			<td>{patient.sex}</td>
@@ -19,7 +25,7 @@ function ViewPatientRequestsRejectedTable(props) {
 			<td>{patient.complexity}</td>
 			<td>{patient.healthcare.name}</td>
 			<td>{patient.hospitalsAndState.userHospital.name}</td>
-			<td>{patient.hospitalsAndState.reasonReject.reason}</td>
+			<td>{getReason(patient.hospitalsAndState)}</td>
 			<td>{formattedDate(patient.dateCreated)}</td>
 		</tr>
 		)	
@@ -31,6 +37,7 @@ function ViewPatientRequestsRejectedTable(props) {
                     <table className= "table">
 			  			<thead style={{border:"1px solid grey"}}>
 			    			<tr style={Object.assign({}, setRowColor('lightgrey'))}>
+								<th style={{border:"1px solid grey"}}>Plan</th>
 								<th style={{border:"1px solid grey"}}>Paciente</th>
 								<th style={{border:"1px solid grey"}}>Edad</th>
 								<th style={{border:"1px solid grey"}}>Sexo</th>

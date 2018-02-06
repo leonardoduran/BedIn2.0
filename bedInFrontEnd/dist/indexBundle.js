@@ -36332,6 +36332,11 @@ function ViewPatientRequestsAcceptedTable(props) {
 			_react2.default.createElement(
 				'td',
 				null,
+				patient.healthcareplan.name
+			),
+			_react2.default.createElement(
+				'td',
+				null,
 				patient.dni
 			),
 			_react2.default.createElement(
@@ -36395,6 +36400,11 @@ function ViewPatientRequestsAcceptedTable(props) {
 						_react2.default.createElement(
 							'tr',
 							{ style: Object.assign({}, setRowColor('lightgrey')) },
+							_react2.default.createElement(
+								'th',
+								{ style: { border: "1px solid grey" } },
+								'Plan'
+							),
 							_react2.default.createElement(
 								'th',
 								{ style: { border: "1px solid grey" } },
@@ -36497,6 +36507,11 @@ function ViewPatientRequestsPendingTable(props) {
       _react2.default.createElement(
         'td',
         null,
+        patient.healthcareplan.name
+      ),
+      _react2.default.createElement(
+        'td',
+        null,
         patient.dni
       ),
       _react2.default.createElement(
@@ -36588,6 +36603,11 @@ function ViewPatientRequestsPendingTable(props) {
               _react2.default.createElement(
                 'th',
                 { style: { border: "1px solid grey" } },
+                'Plan'
+              ),
+              _react2.default.createElement(
+                'th',
+                { style: { border: "1px solid grey" } },
                 'Paciente'
               ),
               _react2.default.createElement(
@@ -36675,10 +36695,19 @@ function ViewPatientRequestsRejectedTable(props) {
 		// return moment(date).format('DD/MM/YYYY || HH:mm:ss');
 		return ((0, _moment2.default)(date).isSame((0, _moment2.default)(), 'day') ? 'HOY  ' : 'AYER ') + (0, _moment2.default)(date).format('HH:mm:ss');
 	};
+	var getReason = function getReason(hospital) {
+		return hospital.reasonReject ? hospital.reasonReject.reason : '';
+	};
+
 	var tableBody = props.patientsList.map(function (patient, i) {
 		return _react2.default.createElement(
 			'tr',
 			{ style: i % 2 == 0 ? tableStyle : tableStyle1, key: patient._id, title: patient.obs ? patient.obs : null },
+			_react2.default.createElement(
+				'td',
+				null,
+				patient.healthcareplan.name
+			),
 			_react2.default.createElement(
 				'td',
 				null,
@@ -36717,7 +36746,7 @@ function ViewPatientRequestsRejectedTable(props) {
 			_react2.default.createElement(
 				'td',
 				null,
-				patient.hospitalsAndState.reasonReject.reason
+				getReason(patient.hospitalsAndState)
 			),
 			_react2.default.createElement(
 				'td',
@@ -36747,6 +36776,11 @@ function ViewPatientRequestsRejectedTable(props) {
 						_react2.default.createElement(
 							'tr',
 							{ style: Object.assign({}, setRowColor('lightgrey')) },
+							_react2.default.createElement(
+								'th',
+								{ style: { border: "1px solid grey" } },
+								'Plan'
+							),
 							_react2.default.createElement(
 								'th',
 								{ style: { border: "1px solid grey" } },
@@ -37125,6 +37159,11 @@ function ViewPatientRequestsViewedTable(props) {
 			_react2.default.createElement(
 				'td',
 				null,
+				patient.healthcareplan.name
+			),
+			_react2.default.createElement(
+				'td',
+				null,
 				patient.dni
 			),
 			_react2.default.createElement(
@@ -37168,6 +37207,11 @@ function ViewPatientRequestsViewedTable(props) {
 		) : _react2.default.createElement(
 			'tr',
 			{ style: i % 2 == 0 ? tableStyle : tableStyle1, key: patient._id, title: patient.obs ? patient.obs : null },
+			_react2.default.createElement(
+				'td',
+				null,
+				patient.healthcareplan.name
+			),
 			_react2.default.createElement(
 				'td',
 				null,
@@ -37227,7 +37271,7 @@ function ViewPatientRequestsViewedTable(props) {
 					'button',
 					{ title: 'Rechazar', type: 'button', className: 'btn btn-danger btn-xs', style: marginLeftBtn,
 						onClick: function onClick() {
-							return props.setStateV(patient._id, 'Rechazado');
+							return props.setReasonRejection(patient._id);
 						} },
 					_react2.default.createElement('span', { className: 'glyphicon glyphicon-remove-circle' })
 				)
@@ -37267,6 +37311,11 @@ function ViewPatientRequestsViewedTable(props) {
 						_react2.default.createElement(
 							'tr',
 							{ style: Object.assign({}, setRowColor('lightgrey')) },
+							_react2.default.createElement(
+								'th',
+								{ style: { border: "1px solid grey" } },
+								'Plan'
+							),
 							_react2.default.createElement(
 								'th',
 								{ style: { border: "1px solid grey" } },
@@ -37324,6 +37373,8 @@ function ViewPatientRequestsViewedTable(props) {
 }
 
 exports.default = ViewPatientRequestsViewedTable;
+
+// onClick={()=> props.setStateV(patient._id, 'Rechazado')}>
 
 /***/ }),
 /* 303 */
@@ -39789,8 +39840,8 @@ var ViewPatientRequest = function (_React$Component) {
         _this.confirmReject = _this.confirmReject.bind(_this);
         _this.state = {
             modalIsOpen: false,
-            idPatientReject: null,
-            reasonReject: []
+            idPatientReject: null
+            // reasonReject : []
         };
 
         return _this;
@@ -39829,7 +39880,10 @@ var ViewPatientRequest = function (_React$Component) {
         key: 'confirmReject',
         value: function confirmReject() {
             var mot = document.getElementById("rejectReason").value;
-            debugger;
+            if (mot == "---Motivo---") {
+                alert("Motivo no ingresado");
+                return;
+            }
             this.setStateF(this.state.idPatientReject, 'Rechazado', mot);
             this.setState({ modalIsOpen: false, idPatientReject: null });
         }
@@ -40132,8 +40186,10 @@ var ViewViewedPatientRequest = function (_React$Component) {
     _this.state = {
       modalIsOpen: false,
       // idInterval : null,
+      modalRejectIsOpen: false,
       patientId: null
     };
+
     _this.idInterval = null;
     // this.idInterval = null;
     // this.modalIsOpen = false;
@@ -40141,6 +40197,11 @@ var ViewViewedPatientRequest = function (_React$Component) {
     _this.openModal = _this.openModal.bind(_this);
     _this.closeModal = _this.closeModal.bind(_this);
     _this.sendMessage = _this.sendMessage.bind(_this);
+
+    _this.setReasonRejection = _this.setReasonRejection.bind(_this);
+    _this.closeModalReject = _this.closeModalReject.bind(_this);
+    _this.confirmReject = _this.confirmReject.bind(_this);
+
     return _this;
   }
 
@@ -40149,6 +40210,7 @@ var ViewViewedPatientRequest = function (_React$Component) {
     value: function componentWillMount() {
       var _this2 = this;
 
+      this.props.fetchReasonReject();
       this.props.fetchGetPatientsByState('Visto');
       this.idInterval = setInterval(function () {
         _this2.props.fetchGetPatientsByState('Visto');
@@ -40161,9 +40223,30 @@ var ViewViewedPatientRequest = function (_React$Component) {
     }
   }, {
     key: 'setStateV',
-    value: function setStateV(idPatient, state) {
-      this.props.fecthSetPatientState(idPatient, state);
+    value: function setStateV(idPatient, state, mot) {
+      this.props.fecthSetPatientState(idPatient, state, mot);
       this.props.fetchGetPatientsByState('Visto');
+    }
+  }, {
+    key: 'setReasonRejection',
+    value: function setReasonRejection(idPatient) {
+      this.setState({ modalRejectIsOpen: true, idPatientReject: idPatient });
+    }
+  }, {
+    key: 'confirmReject',
+    value: function confirmReject() {
+      var mot = document.getElementById("rejectReason").value;
+      if (mot == "---Motivo---") {
+        alert("Motivo no ingresado");
+        return;
+      }
+      this.setStateV(this.state.idPatientReject, 'Rechazado', mot);
+      this.setState({ modalRejectIsOpen: false, idPatientReject: null });
+    }
+  }, {
+    key: 'closeModalReject',
+    value: function closeModalReject() {
+      this.setState({ modalRejectIsOpen: false });
     }
   }, {
     key: 'openModal',
@@ -40196,8 +40279,48 @@ var ViewViewedPatientRequest = function (_React$Component) {
         patientsList: this.props.patientsData,
         setStateV: this.setStateV,
         openModal: this.openModal,
-        sendMessage: this.sendMessage
+        sendMessage: this.sendMessage,
+        setReasonRejection: this.setReasonRejection
       });
+      var rejects = _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'form',
+          { className: 'form-horizontal' },
+          _react2.default.createElement(
+            'div',
+            { className: 'form-group' },
+            _react2.default.createElement(
+              'label',
+              { htmlFor: 'sel2', className: 'control-label col-sm-3' },
+              'Motivo'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-sm-8' },
+              _react2.default.createElement(
+                'select',
+                { className: 'form-control', name: 'reject', id: 'rejectReason' },
+                _react2.default.createElement('br', null),
+                _react2.default.createElement(
+                  'option',
+                  null,
+                  '---Motivo---'
+                ),
+                _store2.default.getState().patients.reasons.map(function (reason, i) {
+                  return _react2.default.createElement(
+                    'option',
+                    { key: i, value: reason._id },
+                    reason.reason
+                  );
+                })
+              )
+            )
+          )
+        )
+      );
+
       return _react2.default.createElement(
         'div',
         null,
@@ -40223,6 +40346,25 @@ var ViewViewedPatientRequest = function (_React$Component) {
             { onClick: this.closeModal },
             'Cancelar'
           )
+        ),
+        _react2.default.createElement(
+          _reactModal2.default,
+          {
+            isOpen: this.state.modalRejectIsOpen,
+            onRequestClose: this.closeModalReject,
+            style: customStyles,
+            contentLabel: 'Example Modal' },
+          rejects,
+          _react2.default.createElement(
+            'button',
+            { onClick: this.confirmReject },
+            'Confirmar'
+          ),
+          _react2.default.createElement(
+            'button',
+            { onClick: this.closeModalReject },
+            'Cancelar'
+          )
         )
       );
     }
@@ -40232,6 +40374,8 @@ var ViewViewedPatientRequest = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ViewViewedPatientRequest);
+
+// {this.props.reasons.map((reason, i) =>
 
 /***/ }),
 /* 325 */

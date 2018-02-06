@@ -13,6 +13,7 @@ function ViewPatientRequestsPendingTable(props) {
     }    
     const tableBody = props.patientsList.map((patient, i) =>
         <tr style={i%2==0 ? tableStyle : tableStyle1} key={patient._id} title= {patient.obs ? patient.obs : null}>
+            <td>{patient.healthcareplan.name}</td>
             <td>{patient.dni}</td>
             <td>{patient.age}</td>
             <td>{patient.sex}</td>
@@ -46,6 +47,7 @@ function ViewPatientRequestsPendingTable(props) {
               <table className= "table">
                 <thead style={{border:"1px solid grey"}}>
                   <tr style={Object.assign({}, setRowColor('lightgrey'))}>
+                    <th style={{border:"1px solid grey"}}>Plan</th>
                     <th style={{border:"1px solid grey"}}>Paciente</th>
                     <th style={{border:"1px solid grey"}}>Edad</th>
                     <th style={{border:"1px solid grey"}}>Sexo</th>
