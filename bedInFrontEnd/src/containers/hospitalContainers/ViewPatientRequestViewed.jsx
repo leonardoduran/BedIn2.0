@@ -52,8 +52,9 @@ class ViewViewedPatientRequest extends React.Component {
     this.props.fetchReasonReject();
     this.props.fetchGetPatientsByState('Visto');
     this.idInterval = setInterval(() => {
+      this.props.fetchGetPatientsCheck(false);
       this.props.fetchGetPatientsByState('Visto');  
-    },1000*60)
+    },1000*10)
   }
   componentWillUnmount() {
     clearInterval(this.idInterval);

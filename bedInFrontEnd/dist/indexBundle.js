@@ -9519,7 +9519,7 @@ function fetchReasonReject() {
     };
 }
 
-function fetchGetPatientsCheck() {
+function fetchGetPatientsCheck(findNews) {
     return function (dispatch) {
         dispatch(isCheckRequestingToServer());
         return fetch('./hospital/patientRequest/check', {
@@ -9533,7 +9533,10 @@ function fetchGetPatientsCheck() {
                 // Aca cambio el estado para muestrar el boton de nuevas solicitudes, que al apretarlo,
                 // ejecuta el fetch a la BD
                 // fetchGetPatients();
-                dispatch(thereAreNewPatients());
+                {
+                    document.getElementById('newMesaggeSound').play();
+                    if (findNews) dispatch(thereAreNewPatients());
+                }
         }).catch(function (err) {
             return dispatch(failedToFetch(err));
         });
@@ -39722,8 +39725,9 @@ var ViewAcceptedPatientRequest = function (_React$Component) {
 
 			this.props.fetchGetPatientsByState('Aceptado');
 			this.idInterval = setInterval(function () {
+				_this2.props.fetchGetPatientsCheck(false);
 				_this2.props.fetchGetPatientsByState('Aceptado');
-			}, 1000 * 60);
+			}, 1000 * 10);
 		}
 	}, {
 		key: 'componentWillUnmount',
@@ -39858,7 +39862,7 @@ var ViewPatientRequest = function (_React$Component) {
             //     this.props.fetchGetPatients();
             // },1000*60)
             this.idInterval = setInterval(function () {
-                _this2.props.fetchGetPatientsCheck();
+                _this2.props.fetchGetPatientsCheck(true);
             }, 1000 * 10);
         }
     }, {
@@ -40077,8 +40081,9 @@ var ViewRejectedPatientRequest = function (_React$Component) {
 
 			this.props.fetchGetPatientsByState('Rechazado');
 			this.idInterval = setInterval(function () {
+				_this2.props.fetchGetPatientsCheck(false);
 				_this2.props.fetchGetPatientsByState('Rechazado');
-			}, 1000 * 60);
+			}, 1000 * 10);
 		}
 	}, {
 		key: 'componentWillUnmount',
@@ -40213,8 +40218,9 @@ var ViewViewedPatientRequest = function (_React$Component) {
       this.props.fetchReasonReject();
       this.props.fetchGetPatientsByState('Visto');
       this.idInterval = setInterval(function () {
+        _this2.props.fetchGetPatientsCheck(false);
         _this2.props.fetchGetPatientsByState('Visto');
-      }, 1000 * 60);
+      }, 1000 * 10);
     }
   }, {
     key: 'componentWillUnmount',

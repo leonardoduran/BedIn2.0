@@ -101,7 +101,7 @@ export function fetchReasonReject () {
     })
 }
 
-export function fetchGetPatientsCheck () {
+export function fetchGetPatientsCheck (findNews) {
     return (dispatch => {
         dispatch(isCheckRequestingToServer());
         return fetch('./hospital/patientRequest/check', {
@@ -116,7 +116,11 @@ export function fetchGetPatientsCheck () {
 // Aca cambio el estado para muestrar el boton de nuevas solicitudes, que al apretarlo,
 // ejecuta el fetch a la BD
                 // fetchGetPatients();
-            dispatch(thereAreNewPatients())
+            {
+                document.getElementById('newMesaggeSound').play();
+                if (findNews)
+                    dispatch(thereAreNewPatients())
+            }
         })
         .catch(err => dispatch(failedToFetch(err)))
     })
