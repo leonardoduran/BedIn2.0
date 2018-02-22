@@ -76,8 +76,8 @@ function CreatePatientRequestForm(props) {
                   <option>---Seleccione Complejidad---</option>
                   <option>Guardia</option>
                   <option>Neonatología</option>
-                  <option>Sala Común</option>
-                  <option>Sala Pediátrica</option>
+                  <option>Piso Común</option>
+                  <option>Piso Pediátrico</option>
                   <option>UTI Pediátrica</option>
                   <option>UTI Adultos</option>
                   <option>UCO</option>

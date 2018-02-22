@@ -35685,12 +35685,12 @@ function CreatePatientRequestForm(props) {
                 _react2.default.createElement(
                   "option",
                   null,
-                  "Sala Com\xFAn"
+                  "Piso Com\xFAn"
                 ),
                 _react2.default.createElement(
                   "option",
                   null,
-                  "Sala Pedi\xE1trica"
+                  "Piso Pedi\xE1trico"
                 ),
                 _react2.default.createElement(
                   "option",
