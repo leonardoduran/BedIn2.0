@@ -38,7 +38,12 @@ function ViewPatientRequestsPendingTable(props) {
                 <td style={tableStyle}>{pending.sex}</td>
                 <td style={tableStyle}>{pending.cie10}</td>
                 <td style={tableStyle}>{pending.complexity}</td>
-                <td style={tableStyle}>{pending.healthcareplan.name}</td>
+                {pending.planExterno ?
+                    (<td style={tableStyle}>{pending.healthcareplan.name} ({pending.planExterno}) </td>)
+                :
+                    (<td style={tableStyle}>{pending.healthcareplan.name} </td>)
+                }
+                
                 <td style={tableStyle}>{formattedDate(pending.dateCreated)}</td>
                 <td style={tableStyle}>
                     <a style={{cursor: "pointer", color: "blue"}} onClick={() => props.openModal(pending)}>Ver</a>

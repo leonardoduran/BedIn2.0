@@ -55,7 +55,11 @@ function ViewTableReport(props) {
 			<td>{patient.sex}</td>
 			<td>{patient.cie10}</td>
 			<td>{patient.complexity}</td>
-			<td>{patient.healthcareplan.name}</td>
+            {patient.planExterno ?
+              (<td style={tableStyle}>{patient.healthcareplan.name} ({patient.planExterno}) </td>)
+            :
+              (<td style={tableStyle}>{patient.healthcareplan.name} </td>)
+            }
 			<td>{formattedDate(patient.dateCreated)}</td>
 			<td>
 				{buildAnswer(patient.hospitalsAndState)}

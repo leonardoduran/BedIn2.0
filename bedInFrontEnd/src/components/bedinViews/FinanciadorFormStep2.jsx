@@ -94,7 +94,7 @@ function FinanciadorFormStep2(props) {
             
           </div><button  id="newbtn1"onClick={props.submitAll}>Submit All</button>
         </div>
-        <div >{popup}</div>
+        <div>{popup}</div>
 
      </div>
   

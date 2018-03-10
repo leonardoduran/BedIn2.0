@@ -20,7 +20,6 @@ function formReducers(state = {
 }, action) {
 switch(action.type) {
   case 'USER_IS_LOGGED_OUT_FR' : 
-console.log('USER_IS_LOGGED_OUT_FR')
     return Object.assign({}, state, {
       isRequesting: false,
       createSuccess: false,

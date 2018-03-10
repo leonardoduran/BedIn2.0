@@ -45,21 +45,18 @@ class FinanciadorUserForm extends React.Component {
     this.props.resetCreateSuccess();
   }
 
-  create(e) {
-    let checkedFinanciador = this.props.financiadors.filter(financiador => financiador.name === e.target.financiadors.value)
+  create(e) {    
+    let radios = document.querySelectorAll('input[type="radio"]:checked');
+    let checkedFinanciador = radios.length>0? radios[0].value: null;
     e.preventDefault();
     this.props.createUser({
-      name: e.target.nombre.value,
-      //address: e.target.direccion.value,
-      //phone: e.target.telefono.value,
-      //email: e.target.email.value,
-      username: e.target.username.value,
-      password: e.target.password.value,
+      name:  document.getElementById("inputNombre").value,
+      username: document.getElementById("inputUserName").value,
+      password: document.getElementById("inputPass").value,
       type: "Financiador",
-      osCode: checkedFinanciador[0]._id
+      osCode: checkedFinanciador //[0]._id
     })
   }
-
   render() {
     return (
       <div>

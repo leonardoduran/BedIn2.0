@@ -25,7 +25,7 @@ function TableDataUserHospital(props) {
 			<td>{user.username}</td>
 			<td>{formattedDate(user.createdAt)}</td>
 			<td>{user.workplace}</td>
-			<td>{user.rol}</td>
+			<td>{user.instancesLogged == 0 ? 'NO' : 'SI'}</td>
 			<button onClick={()=> props.changePass(user._id)}>Reset Password</button>
 			<button onClick={()=> props.unloggedUser(user)}>Desloguear</button>
 			
@@ -45,7 +45,7 @@ function TableDataUserHospital(props) {
 									<th>USERNAME</th>
 									<th>FECHA/HORA DE CREACIÓN</th>
 									<th>EMPLEADOR</th>
-									<th>ROL</th>
+									<th>LOGGED</th>
 								</tr>
 							</thead>
 							<tbody>

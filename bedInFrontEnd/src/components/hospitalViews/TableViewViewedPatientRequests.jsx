@@ -15,7 +15,11 @@ function ViewPatientRequestsViewedTable(props) {
 	const tableBody = props.patientsList.map((patient, i) =>
 		patient.isConfirm ? (
 		<tr style={i%2==0 ? tableStyle : tableStyle1} key={patient._id} title= {patient.obs ? patient.obs : null}>
-			<td>{patient.healthcareplan.name}</td>
+            {patient.planExterno ?
+              (<td style={tableStyle}>{patient.healthcareplan.name} ({patient.planExterno}) </td>)
+            :
+              (<td style={tableStyle}>{patient.healthcareplan.name} </td>)
+            }
 			<td>{patient.dni}</td>
 			<td>{patient.age}</td>
 			<td>{patient.sex}</td>
@@ -31,7 +35,11 @@ function ViewPatientRequestsViewedTable(props) {
 			) 
 		:(
 		<tr style={i%2==0 ? tableStyle : tableStyle1} key={patient._id} title= {patient.obs ? patient.obs : null}>
-			<td>{patient.healthcareplan.name}</td>
+            {patient.planExterno ?
+              (<td style={tableStyle}>{patient.healthcareplan.name} ({patient.planExterno}) </td>)
+            :
+              (<td style={tableStyle}>{patient.healthcareplan.name} </td>)
+            }
 			<td>{patient.dni}</td>
 			<td>{patient.age}</td>
 			<td>{patient.sex}</td>

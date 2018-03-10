@@ -12,11 +12,13 @@ function ViewTableReport(props) {
     }
 	const buildDetailTable = (listRequest = [], state) => {
 		return listRequest.map(request =>
-			(state==null || request.state == state) ?
-				<p>- {request.hospital.name}</p>
-				: null
+				(state==null || request.state == state) ?
+								<p>- {request.hospital.name}</p>
+							: null
+			
 		)
 	}
+// request.userHospital ? request.userHospital.name : ''
 	const buildConfirm = (listRequest = []) => {
 		return listRequest.map(request =>
 			request.matchedDate ?
@@ -33,7 +35,11 @@ function ViewTableReport(props) {
 			<td>{patient.cie10}</td>
 			<td>{patient.complexity}</td>
 			<td>{formattedDate(patient.dateCreated)} por {patient.userCreator.name}</td>
-			<td>{patient.healthcareplan.name}</td>
+            {patient.planExterno ?
+              (<td style={tableStyle}>{patient.healthcareplan.name} ({patient.planExterno}) </td>)
+            :
+              (<td style={tableStyle}>{patient.healthcareplan.name} </td>)
+            }
 			<td style={tableStyle}>
 				{buildDetailTable(patient.hospitalsAndState)}
 			</td>

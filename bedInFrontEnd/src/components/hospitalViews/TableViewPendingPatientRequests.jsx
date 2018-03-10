@@ -3,7 +3,7 @@ import moment from 'moment';
 
 const tableStyle = {border:"1px solid grey"};
 const tableStyle1 = {border:"1px solid grey", backgroundColor:"#E7E7CF"};
-const marginLeft = {marginLeft:"5px"} 
+const marginLeft = {marginLeft:"5px"}
 
 function ViewPatientRequestsPendingTable(props) {
     const setRowColor = (color) => ({backgroundColor : color})
@@ -13,7 +13,11 @@ function ViewPatientRequestsPendingTable(props) {
     }    
     const tableBody = props.patientsList.map((patient, i) =>
         <tr style={i%2==0 ? tableStyle : tableStyle1} key={patient._id} title= {patient.obs ? patient.obs : null}>
-            <td>{patient.healthcareplan.name}</td>
+            {patient.planExterno ?
+              (<td style={tableStyle}>{patient.healthcareplan.name} ({patient.planExterno}) </td>)
+            :
+              (<td style={tableStyle}>{patient.healthcareplan.name} </td>)
+            }
             <td>{patient.dni}</td>
             <td>{patient.age}</td>
             <td>{patient.sex}</td>

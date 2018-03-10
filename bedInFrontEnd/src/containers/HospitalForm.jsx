@@ -39,17 +39,17 @@ class HospitalForm extends React.Component {
   create(e) {
     e.preventDefault();
     this.props.createEntidadHospital({
-      name: e.target.nombre.value,
-      address: e.target.direccion.value,
-      phone: e.target.telefono.value,
-      email: e.target.email.value
+      name:  document.getElementById("inputNombre").value,
+      address: document.getElementById("inputDireccion").value,
+      phone: document.getElementById("inputTelefono").value,
+      email: document.getElementById("inputEmail").value
     })
   }
 
   render() {
     return (
       <div>
-        <HospitalForm1 createHospital={this.create} />
+        <HospitalForm1 createHospital={this.create} success={this.props.createSuccess} />
       </div>
     )
   }

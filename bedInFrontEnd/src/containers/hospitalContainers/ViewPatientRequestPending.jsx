@@ -46,7 +46,7 @@ class ViewPatientRequest extends React.Component {
     }
     componentWillMount() {
         this.props.fetchGetPatients();
-        this.props.fetchReasonReject();     
+        this.props.fetchReasonReject();
         // this.idInterval = setInterval(() => {
         //     this.props.fetchGetPatients();
         // },1000*60)
@@ -149,7 +149,3 @@ class ViewPatientRequest extends React.Component {
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ViewPatientRequest);
-
-                          // {store.getState().patients.reasonReject.map((reason, i) =>
-                          //   <option key={i} value={reason.code}>{plan.reason}</option>
-                          // )}

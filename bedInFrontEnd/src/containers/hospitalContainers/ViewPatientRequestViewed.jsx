@@ -84,8 +84,6 @@ class ViewViewedPatientRequest extends React.Component {
         this.setState({modalRejectIsOpen: false});
     }
 
-
-
   openModal(patientId) {
     this.setState({modalIsOpen: true, patientId: patientId});
   } 

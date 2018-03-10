@@ -56,6 +56,7 @@ class CreatePatientRequest extends React.Component {
 		super(props);
 		this.create = this.create.bind(this)
 		this.createOk = this.createOk.bind(this)
+    this.changePlan=this.changePlan.bind(this)
 		// this.onChange = this.onChange.bind(this)
 		// this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(this)
 		// this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(this)
@@ -84,15 +85,25 @@ class CreatePatientRequest extends React.Component {
 		let selectedComplexity = document.getElementById("complexitySelect").value //e.target.complejidad.value;
 		let selectedPlan = document.getElementById("planSelect").value //e.target.plan.value;
 		let observation = document.getElementById("obs").value // e.target.obs.value;
-    	let edad = document.getElementById("edad").value;
-    	let patient = document.getElementById("dni").value;
-    	let diagnosis = document.getElementById("cie").value;
+    let edad = document.getElementById("edad").value;
+    let patient = document.getElementById("dni").value;
+    let diagnosis = document.getElementById("cie").value;
+    let planExt = document.getElementById("planExterno").value;
 
     	if(selectedPlan=="---Selecccione Plan---"){
     		alert("No se seleccinó plan");
     		document.getElementById("planSelect").focus();
     		return;
     	}
+
+       let selectedPlanName = document.getElementById("planSelect")[document.getElementById("planSelect").selectedIndex].text;
+          if (selectedPlanName.toLowerCase() == "externo" && planExt== ''){
+            alert("Plan externo no ingresado");
+            document.getElementById("planExterno").focus();
+            return;            
+          }
+
+
     	if(edad=='' || isNaN(edad) || edad<0){
     		alert("Edad no ingresada o no válida");
     		document.getElementById("edad").focus();
@@ -127,12 +138,14 @@ class CreatePatientRequest extends React.Component {
 	      	dni: patient,
 	      	age: edad,
 	      	sex: selectedSex,
-			cie10: diagnosis,
-			complexity: selectedComplexity,
-			healthcareplan: selectedPlan,
-			userCreator : store.getState().authentication.userId,
-			obs : observation
+    			cie10: diagnosis,
+    			complexity: selectedComplexity,
+    			healthcareplan: selectedPlan,
+    			userCreator : store.getState().authentication.userId,
+    			obs : observation,
+          planExterno :planExt
         })
+          
 		document.getElementById("dni").value	   ='';
 		document.getElementById("sexSelect").value='---Seleccione Sexo---';
 		document.getElementById("edad").value      ='';
@@ -140,12 +153,26 @@ class CreatePatientRequest extends React.Component {
 		document.getElementById("complexitySelect").value='---Seleccione Complejidad---';
 		document.getElementById("planSelect").value='---Selecccione Plan---';
 		document.getElementById("obs").value       ='';
+    document.getElementById("planExterno").value='';
+    document.getElementById("planExterno").style.visibility = "hidden";
   }
 
 	createOk(e){
 		e.preventDefault();	
 		this.props.resetCreateSuccess();
 	}
+
+  changePlan(){
+      let selectedPlan = document.getElementById("planSelect")[document.getElementById("planSelect").selectedIndex].text;
+          if (selectedPlan.toLowerCase() == "externo")
+            document.getElementById("planExterno").style.visibility = "visible";
+            
+          else
+            {
+              document.getElementById("planExterno").style.visibility = "hidden";
+              document.getElementById("planExterno").value= "";
+            }
+  }
 
 
 	componentWillUnmount() {
@@ -184,7 +211,13 @@ class CreatePatientRequest extends React.Component {
     	// };
 		return (
 			<div>
-			<CreatePatientRequestForm plans={this.props.plans} createRequest={this.create} success={this.props.createSuccess} createRequestOk={this.createOk} />
+			<CreatePatientRequestForm 
+        plans={this.props.plans} 
+        createRequest={this.create} 
+        success={this.props.createSuccess} 
+        createRequestOk={this.createOk} 
+        changePlan={this.changePlan}
+        />
 			</div>
 
 		)

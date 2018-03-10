@@ -34,14 +34,20 @@ function CreatePatientRequestForm(props) {
           <form className="form-horizontal">
             <div className="form-group">             
               <label htmlFor="sel1" className="control-label col-sm-3">Plan</label>
-              <div className="col-sm-9">
-                <select className="form-control" name="plan" id="planSelect">
+              <div className="col-sm-6">
+                <select className="form-control" name="plan" id="planSelect" onChange={props.changePlan}>
                   <option>---Selecccione Plan---</option>
                   {props.plans.map((plan, i) =>
                     <option key={i} value={plan._id}>{plan.name}</option>
                   )}
                 </select>
               </div>
+              <div>
+
+              <div className="col-sm-3">
+                <input type="text" className="form-control" name="planExterno" id="planExterno" placeholder="Plan externo" style={{visibility: 'hidden'}}></input>
+              </div>
+              </div>  
             </div>
 
             <div className="form-group">
