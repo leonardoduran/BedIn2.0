@@ -143,7 +143,7 @@ class CreatePatientRequest extends React.Component {
     			healthcareplan: selectedPlan,
     			userCreator : store.getState().authentication.userId,
     			obs : observation,
-          planExterno :planExt
+          planExterno :planExt.toUpperCase()
         })
           
 		document.getElementById("dni").value	   ='';

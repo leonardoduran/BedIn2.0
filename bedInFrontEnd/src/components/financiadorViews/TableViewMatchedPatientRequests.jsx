@@ -40,6 +40,13 @@ function ViewPatientRequestsMatchedTable(props) {
               </td>)
               :
               (<td> </td>)}
+              
+              <td>
+                <button title="Cancelar solicitud" type="button" className="btn btn-danger btn-xs" style={marginLeft}
+                  onClick={()=> props.cancelPatientRequest(patient._id)}>
+                  <span className="glyphicon glyphicon-remove-circle"></span>
+                </button>
+              </td>
 
         </tr>)
     return (
@@ -57,6 +64,7 @@ function ViewPatientRequestsMatchedTable(props) {
                         <th style={{border:"1px solid grey"}}>Aceptó</th>
                         <th style={{border:"1px solid grey"}}>Confirmó</th>
                         <th style={{border:"1px solid grey"}}>Mensajes</th>
+                        <th style={{border:"1px solid grey"}}></th>
                       </tr>
                     </thead>
                     <tbody>

@@ -208,3 +208,61 @@ export function matchWithHospital(patientRequestId, idHospital) {
     })
   })
 }
+
+export function getReasonsF (reasonsF) {
+console.log("Reasons",reasonsF)
+    return {
+        type: "RECEIVE_REASONS_F",
+        reasonsF
+    }
+}
+
+export function fetchReasonRejectFin(){
+    return (dispatch => {
+        dispatch(requestList());
+        return fetch('./healthcare/patientRequest/reasonsRejectF', {
+            method: 'GET',
+            credentials: 'include'
+        })
+        .then(response => response.json())
+        .then(reasons => 
+        {
+            if (reasons.error)
+                alert(reasons.error)
+            else
+                dispatch(getReasonsF(reasons))
+        })
+        .catch(err => dispatch(failedRequest(err)))
+    })
+
+}
+
+export function setCancelToPatient(origin,patientIdCancel,mot){
+
+    return (dispatch => {
+        dispatch(requestList());
+        const objRequest = {
+            patientIdCancel,
+            mot
+        }
+        return fetch('./healthcare/patientRequest/cancelPatient', {
+            method: 'PUT',
+            credentials: 'include',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+      body: JSON.stringify(objRequest)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) return dispatch(failedRequest())
+            if (origin == 'GENERADOS')
+              return dispatch(fetchPendingPatientRequests())
+            else // CONFIRMADOS
+              return dispatch(fetchMatchedPatientRequests())
+        })
+        .catch(err => dispatch(failedRequest()))
+    })
+
+}

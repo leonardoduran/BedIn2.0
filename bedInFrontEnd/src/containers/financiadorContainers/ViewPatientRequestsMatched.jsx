@@ -22,7 +22,8 @@ function mapStateToProps(state) {
   return {
 		isRequesting: state.patientRequestReducers.isRequesting,
 		matchedList: state.patientRequestReducers.matchedList,
-		error: state.patientRequestReducers.error
+		error: state.patientRequestReducers.error,
+    reasonsF: state.patientRequestReducers.reasonsF
   }
 };
 
@@ -37,15 +38,20 @@ class ViewPatientRequestsMatched extends React.Component {
 
         this.state = {
             modalMenssagesIsOpen:false,
-            messages: null
+            messages: null,
+            patientIdCancel : null
         }
 
 		this.verMensajes=this.verMensajes.bind(this);
-    	this.closeMessagesModal = this.closeMessagesModal.bind(this);
+    this.closeMessagesModal = this.closeMessagesModal.bind(this);
+    this.cancelPatientRequest=this.cancelPatientRequest.bind(this);
+    this.closeModalRejects = this.closeModalRejects.bind(this);
+    this.confirmReject = this.confirmReject.bind(this);
 	}
 
 	componentWillMount() {
-		this.props.fetchMatchedPatientRequests();
+		this.props.fetchReasonRejectFin();
+    this.props.fetchMatchedPatientRequests();
 		this.idInterval = setInterval(() => {
 			this.props.fetchMatchedPatientRequests();
 		},1000*60)
@@ -63,12 +69,50 @@ class ViewPatientRequestsMatched extends React.Component {
     	this.setState({modalMenssagesIsOpen: false});
   	}
 
+  cancelPatientRequest(patientId){
+    this.setState({modalRejectsIsOpen: true, patientIdCancel : patientId});
+  }
+
+  closeModalRejects() {
+    this.setState({modalRejectsIsOpen: false});
+  }
+
+  confirmReject(){
+        let mot = document.getElementById("rejectReasonF").value
+        if (mot=="---Motivo---")
+        {
+            alert("Motivo no ingresado")
+            return;
+        }
+        this.props.setCancelToPatient('CONFIRMADOS',this.state.patientIdCancel,mot);
+        this.setState({modalRejectsIsOpen: false, patientIdCancel: null});    
+  }
+
 	render() {
     const tableRequests = this.props.isRequesting ? <p>Cargando..</p>
     : <TableViewMatchedPatientRequests 
     	patients = {this.props.matchedList}
     	verMensajes={this.verMensajes}
+      cancelPatientRequest={this.cancelPatientRequest}
       />
+
+      let rejects = <div>
+                  <form className="form-horizontal">
+                    <div className="form-group">             
+                      <label htmlFor="sel2" className="control-label col-sm-3">Motivo</label>
+                      <div className="col-sm-8">
+
+                        <select className="form-control" name="reject" id="rejectReasonF">
+                            <br></br>
+                            <option>---Motivo---</option>
+                                {this.props.reasonsF.map((reason, i) =>
+                            <option key={i} value={reason._id}>{reason.reason}</option>
+                            )}
+                        </select>
+                      </div>
+                    </div>
+                  </form>
+      </div>      
 		return (
 			<div>
 				{tableRequests}
@@ -81,7 +125,20 @@ class ViewPatientRequestsMatched extends React.Component {
                 <TableViewMessages
                   messages={this.state.messages}
                 />
-              </Modal>   
+              </Modal>
+
+              <Modal
+                isOpen={this.state.modalRejectsIsOpen}
+                onRequestClose={this.closeModalRejects}
+                style={customStyles}
+                contentLabel="Example Modal">
+                {rejects}
+
+                <button onClick={this.confirmReject}>Confirmar</button>
+                <button onClick={this.closeModalRejects}>Cancelar</button>
+              </Modal>
+
+
 			</div>
 		)
 	}

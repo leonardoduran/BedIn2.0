@@ -14,9 +14,9 @@ function ViewPatientRequestsPendingTable(props) {
     const tableBody = props.patientsList.map((patient, i) =>
         <tr style={i%2==0 ? tableStyle : tableStyle1} key={patient._id} title= {patient.obs ? patient.obs : null}>
             {patient.planExterno ?
-              (<td style={tableStyle}>{patient.healthcareplan.name} ({patient.planExterno}) </td>)
+              (<td>{patient.healthcareplan.name} ({patient.planExterno}) </td>)
             :
-              (<td style={tableStyle}>{patient.healthcareplan.name} </td>)
+              (<td>{patient.healthcareplan.name} </td>)
             }
             <td>{patient.dni}</td>
             <td>{patient.age}</td>
@@ -25,6 +25,17 @@ function ViewPatientRequestsPendingTable(props) {
             <td>{patient.complexity}</td>
             <td>{patient.healthcare.name}</td>
             <td>{formattedDate(patient.dateCreated)}</td>
+          {patient.isCanceledByFin ?
+          (
+            <div>
+            <td></td>
+            <td></td>
+            <td></td>
+            </div>
+          )
+          :
+          ( 
+          <div>
             <td>
                  <button title="Visar" type="button" className="btn btn-primary btn-xs" style={marginLeft}
                      onClick={()=> props.setStateF(patient._id, 'Visto')}>
@@ -42,7 +53,10 @@ function ViewPatientRequestsPendingTable(props) {
                      onClick={()=> props.setReasonRejection(patient._id)}>
                   <span className="glyphicon glyphicon-remove-circle"></span>
                 </button>
-            </td>            
+            </td>
+          </div>
+          )}
+            <td>{patient.isCanceledByFin ? 'CANCELADO' : ''}</td>
         </tr>)
     return (
         <div>

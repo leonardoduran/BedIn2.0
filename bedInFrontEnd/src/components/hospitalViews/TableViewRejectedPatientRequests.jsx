@@ -18,9 +18,9 @@ function ViewPatientRequestsRejectedTable(props) {
 	const tableBody = props.patientsList.map((patient, i) =>
 		<tr style={i%2==0 ? tableStyle : tableStyle1} key={patient._id} title= {patient.obs ? patient.obs : null}>
             {patient.planExterno ?
-              (<td style={tableStyle}>{patient.healthcareplan.name} ({patient.planExterno}) </td>)
+              (<td>{patient.healthcareplan.name} ({patient.planExterno}) </td>)
             :
-              (<td style={tableStyle}>{patient.healthcareplan.name} </td>)
+              (<td>{patient.healthcareplan.name} </td>)
             }
 			<td>{patient.dni}</td>
 			<td>{patient.age}</td>
@@ -31,6 +31,7 @@ function ViewPatientRequestsRejectedTable(props) {
 			<td>{patient.hospitalsAndState.userHospital.name}</td>
 			<td>{getReason(patient.hospitalsAndState)}</td>
 			<td>{formattedDate(patient.dateCreated)}</td>
+			<td>{patient.isCanceledByFin ? 'CANCELADO' : ''}</td>
 		</tr>
 		)	
 	const setRowColor = (color) => ({backgroundColor : color})

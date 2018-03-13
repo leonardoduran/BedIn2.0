@@ -17,6 +17,7 @@ function patientRequestReducers(state = {
   pendingList: [],
   matchedList: [],
   diagnosis: [],
+  reasonsF: []
   // valueDiagnosisSuggest:''
 }, action) {
 switch(action.type) {
@@ -39,7 +40,8 @@ switch(action.type) {
       receivePending: false,
       pendingList: [],
       matchedList: [],
-      diagnosis: []
+      diagnosis: [],
+      reasonsF: []
     });
   case 'REQUEST_CREATE':
     return Object.assign({}, state, {isRequesting: true});
@@ -96,6 +98,11 @@ switch(action.type) {
       receivePending: true,
       matchedList: action.matched
     })
+  case 'RECEIVE_REASONS_F':
+      return Object.assign({}, state, {
+        isRequesting: false,
+        reasonsF: action.reasonsF
+      })
   default:
     return state;
 }

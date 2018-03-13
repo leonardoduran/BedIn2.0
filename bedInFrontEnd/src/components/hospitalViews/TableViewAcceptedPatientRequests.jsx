@@ -28,9 +28,9 @@ function ViewPatientRequestsAcceptedTable(props) {
 
 		<tr style={i%2==0 ? tableStyle : tableStyle1} key={patient._id} title= {patient.obs ? patient.obs : null}>
             {patient.planExterno ?
-              (<td style={tableStyle}>{patient.healthcareplan.name} ({patient.planExterno}) </td>)
+              (<td>{patient.healthcareplan.name} ({patient.planExterno}) </td>)
             :
-              (<td style={tableStyle}>{patient.healthcareplan.name} </td>)
+              (<td>{patient.healthcareplan.name} </td>)
             }
 			<td>{patient.dni}</td>
 			<td>{patient.age}</td>
@@ -43,6 +43,7 @@ function ViewPatientRequestsAcceptedTable(props) {
 			<td>
 				{checkMatch(patient.hospitalsAndState ? patient.hospitalsAndState.hospital : 0, patient.hospitalsAndState ? patient.hospitalsAndState.matchedDate : 0, patient.isConfirm)}
 			</td>
+			<td>{patient.isCanceledByFin ? 'CANCELADO' : ''}</td>
 		</tr>
 		)
 

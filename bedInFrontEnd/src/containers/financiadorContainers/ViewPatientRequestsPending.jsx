@@ -21,7 +21,8 @@ function mapStateToProps(state) {
         isRequesting: state.patientRequestReducers.isRequesting,
         receivePending: state.patientRequestReducers.receivePending,
         pendingList: state.patientRequestReducers.pendingList,
-        error: state.patientRequestReducers.error
+        error: state.patientRequestReducers.error,
+        reasonsF: state.patientRequestReducers.reasonsF
   }
 };
 function mapDispatchToProps(dispatch) {
@@ -35,16 +36,21 @@ class ViewPatientRequestsPending extends React.Component {
             modalIsOpen : false,
             patientDetail: null,
             modalMenssagesIsOpen:false,
-            messages: null
+            messages: null,
+            patientIdCancel : null
         }
     this.openModal = this.openModal.bind(this);
     this.verMensajes=this.verMensajes.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.closeMessagesModal = this.closeMessagesModal.bind(this);
-    
+    this.cancelPatientRequest=this.cancelPatientRequest.bind(this);
+    this.closeModalRejects = this.closeModalRejects.bind(this);
+    this.confirmReject = this.confirmReject.bind(this);
     }
+
     componentWillMount() {
+        this.props.fetchReasonRejectFin();
         this.props.fetchPendingPatientRequests();
         this.idInterval = setInterval(() => {
             this.props.fetchPendingPatientRequests();
@@ -64,6 +70,25 @@ class ViewPatientRequestsPending extends React.Component {
   verMensajes(messages){
     this.setState({modalMenssagesIsOpen: true, messages: messages});
   }
+  
+  cancelPatientRequest(patientId){
+    this.setState({modalRejectsIsOpen: true, patientIdCancel : patientId});
+  }
+
+  closeModalRejects() {
+    this.setState({modalRejectsIsOpen: false});
+  }
+
+  confirmReject(){
+        let mot = document.getElementById("rejectReasonF").value
+        if (mot=="---Motivo---")
+        {
+            alert("Motivo no ingresado")
+            return;
+        }
+        this.props.setCancelToPatient('GENERADOS',this.state.patientIdCancel,mot);
+        this.setState({modalRejectsIsOpen: false, patientIdCancel: null});    
+  }
 
   afterOpenModal() {
    // this.subtitle.style.color = '#f00';
@@ -82,7 +107,26 @@ class ViewPatientRequestsPending extends React.Component {
         listOfPending= {this.props.pendingList}
         openModal={this.openModal}
         verMensajes={this.verMensajes}
+        cancelPatientRequest={this.cancelPatientRequest}
       />
+
+        let rejects = <div>
+                  <form className="form-horizontal">
+                    <div className="form-group">             
+                      <label htmlFor="sel2" className="control-label col-sm-3">Motivo</label>
+                      <div className="col-sm-8">
+
+                        <select className="form-control" name="reject" id="rejectReasonF">
+                            <br></br>
+                            <option>---Motivo---</option>
+                                {this.props.reasonsF.map((reason, i) =>
+                            <option key={i} value={reason._id}>{reason.reason}</option>
+                            )}
+                        </select>
+                      </div>
+                    </div>
+                  </form>
+         </div>
         return (
             <div>
                 {tableRequests}
@@ -106,7 +150,19 @@ class ViewPatientRequestsPending extends React.Component {
                 <TableViewMessages
                   messages={this.state.messages}
                 />
-              </Modal>              
+              </Modal>
+
+              <Modal
+                isOpen={this.state.modalRejectsIsOpen}
+                onRequestClose={this.closeModalRejects}
+                style={customStyles}
+                contentLabel="Example Modal">
+                {rejects}
+
+                <button onClick={this.confirmReject}>Confirmar</button>
+                <button onClick={this.closeModalRejects}>Cancelar</button>
+              </Modal>
+
             </div>
         )
     }

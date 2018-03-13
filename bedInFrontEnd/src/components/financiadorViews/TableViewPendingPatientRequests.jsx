@@ -26,7 +26,8 @@ function ViewPatientRequestsPendingTable(props) {
     }
 
     const tableBody = props.listOfPending.map((pending, i) => {
-        let colorStyle = (pending.timeout) ? setRowColor('pink')
+        let colorStyle = (pending.isCanceledByFin) ? setRowColor('orchid')
+        : (pending.timeout) ? setRowColor('pink')
         : (pending.acceptedByHospital.length) ? setRowColor('lightgreen')
         : (pending.viewedByHospitals.length) ? setRowColor('lightblue')
         : setRowColor(null)
@@ -58,6 +59,12 @@ function ViewPatientRequestsPendingTable(props) {
                 :
                 (<td style={tableStyle}></td>)}
 
+                <td>
+                    <button title="Cancelar solicitud" type="button" className="btn btn-danger btn-xs" style={marginLeft}
+                        onClick={()=> props.cancelPatientRequest(pending._id)}>
+                        <span className="glyphicon glyphicon-remove-circle"></span>
+                    </button>
+                </td>
                                 
             </tr>
             )
@@ -79,6 +86,7 @@ function ViewPatientRequestsPendingTable(props) {
                                 <th style={{border:"1px solid grey"}}>Fecha/Hora Creado</th>
                                 <th style={{border:"1px solid grey"}}>Detalle</th>
                                 <th style={{border:"1px solid grey"}}>Mensajes</th>
+                                <th style={{border:"1px solid grey"}}></th>
                             </tr>
                         </thead>
                         <tbody>

@@ -16,9 +16,9 @@ function ViewPatientRequestsViewedTable(props) {
 		patient.isConfirm ? (
 		<tr style={i%2==0 ? tableStyle : tableStyle1} key={patient._id} title= {patient.obs ? patient.obs : null}>
             {patient.planExterno ?
-              (<td style={tableStyle}>{patient.healthcareplan.name} ({patient.planExterno}) </td>)
+              (<td>{patient.healthcareplan.name} ({patient.planExterno}) </td>)
             :
-              (<td style={tableStyle}>{patient.healthcareplan.name} </td>)
+              (<td>{patient.healthcareplan.name} </td>)
             }
 			<td>{patient.dni}</td>
 			<td>{patient.age}</td>
@@ -31,14 +31,15 @@ function ViewPatientRequestsViewedTable(props) {
 			<td></td>
 			<td></td>
 			<td></td>
+			<td>{patient.isCanceledByFin ? 'CANCELADO' : ''}</td>
 			</tr>
 			) 
 		:(
 		<tr style={i%2==0 ? tableStyle : tableStyle1} key={patient._id} title= {patient.obs ? patient.obs : null}>
             {patient.planExterno ?
-              (<td style={tableStyle}>{patient.healthcareplan.name} ({patient.planExterno}) </td>)
+              (<td>{patient.healthcareplan.name} ({patient.planExterno}) </td>)
             :
-              (<td style={tableStyle}>{patient.healthcareplan.name} </td>)
+              (<td>{patient.healthcareplan.name} </td>)
             }
 			<td>{patient.dni}</td>
 			<td>{patient.age}</td>
@@ -48,25 +49,40 @@ function ViewPatientRequestsViewedTable(props) {
 			<td>{patient.healthcare.name}</td>
 			<td>{patient.hospitalsAndState.userHospital.name}</td>
 			<td>{formattedDate(patient.dateCreated)}</td>
-        
-            <td>
-                 <button title="Aceptar" type="button" className="btn btn-success btn-xs" style={marginLeftBtn}
-                     onClick={()=> props.setStateV(patient._id, 'Aceptado')}>
-                  <span className="glyphicon glyphicon-ok"></span>
-                  </button>
-            </td>
-            <td>
-                 <button title="Rechazar" type="button" className="btn btn-danger btn-xs" style={marginLeftBtn}
-                     onClick={()=> props.setReasonRejection(patient._id)}>
-                  <span className="glyphicon glyphicon-remove-circle"></span>
-                </button>
-            </td>
-            <td>
-                 <button title="Enviar mensaje" type="button" className="btn btn-info btn-xs" style={marginLeftBtn}
-                     onClick={()=> props.openModal(patient._id)}>
-                  <span className="glyphicon glyphicon-envelope"></span>
-                </button>
-            </td>
+
+        	{patient.isCanceledByFin ?
+			(
+				<div>
+				<td></td>
+				<td></td>
+				<td></td>
+				</div>
+			)
+			:
+			(
+			<div>
+				<td>
+	                 <button title="Aceptar" type="button" className="btn btn-success btn-xs" style={marginLeftBtn}
+	                     onClick={()=> props.setStateV(patient._id, 'Aceptado')}>
+	                  <span className="glyphicon glyphicon-ok"></span>
+	                  </button>
+	            </td>
+	            <td>
+	                 <button title="Rechazar" type="button" className="btn btn-danger btn-xs" style={marginLeftBtn}
+	                     onClick={()=> props.setReasonRejection(patient._id)}>
+	                  <span className="glyphicon glyphicon-remove-circle"></span>
+	                </button>
+	            </td>
+	            <td>
+	                 <button title="Enviar mensaje" type="button" className="btn btn-info btn-xs" style={marginLeftBtn}
+	                     onClick={()=> props.openModal(patient._id)}>
+	                  <span className="glyphicon glyphicon-envelope"></span>
+	                </button>
+            	</td>
+            </div>
+            )
+        	}
+            <td>{patient.isCanceledByFin ? 'CANCELADO' : ''}</td>
 		</tr>)
 		)	
 	const setRowColor = (color) => ({backgroundColor : color})
