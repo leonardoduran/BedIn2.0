@@ -56,6 +56,11 @@ function ViewTableReport(props) {
 				{buildConfirm(patient.hospitalsAndState)}
 			</td>			
 			<td>{patient.obs}</td>
+            {patient.isCanceledByFin ?
+              (<td style={tableStyle}>SI ({patient.reasonRejectFin.reason})</td>)
+            :
+              (<td style={tableStyle}>NO</td>)
+            }			
         </tr>
 		)	
 	const setRowColor = (color) => ({backgroundColor : color})
@@ -63,8 +68,7 @@ function ViewTableReport(props) {
 		<div>
         <div className="container container_a">
           <div className="row">
-            <div className="col-xs-2 col-sm-4 col-lg-1"></div>
-            <div className="col-xs-8 col-sm-6 col-lg-10 " id="table_wrapper">
+            <div className="col-xs-12 col-sm-12 col-lg-12" id="table_wrapper">
 
 			<table style={{border:"1px solid grey"}} className= "table">
 			  <thead style={{border:"1px solid grey"}}>
@@ -83,6 +87,7 @@ function ViewTableReport(props) {
 					<th style={{border:"1px solid grey"}}>Visto por</th>
 					<th style={{border:"1px solid grey"}}>Confirmado a/por</th>
 					<th style={{border:"1px solid grey"}}>Comentario</th>
+					<th style={{border:"1px solid grey"}}>Cancelado</th>
 			    </tr>
 			  </thead>
 			  <tbody>

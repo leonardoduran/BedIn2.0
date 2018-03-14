@@ -11,7 +11,8 @@ function ViewPatientRequestsPendingTable(props) {
         // return moment(date).format('DD/MM/YYYY || HH:mm:ss');
     }
     const setRowColor = (color) => ({backgroundColor : color})  
-    
+    const setTachado  = ()      => ({"text-decoration" : "line-through"})
+
     const buildPendingTable = (listOfPending = [], acceptedByHospital, idPending) => {
         return listOfPending.map(eachPending =>
             acceptedByHospital ?
@@ -26,13 +27,12 @@ function ViewPatientRequestsPendingTable(props) {
     }
 
     const tableBody = props.listOfPending.map((pending, i) => {
-        let colorStyle = (pending.isCanceledByFin) ? setRowColor('orchid')
+        let colorStyle = (pending.isCanceledByFin) ? setTachado()
         : (pending.timeout) ? setRowColor('pink')
         : (pending.acceptedByHospital.length) ? setRowColor('lightgreen')
         : (pending.viewedByHospitals.length) ? setRowColor('lightblue')
         : setRowColor(null)
     
-
         return ( <tr style={Object.assign({}, tableStyle, colorStyle)} key={pending._id} title= {pending.obs ? pending.obs : null}> 
                 <td style={tableStyle}>{pending.dni}</td>
                 <td style={tableStyle}>{pending.age}</td>
@@ -44,11 +44,12 @@ function ViewPatientRequestsPendingTable(props) {
                 :
                     (<td style={tableStyle}>{pending.healthcareplan.name} </td>)
                 }
-                
                 <td style={tableStyle}>{formattedDate(pending.dateCreated)}</td>
+
                 <td style={tableStyle}>
                     <a style={{cursor: "pointer", color: "blue"}} onClick={() => props.openModal(pending)}>Ver</a>
                 </td>
+
                 {pending.messages.length > 0 ? 
                 (<td style={tableStyle}>
                     <button title="Ver Mensajes " type="button" className="btn btn-info btn-xs" style={marginLeft}
@@ -59,12 +60,19 @@ function ViewPatientRequestsPendingTable(props) {
                 :
                 (<td style={tableStyle}></td>)}
 
-                <td>
-                    <button title="Cancelar solicitud" type="button" className="btn btn-danger btn-xs" style={marginLeft}
-                        onClick={()=> props.cancelPatientRequest(pending._id)}>
-                        <span className="glyphicon glyphicon-remove-circle"></span>
-                    </button>
-                </td>
+                {
+                    pending.isCanceledByFin ? 
+                    (<td style={tableStyle}></td>)
+                    :
+                    (
+                    <td>
+                        <button title="Cancelar solicitud" type="button" className="btn btn-danger btn-xs" style={marginLeft}
+                            onClick={()=> props.cancelPatientRequest(pending._id)}>
+                            <span className="glyphicon glyphicon-remove-circle"></span>
+                        </button>
+                    </td>
+                    )
+                }
                                 
             </tr>
             )
@@ -99,6 +107,3 @@ function ViewPatientRequestsPendingTable(props) {
     )
 }
 export default ViewPatientRequestsPendingTable;
-
-// style={{border:"1px solid grey"}}
- // col-xs-8 col-sm-6 col-lg-10

@@ -6,12 +6,12 @@ function TableViewRequestDetails(props) {
 	const tableStyle = {border:"1px solid black"};
 	const marginLeft = {marginLeft:"5px"};
 
-	const buildDetailTable = (listOfPending = [], acceptedByHospital, idPending) => {
+	const buildDetailTable = (listOfPending = [], acceptedByHospital, pending) => {
 		return listOfPending.map(eachPending =>
-			acceptedByHospital ?
+			(acceptedByHospital && !pending.isCanceledByFin ) ?
 			<p key={eachPending._id} >{eachPending.hospital.name}
       			<button type="button" className="btn btn-success btn-xs" style={marginLeft}
-      				onClick={() => props.matchHospital(idPending,eachPending.hospital._id)}>
+      				onClick={() => props.matchHospital(pending._id,eachPending.hospital._id)}>
         			<span className="glyphicon glyphicon-ok"></span>
       			</button>
   			</p>
@@ -33,7 +33,7 @@ function TableViewRequestDetails(props) {
 				{buildDetailTable(props.patientDetail.rejectedByHospital)}
 			</td>			
 			<td style={tableStyle}>
-				{buildDetailTable(props.patientDetail.acceptedByHospital,true, props.patientDetail._id)}
+				{buildDetailTable(props.patientDetail.acceptedByHospital,true, props.patientDetail)}
 			</td>
 		</tr>
 
@@ -58,4 +58,21 @@ function TableViewRequestDetails(props) {
 
 export default TableViewRequestDetails;
 
-// {(withMsj && buildMessages(eachPending.messages,eachPending.hospital._id) )? <p>Btn</p> : null}
+
+	// const buildDetailTable = (listOfPending = [], acceptedByHospital, idPending) => {
+	// 	return listOfPending.map(eachPending =>
+	// 		acceptedByHospital ?
+	// 		<p key={eachPending._id} >{eachPending.hospital.name}
+ //      			<button type="button" className="btn btn-success btn-xs" style={marginLeft}
+ //      				onClick={() => props.matchHospital(idPending,eachPending.hospital._id)}>
+ //        			<span className="glyphicon glyphicon-ok"></span>
+ //      			</button>
+ //  			</p>
+ //    		:
+ //    		<p key={eachPending._id}>{eachPending.hospital.name}</p>
+			
+	// 	)
+	// }
+
+// {buildDetailTable(props.patientDetail.acceptedByHospital,true, props.patientDetail._id)}
+

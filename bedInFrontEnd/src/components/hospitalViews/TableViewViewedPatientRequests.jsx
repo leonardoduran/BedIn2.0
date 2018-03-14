@@ -52,11 +52,12 @@ function ViewPatientRequestsViewedTable(props) {
 
         	{patient.isCanceledByFin ?
 			(
-				<div>
+			<div>
 				<td></td>
+				<td>CANCELADO</td>
 				<td></td>
-				<td></td>
-				</div>
+				
+			</div>
 			)
 			:
 			(
@@ -82,7 +83,6 @@ function ViewPatientRequestsViewedTable(props) {
             </div>
             )
         	}
-            <td>{patient.isCanceledByFin ? 'CANCELADO' : ''}</td>
 		</tr>)
 		)	
 	const setRowColor = (color) => ({backgroundColor : color})
@@ -102,9 +102,9 @@ function ViewPatientRequestsViewedTable(props) {
 							<th style={{border:"1px solid grey"}}>Solicitante</th>
 							<th style={{border:"1px solid grey"}}>Usuario</th>
 							<th style={{border:"1px solid grey"}}>Fecha/Hora</th>
-		                  	<th style={{border:"1px solid grey"}}></th>
-		                  	<th style={{border:"1px solid grey"}}></th>
-		                  	<th style={{border:"1px solid grey"}}></th>
+			               	<th style={{border:"1px solid grey"}}></th>
+			                <th style={{border:"1px solid grey"}}></th>
+			                <th style={{border:"1px solid grey"}}></th>
 					    </tr>
 					  </thead>
 					  <tbody>

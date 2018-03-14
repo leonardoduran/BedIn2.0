@@ -115,15 +115,17 @@ class ViewReport extends React.Component {
                   <button onClick={this.clean.bind(this)} className="btn btn-default" style={tabButton}>Limpiar</button>
                   {btnExcel}
                 </form>   
+            </div>
                 
-                <div>
+            </div>
+        </div>
+
+            <div className="row">
+                <div className="col-xs-12 col-sm-12 col-lg-12">
                     {patients}
                 </div>
-                </div>
             </div>
-        </div>    
-            
-            </div>
+        </div>
        
         )
     }
