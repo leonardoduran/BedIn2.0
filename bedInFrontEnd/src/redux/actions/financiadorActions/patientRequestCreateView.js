@@ -210,7 +210,6 @@ export function matchWithHospital(patientRequestId, idHospital) {
 }
 
 export function getReasonsF (reasonsF) {
-console.log("Reasons",reasonsF)
     return {
         type: "RECEIVE_REASONS_F",
         reasonsF

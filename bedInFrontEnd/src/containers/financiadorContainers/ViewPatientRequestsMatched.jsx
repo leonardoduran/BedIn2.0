@@ -54,7 +54,7 @@ class ViewPatientRequestsMatched extends React.Component {
     this.props.fetchMatchedPatientRequests();
 		this.idInterval = setInterval(() => {
 			this.props.fetchMatchedPatientRequests();
-		},1000*60)
+		},1000*10)
 	}
 
 	componentWillUnmount() {

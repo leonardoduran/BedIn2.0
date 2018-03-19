@@ -17,7 +17,8 @@ function patientRequestReducers(state = {
   pendingList: [],
   matchedList: [],
   diagnosis: [],
-  reasonsF: []
+  reasonsF: [],
+  thereArePatientsChange: false
   // valueDiagnosisSuggest:''
 }, action) {
 switch(action.type) {
@@ -41,10 +42,12 @@ switch(action.type) {
       pendingList: [],
       matchedList: [],
       diagnosis: [],
-      reasonsF: []
+      reasonsF: [],
+      thereArePatientsChange: false
     });
   case 'REQUEST_CREATE':
     return Object.assign({}, state, {isRequesting: true});
+
   case 'RECEIVE_CREATED_PATIENT':
     return Object.assign({}, state, {
       isRequesting: false,
@@ -58,6 +61,7 @@ switch(action.type) {
       dateCreated: action.input.dateCreated,
       hospitalsRequested: action.input.hospitalsAndState
     });
+
   case 'FAILED_TO_CREATE':
     return Object.assign({}, state, {
       isRequesting: false,
@@ -66,6 +70,7 @@ switch(action.type) {
     });
   case 'REQUEST_LIST':
     return Object.assign({}, state, {isRequesting: true});
+
   case 'RECEIVE_PLANS':
     return Object.assign({}, state, {
       isRequesting: false,
@@ -86,12 +91,16 @@ switch(action.type) {
     });
   case 'RESET_CREATE_SUCCESS':
     return Object.assign({}, state, {createSuccess: false});
+
   case 'RECEIVE_PENDING':
+console.log('RECEIVE_PENDING')
     return Object.assign({}, state, {
       isRequesting: false,
       receivePending: true,
+      thereArePatientsChange: false,
       pendingList: action.pending
     })
+    
   case 'RECEIVE_MATCHED':
     return Object.assign({}, state, {
       isRequesting: false,
@@ -103,6 +112,13 @@ switch(action.type) {
         isRequesting: false,
         reasonsF: action.reasonsF
       })
+
+  case 'THERE_ARE_PATIENTS_CHANGE' :
+console.log('THERE_ARE_PATIENTS_CHANGE')
+      return Object.assign({}, state, {
+        thereArePatientsChange: true
+      })
+
   default:
     return state;
 }

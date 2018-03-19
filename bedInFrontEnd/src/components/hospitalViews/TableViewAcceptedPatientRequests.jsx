@@ -63,7 +63,8 @@ function ViewPatientRequestsAcceptedTable(props) {
 							<th style={{border:"1px solid grey"}}>Solicitante</th>
 							<th style={{border:"1px solid grey"}}>Usuario</th>
 							<th style={{border:"1px solid grey"}}>Fecha/Hora</th>
-					      <th style={{border:"1px solid grey"}}>Confirmado</th>
+					        <th style={{border:"1px solid grey"}}>Confirmado</th>
+					        <th style={{border:"1px solid grey"}}></th>
 					    </tr>
 					  </thead>
 					  <tbody>

@@ -158,5 +158,4 @@ app.put('/cancelPatient', function(req,res){
     )
 })
 
-
-module.exports = app; 
+module.exports = app;

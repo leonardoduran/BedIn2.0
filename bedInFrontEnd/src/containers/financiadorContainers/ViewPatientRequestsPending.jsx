@@ -54,8 +54,9 @@ class ViewPatientRequestsPending extends React.Component {
         this.props.fetchPendingPatientRequests();
         this.idInterval = setInterval(() => {
             this.props.fetchPendingPatientRequests();
-        },1000*60)
+        },1000*10)
     }
+
     componentWillUnmount() {
         clearInterval(this.idInterval)
     }
@@ -87,6 +88,7 @@ class ViewPatientRequestsPending extends React.Component {
             return;
         }
         this.props.setCancelToPatient('GENERADOS',this.state.patientIdCancel,mot);
+        this.props.fetchPendingPatientRequests();
         this.setState({modalRejectsIsOpen: false, patientIdCancel: null});    
   }
 
@@ -102,8 +104,15 @@ class ViewPatientRequestsPending extends React.Component {
   }
 
     render() {
-    const tableRequests = this.props.isRequesting ? <p>Cargando..</p>
-    : <TableViewPendingPatientRequests 
+    // const tableRequests = this.props.isRequesting ? <p>Cargando..</p>
+    // : <TableViewPendingPatientRequests 
+    //     listOfPending= {this.props.pendingList}
+    //     openModal={this.openModal}
+    //     verMensajes={this.verMensajes}
+    //     cancelPatientRequest={this.cancelPatientRequest}
+    //   />
+
+    const tableRequests =  <TableViewPendingPatientRequests 
         listOfPending= {this.props.pendingList}
         openModal={this.openModal}
         verMensajes={this.verMensajes}

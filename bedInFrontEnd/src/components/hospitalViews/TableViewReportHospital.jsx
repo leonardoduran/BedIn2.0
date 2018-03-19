@@ -36,7 +36,7 @@ function ViewTableReport(props) {
 	const buildConfirm = (listRequest = []) => {
 		return listRequest.map(request =>
 			request.matchedDate && props.hospitalId === request.hospital._id ?
-				  <p>SI</p>
+				  <p>SI ({request.userFinanciador.name})</p>
 				: null
 		)
 	}
@@ -60,6 +60,7 @@ function ViewTableReport(props) {
             :
               (<td style={tableStyle}>{patient.healthcareplan.name} </td>)
             }
+            <td>{patient.obs}</td>
 			<td>{formattedDate(patient.dateCreated)}</td>
 			<td>
 				{buildAnswer(patient.hospitalsAndState)}
@@ -78,7 +79,6 @@ function ViewTableReport(props) {
 			<td>
 				{buildDateConfirm(patient.hospitalsAndState)}
 			</td>
-			<td>{patient.obs}</td>
 		    {patient.isCanceledByFin ?
               (<td style={tableStyle}>SI ({patient.reasonRejectFin.reason})</td>):
               (<td style={tableStyle}>NO</td>)
@@ -101,13 +101,13 @@ function ViewTableReport(props) {
 					<th style={{border:"1px solid grey"}}>Diagnóstico</th>
 					<th style={{border:"1px solid grey"}}>Complejidad</th>
 					<th style={{border:"1px solid grey"}}>Plan</th>
+					<th style={{border:"1px solid grey"}}>Comentario</th>
 					<th style={{border:"1px solid grey"}}>Fecha creación</th>
 					<th style={{border:"1px solid grey"}}>Respuesta</th>
 					<th style={{border:"1px solid grey"}}>Fecha respuesta</th>
 					<th style={{border:"1px solid grey"}}>Motivo rechazo</th>
 					<th style={{border:"1px solid grey"}}>Confirmado</th>
 					<th style={{border:"1px solid grey"}}>Fecha confirmación</th>
-					<th style={{border:"1px solid grey"}}>Comentario</th>
 					<th style={{border:"1px solid grey"}}>Cancelado</th>
 			    </tr>
 			  </thead>

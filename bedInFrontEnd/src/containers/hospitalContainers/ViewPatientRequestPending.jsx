@@ -52,7 +52,10 @@ class ViewPatientRequest extends React.Component {
         // },1000*60)
         this.idInterval = setInterval(() => {
             this.props.fetchGetPatientsCheck(true);
-        },1000*10)
+            if(this.props.newPatients){
+                this.props.fetchGetPatients();
+            }
+        },500) //1000*10
     }
     
     componentWillUnmount() {
@@ -91,17 +94,6 @@ class ViewPatientRequest extends React.Component {
 
     render() {
 //      alert(this.props.isRequesting)
-        let btnNewPatients  = (this.props.newPatients) ? 
-            <div className="no-padding text-center">
-                <div className="col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
-                <button title="Nuevas solicitudes" type="button" 
-                        className="btn btn-info col-sm-10 col-md-10 col-lg-10 col-xl-10"
-                    onClick={this.getNewPatients.bind(this)}>
-                    Nuevas Solicitudes
-                </button>
-                <div className="col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
-            </div>
-        : null
 
         let patients = this.props.isRequesting ? <p>Cargando...</p>
         : <TableViewPendingPatientRequests 
@@ -109,6 +101,7 @@ class ViewPatientRequest extends React.Component {
             setStateF = {this.setStateF}
             setAllViewed = {this.setAllViewed}
             setReasonRejection = {this.setReasonRejection}/>
+
 
         let rejects = <div>
                   <form className="form-horizontal">
@@ -130,7 +123,6 @@ class ViewPatientRequest extends React.Component {
 
         return (
             <div>
-                {btnNewPatients}
                 {patients}
 
               <Modal
@@ -149,3 +141,16 @@ class ViewPatientRequest extends React.Component {
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ViewPatientRequest);
+
+        // let btnNewPatients  = (false && this.props.newPatients) ? 
+        //     <div className="no-padding text-center">
+        //         <div className="col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
+        //         <button title="Nuevas solicitudes" type="button" 
+        //                 className="btn btn-info col-sm-10 col-md-10 col-lg-10 col-xl-10"
+        //             onClick={this.getNewPatients.bind(this)}>
+        //             Nuevas Solicitudes
+        //         </button>
+        //         <div className="col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
+        //     </div>
+        // : null
+// {btnNewPatients}
