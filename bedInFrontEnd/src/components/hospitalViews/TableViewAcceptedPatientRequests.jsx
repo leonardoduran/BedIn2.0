@@ -12,17 +12,60 @@ function ViewPatientRequestsAcceptedTable(props) {
         // return moment(date).format('DD/MM/YYYY || HH:mm:ss');
         return  (moment(date).isSame(moment(), 'day')?'HOY  ':'AYER ') + moment(date).format('HH:mm:ss');
     }
-	const checkMatch = (idHospital,matchedDate, isConfirm) => 
-		(idHospital == store.getState().authentication.institucionCode && matchedDate) ? 
+	
+	const checkMatch = (idHospital,matchedDate, isConfirm, isCanceled) => 
+		(isCanceled) ?
+		((idHospital == store.getState().authentication.institucionCode && matchedDate) ? 
+			<div>
 			<p>
 				<span style = {marginLeft} className="glyphicon glyphicon-ok"></span>
-			</p>:
+			</p>
+			<p>
+				CANCELADO
+			</p>
+			</div>
+			:
 		    (isConfirm) ? 
 		    <p>
 				<span style = {marginLeft} className="glyphicon glyphicon-remove"></span>
 		    </p>:
 		    <p>
 		    </p>
+		)
+:
+		((idHospital == store.getState().authentication.institucionCode && matchedDate) ? 
+			<p>
+				<span style = {marginLeft} className="glyphicon glyphicon-ok"></span>
+			</p>
+			:
+		    (isConfirm) ? 
+		    <p>
+				<span style = {marginLeft} className="glyphicon glyphicon-remove"></span>
+		    </p>:
+		    <p>
+		    </p>
+		)
+
+
+	// const checkMatch = (idHospital,matchedDate, isConfirm, isCanceled) => 
+	// (
+	// 	(idHospital == store.getState().authentication.institucionCode && matchedDate) ? 
+	// 	(
+	// 		<p>
+	// 			<span style = {marginLeft} className="glyphicon glyphicon-ok"></span>
+	// 		</p>	
+	// 	)		
+	// 	:
+	// 	(isConfirm) ? 
+	// 	<p>
+	// 		<span style = {marginLeft} className="glyphicon glyphicon-remove"></span>
+	// 	</p>:
+	// 	<p>
+	// 	</p>
+	// )
+
+
+
 	const setRowColor = (color) => ({backgroundColor : color})
 	const tableBody = props.patientsList.map((patient, i) =>
 
@@ -41,9 +84,8 @@ function ViewPatientRequestsAcceptedTable(props) {
 			<td>{patient.hospitalsAndState ? patient.hospitalsAndState.userHospital.name : ''}</td>
 			<td>{formattedDate(patient.dateCreated)}</td>
 			<td>
-				{checkMatch(patient.hospitalsAndState ? patient.hospitalsAndState.hospital : 0, patient.hospitalsAndState ? patient.hospitalsAndState.matchedDate : 0, patient.isConfirm)}
+				{checkMatch(patient.hospitalsAndState ? patient.hospitalsAndState.hospital : 0, patient.hospitalsAndState ? patient.hospitalsAndState.matchedDate : 0, patient.isConfirm,patient.isCanceledByFin)}
 			</td>
-			<td>{patient.isCanceledByFin ? 'CANCELADO' : ''}</td>
 		</tr>
 		)
 
@@ -64,7 +106,6 @@ function ViewPatientRequestsAcceptedTable(props) {
 							<th style={{border:"1px solid grey"}}>Usuario</th>
 							<th style={{border:"1px solid grey"}}>Fecha/Hora</th>
 					        <th style={{border:"1px solid grey"}}>Confirmado</th>
-					        <th style={{border:"1px solid grey"}}></th>
 					    </tr>
 					  </thead>
 					  <tbody>

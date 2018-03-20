@@ -54,7 +54,7 @@ class ViewPatientRequestsMatched extends React.Component {
     this.props.fetchMatchedPatientRequests();
 		this.idInterval = setInterval(() => {
 			this.props.fetchMatchedPatientRequests();
-		},1000*10)
+		},500*10)
 	}
 
 	componentWillUnmount() {
@@ -89,8 +89,9 @@ class ViewPatientRequestsMatched extends React.Component {
   }
 
 	render() {
-    const tableRequests = this.props.isRequesting ? <p>Cargando..</p>
-    : <TableViewMatchedPatientRequests 
+    // const tableRequests = this.props.isRequesting ? <p>Cargando..</p> :
+     const tableRequests =
+     <TableViewMatchedPatientRequests 
     	patients = {this.props.matchedList}
     	verMensajes={this.verMensajes}
       cancelPatientRequest={this.cancelPatientRequest}

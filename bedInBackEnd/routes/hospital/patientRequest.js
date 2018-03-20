@@ -107,7 +107,8 @@ app.get('/',check.checkHospitals, function(req,res) {
                     }
             },
             'sentTo.hospital': null,
-            timeout: false
+            timeout: false,
+            // isCanceledByFin : false
         }
     )
     .populate('healthcareplan', 'name')

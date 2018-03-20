@@ -31,7 +31,6 @@ function ViewPatientRequestsRejectedTable(props) {
 			<td>{patient.hospitalsAndState.userHospital.name}</td>
 			<td>{getReason(patient.hospitalsAndState)}</td>
 			<td>{formattedDate(patient.dateCreated)}</td>
-			<td>{patient.isCanceledByFin ? 'CANCELADO' : ''}</td>
 		</tr>
 		)	
 	const setRowColor = (color) => ({backgroundColor : color})

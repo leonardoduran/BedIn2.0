@@ -96,8 +96,10 @@ app.get('/matched', function(req,res) {
         }
 	})
 	.populate('healthcareplan', 'name')
+	.populate('healthcare', 'name')
 	.populate('sentTo.hospital')
 	.populate('userCreator','name')
+	.populate('reasonRejectFin','reason')
 	.populate('hospitalsAndState.userFinanciador', 'name username')
 	.populate('hospitalsAndState.userHospital','name')
 	.populate('hospitalsAndState.hospital','name')
@@ -117,6 +119,7 @@ app.get('/matched', function(req,res) {
 			}
 		}
 	}
+		console.log(patient)
 		res.send(patient)
 	})
 	.catch(error => {console.log(error); errorHandler.sendInternalServerError(res)});

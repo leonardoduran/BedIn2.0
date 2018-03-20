@@ -31,6 +31,7 @@ function ViewPatientRequestsPendingTable(props) {
         : (pending.timeout) ? setRowColor('pink')
         : (pending.acceptedByHospital.length) ? setRowColor('lightgreen')
         : (pending.viewedByHospitals.length) ? setRowColor('lightblue')
+        : (pending.rejectedByHospital.length) ? setRowColor('orchid')
         : setRowColor(null)
     
         return ( <tr style={Object.assign({}, tableStyle, colorStyle)} key={pending._id} title= {pending.obs ? pending.obs : null}> 
