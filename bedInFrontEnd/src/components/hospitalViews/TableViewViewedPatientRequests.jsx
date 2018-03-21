@@ -27,11 +27,12 @@ function ViewPatientRequestsViewedTable(props) {
 			<td>{patient.complexity}</td>
 			<td>{patient.healthcare.name}</td>
 			<td>{patient.hospitalsAndState.userHospital.name}</td>
-			<td>{formattedDate(patient.dateCreated)}</td>
+			<td>{formattedDate(patient.dateCreated)}</td>			
+			<div>
 			<td></td>
+			<td>{patient.isCanceledByFin ? 'CANCELADO' : 'FINALIZADO'}</td>
 			<td></td>
-			<td></td>
-			<td>{patient.isCanceledByFin ? 'CANCELADO' : ''}</td>
+			</div>
 			</tr>
 			) 
 		:(
@@ -103,8 +104,6 @@ function ViewPatientRequestsViewedTable(props) {
 							<th style={{border:"1px solid grey"}}>Usuario</th>
 							<th style={{border:"1px solid grey"}}>Fecha/Hora</th>
 			               	<th style={{border:"1px solid grey"}}></th>
-			                <th style={{border:"1px solid grey"}}></th>
-			                <th style={{border:"1px solid grey"}}></th>
 					    </tr>
 					  </thead>
 					  <tbody>
