@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { hashHistory } from 'react-router';
 import { Router, Route, IndexRoute } from 'react-router';
 import { Provider } from 'react-redux';
-import store, { history } from './redux/store'
+import store, { history } from './redux/store';
 import '../style/style.css';
 import LoginContainer from './containers/LoginContainer.jsx';
 import PerfilContainer from './containers/PerfilContainer.jsx';
 import AccessRouting from './containers/AccessRouting.jsx';
-import RedirectControl from './components/RedirectControl.jsx' 
+import RedirectControl from './components/RedirectControl.jsx';
 import BedinHome from './components/bedinViews/BedinHome.jsx';
 import BedinFinanciadorHome from './components/bedinViews/FinanciadorHome.jsx';
 import BedinFinanciadorForm from './containers/FinanciadorForm.jsx';
@@ -34,61 +33,59 @@ import ViewHospitalPatientRequestsRejected from './containers/hospitalContainers
 import ViewHospitalPatientRequestsViewed from './containers/hospitalContainers/ViewPatientRequestViewed.jsx';
 import opcionalHome from './components/bedinViews/opcionHome.jsx';
 import ViewReportes from './containers/reportForm.jsx';
+import { saveState } from './sessionStorage';
 
-import {saveState} from './sessionStorage';
 store.subscribe(() => {
   saveState(store.getState());
-})
+});
 const router = (
   <Provider store={store}>
     <Router history={history}>
-        
-      <Route name="versions"  path="/login" component={LoginContainer}/>
-        
+      <Route name="versions" path="/login" component={LoginContainer} />
+
       <Router path="/" component={AccessRouting}>
-        
-        <IndexRoute component={RedirectControl}/>
+        <IndexRoute component={RedirectControl} />
         <Route path="/Bedin" component={BedinHome}>
-          <IndexRoute component={opcionalHome}/>
-          <Route path="perfil" component={PerfilContainer}/>
+          <IndexRoute component={opcionalHome} />
+          <Route path="perfil" component={PerfilContainer} />
           <Route path="financiador">
-            <IndexRoute component={BedinFinanciadorHome}/>
-            <Route path="entcrear" component={BedinFinanciadorForm}/>
-            <Route path="entver" component={BedinFinanciadorViewData}/>
-            <Route path="usercrear" component={BedinFinanciadorUserForm}/>
-            <Route path="userver" component={BedinFinanciadorUserViewData}/>
+            <IndexRoute component={BedinFinanciadorHome} />
+            <Route path="entcrear" component={BedinFinanciadorForm} />
+            <Route path="entver" component={BedinFinanciadorViewData} />
+            <Route path="usercrear" component={BedinFinanciadorUserForm} />
+            <Route path="userver" component={BedinFinanciadorUserViewData} />
           </Route>
           <Route path="hospital">
-            <IndexRoute component={BedinHospitalHome}/>
-            <Route path="entcrear" component={BedinHospitalForm}/>
-            <Route path="entver" component={BedinHospitalViewData}/>
-            <Route path="usercrear" component={BedinHospitalUserForm}/>
-            <Route path="userver" component={BedinHospitalUserViewData}/>
+            <IndexRoute component={BedinHospitalHome} />
+            <Route path="entcrear" component={BedinHospitalForm} />
+            <Route path="entver" component={BedinHospitalViewData} />
+            <Route path="usercrear" component={BedinHospitalUserForm} />
+            <Route path="userver" component={BedinHospitalUserViewData} />
           </Route>
-          <Route path="administrador" >
-            <IndexRoute component={BedinAdminHome}/>
-            <Route path="usercrear" component={BedinAdminUserForm}></Route>
-            <Route path="userver" component={BedinAdminUserViewData}/>
+          <Route path="administrador">
+            <IndexRoute component={BedinAdminHome} />
+            <Route path="usercrear" component={BedinAdminUserForm} />
+            <Route path="userver" component={BedinAdminUserViewData} />
           </Route>
-          <Route path="viewReportes" component={ViewReportes}/>
+          <Route path="viewReportes" component={ViewReportes} />
         </Route>
         <Route path="/Financiador" component={FinanciadorHome}>
-          <Route path="perfil" component={PerfilContainer}/>
-          <Route path="createrequest" component={CreatePatientRequest}/>
-          <Route path="viewpending" component={ViewPatientRequestsPending}></Route>
-          <Route path="viewmatched" component={ViewPatientRequestsMatched}></Route>
-          <Route path="viewReportes" component={ViewReportes}/>
+          <Route path="perfil" component={PerfilContainer} />
+          <Route path="createrequest" component={CreatePatientRequest} />
+          <Route path="viewpending" component={ViewPatientRequestsPending} />
+          <Route path="viewmatched" component={ViewPatientRequestsMatched} />
+          <Route path="viewReportes" component={ViewReportes} />
         </Route>
         <Route path="/Hospital" component={HospitalHome}>
-          <Route path="perfil" component={PerfilContainer}/>
-          <Route path="viewpending" component={ViewHospitalPatientRequestsPending}/>
-          <Route path="viewaccepted" component={ViewHospitalPatientRequestsAccepted}/>
-          <Route path="viewrejected" component={ViewHospitalPatientRequestsRejected}/>
-          <Route path="viewviewed" component={ViewHospitalPatientRequestsViewed}/>
-          <Route path="viewReportes" component={ViewReportes}/>
-        </Route>      
+          <Route path="perfil" component={PerfilContainer} />
+          <Route path="viewpending" component={ViewHospitalPatientRequestsPending} />
+          <Route path="viewaccepted" component={ViewHospitalPatientRequestsAccepted} />
+          <Route path="viewrejected" component={ViewHospitalPatientRequestsRejected} />
+          <Route path="viewviewed" component={ViewHospitalPatientRequestsViewed} />
+          <Route path="viewReportes" component={ViewReportes} />
+        </Route>
       </Router>
     </Router>
   </Provider>
-)
+);
 ReactDOM.render(router, document.getElementById('app'));

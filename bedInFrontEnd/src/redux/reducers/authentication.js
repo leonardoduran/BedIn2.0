@@ -1,51 +1,54 @@
-function authentication (state = { 
+function authentication(
+  state = {
     isRequesting: false,
     isLoggedIn: false,
     errorCredentials: null,
     errorCheckLogin: null,
-    userName : null,
-    userType : null,
+    userName: null,
+    userType: null,
     userId: null,
-    userData : null,
+    userData: null,
     error: null,
     institucionCode: null
-  }, action) {
-  switch(action.type) {
+  },
+  action
+) {
+  switch (action.type) {
     case 'IS_REQUESTING_TO_SERVER_LOGIN':
-      return Object.assign({}, state, {isRequesting: true});
+      return Object.assign({}, state, { isRequesting: true });
     case 'USER_IS_LOGGED_IN':
       return Object.assign({}, state, {
         isRequesting: false,
         isLoggedIn: true,
         userType: action.user.type,
         userName: action.user.name,
-        userData : action.user.data,
+        userData: action.user.data,
         userId: action.user.id,
-        institucionCode : action.user.institucionCode,
-        errorCheckLogin : false,
-        errorCredentials: false  
+        institucionCode: action.user.institucionCode,
+        errorCheckLogin: false,
+        errorCredentials: false
       });
     case 'USER_FAILED_TO_LOG_IN':
       return Object.assign({}, state, {
         isRequesting: false,
         isLoggedIn: false,
-        userName : null,
-        userType : null,
+        userName: null,
+        userType: null,
         userId: null,
-        userData : null,
-        errorCredentials : action.err
+        userData: null,
+        errorCredentials: action.err
       });
     case 'FAILED_CHECK_LOGIN':
       return Object.assign({}, state, {
         isRequesting: false,
         isLoggedIn: false,
-        userName : null,
-        userType : null,
+        userName: null,
+        userType: null,
         userId: null,
-        userData : null,
+        userData: null,
         errorCheckLogin: action.err
       });
-    case 'USER_IS_LOGGED_OUT_A' : 
+    case 'USER_IS_LOGGED_OUT_A':
       return Object.assign({}, state, {
         isRequesting: false,
         isLoggedIn: false,
@@ -53,7 +56,7 @@ function authentication (state = {
         errorCheckLogin: null,
         userType: null,
         userName: null,
-        userData : null,
+        userData: null,
         userId: null,
         error: null,
         institucionCode: null
@@ -66,7 +69,6 @@ function authentication (state = {
     default:
       return state;
   }
-  return state;
 }
 
 export default authentication;

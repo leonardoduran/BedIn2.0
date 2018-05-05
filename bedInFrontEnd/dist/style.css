@@ -1,0 +1,513 @@
+/*Loge1n*/
+
+select.form-control:not([size]):not([multiple]) {
+    height: auto;
+}
+
+
+.container_a {
+  top: 200px;
+}
+
+/*.portada {
+    width: 100%;
+    height: 100vh;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+    position: absolute;
+    z-index: -9999
+}*/
+
+/*#button{
+	background: white;
+	border-color: lightgrey;
+	color: gray;
+	display: block;
+    margin: 10px auto;
+}*/
+#a {
+    color: #777;
+    font-size: 13px;
+}
+
+#a1 {
+    top:180px;
+
+}
+
+/*.aa {
+   fondo. Esperar.
+}*/
+
+/*#bb {
+    background-color: #e7e7e7;
+    color: black;
+    display: block;
+    margin: 30px auto;
+}*/
+
+/*#bb:hover {
+    background-color: #777;
+    color: black;
+    display: block;
+    margin: 10px auto;
+}*/
+
+/*BedinNavbar*/
+
+
+#a3{
+
+    width: 65px;
+    height: 35px;
+    position: relative;
+    top: -10px;
+    left: 10px;
+}
+
+/*Merge*/
+
+
+#b3{
+
+    margin-right: 50px;
+    margin-left: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 0px;
+    border-top-width: -;
+    padding-top: -;
+    border-radius: 25px;
+    position: relative;
+    top: 10px;
+}
+
+#c3{ color: black;}
+
+#e3 { font-size: 11px;}
+
+
+#f3 { margin-right: 5px;}
+
+
+/*#buttom {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-default { background-color: #e3e7e5;}*/
+
+
+
+/*#d3 > li > a {
+    position: relative;
+    display: block;
+    padding: 15px 20px;
+    font-weight: bold;
+}
+
+.active {
+        color: #2aa0c2 !important;
+        font-size: 16px !important;
+        font-weight: bold !important;
+
+}*/
+
+
+/*
+#bbb{
+    background-color: lightyellow;
+}*/
+
+/*#aaa{
+    background-color: lightgreen;
+}*/
+
+/*FinanciadorHome*/
+
+.a4 {
+    padding:8px;
+    background:white;
+    margin-right:4px;
+
+
+}
+
+.b4 { padding: 1px 15px 3px 2px;}
+
+#c4 {
+    border-radius:10px;
+    margin-top: 10px;
+ 
+    width: 200px;
+    text-align: left;
+}
+
+#c4a{
+    border-radius:10px;
+    margin-top: 10px;
+ /*  margin-left: 10%;*/
+    width: 200px;
+    text-align: left;
+
+}
+
+/*.d4 { margin-top: 100px; }*/
+
+.e4 { margin-left: 30px; }
+
+/*FinanciadorFormStep1*/
+
+/*#b1 {
+    margin-bottom: 20px;
+    margin-left: 90px;
+    font-size: 15px;
+    font-weight: bold;
+}*/
+
+/*#c1 {
+     float: right;
+
+}*/
+
+#e1{
+    display: inline;    
+}
+
+#f1 {
+    height: 250px;
+
+}
+
+#g1{
+    height: 15%;
+    margin-left: 35%;
+}
+
+/*FinanciadorFormStep2*/
+
+
+
+.row {
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+
+/*Merge*
+
+#th {
+
+     background-color: #fbfbfb;
+
+     }
+
+#a {
+    background-color: rgba(250, 250, 250, 0.90);
+    width: 300px;
+    height: 400px;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    padding: 35px;
+    padding-top: 30px;
+    margin: 8px;
+   overflow: auto;
+}
+
+#b { margin-bottom: 40px; }
+
+#c { padding: 1px; }
+
+#d {
+    margin-top: 40px;
+    margin-left: 140px;
+}
+
+
+
+#f {
+    background-color: rgba(250, 250, 250, 0.89);
+    width: 300px;
+    height: 400px;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    margin: 8px;
+    padding: 25px;
+    padding-top: 25px;
+    overflow: auto;
+}
+
+.g {
+
+    border-width: 1.5px;
+    border-radius: 20px;
+    border-spacing: 5px;
+    empty-cells: hide;
+    border-collapse: separate;
+    width: 250px;
+    box-shadow: 0 4px 4px 4 rgba(0, 0, 0, 0.9), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    height: 350px;
+}
+
+
+
+#l{
+    color: black;
+    text-align: center;
+    margin-top: 5%;
+}
+
+
+
+/*TableDataFinanciador*/
+
+.a6{
+
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.b6 {
+
+    background-color: #f7f7f9;
+    color: black;
+ }
+
+/*OpcionaHome*/
+
+/*.oh {
+    background-color: #e9ebee;
+
+}*/
+
+/*opcionHome*/
+
+#a7{
+    background-color: #c3e0f9;
+    height: 400px;
+    border-width: 1.5px;
+    border-radius: 20px;
+    margin-bottom: 10%;
+    padding-top:5%;
+    min-width: 235px;
+ /*   max-width: 300px;*/
+   
+
+
+}
+
+#b7{
+
+    background-color: #c3e0f9;
+    height: 400px;
+    border-width: 1.5px;
+    border-radius: 20px;
+    margin-bottom: 10%;
+    padding-top:5%;
+    min-width: 235px;
+   /* max-width: 300px;*/
+}
+
+#c7{
+
+    background-color: #c3e0f9;
+    height: 400px;
+    border-width: 1.5px;
+    border-radius: 20px;
+    margin-bottom: 10%;
+    padding-top:5%;
+    min-width: 235px;
+/*    max-width: 300px;*/
+}
+
+
+
+/*Nueva Navbar*/
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#header-container {
+
+    color: white;
+}
+
+#login {
+    color: white;
+}
+
+#menu-container {
+    background-color: #f7f7f9;
+}
+
+
+/*      .row {
+    border: 1px solid black;
+}
+
+.columna { 
+    border: 1px solid black;
+ }*/
+
+/*div {
+
+    border: 1px solid black;
+
+}*/
+
+
+.nav-icn {
+   color: white;
+
+}
+
+
+#aLog:focus {
+    background-color: rgba(247, 247, 249, 0.3);
+}
+
+#aLog:hover {
+    background-color: rgba(247, 247, 249, 0.3);
+}
+
+#bLog{
+    background-color: rgba(247, 247, 249, 0.39);
+    border-radius: 10px;
+    
+
+
+}
+
+#color{
+    color: black;
+
+}
+
+#color:hover{
+/*    background-color: rgba(0, 0, 0, 0.19);*/
+    background-color: lightgrey;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+
+input[type=number] {
+   -moz-appearance:textfield;
+}
+
+#newbtn{
+    border-radius:10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 100px;
+    float: right;
+}
+
+#newbtn:focus{
+    border-color: #555;
+  
+  
+}
+
+#newbtn1 { 
+    border-radius:10px;
+    margin-top: 10px;
+    margin-right: 15%;
+    width: 100px;
+    float: right;
+ }
+
+ #spinner{
+    position: absolute;
+    left: 725px;
+    top: 260px;
+ }
+
+#modal {
+    display: block;
+    position:absolute;
+    top: 200px;
+    
+}
+
+#modal-backdrop {
+    background-color: #000;
+    opacity: 0.6;
+}
+
+#newbtn11 { 
+    border-radius:10px;
+    margin-top: 10px;
+    margin-right: 2%;
+    width: 150px;
+    float: right;
+    color: black;
+   
+ }
+
+/* opcionalHomeFinanciador*/
+
+#c4a1{
+    border-radius:10px;
+    margin-top: 10px;
+    
+    width: 230px;
+    text-align: left;
+    background-color: #de3e98;
+    border-color: #de3e98;
+
+}
+
+#b71{
+
+    background-color: #ff6bbf;
+    height: 400px;
+    width: 330px;
+    border-width: 1.5px;
+    border-radius: 20px;
+    margin-bottom: 10%;
+    padding-top:5%;
+    color: #ff6bbf;
+}
+
+#glyphicon-p {
+    color: #a90863 !important;
+
+}
+
+#glyphicon-p {
+    color: #a90863 !important;
+
+}
+
+#glyphicon-p {
+    color: #a90863 !important;
+
+}
+/*
+div {
+     border: 1px solid black
+}
+*/
+.flexItems {
+    display: flex; 
+    flex-direction:column;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+
+.flexItemss {
+    display: flex; 
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    
+}
