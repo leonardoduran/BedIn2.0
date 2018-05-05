@@ -10,14 +10,14 @@ import patientRequestReducers from './patientRequestReducers';
 import patients from './hospitalReducers/patients';
 
 const rootReducer = combineReducers({
-	authentication : authentication,
-	formReducers: formReducers,
-	viewFinanciadores: viewFinanciadores,
-	viewUser: viewUser,
-	viewHospitals: viewHospitals,
-	patientRequestReducers: patientRequestReducers,
-	patients: patients,
- 	routing: routerReducer
-})
+  authentication,
+  formReducers,
+  viewFinanciadores,
+  viewUser,
+  viewHospitals,
+  patientRequestReducers,
+  patients,
+  routing: routerReducer
+});
 
 export default rootReducer;

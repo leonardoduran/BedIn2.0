@@ -10,53 +10,52 @@ export function requestList() {
   };
 }
 
-
 export function receiveCreated(input) {
   return {
     type: 'RECEIVE_CREATED',
-    input
+    input,
   };
 }
 
 export function receiveCreatedHospital(input) {
   return {
     type: 'RECEIVE_CREATED_HOSPITAL',
-    input
+    input,
   };
 }
 
 export function receiveCreatedUser(input) {
   return {
     type: 'RECEIVE_CREATED_USER',
-    input
-  }
+    input,
+  };
 }
 
 export function receiveHospitals(hospitals) {
   return {
     type: 'RECEIVE_HOSPITALS',
-    hospitals
+    hospitals,
   };
 }
 
 export function receiveFinanciadors(financiadors) {
   return {
     type: 'RECEIVE_FINANCIADORS',
-    financiadors
+    financiadors,
   };
 }
 
 export function failedToCreate(err) {
   return {
     type: 'FAILED_TO_CREATE',
-    err
-  }
+    err,
+  };
 }
 
 export function failedRequest(err) {
   return {
     type: 'FAILED_REQUEST',
-    err
+    err,
   };
 }
 
@@ -66,164 +65,161 @@ export function resetCreateSuccess() {
   };
 }
 
-
 export function createEntidadFinanciadora(inputData) {
-
-  return (dispatch) => {
+  return dispatch => {
     dispatch(requestCreate());
     return fetch('./bedin/healthcares', {
       method: 'POST',
       credentials: 'include',
       headers: {
-				'Accept': 'application/json',
-				'Content-Type': 'application/json'
-			},
-      body: JSON.stringify(inputData)
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(inputData),
     })
       .then(response => response.json())
       .then(data => {
-        if(data) {
-          dispatch(receiveCreated(data))
+        if (data) {
+          dispatch(receiveCreated(data));
         } else {
-          dispatch(failedToCreate(data.err))
+          dispatch(failedToCreate(data.err));
         }
       })
-      .catch(err => dispatch(failedRequest(err)))
+      .catch(err => dispatch(failedRequest(err)));
   };
-};
+}
 
 export function createEntidadHospital(inputData) {
-
-  return (dispatch) => {
+  return dispatch => {
     dispatch(requestCreate());
 
     return fetch('./bedin/hospitals', {
       method: 'POST',
       credentials: 'include',
       headers: {
-				'Accept': 'application/json',
-				'Content-Type': 'application/json'
-			},
-      body: JSON.stringify(inputData)
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(inputData),
     })
       .then(response => response.json())
       .then(data => {
-        if(data) {
-          dispatch(receiveCreatedHospital(data))
+        if (data) {
+          dispatch(receiveCreatedHospital(data));
         } else {
-          dispatch(failedToCreate(data.err))
+          dispatch(failedToCreate(data.err));
         }
       })
-      .catch(err => dispatch(failedRequest(err)))
+      .catch(err => dispatch(failedRequest(err)));
   };
-};
-
+}
 
 export function fetchHospitalList() {
-  return (dispatch) => {
+  return dispatch => {
     dispatch(requestList());
 
     return fetch('./bedin/hospitals', {
       method: 'GET',
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
     })
       .then(response => response.json())
       .then(data => dispatch(receiveHospitals(data)))
-      .catch(err => dispatch(failedRequest(err)))
+      .catch(err => dispatch(failedRequest(err)));
   };
-};
+}
 
 export function fetchFinanciadorList() {
-  return (dispatch) => {
+  return dispatch => {
     dispatch(requestList());
 
     return fetch('./bedin/healthcares', {
       method: 'GET',
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
     })
       .then(response => response.json())
       .then(data => dispatch(receiveFinanciadors(data)))
-      .catch(err => dispatch(failedRequest(err)))
+      .catch(err => dispatch(failedRequest(err)));
   };
-};
+}
 
-export function gettingHistoricalPatients () {
-    return {
-        type: 'REQUEST_LIST'
-    }
+export function gettingHistoricalPatients() {
+  return {
+    type: 'REQUEST_LIST',
+  };
 }
 export function receiveHistoricalPatients(patients) {
-    return {
-        type: "RECEIVE_HIST_PATIENTS",
-        patients
-    }
+  return {
+    type: 'RECEIVE_HIST_PATIENTS',
+    patients,
+  };
 }
-export function failedHistoricalPatients (err) {
-    return {
-        type: "FAILED_HIST_PATIENTS",
-        err
-    }
+export function failedHistoricalPatients(err) {
+  return {
+    type: 'FAILED_HIST_PATIENTS',
+    err,
+  };
 }
 
-export function fecthHistoricalPatients(dateFrom, dateTo, hospitalId, healthcareId){  
-  return (dispatch) => {
+export function fecthHistoricalPatients(dateFrom, dateTo, hospitalId, healthcareId) {
+  return dispatch => {
     dispatch(gettingHistoricalPatients());
-      return fetch(`./patient/getAllWithFilter?dateFrom=${dateFrom}&dateTo=${dateTo}&hospitalId=${hospitalId}&healthcareId=${healthcareId}`, {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
+    return fetch(
+      `./patient/getAllWithFilter?dateFrom=${dateFrom}&dateTo=${dateTo}&hospitalId=${hospitalId}&healthcareId=${healthcareId}`,
+      {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
       }
-    })
-    .then(response => response.json())
-    .then(data => {
-        if(!data.error) {
-          dispatch(receiveHistoricalPatients(data))
+    )
+      .then(response => response.json())
+      .then(data => {
+        if (!data.error) {
+          dispatch(receiveHistoricalPatients(data));
         } else {
-          dispatch(failedHistoricalPatients(data.err))
+          dispatch(failedHistoricalPatients(data.err));
         }
       })
-    .catch(err => dispatch(failedHistoricalPatients(err)))
-  }
-};
+      .catch(err => dispatch(failedHistoricalPatients(err)));
+  };
+}
 
-export function cleanHistoricalPatients(){
-    return {
-        type: "CLEAR_HIST_PATIENTS"
-    }
-};
-
-
+export function cleanHistoricalPatients() {
+  return {
+    type: 'CLEAR_HIST_PATIENTS',
+  };
+}
 
 export function createUser(inputData) {
-
-  return (dispatch) => {
+  return dispatch => {
     dispatch(requestCreate());
 
     return fetch('./bedin/users', {
       method: 'POST',
       credentials: 'include',
       headers: {
-				'Accept': 'application/json',
-				'Content-Type': 'application/json'
-			},
-      body: JSON.stringify(inputData)
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(inputData),
     })
       .then(response => response.json())
       .then(data => {
-        if(!data.error) {
-          dispatch(receiveCreatedUser(data))
+        if (!data.error) {
+          dispatch(receiveCreatedUser(data));
         } else {
-          dispatch(failedToCreate(data.err))
+          dispatch(failedToCreate(data.err));
         }
-      }).catch((err) => {
-        dispatch(failedRequest(err));
       })
+      .catch(err => {
+        dispatch(failedRequest(err));
+      });
   };
-};
+}
