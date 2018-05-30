@@ -48,7 +48,7 @@ class ViewViewedPatientRequest extends React.Component {
         this.confirmReject = this.confirmReject.bind(this);
 
   }
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchReasonReject();
     this.props.fetchGetPatientsByState('Visto');
     this.idInterval = setInterval(() => {

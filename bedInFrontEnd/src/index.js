@@ -39,6 +39,7 @@ import {saveState} from './sessionStorage';
 store.subscribe(() => {
   saveState(store.getState());
 })
+
 const router = (
   <Provider store={store}>
     <Router history={history}>

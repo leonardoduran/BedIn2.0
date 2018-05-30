@@ -49,7 +49,7 @@ class ViewPatientRequestsPending extends React.Component {
     this.confirmReject = this.confirmReject.bind(this);
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.fetchReasonRejectFin();
         this.props.fetchPendingPatientRequests();
         this.idInterval = setInterval(() => {

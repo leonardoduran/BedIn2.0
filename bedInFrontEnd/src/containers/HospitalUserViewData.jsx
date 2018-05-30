@@ -21,7 +21,7 @@ class HospitalUserViewData extends React.Component {
 		super(props)
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		this.props.fetchGetUsersByType('Hospital');
 	}
 

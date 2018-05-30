@@ -1,3 +1,11 @@
+import * as actionCreators from '../actionCreators';
+
+export function isRequestingToServer () {
+    return {
+        type: "IS_REQUESTING_TO_SERVER"
+    }
+}
+
 export function requestCreate() {
   return {
     type: 'REQUEST_CREATE',
@@ -114,11 +122,19 @@ export function createPatientRequest(inputData) {
     })
       .then(response => response.json())
       .then(data => {
+        if (data.error)
+        {
+          alert(data.error);
+          dispatch(logoutFetchFinanc());
+        }
+      else
+        {
           if(data) {
-            dispatch(receiveCreatedPatient(data))
-          } else {
-            dispatch(failedToCreate(data.err))
-          }
+                  dispatch(receiveCreatedPatient(data))
+                } else {
+                  dispatch(failedToCreate(data.err))
+                }
+        }
       })
       .catch(err => dispatch(failedRequest(err)))
   };
@@ -139,6 +155,30 @@ export function receiveMatched(matched) {
   };
 }
 
+export function userIsLoggedOut() {
+// Reseteo todas las variables de estado de todos los reducers
+ return [
+    {type: 'USER_IS_LOGGED_OUT_H'},
+    {type: 'USER_IS_LOGGED_OUT_A'},
+    {type: 'USER_IS_LOGGED_OUT_FR'},
+    {type: 'USER_IS_LOGGED_OUT_PRR'},
+    {type: 'USER_IS_LOGGED_OUT_VF'},
+    {type: 'USER_IS_LOGGED_OUT_VH'},
+    {type: 'USER_IS_LOGGED_OUT_VU'},]
+}
+
+export function logoutFetchFinanc () {
+  return (dispatch) => {
+    dispatch(isRequestingToServer());
+    return fetch('./logout', {
+      credentials: 'include'
+    })
+    .then(() => dispatch(userIsLoggedOut()))
+    .catch(err => dispatch(failedRequest(err)))
+  }
+};
+
+
 export function fetchPendingPatientRequests() {
   return (dispatch) => {
     dispatch(requestList());
@@ -154,7 +194,10 @@ export function fetchPendingPatientRequests() {
       .then(response => response.json())
       .then(data => {
         if (data.error)
-          alert(data.error)
+          {
+              alert(data.error);
+              dispatch(logoutFetchFinanc());
+          }
         else
           dispatch(receivePending(data))
         })
@@ -176,7 +219,10 @@ export function fetchMatchedPatientRequests() {
       .then(response => response.json())
       .then(data => {
         if (data.error)
-          alert(data.error)
+        {
+          alert(data.error);
+          dispatch(logoutFetchFinanc());
+        }
         else
           dispatch(receiveMatched(data))})
       .catch(err => dispatch(failedRequest(err)))

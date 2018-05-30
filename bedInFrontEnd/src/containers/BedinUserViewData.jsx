@@ -22,7 +22,7 @@ class BedinUserViewData extends React.Component {
 		super(props)
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		this.props.fetchGetUsersByType('Bedin');
 	}
 

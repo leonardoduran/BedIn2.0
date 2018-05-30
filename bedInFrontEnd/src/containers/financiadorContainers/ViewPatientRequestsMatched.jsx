@@ -49,7 +49,7 @@ class ViewPatientRequestsMatched extends React.Component {
     this.confirmReject = this.confirmReject.bind(this);
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		this.props.fetchReasonRejectFin();
     this.props.fetchMatchedPatientRequests();
 		this.idInterval = setInterval(() => {

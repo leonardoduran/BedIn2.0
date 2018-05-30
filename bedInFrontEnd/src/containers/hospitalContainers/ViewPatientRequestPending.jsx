@@ -44,7 +44,7 @@ class ViewPatientRequest extends React.Component {
         }
 
     }
-    componentWillMount() {
+    componentDidMount() {
         this.props.fetchGetPatients();
         this.props.fetchReasonReject();
         // this.idInterval = setInterval(() => {

@@ -37,7 +37,7 @@ class HospitalUserForm extends React.Component {
     this.create = this.create.bind(this)
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchHospitalList();
   }
 

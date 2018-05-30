@@ -23,7 +23,7 @@ class PerfilContainer extends React.Component {
 		this.changePassword = this.changePassword.bind(this);
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		this.props.fetchGetUserById();
 	}
 

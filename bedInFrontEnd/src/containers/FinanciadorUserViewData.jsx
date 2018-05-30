@@ -21,7 +21,7 @@ class FinanciadorUserViewData extends React.Component {
 		super(props)
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		this.props.fetchGetUsersByType('Financiador');
 	}
 

@@ -66,7 +66,7 @@ class CreatePatientRequest extends React.Component {
     	// }		
 	}
 
-	componentWillMount() {
+	componentDidMount() {
     	this.props.fetchPlanList();
     	this.props.fetchDiagnosis();
   	}
