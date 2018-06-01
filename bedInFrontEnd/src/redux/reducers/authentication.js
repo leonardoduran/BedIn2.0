@@ -8,7 +8,8 @@ function authentication (state = {
     userId: null,
     userData : null,
     error: null,
-    institucionCode: null
+    institucionCode: null,
+    rolUser : null
   }, action) {
   switch(action.type) {
     case 'IS_REQUESTING_TO_SERVER_LOGIN':
@@ -23,7 +24,8 @@ function authentication (state = {
         userId: action.user.id,
         institucionCode : action.user.institucionCode,
         errorCheckLogin : false,
-        errorCredentials: false  
+        errorCredentials: false,
+        rolUser : action.user.rol
       });
     case 'USER_FAILED_TO_LOG_IN':
       return Object.assign({}, state, {
@@ -33,7 +35,8 @@ function authentication (state = {
         userType : null,
         userId: null,
         userData : null,
-        errorCredentials : action.err
+        errorCredentials : action.err,
+        rolUser : null
       });
     case 'FAILED_CHECK_LOGIN':
       return Object.assign({}, state, {
@@ -43,7 +46,8 @@ function authentication (state = {
         userType : null,
         userId: null,
         userData : null,
-        errorCheckLogin: action.err
+        errorCheckLogin: action.err,
+        rolUser : null
       });
     case 'USER_IS_LOGGED_OUT_A' : 
       return Object.assign({}, state, {
@@ -56,7 +60,8 @@ function authentication (state = {
         userData : null,
         userId: null,
         error: null,
-        institucionCode: null
+        institucionCode: null,
+        rolUser : null
       });
     case 'FAILED_REQUEST':
       return Object.assign({}, state, {

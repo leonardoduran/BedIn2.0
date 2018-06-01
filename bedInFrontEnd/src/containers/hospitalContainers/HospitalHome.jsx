@@ -7,7 +7,7 @@ import * as actionCreators from '../../redux/actions/actionCreators';
 
 import GlobalNavbar from '../../components/GlobalNavbar.jsx';
 
-const navBarData = {
+const navBarDataSupervisor = {
 	linkArray: [
 		{
 			route: "/Hospital/viewpending",
@@ -36,11 +36,37 @@ const navBarData = {
 	],
 	logo : '/public/img/logo_original.jpg',
 	color : '#34c0de',
-	userType: 'Hospital'
+	userType: 'Hospital',
+	rolUser : 'supervisor'
 
-	
+}
 
+const navBarDataUser = {
+	linkArray: [
+		{
+			route: "/Hospital/viewpending",
+			name: "Pendientes"
+		},
+		{
+			route: "/Hospital/viewaccepted",
+			name: "Aceptados"
 
+		},
+		{
+			route: "/Hospital/viewrejected",
+			name: "Rechazados"
+
+		},
+		{
+			route: "/Hospital/viewviewed",
+			name: "Vistos"
+
+		}	
+	],
+	logo : '/public/img/logo_original.jpg',
+	color : '#34c0de',
+	userType: 'Hospital',
+	rolUser : 'user'
 }
 
 function mapStateToProps(state) {
@@ -48,7 +74,8 @@ function mapStateToProps(state) {
 		isRequesting: state.authentication.isRequesting,
 		isLoggedIn: state.authentication.isLoggedIn,
 		username: state.authentication.userName,
-		userId: state.authentication.userId
+		userId: state.authentication.userId,
+		rol : state.authentication.rolUser
 	}
 }
 
@@ -77,11 +104,10 @@ class HospitalHome extends React.Component {
   render() {
     return (
       <div>
-        <GlobalNavbar data={navBarData}
+        <GlobalNavbar data={this.props.rol.toLowerCase()=='supervisor' ? navBarDataSupervisor : navBarDataUser}
 	        logOut={this.logOut}
 			username={this.props.username}
 			userId={this.props.userId}
-
         />
         {this.props.children}
       </div>
@@ -90,3 +116,4 @@ class HospitalHome extends React.Component {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HospitalHome);
+

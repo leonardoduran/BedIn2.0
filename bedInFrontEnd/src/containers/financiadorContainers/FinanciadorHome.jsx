@@ -7,7 +7,30 @@ import * as actionCreators from '../../redux/actions/actionCreators';
 
 import GlobalNavbar from '../../components/GlobalNavbar.jsx';
 
-const navBarData = {
+const navBarDataUser = {
+	linkArray: [
+		{
+			route: "/Financiador/createrequest",
+
+			name: "Generar Solicitud"
+		},
+		{
+			route: "/Financiador/viewpending",
+			name: "Solicitudes Generadas"
+		},
+		{
+			route: "/Financiador/viewmatched",
+			name: "Solicitudes Confirmadas"
+		}
+	],
+	logo : '/public/img/logo_original.jpg',
+	userType: 'Financiador',
+	color : '#3755bb',
+	rolUser : 'user'
+
+}
+
+const navBarDataSupervisor = {
 	linkArray: [
 		{
 			route: "/Financiador/createrequest",
@@ -29,9 +52,8 @@ const navBarData = {
 	],
 	logo : '/public/img/logo_original.jpg',
 	userType: 'Financiador',
-
-	color : '#3755bb'
-
+	color : '#3755bb',
+	rolUser : 'supervisor'
 }
 
 function mapStateToProps(state) {
@@ -39,7 +61,8 @@ function mapStateToProps(state) {
 		isRequesting: state.authentication.isRequesting,
 		isLoggedIn: state.authentication.isLoggedIn,
 		username: state.authentication.userName,
-		userId: state.authentication.userId
+		userId: state.authentication.userId,
+		rol : state.authentication.rolUser
 	}
 }
 
@@ -71,7 +94,7 @@ class FinanciadorHome extends React.Component {
   render() {
     return (
       <div>
-        <GlobalNavbar data={navBarData}
+        <GlobalNavbar data={this.props.rol.toLowerCase()=='supervisor' ? navBarDataSupervisor : navBarDataUser}
 	        logOut={this.logOut}
 			username={this.props.username}
 			userId={this.props.userId}
