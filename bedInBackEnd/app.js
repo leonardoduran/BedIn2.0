@@ -11,6 +11,7 @@ const indexBedin = require('./routes/bedin/index');
 const indexHealthcare = require('./routes/healthcare/index');
 const indexHospital = require('./routes/hospital/index')
 const patient = require('./routes/patient')
+const cors = require('cors');
 const app = express();
 require('./config/mongoose')
 require('./config/passport-mongoose')(app);
@@ -20,12 +21,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/public', express.static(path.join(__dirname, 'public')));
 // app.use(express.static('./dist'));
 app.use(express.static('../bedInFrontEnd/dist'));
-const cors = require('./controladores/cors');
+// const cors = require('./controladores/cors');
 app.use('/', index);
 app.use('/bedin', indexBedin);
 app.use('/healthcare', indexHealthcare);
 app.use('/hospital', indexHospital);
 app.use('/patient', patient);
+app.use(cors());
 const controllerHealthcare = require('./controladores/healthcare');
 controllerHealthcare.setPatientTimeOut();
 //app.use('/bedin/healthcares', healthcares)
